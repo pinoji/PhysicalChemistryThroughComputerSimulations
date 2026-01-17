@@ -1,0 +1,767 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Proof of Uncertainty Principle &#8212; Physical Chemistry Through Computer Simulations</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"uvec": ["\\hat{\\mathbf{#1}}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch25';</script>
+    <link rel="icon" href="_static/favicon.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Physical Chemistry Through Computer Simulations</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Physical Chemistry Through Computer Simulations
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Quantum Mechanics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="qm01.html">Math Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm02.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm03.html">Foundation of Quantum Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm04.html">Simple Quantum Mechanical Models and Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm05.html">Hydrogen-Like Atom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm06.html">Approximation Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm07.html">Electron Spin (Quantum Mechanics Concept)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm08.html">System Containing Only One Atom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm09.html">System Containing Two Atoms (Diatomic System)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm10.html">Hybrid Orbitals in Polyatomic Molecule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm11.html">Symmetry, Group Theory, Representation Theory and Thier Application to Chemistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm12.html">Molecular Spectroscopy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm13.html">Resonance by Variational Methods</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Thermodynamics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="td01.html">Math Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td02.html">Transition from Classical to Statistical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td03.html">Boltzmann Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td04.html">State function, dealing with partial derivatives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td05.html">Energy, Entropy and Temperature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td06.html">Free Energy, Pressure, &amp; Gas Laws</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td07.html">Maxwell Relation, Basic Thermodynamics Process, Second and Third Laws of Thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td08.html">The Equipartition Principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td09.html">Chemical Potential</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td10.html">Thermodynamics of Mixing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td11.html">Chemical Equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td12.html">Reaction Dynamics and Kinetics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td13.html">Chemistry of Fluid</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/ch25.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Proof of Uncertainty Principle</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-the-transform">Setting Up The Transform</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plancherel-theorem-for-position-and-momentum-pair">Plancherel Theorem for Position and Momentum Pair</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uncertainty-principle-distribution-centered-at-zero">Uncertainty Principle: Distribution Centered at Zero</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uncertainty-principle-distribution-centered-at-nonzero">Uncertainty Principle: Distribution Centered at Nonzero</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uncertainty-principle-proof-using-commutator">Uncertainty Principle Proof using Commutator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#average-volume-of-a-state">Average Volume of a State</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-equation">Euler Equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lagrange-multipliers-and-chemical-potential">Lagrange Multipliers and Chemical Potential</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#single-component-system">Single component system</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-component-system">Multi-component system</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="proof-of-uncertainty-principle">
+<h1>Proof of Uncertainty Principle<a class="headerlink" href="#proof-of-uncertainty-principle" title="Link to this heading">#</a></h1>
+<section id="setting-up-the-transform">
+<h2>Setting Up The Transform<a class="headerlink" href="#setting-up-the-transform" title="Link to this heading">#</a></h2>
+<p>Any physical state will have a probability distribution
+<span class="math notranslate nohighlight">\(\Phi (p)\&amp; \psi(x)\)</span> in momentum and position spcae, respectively.
+Consider collection of eigen function
+<span class="math notranslate nohighlight">\(\left\{  e^{ip \frac{x}{\hbar}} \right\}\)</span> where
+<span class="math notranslate nohighlight">\(p \text{ in the vector space }\R\)</span>\</p>
+<p><span class="math notranslate nohighlight">\(\hat{p}e^{ip \frac{x}{\hbar}} = -i \hbar \frac{d}{dx} e^{ip \frac{x}{\hbar}}\)</span><br />
+= <span class="math notranslate nohighlight">\(p e^{ip \frac{x}{\hbar}}\)</span><br />
+Realizing this uncountable collection of function forms a complete basis
+set. If one is interested in representing the same state in position
+variable x, we need to sum up all of these function with probability
+density <span class="math notranslate nohighlight">\(\Phi (p)\)</span></p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}\begin{split}\begin{equation*}
+\begin{split}
+&amp; \psi(x) = \frac{1}{\sqrt {2\pi\hbar}}\int \Phi (p)e^{ip \frac{x}{\hbar}} dp \rightarrow \text{position distribution of the same state}\\
+\end{split}
+\end{equation*}$$ We will explain constant later. At this point,
+consider how to obtain $\Phi (p)$ from $\psi (x)$. This can be achieved
+by multiplying $\psi (x)$ by $e^{-ip' \frac{x}{\hbar}}$ for some p'
+followed by integration w.r.t. x.\
+$$\begin{equation*}
+\begin{split}
+&amp; \int \psi (x)e^{-ip' \frac{x}{\hbar}} dx \\
+&amp; = \frac{1}{\sqrt {2\pi\hbar}} \int \int \Phi (p)e^{ip \frac{x}{\hbar}}e^{-ip' \frac{x}{\hbar}} dpdx \\
+&amp; = \frac{1}{\sqrt {2\pi\hbar}} \int \Phi (p) \int e^{i(p-p') \frac{x}{\hbar}} dxdp \\
+&amp; \text{Using Lemma}\\
+&amp; = \frac{1}{\sqrt {2\pi\hbar}} \int \Phi (p) \delta (p-p')2\pi\hbar dp \\
+&amp; = \frac{1}{\sqrt {2\pi\hbar}} 2\pi\hbar \Phi (p')  \\
+&amp; \text{By  replace p' with p}\\
+&amp; \Phi (p) = \frac{1}{\sqrt {2\pi\hbar}} \int \psi (x) e^{-ip \frac{x}{\hbar}}dx  \\
+\end{split}
+\end{equation*}$$ Note that we choose the constant
+($\frac{1}{\sqrt {2\pi\hbar}}$) to be symmetric going from $\Phi(p)$ to
+$\psi(x)$, $\&amp;$ from $\psi(x)$ to $\Phi(p)$.\end{split}\\##  Lemma: $2$$\pi$$\hbar$ $\delta(p-p')$$=$$\int$ $e^{i(p-p')\frac{x}{\hbar}}$$dx$\\Again we use the same transform definition\\\begin{split}$$\begin{equation*}
+\begin{split}
+&amp; \psi(x) = \frac{1}{\sqrt {2\pi\hbar}}\int \Phi (p)e^{ip \frac{x}{\hbar}} dp \\
+&amp; \Phi (p) = \frac{1}{\sqrt {2\pi\hbar}} \int \psi (x) e^{-ip \frac{x}{\hbar}}dx  \\
+&amp; \text {denote } \hat {\psi}(x) =\Phi(p) \\
+&amp; \text {then} \\
+&amp; \hat {f}(p') = \frac{1}{\sqrt {2\pi\hbar}} \int f(x)e^{-ip' \frac{x}{\hbar}} dx \\
+&amp; = \frac{1}{\sqrt {2\pi\hbar}} \int   \frac{1}{\sqrt {2\pi\hbar}}\int \hat{f}(p)e^{ip \frac{x}{\hbar}}dp e^{-ip' \frac{x}{\hbar}}dx \\
+&amp; =  \int \hat{f}(p)\left(\frac{1}{2\pi\hbar}\int e^{i(p-p') \frac{x}{\hbar}}dx\right)dp \\
+\end{split}
+\end{equation*}\end{split}\end{aligned}\end{align} \]</div>
+<p>By the definition of the delta function <span class="math notranslate nohighlight">\(f(p')= \int \delta(p-p')f(p)dp\)</span>
+we obtain the desired result<br />
+$<span class="math notranslate nohighlight">\(\begin{equation*}
+\begin{split}
+ \delta(p-p') = \frac{1}{2\pi\hbar} \int  e^{i(p-p')\frac{x}{\hbar}}dx\\
+\end{split}
+\end{equation*}\)</span>$</p>
+</section>
+<section id="plancherel-theorem-for-position-and-momentum-pair">
+<h2>Plancherel Theorem for Position and Momentum Pair<a class="headerlink" href="#plancherel-theorem-for-position-and-momentum-pair" title="Link to this heading">#</a></h2>
+<p>So far we have defined transform $<span class="math notranslate nohighlight">\(\begin{equation*}
+\begin{split}
+&amp; \psi(x) = \frac{1}{\sqrt {2\pi\hbar}}\int \Phi (p)e^{ip \frac{x}{\hbar}} dp \\
+&amp; \Phi (p) = \frac{1}{\sqrt {2\pi\hbar}} \int \psi (x) e^{-ip \frac{x}{\hbar}}dx  \\
+&amp; \text {denote } \hat {\psi}(x) =\Phi(p) \\
+\end{split}
+\end{equation*}\)</span><span class="math notranslate nohighlight">\( Let \)</span>f(x)<span class="math notranslate nohighlight">\( &amp; \)</span>g(x)$ be the probability distribution of
+x<br />
+Let us consider the inner product</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{equation*}
+\begin{split}
+&amp; \int f(x)g^*(x)dx \\
+&amp; \text {using the transform defined above}\\
+&amp; = \int f(x)\frac{1}{\sqrt {2\pi\hbar}}\int \left( \hat{g}(p)e^{ip \frac{x}{\hbar}}\right)^* dp dx \\
+&amp; = \int f(x)\frac{1}{\sqrt {2\pi\hbar}}\int  \hat{g^*}(p)e^{-ip \frac{x}{\hbar}} dp dx \\
+&amp; = \int \hat{g^*}(p) \frac{1}{\sqrt {2\pi\hbar}}\int f(x) e^{-ip \frac{x}{\hbar}} dx dp \\
+&amp; = \int \hat{g^*}(p) \hat {f}(p) dp \\
+&amp; \text {Setting f = g at the beggining}\\
+&amp; \int \left| f(x)\right|^2 dx = \int \left| \hat {f} (p)\right|^2 dp \\
+\end{split}
+\end{equation*}\end{split}\]</div>
+</section>
+<section id="uncertainty-principle-distribution-centered-at-zero">
+<h2>Uncertainty Principle: Distribution Centered at Zero<a class="headerlink" href="#uncertainty-principle-distribution-centered-at-zero" title="Link to this heading">#</a></h2>
+<p>Consider the case where both <span class="math notranslate nohighlight">\(\Phi(p)\)</span> &amp; <span class="math notranslate nohighlight">\(\psi(x)\)</span> are centered at
+zero.<br />
+$<span class="math notranslate nohighlight">\(\begin{equation*}
+\begin{split}
+&amp; 1 = \int \left| \psi (x)\right| ^2 dx \\
+&amp; \text{Perform integration by parts by setting }\\
+&amp; u = \left| \psi (x)\right| ^2 = \psi^* (x)\psi (x)\\
+&amp; du =  \psi^{*'} (x)\psi (x)+\psi^* (x)\psi ^{'}(x) = 2Re(\psi^{*'} (x)\psi (x))\\
+&amp; v = x,  dv = dx \\
+&amp; = -2Re \int x \psi^{*'} (x)\psi (x) dx \\
+&amp; \leq 2\left| \int x \psi^{*'} (x)\psi (x) dx\right|  \\
+&amp; \text{By Cauchy-Schwarz inequality}\\
+&amp; \leq  2\left(\int \left|x \psi (x)\right|^2 dx \right)^{\frac{1}{2}}  \left(\int \left| \psi '(x)\right|^2 dx \right)^{\frac{1}{2}}  \\
+&amp; = 2\left(\int x^2\left| \psi (x)\right|^2 dx \right)^{\frac{1}{2}}  \left(\int \left| \psi '(x)\right|^2 dx \right)^{\frac{1}{2}}  \\
+&amp; =  2\sigma _x  \left(\int \left| \psi '(x)\right|^2 dx \right)^{\frac{1}{2}}  \rightarrow \text{ eq. A1 } \\
+&amp; \text{Also,}\\
+&amp;  \psi '(x) =\frac{d}{dx}\psi(x)  = \frac{1}{\sqrt {2\pi\hbar}} \int \Phi (p)\frac{d}{dx} e^{ip \frac{x}{\hbar}}dx  \\
+&amp; = \frac{1}{\sqrt {2\pi\hbar}} \int  \left(\frac{ip}{\hbar}\Phi (p) \right)\ e^{ip \frac{x}{\hbar}}dp  \\
+&amp; \text{By applying the Plancherel Theorem \)</span>\int \left| f(t)\right|^2 dt = \int \left| \hat {f} (\omega)\right|^2 d\omega <span class="math notranslate nohighlight">\(}\\
+&amp;  \left(\int \left| \psi '(x)\right|^2 dx \right)^{\frac{1}{2}} = \left(\int \left| \left(\frac{ip}{\hbar}\Phi (p) \right)\right|^2 dp \right)^{\frac{1}{2}} \\
+&amp;  = \frac{1}{\hbar}\left(\int p^2\left| \left(\Phi (p) \right)\right|^2 dp \right)^{\frac{1}{2}} \\
+&amp; =  \frac{1}{\hbar}\sigma _p 
+\end{split}
+\end{equation*}\)</span><span class="math notranslate nohighlight">\( \)</span><span class="math notranslate nohighlight">\(\begin{equation*}
+\begin{split}
+&amp; \text{from Eq A1}\\
+&amp; 1 \leq  2\sigma _x  \left(\int \left| \psi '(x)\right|^2 dx \right)^{\frac{1}{2}} = \frac{2}{\hbar}\sigma _x\sigma _p \\
+&amp; \text{Hence}\\
+&amp; \frac{\hbar}{2}\leq\sigma _x\sigma _p \\
+\end{split}
+\end{equation*}\)</span>$</p>
+</section>
+<section id="uncertainty-principle-distribution-centered-at-nonzero">
+<h2>Uncertainty Principle: Distribution Centered at Nonzero<a class="headerlink" href="#uncertainty-principle-distribution-centered-at-nonzero" title="Link to this heading">#</a></h2>
+<p>Now consider <span class="math notranslate nohighlight">\(\psi(x)\)</span> &amp; <span class="math notranslate nohighlight">\(\Phi(p)\)</span> which may have nonzero average value<br />
+Let <span class="math notranslate nohighlight">\(\Psi(x)=e^{-i\frac{m_p}{\hbar}x}\psi(x)\)</span><br />
+$<span class="math notranslate nohighlight">\(\begin{equation*}
+\begin{split}
+&amp; \text{Because }\left|\Psi(x)\right|=\left|\psi(x)\right|\\
+&amp; 1 = \int \left| \Psi (x)\right| ^2 dx \\
+&amp; \text{Perform integration by parts by setting }\\
+&amp; u = \left| \Psi (x)\right| ^2 = \Psi^* (x)\Psi (x)\\
+&amp; du =  \Psi^{*'} (x)\Psi (x)+\Psi^* (x)\Psi ^{'}(x) = 2Re(\Psi^{*'} (x)\Psi (x))\\
+&amp; v = x-\mu_x,  dv = dx \\
+&amp; = -2Re \int (x-\mu_x)\left| \Psi (x)\right| ^2dx\\
+&amp; \leq 2\left(\int \left| (x-\mu_x)^2\Psi (x)\right|^2 dx \right)^{\frac{1}{2}}  \left(\int \left| \Psi '(x)\right|^2 dx \right)^{\frac{1}{2}}  \\
+&amp; \text{By same approach: Applying the Plancherel Theorem on last parentheses}\\
+&amp; \leq 2\sigma _x  \left(\int \left|\frac{i(p-\mu_p)}{\hbar} \hat {\Psi^ {'}}(x)\right|^2 dx \right)^{\frac{1}{2}} \\
+&amp; = \frac {2\sigma _x  \sigma_p}{\hbar} \\
+&amp; \text {Therefore \)</span>\frac{\hbar}{2}\leq\sigma _x\sigma _p <span class="math notranslate nohighlight">\( as desired}
+\end{split}
+\end{equation*}\)</span>$</p>
+</section>
+<section id="uncertainty-principle-proof-using-commutator">
+<h2>Uncertainty Principle Proof using Commutator<a class="headerlink" href="#uncertainty-principle-proof-using-commutator" title="Link to this heading">#</a></h2>
+<p>By the definition of Variance,<br />
+$<span class="math notranslate nohighlight">\(\begin{equation*}
+\begin{split}
+&amp; \sigma _A ^2 = \int  \Psi^{*} (x)\left(   \hat{A} - \left&lt;  A\right&gt;    \right) ^2 \Psi (x)dx \\
+&amp;\text{HW:  It is good exercise to get to the next line}\\
+&amp; = \int  \Psi^{*} (x)  \hat{A}^2 \Psi (x)dx - \left&lt;  A\right&gt;^2   \\
+&amp;\text{Similarly, you can get } \sigma _B ^2 = \int  \Psi^{*} (x)  \hat{B}^2 \Psi (x)dx - \left&lt;  B\right&gt;^2   \\
+&amp;\text{Let  } f(x)= \left( \left(   \hat{A} - \left&lt;  A\right&gt;    \right) \Psi (x) \right) \text{  and    } g(x)= \left( \left(   \hat{B} - \left&lt;  B\right&gt;    \right) \Psi (x) \right) \\ 
+&amp; \sigma _A ^2 = \int  \left( \left(   \hat{A} - \left&lt;  A\right&gt;    \right) \Psi (x) \right) \left( \left(   \hat{A} - \left&lt;  A\right&gt;    \right) \Psi (x) \right)^{*} dx =  \int  f (x) f^{*}(x) dx  \text{  in  } \R \\
+&amp; \sigma _B ^2 = \int  \left( \left(   \hat{B} - \left&lt;  B\right&gt;    \right) \Psi (x) \right) \left( \left(   \hat{B} - \left&lt;  B\right&gt;    \right) \Psi (x) \right)^{*} dx =  \int  g (x) g^{*}(x) dx  \text{  in  } \R \\
+&amp; \text{Let us consider  quantity }  z=x+yi=\int  f (x) g^{*}(x) dx  \text{ which is not necessary in  } \R  \text{   but in   } \mathbb{C} \\
+&amp; \text{Then, the complex conjugate of z is }  z^{*}=x-yi=\int  g (x) f^{*}(x) dx  \\
+&amp; z = \int  \left( \left(   \hat{A} - \left&lt;  A\right&gt;    \right) \Psi (x) \right) \left( \left(   \hat{B} - \left&lt;  B\right&gt;    \right) \Psi (x) \right)^{*} dx= \int  \Psi^{*} (x)  \hat{A}  \hat{B} \Psi(x)dx - \left&lt;  A\right&gt;\left&lt;  B\right&gt; \\
+&amp; \text{Similarly,  } z^{*}= \int  \Psi^{*} (x)  \hat{B}  \hat{A} \Psi(x)dx - \left&lt;  A\right&gt;\left&lt;  B\right&gt; \\
+&amp; \text{Since} \left| z \right| ^2 = x^2+y^2 \text{where x and y are in } \R \text{.  This means that } z^2 \geq y^2 =\left(\frac{z-z^{*}}{2i}\right)^2\\
+&amp; \text{Therefore,  }  \left| z \right| ^2 = \geq y^2 = \left( \frac{\int  \Psi^{*} (x)  \left( \hat{A}  \hat{B}-\hat{B}  \hat{A} \right) \Psi(x)dx }{2i} \right)^2= \left( \frac{\int  \Psi^{*} (x)  \left[ \hat{A} ,  \hat{B} \right] \Psi(x)dx }{2i} \right)^2\\
+&amp;\text{Using Cauchy-Schwarz inequality,   }  \int  f (x) f^{*}(x) dx  \int  g (x) g^{*}(x) dx \geq  \left| \int  f (x) g^{*}(x) dx \right|^2\\
+&amp; \sigma _A ^2  \sigma _B^2 \geq z^2 \geq y^2\\
+&amp;\text{for the case the operator does not commute like }\left[ \hat{p_x},\hat{x}\right]= \hat{p_x}\hat{x}-\hat{x}\hat{p_x}=i\hbar\\
+&amp; \text {Above inequality will yeild \)</span>\frac{\hbar}{2}\leq\sigma _x\sigma _p <span class="math notranslate nohighlight">\( as desired. //}\\
+\end{split}
+\end{equation*}\)</span>$</p>
+</section>
+<section id="average-volume-of-a-state">
+<h2>Average Volume of a State<a class="headerlink" href="#average-volume-of-a-state" title="Link to this heading">#</a></h2>
+<p>Now that we have studied uncertainty principle, we are going to think
+about the average volume occupied by a single state. The volume of
+single state (<span class="math notranslate nohighlight">\(h^3\)</span>) is used in part II of this textbook and it is
+fundamental to statistical mechanics. Although average volume is
+sometimes stated as a direct consequence of uncertinty principle,
+average volume is slightly larger than the minimum volume [cube of the
+uncertainty bound (<span class="math notranslate nohighlight">\(\left(\hbar/2 \right)^3\)</span>)]. We will derive the
+volume from transform defined in previous page.<br />
+$$\begin{equation*}
+\begin{split}
+&amp; \psi(x) = \frac{1}{\sqrt {2\pi\hbar}}\int \Phi (p)e^{ip \frac{x}{\hbar}} dp \
+&amp; \Phi (p) = \frac{1}{\sqrt {2\pi\hbar}} \int \psi (x) e^{-ip \frac{x}{\hbar}}dx  \</p>
+<p>\end{split}
+\end{equation*}$<span class="math notranslate nohighlight">\( Consider 1-D problem. Since we want to avoid a
+complete specification of \)</span>p<span class="math notranslate nohighlight">\( or \)</span>x<span class="math notranslate nohighlight">\(, we define converging sequence of
+function \)</span>\tilde{\delta}<span class="math notranslate nohighlight">\( which approaches to \)</span>\delta<span class="math notranslate nohighlight">\(. We assume \)</span>\psi<span class="math notranslate nohighlight">\(
+is sufficiently smooth. Keep in mind that we can not specify \)</span>p<span class="math notranslate nohighlight">\( and \)</span>x<span class="math notranslate nohighlight">\(
+simalteniously. However, we can restrict the domain of x (\)</span>\Omega<span class="math notranslate nohighlight">\() so
+that it represent the single state. Consider \)</span>\psi^o(x;p)<span class="math notranslate nohighlight">\( which is
+identical to \)</span>\psi<span class="math notranslate nohighlight">\( within the single state region
+\)</span>\Omega_x \times \Omega_p<span class="math notranslate nohighlight">\( and zero everywhere else. Let momentum
+\)</span>\tilde{p’}<span class="math notranslate nohighlight">\( represent the value approximately close to some momentum
+\)</span>p’<span class="math notranslate nohighlight">\( within this region.\
+\)</span>$\begin{equation*}
+\begin{split}
+&amp; \int_{\Omega_x}\psi^o(x;\tilde{p’})e^{-i\tilde{p’} \frac{x}{\hbar}}dx = \int_{\Omega_x}\left( \frac{1}{\sqrt {2\pi\hbar}}\int_{\Omega_p} \Phi^o (p)e^{ip \frac{x}{\hbar}}\tilde{\delta}\left( p-p’  \right) dp \right)e^{-i\tilde{p’} \frac{x}{\hbar}}dx\</p>
+<p>&amp; = \frac{1}{\sqrt {2\pi\hbar}}\int_{\Omega_x}\Phi^o (\tilde{p’})e^{i\tilde{p’} \frac{x}{\hbar}}e^{-i\tilde{p’} \frac{x}{\hbar}}dx\
+&amp; = \frac{1}{2\pi\hbar}\int_{\Omega_x} \left( \int_{\Omega_x} \psi^o (x;\tilde{p’}) e^{-i\tilde{p’} \frac{x}{\hbar}}dx\right)dx\
+&amp; = \frac{1}{2\pi\hbar} \left( \int_{\Omega_x} \psi^o (x;\tilde{p’}) e^{-i\tilde{p’} \frac{x}{\hbar}}dx\right)\Delta x\</p>
+<p>\end{split}
+\end{equation*}$<span class="math notranslate nohighlight">\( Rearrange the equation to obtain, \)</span><span class="math notranslate nohighlight">\(\begin{equation*}
+\begin{split}
+&amp; 2\pi\hbar=h= \Delta x    \hspace{50pt}   \text{in 1-D}\\
+\end{split}
+\end{equation*}\)</span><span class="math notranslate nohighlight">\( Average volume of a single state in 3-D (\)</span>h^3$) is
+simply a cube of the 1-D result.//\</p>
+</section>
+<section id="euler-equation">
+<h2>Euler Equation<a class="headerlink" href="#euler-equation" title="Link to this heading">#</a></h2>
+<p>We have shown that <span class="math notranslate nohighlight">\(S\)</span> and <span class="math notranslate nohighlight">\(V\)</span> is extensive variables and <span class="math notranslate nohighlight">\(U\)</span> is
+extensive function of these variables. More specifically, all of these
+are additive (linear relation to size). For this reason, it is obvious
+that following relation holds<br />
+$<span class="math notranslate nohighlight">\(\ U(aS,aV)=aU(S,V)\)</span><span class="math notranslate nohighlight">\( This equation can interprit as \&quot;if the new
+system has twice the volume (a=2) and entropy per volume is unchanged,
+internal energy is twice as large as original system.\&quot; Then, it follwos
+that\
+\)</span><span class="math notranslate nohighlight">\(\begin{equation*}
+\begin{split}
+ \frac{dU(aS,aV)}{da}&amp;=U(S,V)\\
+&amp;=\left( \frac{\partial U(aS,aV)}{\partial (aS)}     \right)_V \frac{d \left(aS\right)}{da}+\left( \frac{\partial U(aS,aV)}{\partial (aV)}     \right)_S \frac{d \left(aV\right)}{da}\\
+&amp;=\left( \frac{\partial U(aS,aV)}{\partial (aS)}     \right)_V S+\left( \frac{\partial U(aS,aV)}{\partial (aV)}     \right)_S V\\
+&amp; \text{by setting a=1}\\
+&amp;=\left( \frac{\partial U(S,V)}{\partial S}\right)_V S+\left( \frac{\partial U(S,V)}{\partial V}     \right)_S V\\
+&amp; \text{from 1st law} \\
+&amp; dU(S,T)=\left( \frac{\partial U(S,V)}{\partial S}\right)_VdS+\left( \frac{\partial U(S,V)}{\partial V}\right)_SdV=\delta q+ \delta w =Tds-Pdv\\
+&amp; \text{ first and second partial derivatives are \)</span>T<span class="math notranslate nohighlight">\( and  \)</span>-P<span class="math notranslate nohighlight">\(, respectively }\\
+&amp; U= TS-PV\\
+\end{split}
+\end{equation*}\)</span><span class="math notranslate nohighlight">\( It folllows from the argument in the text, U is a
+state function. This argument can be repeated for \)</span>U(S,V,N)$.\</p>
+</section>
+<section id="lagrange-multipliers-and-chemical-potential">
+<h2>Lagrange Multipliers and Chemical Potential<a class="headerlink" href="#lagrange-multipliers-and-chemical-potential" title="Link to this heading">#</a></h2>
+<section id="single-component-system">
+<h3>Single component system<a class="headerlink" href="#single-component-system" title="Link to this heading">#</a></h3>
+<p>At the beginning of this semester, we used Lagrange multiplier to obtain
+Boltzmann thermal distribution with 2 constraints:<br />
+$<span class="math notranslate nohighlight">\(\begin{align*}
+\delta N_i=\sum\limits_i \delta N_i = 0 \cdots \text{\circled{1}}\\
+\delta N_i= \sum\limits_i \delta  N_i\epsilon_i=0 \cdots \text{\circled{2}}
+\end{align*}\)</span>$</p>
+<p>When we try to maximize <span class="math notranslate nohighlight">\(\ln\Omega\)</span>\</p>
+<p><span class="math notranslate nohighlight">\(e^{-1}\)</span> is going to be cancelled in <span class="math notranslate nohighlight">\(Z \Rightarrow\)</span> can be eliminated.
+From discussion in the text, <span class="math notranslate nohighlight">\(\beta=1/k_BT\)</span>. Since alpha is a pure
+number, the chemical potential has a unit of energy as expected.</p>
+</section>
+<section id="multi-component-system">
+<h3>Multi-component system<a class="headerlink" href="#multi-component-system" title="Link to this heading">#</a></h3>
+<p>Consider system composed of two chemical components. The constraint we
+have for such system is $<span class="math notranslate nohighlight">\(\begin{align*}
+\delta N_1=\sum\limits_i \delta N_{1i} =0  \cdots \text{\circled{1}}\\
+\sum\limits_i N_{2i} = N_2 \cdots \text{\circled{2}}\\
+\sum\limits_{i} N_{1i}\epsilon_{i}=E_1 \cdots \text{\circled{3}}\\
+\sum\limits_{j} N_{2j}\epsilon_{j}=E_2 \cdots \text{\circled{4}}\\
+\end{align*}\)</span>$</p>
+<p>consider <span class="math notranslate nohighlight">\(\Omega\)</span>
+$<span class="math notranslate nohighlight">\(\Omega=\frac{N_1}{N_{10}N_{11}N_{12}\cdots N_{1r-1}}\frac{N_2}{N_{20}N_{21}N_{22}\cdots N_{2s-1}}\)</span><span class="math notranslate nohighlight">\(
+Since constant term disappear in the next step, we can ignore constants
+\)</span><span class="math notranslate nohighlight">\(\ln{\Omega}=-\sum\limits_i N_{1i}\ln{N_{1i}}-\sum\limits_j N_{2j}\ln{N_{2j}}\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(\delta\ln{\Omega}=-\sum\limits_i \delta N_{1i}\ln{N_{1i}} -\sum\limits_i \delta N_{1i} -\sum\limits_j \delta N_{2j}\ln{N_{2j}}-\sum\limits_j \delta N_{2j}\)</span><span class="math notranslate nohighlight">\(
+Following the similar step as in single component, we introduce the
+Lagrange multiplier\
+\)</span><span class="math notranslate nohighlight">\(\delta L = \sum\limits_i (1+\ln N_i + \alpha_1 + \beta_1 \epsilon_i)\delta N_i =0=\sum\limits_j (1+\ln N_j + \alpha_2 + \beta_2 \epsilon_j)\delta N_j\)</span><span class="math notranslate nohighlight">\(
+Since LHS and RHS is independent, inside the parentheses must be zero.\
+\)</span><span class="math notranslate nohighlight">\((1+\ln N_i + \alpha_1 + \beta_1 \epsilon_i)=0=-(1+\ln N_j + \alpha_2 + \beta_2 \epsilon_j)\)</span><span class="math notranslate nohighlight">\(
+Since each components are thermal equilibrium with thermal bath, namely
+\)</span>\beta_1=\beta=1/k_BT=\beta_2<span class="math notranslate nohighlight">\(,\
+\)</span><span class="math notranslate nohighlight">\(\ln{N_iN_j}=-2-\alpha_1-\alpha_2-\beta(\epsilon_i+\epsilon_j)\)</span><span class="math notranslate nohighlight">\( Then,\
+\)</span><span class="math notranslate nohighlight">\(N_{1i}N_{2j}=e^{-2-\alpha_1-\alpha_2-\beta(\epsilon_i+\epsilon_j)}=e^{-2}e^{-\beta([\epsilon_i+\alpha_1/\beta]+[\epsilon_j+\alpha_2/\beta])}\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(N_1N_2=e^{-2}\sum\limits_{ij}e^{-\beta(\epsilon_i+\epsilon_j+\alpha_1/\beta+\alpha_2/\beta)}\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(P(i,j)=\frac{N_{1i}N_{2j}}{N_1N_2}=\frac{e^{-\beta([\epsilon_i+\alpha_1/\beta]+[\epsilon_j+\alpha_2/\beta])}}{\sum\limits_{ij}e^{-\beta([\epsilon_i+\alpha_1/\beta]+[\epsilon_j+\alpha_2/\beta])}}\)</span><span class="math notranslate nohighlight">\(
+and chemical potentials for each components are reltate to Lagrange
+multipliers.\
+\)</span><span class="math notranslate nohighlight">\(\mu_1=\alpha_1/\beta\text{  and  }\mu_2=\alpha_2/\beta\)</span>$ This chemical
+potential offset the base erengy of each chemical components and it is
+generally determined by the position of atoms.\</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-the-transform">Setting Up The Transform</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plancherel-theorem-for-position-and-momentum-pair">Plancherel Theorem for Position and Momentum Pair</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uncertainty-principle-distribution-centered-at-zero">Uncertainty Principle: Distribution Centered at Zero</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uncertainty-principle-distribution-centered-at-nonzero">Uncertainty Principle: Distribution Centered at Nonzero</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uncertainty-principle-proof-using-commutator">Uncertainty Principle Proof using Commutator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#average-volume-of-a-state">Average Volume of a State</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-equation">Euler Equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lagrange-multipliers-and-chemical-potential">Lagrange Multipliers and Chemical Potential</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#single-component-system">Single component system</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-component-system">Multi-component system</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hideya Koizumi & Eiko Koizumi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,900 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>System Containing Two Atoms (Diatomic System) &#8212; Physical Chemistry Through Computer Simulations</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"uvec": ["\\hat{\\mathbf{#1}}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch07';</script>
+    <link rel="icon" href="_static/favicon.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Physical Chemistry Through Computer Simulations</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Physical Chemistry Through Computer Simulations
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Quantum Mechanics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="qm01.html">Math Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm02.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm03.html">Foundation of Quantum Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm04.html">Simple Quantum Mechanical Models and Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm05.html">Hydrogen-Like Atom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm06.html">Approximation Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm07.html">Electron Spin (Quantum Mechanics Concept)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm08.html">System Containing Only One Atom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm09.html">System Containing Two Atoms (Diatomic System)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm10.html">Hybrid Orbitals in Polyatomic Molecule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm11.html">Symmetry, Group Theory, Representation Theory and Thier Application to Chemistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm12.html">Molecular Spectroscopy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm13.html">Resonance by Variational Methods</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Thermodynamics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="td01.html">Math Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td02.html">Transition from Classical to Statistical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td03.html">Boltzmann Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td04.html">State function, dealing with partial derivatives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td05.html">Energy, Entropy and Temperature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td06.html">Free Energy, Pressure, &amp; Gas Laws</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td07.html">Maxwell Relation, Basic Thermodynamics Process, Second and Third Laws of Thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td08.html">The Equipartition Principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td09.html">Chemical Potential</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td10.html">Thermodynamics of Mixing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td11.html">Chemical Equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td12.html">Reaction Dynamics and Kinetics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td13.html">Chemistry of Fluid</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/ch07.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>System Containing Two Atoms (Diatomic System)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#h-2-system"><span class="math notranslate nohighlight">\(H_2^+\)</span> System</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-terminology-in-polyatomic-molecule">Common Terminology in Polyatomic Molecule</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-e-multi-atomic-system-h-2">Multi-<span class="math notranslate nohighlight">\(e^-\)</span> Multi-Atomic System (<span class="math notranslate nohighlight">\(H_2\)</span>)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#h-2">(<span class="math notranslate nohighlight">\(H_2\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#n-2">N<span class="math notranslate nohighlight">\(_2\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#o-2">O<span class="math notranslate nohighlight">\(_2\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#molecular-term-symbol-for-diatom">Molecular Term Symbol for Diatom</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="system-containing-two-atoms-diatomic-system">
+<h1>System Containing Two Atoms (Diatomic System)<a class="headerlink" href="#system-containing-two-atoms-diatomic-system" title="Link to this heading">#</a></h1>
+<p>We now consider the simplest system that containing more than one
+nuclei. <span class="math notranslate nohighlight">\(H_2^+\)</span> is the simplest system of the diatomic system because
+there is no electron-electron repulsion. Because the electron is equally
+distributed, molecular orbital for this atom must be composed of atomic
+orbitals centered at each of these hydrogen atoms. Unlike single atomic
+system, atomic orbitals centered at different atoms are not orthogonal.
+In this chapter, we introduce overlap integral, Coulomb integral, and
+exchange integral. All of these are fundamental for understanding
+chemical bonds. Also, term symbols are introduced for diatomic system.</p>
+<section id="h-2-system">
+<h2><span class="math notranslate nohighlight">\(H_2^+\)</span> System<a class="headerlink" href="#h-2-system" title="Link to this heading">#</a></h2>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(200,125) (0,0)<span><img src="Figure16.png"
+style="width:7cm;height:5cm" alt="image" /></span> (45,75)<span><span
+style="color: red"><strong><span class="smallcaps"><span><span
+class="math inline">\(r_1\)</span></span></span></strong></span></span>
+(40,40)<span><span style="color: blue"><strong><span
+class="smallcaps"><span><span
+class="math inline">\(nuc_1\)</span></span></span></strong></span></span>
+(140,40)<span><span style="color: blue"><strong><span
+class="smallcaps"><span><span
+class="math inline">\(nuc_2\)</span></span></span></strong></span></span>
+(-18,115)<span><span style="color: blue"><strong><span
+class="smallcaps"><span><span
+class="math inline">\(e_1^{-1}\)</span></span></span></strong></span></span>
+(100,45)<span><span style="color: purple"><strong><span
+class="smallcaps"><span>R</span></span></strong></span></span>
+(100,85)<span><span style="color: red"><strong><span
+class="smallcaps"><span><span
+class="math inline">\(r_2\)</span></span></span></strong></span></span></p>
+</div>
+<figcaption> <span class="math inline">\(H_2^+\)</span> System
+</figcaption>
+</figure>
+<p>We start with trial function.<br />
+<span class="math notranslate nohighlight">\(\psi_{\pm} = C_11S_A \pm C_21S_B\)</span>\</p>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(200,125) (0,0)<span><img src="Figure17.png"
+style="width:7cm;height:5cm" alt="image" /></span> (50,100)<span><span
+style="color: blue"><strong><span class="smallcaps"><span><span
+class="math inline">\(\psi_+\)</span></span></span></strong></span></span>
+(50,40)<span><span style="color: red"><strong><span
+class="smallcaps"><span><span
+class="math inline">\(\psi_-\)</span></span></span></strong></span></span>
+(100,45)<span><span style="color: black"><strong><span
+class="smallcaps"><span>R</span></span></strong></span></span></p>
+</div>
+<figcaption><span class="math inline">\(\psi_{\pm} = C_11S_A \pm
+C_21S_B\)</span> </figcaption>
+</figure>
+<p>Let <span class="math notranslate nohighlight">\(C_1 = C_2 = 1\)</span> for now. ( normalization is automatically
+implemented in variational principle.)<br />
+<span class="math notranslate nohighlight">\(\hat{H}\psi_+(r) = E_+\psi_+(r)\)</span><br />
+<span class="math notranslate nohighlight">\(E_+ = \frac{\int \psi^\ast\hat{H}\psi dr_1}{\int\psi^\ast\psi dr_1} \rightarrow dr_1\)</span>
+means coordinate associated with <span class="math notranslate nohighlight">\(e^-\)</span> #1.</p>
+<p>Let <span class="math notranslate nohighlight">\(dr_1 = dr\)</span> Lasy is good. Let’s compute the denominator.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{ll}
+\int\psi^\ast\psi dr &amp;= \int(1S_A + 1S_B)^\ast(1S_A + 1S_B) dr\\
+&amp;= \underbrace{\int 1S_A^\ast1S_A dr}_{=1} + 2\underbrace{\int1S_A1S_B dr}_{S(R)} + \underbrace{\int1S_B1S_B dr}_{=1}\\
+&amp; = 2 + 2S(R) \cdots \text{\textcircled{1}}
+\end{array}\end{split}\]</div>
+<p>Notice <span class="math notranslate nohighlight">\(S(R)\)</span> becomes small as <span class="math notranslate nohighlight">\(R\)</span> gets large.</p>
+<p>[i.e.]{.underline}<br />
+<span class="math notranslate nohighlight">\(S(R) = e^{-R(1+R+\frac{R^2}{3})}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\uparrow\)</span></p>
+<p>fitting data</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{equation*}
+\begin{split}
+\int\psi^\ast\hat{H}\psi dr &amp;= \int\left(1S_A + 1S_B\right)^\ast\left[-\frac{1}{2}\nabla^2 - \frac{1}{r_{1A}} - \frac{1}{r_{1B}}\right]\left(1S_A + 1S_B\right) dr\\
+&amp;= \int\left(1S_A + 1S_B\right)^\ast\Big[ \hspace{90pt}\Big]1S_A dr \\
+&amp; + \int\big(\hspace{50pt}\big)^\ast\Big[\hspace{90pt}\Big]1S_B dr
+\end{split}
+\end{equation*}\end{split}\]</div>
+<p>Note</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{equation*}
+\begin{split}
+\left[-\frac{1}{2}\nabla^2 - \frac{1}{r_{1A}}\right]1S_A &amp;= E_{1S_A}1S_A \hspace{10pt}\text{same for $E_{1S_B}1S_B$ \&amp; $E_{1S_A} = E_{1S_B}=E_{1S}$}\\
+&amp;= \int\left(1S_A + 1S_B\right)^\ast\left[E_{1S} - \frac{1}{r_B}\right]1S_A dr\\
+&amp;+ \int\big(\hspace{48pt}\big)^\ast\left[E_{1S} - \frac{1}{r_A}\right]1S_B dr\\
+&amp;= \int 1S_A\left[E_{1S} - \frac{1}{r_B}\right]1S_A dr + \int 1S_B\left[E_{1S} - \frac{1}{r_B}\right]1S_A dr\\
+&amp; + \int 1S_A\left[E_{1S} - \frac{1}{r_A}\right]1S_B dr + \int 1S_B\left[E_{1S} - \frac{1}{r_A}\right]1S_B dr\\
+&amp;=E_{1S}\int 1S_A1S_A dr - \int 1S_A\frac{1}{r_B}1S_A dr + E_{1S}\int 1S_B1S_A dr - \int 1S_B\frac{1}{r_B}1S_A dr + \text{e.t.c.}
+\end{split}
+\end{equation*}\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(\cdots\)</span> same stuff for <span class="math notranslate nohighlight">\(1S_B\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{equation*}
+\begin{split}
+&amp;= E_{1S} + \int \underline{\underline{1S_A}}\frac{-1}{r_B}\underline{\underline{1S_A}} dr \rightarrow \text{same orbital call this Coulomb (J)}\\
+&amp;+ E_{1S}S(R) + \int\underline{1S_B}\frac{-1}{r_B}\underline{\underline{1S_A}} dr \rightarrow \text{different orbital call this exchange (K)}\\
+&amp;+ E_{1S} + \int 1S_A\frac{-1}{r_A}1S_B dr\\
+&amp;+ E_{1S}S(R) +\int1S_B\frac{-1}{r_A}1S_Bdr\\
+&amp;= E_{1S}\left(2 + 2S(R)\right) + 2J + 2K \cdots \text{\textcircled{2}}
+\end{split}
+\end{equation*}\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(\xRightarrow{\text{\textcircled{1} \&amp; \textcircled{2}}}\)</span> So, Energya of
+<span class="math notranslate nohighlight">\(H_2^+\)</span> for <span class="math notranslate nohighlight">\(\psi_+\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{equation*}
+\begin{split}
+E_+ = \frac{\int\psi_+^\ast H \psi_+ dr}{\int\psi_+^\ast\psi_+dr} &amp;= \frac{2E_{1S}\left(1 + S(R)\right) + 2J + 2K}{2 + 2S(R)}\\
+&amp;=E_{1S} + \frac{J + K}{1 + S(R)}
+\end{split}
+\end{equation*}\end{split}\]</div>
+<p>relative <span class="math notranslate nohighlight">\(E_+\)</span> compares to <span class="math notranslate nohighlight">\(E_{1S}\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{equation*}
+\Delta E = E_+ - E_{1S} = \frac{J + K}{1 + S(R)}
+\end{equation*}\]</div>
+<p>We can find the same result if we use secular determinant.<br />
+$<span class="math notranslate nohighlight">\(\begin{vmatrix} H_{AA} - ES_{AA} &amp; H_{AB} - ES_{AB}\\ H_{BA} - ES_{BA} &amp; H_{BB} - ES_{BB}\end{vmatrix} = 0\)</span>$</p>
+<p>This is an alternative way, but I want you to …<br />
+[HW]{.underline} derive</p>
+<div class="math notranslate nohighlight">
+\[\begin{equation*}
+\Delta E = E_- - E_{1S} = \frac{J - K}{1 - S}
+\end{equation*}\]</div>
+<p>[[in the same way]{.underline}]{.underline} as I didin previous 2
+pages.<br />
+One of the most important observation was<br />
+“Chemical bond in <span class="math notranslate nohighlight">\(H_2^+\)</span> is a result of exchange. Therefore, chemical
+bond is a purely Quantum Mechanics effect.”<br />
+It turns out that all chemical bonds are direct consequence of Quantum
+Mechanics effect.<br />
+(More details are provided in higher level Physical Chemistry.)<br />
+[Laboratory 6]{.underline}<br />
+see appendix</p>
+</section>
+<section id="common-terminology-in-polyatomic-molecule">
+<h2>Common Terminology in Polyatomic Molecule<a class="headerlink" href="#common-terminology-in-polyatomic-molecule" title="Link to this heading">#</a></h2>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(200,125) (0,0)<span><img src="Figure28.png"
+style="width:7cm;height:5cm" alt="image" /></span> (-10,110)<span><span
+style="color: black"><strong><span class="smallcaps"><span><span
+class="math inline">\(\sigma\)</span>
+bond</span></span></strong></span></span> (-10,25)<span><span
+style="color: black"><strong><span class="smallcaps"><span><span
+class="math inline">\(\pi\)</span>
+bond</span></span></strong></span></span> (80,110)<span><span
+style="color: black"><strong><span class="smallcaps"><span><span
+class="math inline">\(\sigma_{u}\)</span>
+bond</span></span></strong></span></span> (80,25)<span><span
+style="color: black"><strong><span class="smallcaps"><span><span
+class="math inline">\(\pi_{g}\)</span>
+bond</span></span></strong></span></span></p>
+</div>
+<figcaption>type of bond </figcaption>
+</figure>
+<hr/>
+  $\sigma$ bond   $---$   cylindrically symmetric bond
+  $\pi$ bond      $---$   a nodal plane containing bonding axis
+  $\delta$ bond   $---$   2 nodal plane containing bonding axis
+<hr/>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(380,225) (0,0)<span><img src="MOchart.png" style="height:8cm"
+alt="image" /></span></p>
+</div>
+<figcaption>Flow Chart</figcaption>
+</figure>
+</section>
+<section id="multi-e-multi-atomic-system-h-2">
+<h2>Multi-<span class="math notranslate nohighlight">\(e^-\)</span> Multi-Atomic System (<span class="math notranslate nohighlight">\(H_2\)</span>)<a class="headerlink" href="#multi-e-multi-atomic-system-h-2" title="Link to this heading">#</a></h2>
+<section id="h-2">
+<h3>(<span class="math notranslate nohighlight">\(H_2\)</span>)<a class="headerlink" href="#h-2" title="Link to this heading">#</a></h3>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(200,125) (0,0)<span><img src="Figure19.png"
+style="width:7cm;height:5cm" alt="image" /></span> (25,75)<span><span
+style="color: red"><strong><span class="smallcaps"><span><span
+class="math inline">\(r_{1A}\)</span></span></span></strong></span></span>
+(60,38)<span><span style="color: blue"><strong><span
+class="smallcaps"><span><span
+class="math inline">\(nuc_A\)</span></span></span></strong></span></span>
+(140,38)<span><span style="color: blue"><strong><span
+class="smallcaps"><span><span
+class="math inline">\(nuc_B\)</span></span></span></strong></span></span>
+(145,120)<span><span style="color: blue"><strong><span
+class="smallcaps"><span><span
+class="math inline">\(e_2^{-1}\)</span></span></span></strong></span></span>
+(-18,115)<span><span style="color: blue"><strong><span
+class="smallcaps"><span><span
+class="math inline">\(e_1^{-1}\)</span></span></span></strong></span></span>
+(80,120)<span><span style="color: purple"><strong><span
+class="smallcaps"><span><span
+class="math inline">\(r_{12}\)</span></span></span></strong></span></span>
+(100,43)<span><span style="color: purple"><strong><span
+class="smallcaps"><span>R</span></span></strong></span></span>
+(90,100)<span><span style="color: red"><strong><span
+class="smallcaps"><span><span
+class="math inline">\(r_{2A}\)</span></span></span></strong></span></span>
+(150,95)<span><span style="color: green"><strong><span
+class="smallcaps"><span><span
+class="math inline">\(r_{1B}\)</span></span></span></strong></span></span>
+(125,75)<span><span style="color: green"><strong><span
+class="smallcaps"><span><span
+class="math inline">\(r_{2B}\)</span></span></span></strong></span></span></p>
+</div>
+<figcaption> <span class="math inline">\(H_2\)</span> molecule (2 <span
+class="math inline">\(e^-\)</span> System) </figcaption>
+</figure>
+<p>(Sneak peak of higher level Physical Chemistry.)<br />
+Let
+<span class="math notranslate nohighlight">\(\Psi = \frac{1}{\sqrt{2}}\begin{vmatrix}\psi\alpha(1) &amp; \psi\beta(1)\\ \psi\alpha(2) &amp; \psi\beta(2)\end{vmatrix}\)</span></p>
+<p>From this, we can obtain,</p>
+<div class="math notranslate nohighlight">
+\[\begin{equation*}
+E = \int \Psi^\ast \hat{H}\Psi dr = \int\Psi^\ast\left[-\frac{1}{2}\left(\nabla_1^2 + \nabla_2^2\right)-\frac{1}{r_{1A}}-\frac{1}{r_{1B}} - \frac{1}{r_{2A}}-\frac{1}{r_{2B}}+\boxed{ \frac{1}{r_{12}}}^\star\right]\Psi dr
+\end{equation*}\]</div>
+<p><span class="math notranslate nohighlight">\(\star\)</span> This is very difficult to integrate.You will learn this in
+highre level Physical Chemistry.</p>
+<p>Any system containing more than 2<span class="math notranslate nohighlight">\(e^-\)</span>‘s are difficult to compute. So,
+Physical Chemistry part I from this point on will be more experimental
+(spectroscopy data driven).</p>
+</section>
+<section id="n-2">
+<h3>N<span class="math notranslate nohighlight">\(_2\)</span><a class="headerlink" href="#n-2" title="Link to this heading">#</a></h3>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(200,125) (0,0)<span><img src="Figure20.png"
+style="width:7cm;height:5cm" alt="image" /></span> (115,98)<span><span
+style="color: red"><strong><span class="smallcaps"><span><span
+class="math inline">\(\Delta
+E\)</span></span></span></strong></span></span> (115,37)<span><span
+style="color: blue"><strong><span class="smallcaps"><span><span
+class="math inline">\(\Delta
+E\)</span></span></span></strong></span></span></p>
+</div>
+<figcaption> <span class="math inline">\(H_2\)</span> molecule (2 <span
+class="math inline">\(e^-\)</span> System) </figcaption>
+</figure>
+<p>Rules for molecular orbital (MO) diagram<br />
+<span class="math notranslate nohighlight">\(\star\)</span> # of orb unchanged</p>
+<p><span class="math notranslate nohighlight">\(\star\)</span> Total E of orb must be same</p>
+<p>$\star<span class="math notranslate nohighlight">\( \)</span>p_z<span class="math notranslate nohighlight">\( generated \)</span>\sigma_g<span class="math notranslate nohighlight">\( goes lower &#64; O\)</span>_2<span class="math notranslate nohighlight">\( &amp; F\)</span>_2$\</p>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(200,125) (0,0)<span><img src="Figure21-1.png"
+style="width:7cm;height:5cm" alt="image" /></span> (-30,45)<span><span
+style="color: black"><strong><span class="smallcaps"><span><span
+class="math inline">\(p_x \&amp;
+p_y\)</span></span></span></strong></span></span> (-20,97)<span><span
+style="color: black"><strong><span class="smallcaps"><span><span
+class="math inline">\(p_z\)</span></span></span></strong></span></span>
+(10,150)<span><span style="color: black"><strong><span
+class="smallcaps"><span>B</span></span></strong></span></span>
+(53,150)<span><span style="color: black"><strong><span
+class="smallcaps"><span>C</span></span></strong></span></span>
+(96,150)<span><span style="color: black"><strong><span
+class="smallcaps"><span>N</span></span></strong></span></span>
+(139,150)<span><span style="color: black"><strong><span
+class="smallcaps"><span>O</span></span></strong></span></span>
+(182,150)<span><span style="color: black"><strong><span
+class="smallcaps"><span>F</span></span></strong></span></span></p>
+</div>
+<figcaption> Homonuclear molecules </figcaption>
+</figure>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(200,125) (0,0)<span><img src="Figure22.png"
+style="width:7cm;height:5cm" alt="image" /></span> (53,55)<span><span
+style="color: black"><strong><span class="smallcaps"><span><span
+class="math inline">\(\pi_u\)</span></span></span></strong></span></span>
+(139,55)<span><span style="color: black"><strong><span
+class="smallcaps"><span><span
+class="math inline">\(\pi_u\)</span></span></span></strong></span></span>
+(53,140)<span><span style="color: black"><strong><span
+class="smallcaps"><span><span
+class="math inline">\(\pi_g\)</span></span></span></strong></span></span>
+(139,140)<span><span style="color: black"><strong><span
+class="smallcaps"><span><span
+class="math inline">\(\pi_g\)</span></span></span></strong></span></span>
+(96,70)<span><span style="color: black"><strong><span
+class="smallcaps"><span><span
+class="math inline">\(\sigma_g\)</span></span></span></strong></span></span>
+(96,100)<span><span style="color: black"><strong><span
+class="smallcaps"><span><span
+class="math inline">\(\sigma_u\)</span></span></span></strong></span></span></p>
+</div>
+<figcaption> <span class="math inline">\(N_2\)</span> molecules
+</figcaption>
+</figure>
+<p><span class="math notranslate nohighlight">\(MO = (\sigma_g)^2(\sigma_u)^2(\pi_u)^2(\pi_u)^2(\sigma_g)^2\)</span><br />
+$<span class="math notranslate nohighlight">\(\begin{equation*}
+\begin{split}
+\text{Bond order} : &amp;= \frac{1}{2}\left[\left(\begin{array}{l}\text{\# of }e^-\\ \text{in Bonding orb}\end{array}\right) - \left(\begin{array}{l}\text{\# of }e^- \\\text{inanti B.O.}\end{array}\right)\right]\\
+&amp;= \frac{1}{2}[8 - 2] = 3
+\end{split}
+\end{equation*}\)</span>$</p>
+<p>:N<span class="math notranslate nohighlight">\(\equiv\)</span>N:</p>
+</section>
+<section id="o-2">
+<h3>O<span class="math notranslate nohighlight">\(_2\)</span><a class="headerlink" href="#o-2" title="Link to this heading">#</a></h3>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(200,125) (0,0)<span><img src="Figure23.png"
+style="width:7cm;height:5cm" alt="image" /></span> (53,70)<span><span
+style="color: black"><strong><span class="smallcaps"><span><span
+class="math inline">\(\pi_u\)</span></span></span></strong></span></span>
+(139,70)<span><span style="color: black"><strong><span
+class="smallcaps"><span><span
+class="math inline">\(\pi_u\)</span></span></span></strong></span></span>
+(53,120)<span><span style="color: black"><strong><span
+class="smallcaps"><span><span
+class="math inline">\(\pi_g\)</span></span></span></strong></span></span>
+(139,120)<span><span style="color: black"><strong><span
+class="smallcaps"><span><span
+class="math inline">\(\pi_g\)</span></span></span></strong></span></span>
+(96,47)<span><span style="color: black"><strong><span
+class="smallcaps"><span><span
+class="math inline">\(\sigma_g\)</span></span></span></strong></span></span>
+(96,150)<span><span style="color: black"><strong><span
+class="smallcaps"><span><span
+class="math inline">\(\sigma_u\)</span></span></span></strong></span></span></p>
+</div>
+<figcaption> <span class="math inline">\(O_2\)</span> molecules
+</figcaption>
+</figure>
+<p><span class="math notranslate nohighlight">\(MO \Rightarrow (\sigma_g)^2(\sigma_u)^2(\sigma_g)^2(\pi_u)^2(\pi_u)^2(\pi_g)(\pi_g)\)</span><br />
+<span class="math notranslate nohighlight">\(BO = \frac{1}{2}(8 - 4) = 2\)</span></p>
+<p><span class="math notranslate nohighlight">\(\downarrow\)</span></p>
+<p>[Comment]{.underline} Generally, higher B.O. <span class="math notranslate nohighlight">\(\Rightarrow\)</span> shorter
+bonding distance</p>
+</section>
+</section>
+<section id="molecular-term-symbol-for-diatom">
+<h2>Molecular Term Symbol for Diatom<a class="headerlink" href="#molecular-term-symbol-for-diatom" title="Link to this heading">#</a></h2>
+<p>It follows similar procedure as in atom.<br />
+$<span class="math notranslate nohighlight">\(\begin{array}{lccl}
+\text{atom ind. orb AM} &amp; l &amp; \rightarrow &amp; \begin{array}{cccc} s &amp; p &amp; d &amp; f\\ 0 &amp; 1 &amp; 2 &amp; 3 \end{array}\\
+\text{atom total orb AM} &amp; L &amp; \rightarrow &amp; \begin{array}{cccc} S &amp; P &amp; D &amp; F\\ 0 &amp; 1 &amp; 2 &amp; 3 \end{array}\\
+\text{diatom ind. orb AM} &amp; \lambda &amp; \rightarrow &amp; \begin{array}{cccc} \sigma &amp; \pi &amp; \delta &amp; \phi\\ 0 &amp; 1 &amp; 2 &amp; 3 \end{array}\\
+\text{diatom total orb AM} &amp; \Lambda &amp; \rightarrow &amp; \begin{array}{cccc} \Sigma &amp; \Pi &amp; \Delta &amp; \Phi\\ 0 &amp; 1 &amp; 2 &amp; 3 \end{array}
+\end{array}\)</span>$</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{l}
+\begin{array}{rl}
+$atom for given $ L &amp; -L \le M_L \le L\\
+$\underline{i.e.}\hspace{5pt}$ L = 2 &amp; M_L = -2, -1, 0, 1, 2
+\end{array}
+\\
+\\
+\begin{array}{rl}
+$diatom for given $ \Lambda &amp; M_\Lambda = \pm \Lambda\\
+$\underline{i.e.}\hspace{5pt}$ \Lambda = 2 &amp; M_\Lambda = \pm 2 $ only$
+\end{array}
+\end{array}\end{split}\]</div>
+<p>For example, <span class="math notranslate nohighlight">\(p_z\)</span> orbital has <span class="math notranslate nohighlight">\(m_{\lambda}\)</span> value of 0 while <span class="math notranslate nohighlight">\(p_x\)</span> and
+<span class="math notranslate nohighlight">\(p_y\)</span> has 1 and -1, respectively.<br />
+<span class="math notranslate nohighlight">\(S\)</span> is identical to atomic case.<br />
+Given <span class="math notranslate nohighlight">\(S\)</span>, <span class="math notranslate nohighlight">\(-S\le M_S \le S\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{ccc}
+\begin{array}{c} $atom$ \\ $\&amp;$ \\ $diatom$ \end{array} &amp; S = \frac{3}{2} &amp; M_S = \frac{3}{2}, \frac{1}{2}, -\frac{1}{2}, -\frac{3}{2}
+\end{array}\end{split}\]</div>
+<p>For O<span class="math notranslate nohighlight">\(_2\)</span>,<br />
+$<span class="math notranslate nohighlight">\(\begin{array}{lcccl}
+MO &amp;= &amp; (\pi_g) &amp; (\pi_g) &amp; \)</span> ignore all completely <span class="math notranslate nohighlight">\(\\
+      &amp;   &amp;  \uparrow &amp; \uparrow &amp;  \)</span> filled orbitals <span class="math notranslate nohighlight">\(\\
+      &amp;   &amp;   P_x &amp; P_y &amp;
+\end{array}\)</span>$</p>
+<p>Both <span class="math notranslate nohighlight">\(\Pi_u\)</span> can have spin <span class="math notranslate nohighlight">\(\alpha\)</span> &amp; <span class="math notranslate nohighlight">\(\beta\)</span>.<br />
+Total of 4 orbitals (multiplying 2 spatial &amp; 2 spin)<br />
+# of ways to distribute 2<span class="math notranslate nohighlight">\(e^-\)</span>‘s into 4 orb is<br />
+$<span class="math notranslate nohighlight">\(\begin{pmatrix} 4\\ 2\end{pmatrix} = \frac{4!}{2!(4-2)!} = 6\)</span>$\</p>
+<div class="center docutils">
+<p>+:—————————————————————————–:+:———————————————————-:+
+|    <span class="math notranslate nohighlight">\(M_L\)</span>            +1                     -1            <span class="math notranslate nohighlight">\(M_\Lambda\)</span>   <span class="math notranslate nohighlight">\(M_S\)</span>  | <span class="math notranslate nohighlight">\(\begin{array}{c} ^1\Delta\\^3\Sigma\\^1\Sigma\end{array}\)</span> |
+|   ——- ———————- ———————- ————- ——- |                                                            |
+|            <span class="math notranslate nohighlight">\(\uparrow\downarrow\)</span>                               2          0    |                                                            |
+|     2-5         <span class="math notranslate nohighlight">\(\uparrow\)</span>            <span class="math notranslate nohighlight">\(\downarrow\)</span>            0          0    |                                                            |
+|     2-5         <span class="math notranslate nohighlight">\(\uparrow\)</span>             <span class="math notranslate nohighlight">\(\uparrow\)</span>             0         +1    |                                                            |
+|     2-5        <span class="math notranslate nohighlight">\(\downarrow\)</span>            <span class="math notranslate nohighlight">\(\uparrow\)</span>             0          0    |                                                            |
+|     2-5        <span class="math notranslate nohighlight">\(\downarrow\)</span>           <span class="math notranslate nohighlight">\(\downarrow\)</span>            0         -1    |                                                            |
+|     2-5                           <span class="math notranslate nohighlight">\(\uparrow\downarrow\)</span>       -2          0    |                                                            |
+|     2-5                                                                       |                                                            |
++——————————————————————————-+————————————————————+</p>
+</div>
+<hr/>
+  1⃝   Find the largest $M_\Lambda$, then the largest $M_S$.
+  2⃝   Write the term symbol.
+  3⃝   Deduce all $\left(M_\Lambda, M_S\right)$ combinations & eliminate from the list.
+  4⃝   Repeat.
+<hr/>
+<p><br />
+<span class="math notranslate nohighlight">\(\star\)</span> Hund’s Rule for Diatom<br />
+The state with the largest spin multiplicity will be the ground state.<br />
+[i.e.]{.underline} O<span class="math notranslate nohighlight">\(_2\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{ccc}
+\boxed{^3\Sigma} &amp; ^1\Sigma &amp; ^1\Delta\\
+\uparrow &amp; &amp; \\
+\text{G.S.} &amp; &amp;
+\end{array}\end{split}\]</div>
+<p>[Note]{.underline} On ending diatomic system<br />
+We have used only occupied atomic orbitals <span class="math notranslate nohighlight">\(\rightarrow\)</span> oxy use
+<span class="math notranslate nohighlight">\(1s2s2p\)</span> only not <span class="math notranslate nohighlight">\(d\)</span> orbital<br />
+Keep in mind that all of those atomic orbitals are for isolated atom
+(spherically symmetric 1<span class="math notranslate nohighlight">\(e^-\)</span> problem).<br />
+So, they are not even close to exact solution.</p>
+<p><span class="math notranslate nohighlight">\(\uparrow\)</span></p>
+<p>You deal with this in highre level Physical Chemistry.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#h-2-system"><span class="math notranslate nohighlight">\(H_2^+\)</span> System</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-terminology-in-polyatomic-molecule">Common Terminology in Polyatomic Molecule</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-e-multi-atomic-system-h-2">Multi-<span class="math notranslate nohighlight">\(e^-\)</span> Multi-Atomic System (<span class="math notranslate nohighlight">\(H_2\)</span>)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#h-2">(<span class="math notranslate nohighlight">\(H_2\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#n-2">N<span class="math notranslate nohighlight">\(_2\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#o-2">O<span class="math notranslate nohighlight">\(_2\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#molecular-term-symbol-for-diatom">Molecular Term Symbol for Diatom</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hideya Koizumi & Eiko Koizumi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

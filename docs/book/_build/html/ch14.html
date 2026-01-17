@@ -1,0 +1,732 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Boltzmann Distribution &#8212; Physical Chemistry Through Computer Simulations</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"uvec": ["\\hat{\\mathbf{#1}}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch14';</script>
+    <link rel="icon" href="_static/favicon.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Physical Chemistry Through Computer Simulations</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Physical Chemistry Through Computer Simulations
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Quantum Mechanics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="qm01.html">Math Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm02.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm03.html">Foundation of Quantum Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm04.html">Simple Quantum Mechanical Models and Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm05.html">Hydrogen-Like Atom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm06.html">Approximation Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm07.html">Electron Spin (Quantum Mechanics Concept)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm08.html">System Containing Only One Atom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm09.html">System Containing Two Atoms (Diatomic System)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm10.html">Hybrid Orbitals in Polyatomic Molecule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm11.html">Symmetry, Group Theory, Representation Theory and Thier Application to Chemistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm12.html">Molecular Spectroscopy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm13.html">Resonance by Variational Methods</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Thermodynamics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="td01.html">Math Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td02.html">Transition from Classical to Statistical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td03.html">Boltzmann Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td04.html">State function, dealing with partial derivatives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td05.html">Energy, Entropy and Temperature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td06.html">Free Energy, Pressure, &amp; Gas Laws</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td07.html">Maxwell Relation, Basic Thermodynamics Process, Second and Third Laws of Thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td08.html">The Equipartition Principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td09.html">Chemical Potential</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td10.html">Thermodynamics of Mixing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td11.html">Chemical Equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td12.html">Reaction Dynamics and Kinetics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td13.html">Chemistry of Fluid</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/ch14.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Boltzmann Distribution</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deriving-boltzmann-distribution-for-isolated-system">Deriving Boltzmann distribution for isolated system</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deriving-the-partition-function-for-the-nvt-ensemble-canonical-ensemble">Deriving the partition function for the NVT ensemble (canonical ensemble)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#canonical-partition-function-canonical-partition-function-unnumbered">Canonical partition function {#canonical-partition-function .unnumbered}</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deriving-the-partition-function-for-the-npt-ensemble-most-useful-ensemble">Deriving the partition function for the NPT ensemble (Most useful ensemble)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maxwell-boltzmann-speed-distribution">Maxwell Boltzmann Speed Distribution</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="boltzmann-distribution">
+<h1>Boltzmann Distribution<a class="headerlink" href="#boltzmann-distribution" title="Link to this heading">#</a></h1>
+<section id="deriving-boltzmann-distribution-for-isolated-system">
+<h2>Deriving Boltzmann distribution for isolated system<a class="headerlink" href="#deriving-boltzmann-distribution-for-isolated-system" title="Link to this heading">#</a></h2>
+<p>Consider isolated system with <span class="math notranslate nohighlight">\(N\)</span> particles (microcanonical ensemble).
+Each state is composed of N particle where <span class="math notranslate nohighlight">\(N_i\)</span> particles having energy
+state <span class="math notranslate nohighlight">\(\epsilon_i\)</span>, <span class="math notranslate nohighlight">\(i = 0, 1, \cdots, r\)</span>. This means total energy of
+the system is fixed at <span class="math notranslate nohighlight">\(E\)</span>. We are interested in the property shared in
+most number of states in the ensemble.</p>
+<div class="math notranslate nohighlight">
+\[\sum\limits_{i=0}^{r-1} N_i = N\]</div>
+<div class="math notranslate nohighlight">
+\[\sum\limits_{i=0}^{r-1} N_i \epsilon_i = E\]</div>
+<p># of possible state where <span class="math notranslate nohighlight">\(N_i\)</span> occupies <span class="math notranslate nohighlight">\(\epsilon_i\)</span>th energy state is
+given by</p>
+<div class="math notranslate nohighlight">
+\[\Omega = \frac{N!}{N_0!N_1! \cdots N_{r-1}!}\]</div>
+<p>Stirling with 1 not omitted(see previous chapter)</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+\ln \Omega &amp;= \ln N! - \sum\limits_{0}^{r-1} \ln N_i!\\
+&amp; = N\ln N - N + 1 - \sum\limits_0^{r-1} N_i\ln N_i + \sum\limits_0^{r-1} N_i - r\\
+&amp; = N\ln N - \sum\limits_0^{r-1} N_i\ln N_i + 1 - r
+\end{align*}\end{split}\]</div>
+<p>Set<br />
+$<span class="math notranslate nohighlight">\(f = N \underset{\uparrow}{\ln} N - \sum\limits_0^{r-1} N_i\ln N_i + \underset{\uparrow}{1} -\underset{\uparrow}{ r}\)</span>$</p>
+<p>constant constants<br />
+Since we are interested in the most probable states,<br />
+$<span class="math notranslate nohighlight">\(\begin{align*}
+\delta f = \delta\left(\sum\limits_0^{r-1} N_i \ln N_i\right) &amp;= \sum\limits_0^{r-1} \delta N_i \ln N_i + \sum\limits_0^{r-1} N_i \delta \ln N_i \\
+&amp;= \sum\limits_0^{r-1} \delta N_i \ln N_i + \sum\limits_0^{r-1} \delta Ni
+\end{align*}\)</span>$ The last equality follows from derivative of natural log.
+Also,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+\delta N &amp;= \sum \delta N_i = 0 \\
+\delta E &amp;= \sum \epsilon_i \delta N_i = 0
+\end{align*}\end{split}\]</div>
+<p>Define</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+\delta  \mathscr{L} &amp;= \sum\limits_i \delta N_i + \sum\limits_i \delta N_i \ln N_i + \alpha \sum\limits_i \delta N_i + \beta \sum\limits_i \epsilon_i \delta N_i \\
+&amp;= \sum\limits_i (\underbrace{1 + \ln N_i + \alpha + \beta \epsilon_i}_{\underset{=0}{\Downarrow}} ) \delta N_i = 0
+\end{align*}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\ln N_i = -(1 + \alpha + \beta \epsilon_i) =&gt; N_i = \underbrace{e^{-(1+\alpha)}}_{\gamma} e^{-\beta\epsilon_i} = \gamma e^{-\beta\epsilon_i}\]</div>
+<p>We also know that</p>
+<div class="math notranslate nohighlight">
+\[N = \sum\limits_i N_i = \gamma \sum\limits_i e^{-\beta \epsilon_i}\]</div>
+<p>So,</p>
+<div class="math notranslate nohighlight">
+\[\gamma = \frac{N}{\sum\limits_i e^{-\beta\epsilon_i}}\]</div>
+<p>and Boltzmannn distribution predicts the probability of having <span class="math notranslate nohighlight">\(N_i\)</span>
+particle having energy <span class="math notranslate nohighlight">\(\epsilon_i\)</span><br />
+$<span class="math notranslate nohighlight">\(\boxed{\mathbb{P}(X=\epsilon_i) =\mathbb{P}_i= \frac{N_i}{N} = \frac{e^{-\beta\epsilon_i}}{\sum\limits_i e^{-\beta\epsilon_i}}}\)</span><span class="math notranslate nohighlight">\(
+we use this formula often until we identify the multiplier \)</span>\beta<span class="math notranslate nohighlight">\( [^1]\
+For the classical system, we will use this probability distribution to
+compute for average energy of the system(assume energy is nearly
+continuous)\
+\)</span><E>=\sum\limits_i\epsilon_i\mathbb{P}<em>i = \frac{\sum\limits_i\epsilon_ie^{-\beta\epsilon_i}}{\sum\limits_i e^{-\beta\epsilon_i}}\simeq\frac{\int</em>{0}^{\infty} \epsilon e^{-\beta\epsilon}d\epsilon}{\sum\limits_i e^{-\beta\epsilon_i}}= \frac{1}{\beta}\frac{\sum\limits_ie^{-\beta\epsilon_i}}{\sum\limits_i e^{-\beta\epsilon_i}}=\frac{1}{\beta}$<br />
+where we used integration by parts.<br />
+Note that we will come back to the last formula in the previous page
+when we define the entropy.\</p>
+</section>
+<section id="deriving-the-partition-function-for-the-nvt-ensemble-canonical-ensemble">
+<h2>Deriving the partition function for the NVT ensemble (canonical ensemble)<a class="headerlink" href="#deriving-the-partition-function-for-the-nvt-ensemble-canonical-ensemble" title="Link to this heading">#</a></h2>
+<p>This is the standard statistical–mechanical derivation typically used
+in undergraduate physical chemistry.</p>
+<p>Consider a system in a particular microstate with energy <span class="math notranslate nohighlight">\(E_i\)</span>, in
+thermal contact with a very large heat bath. The system and bath
+together form an isolated composite whose total energy
+<span class="math notranslate nohighlight">\(E_{\mathrm{tot}}\)</span> is fixed. Because the bath is much larger than the
+system, the system can exchange energy with it while remaining at a
+constant temperature <span class="math notranslate nohighlight">\(T\)</span>. (The fact that the kinetic energies of the
+system’s particles will then obey a thermal distribution need not
+concern us in this first pass.)</p>
+<p>A key conceptual point: a <em>microstate</em> of the system is a single point
+in phase space, fully specified by the positions and momenta of all
+particles, <span class="math notranslate nohighlight">\(\{q_i,p_i\}\)</span>. Thus a microstate has no degeneracy: once
+<span class="math notranslate nohighlight">\(\{q_i,p_i\}\)</span> is fixed, there is exactly one such state.</p>
+<p>By contrast, the heat bath has an enormous number of accessible
+microstates. If the system has energy <span class="math notranslate nohighlight">\(E_i\)</span>, then the bath energy is
+<span class="math notranslate nohighlight">\(E_B = E_{\mathrm{tot}}-E_i\)</span>, and the number of bath microstates
+consistent with this energy is
+$<span class="math notranslate nohighlight">\(\Omega_B(E_B) = \Omega_B(E_{\mathrm{tot}}-E_i).\)</span><span class="math notranslate nohighlight">\( Because
+probabilities in the microcanonical ensemble are proportional to the
+number of accessible microstates, the probability of the system being in
+microstate \)</span>i<span class="math notranslate nohighlight">\( is proportional to \)</span>\Omega_B(E_{\mathrm{tot}} - E_i)$.</p>
+<p>Working with logarithms of large quantities is convenient, so we expand
+$<span class="math notranslate nohighlight">\(\ln\Omega_B(E_{\mathrm{tot}} - E_i)\)</span><span class="math notranslate nohighlight">\( in a Taylor series around
+\)</span>E_{\mathrm{tot}}<span class="math notranslate nohighlight">\(: \)</span>$\ln\Omega_B(E_{\mathrm{tot}} - E_i)
+= \ln\Omega_B(E_{\mathrm{tot}})</p>
+<ul class="simple">
+<li><p>\left.\frac{\partial \ln\Omega_B}{\partial E}\right|<em>{E</em>{\mathrm{tot}}} E_i</p></li>
+</ul>
+<ul class="simple">
+<li><p>\cdots .$$</p></li>
+</ul>
+<p>Exponentiating gives $<span class="math notranslate nohighlight">\(\Omega_B(E_{\mathrm{tot}} - E_i)
+ = \Omega_B(E_{\mathrm{tot}})
+   \exp\!\left[
+     -\left.
+      \frac{\partial \ln\Omega_B}{\partial E}
+     \right|_{E_{\mathrm{tot}}}
+     E_i
+   \right]
+   \quad (\text{higher-order terms neglected}).\)</span>$</p>
+<p>Since <span class="math notranslate nohighlight">\(\Omega_B(E_{\mathrm{tot}})\)</span> is a normalization constant
+independent of <span class="math notranslate nohighlight">\(i\)</span>, the probability of the system being in microstate
+<span class="math notranslate nohighlight">\(i\)</span> is $<span class="math notranslate nohighlight">\(\mathbb{P}_i
+  = \frac{\Omega_B(E_{\mathrm{tot}} - E_i)}{\Omega_B(E_{\mathrm{tot}})}
+  = \exp\!\left[
+     -\left.
+      \frac{\partial \ln\Omega_B}{\partial E}
+     \right|_{E_{\mathrm{tot}}}
+     E_i
+   \right].\)</span>$</p>
+<p>We now define the quantity $<span class="math notranslate nohighlight">\(\beta \equiv 
+\left.
+\frac{\partial \ln\Omega_B}{\partial E}
+\right|_{E_{\mathrm{tot}}}.\)</span><span class="math notranslate nohighlight">\( Because the bath is macroscopic, \)</span>E_i<span class="math notranslate nohighlight">\( is
+negligibly small compared with \)</span>E_{\mathrm{tot}}<span class="math notranslate nohighlight">\(, so the linear
+approximation is extremely accurate and \)</span>\beta<span class="math notranslate nohighlight">\( may be treated as a
+constant. Thus, \)</span><span class="math notranslate nohighlight">\(\mathbb{P}_i \propto e^{-\beta E_i}.\)</span>$</p>
+<p>For students who have completed the later thermodynamics chapters: since
+<span class="math notranslate nohighlight">\(S_B = k_B \ln \Omega_B\)</span>, $<span class="math notranslate nohighlight">\(\frac{\partial \ln\Omega_B}{\partial E}
+ = \frac{1}{k_B}\frac{\partial S_B}{\partial E}
+ = \frac{1}{k_B} \frac{1}{T},\)</span><span class="math notranslate nohighlight">\( where the final equality is the
+thermodynamic definition of temperature. Thus, in equilibrium,
+\)</span>\beta = 1/(k_B T)$ and we recover the familiar Boltzmann factor.\</p>
+<section id="canonical-partition-function-canonical-partition-function-unnumbered">
+<h3>Canonical partition function {#canonical-partition-function .unnumbered}<a class="headerlink" href="#canonical-partition-function-canonical-partition-function-unnumbered" title="Link to this heading">#</a></h3>
+<p>Since every microstate <span class="math notranslate nohighlight">\(i\)</span> of the system with energy <span class="math notranslate nohighlight">\(E_i\)</span> is equally
+valid, the probability of a specific microstate is
+$<span class="math notranslate nohighlight">\(\mathbb{P}_i \propto e^{-\beta E_i}.\)</span>$</p>
+<p>To normalize this probability distribution, define the canonical (NVT)
+partition function: $<span class="math notranslate nohighlight">\(Z(N,V,T) 
+= \sum_{i} e^{-\beta E_i}.\)</span>$</p>
+<p>In classical phase-space form(optional): $<span class="math notranslate nohighlight">\(Z(N,V,T)
+= \frac{1}{N!h^{3N}}
+\int d^{3N}p \int d^{3N}q \;
+\exp\!\left[-\beta H(p,q)\right].\)</span><span class="math notranslate nohighlight">\( where unit phase space volume \)</span>h^3<span class="math notranslate nohighlight">\(
+comes from uncertainty principle \)</span>\Delta x \Delta p_x \ge h/2<span class="math notranslate nohighlight">\( hence
+\)</span>\Delta x \Delta p_x = h<span class="math notranslate nohighlight">\( by Ehrenfest and Tolman (1911--1918). The
+normalized probability of a microstate is therefore
+\)</span><span class="math notranslate nohighlight">\(\mathbb{P}_i = \frac{e^{-\beta E_i}}{Z(N,V,T)}.\)</span>$</p>
+</section>
+</section>
+<section id="deriving-the-partition-function-for-the-npt-ensemble-most-useful-ensemble">
+<h2>Deriving the partition function for the NPT ensemble (Most useful ensemble)<a class="headerlink" href="#deriving-the-partition-function-for-the-npt-ensemble-most-useful-ensemble" title="Link to this heading">#</a></h2>
+<p>Consider a small system (fixed <span class="math notranslate nohighlight">\(N\)</span>) in contact with a very large
+reservoir that can exchange both energy and volume with the system. The
+composite (system + reservoir) is isolated with fixed total energy
+<span class="math notranslate nohighlight">\(E_{\mathrm{tot}}\)</span> and total volume <span class="math notranslate nohighlight">\(V_{\mathrm{tot}}\)</span>. A microstate of
+the system is completely specified by the particle coordinates, momenta,
+and the instantaneous volume <span class="math notranslate nohighlight">\(V\)</span>; let its energy be <span class="math notranslate nohighlight">\(E\)</span>.</p>
+<p>If the system happens to be in a state with energy <span class="math notranslate nohighlight">\(E\)</span> and volume <span class="math notranslate nohighlight">\(V\)</span>,
+then the reservoir must have $<span class="math notranslate nohighlight">\(E_B = E_{\mathrm{tot}} - E,\qquad 
+V_B = V_{\mathrm{tot}} - V.\)</span><span class="math notranslate nohighlight">\( Because the composite is microcanonical,
+the probability of this system microstate is proportional to the number
+of compatible reservoir microstates,
+\)</span><span class="math notranslate nohighlight">\(\mathbb{P}(E,V) \;\propto\; \Omega_B(E_{\mathrm{tot}}-E,\; V_{\mathrm{tot}}-V).\)</span>$</p>
+<p>To proceed, expand the logarithm of the reservoir multiplicity about its
+value at <span class="math notranslate nohighlight">\((E_{\mathrm{tot}}, V_{\mathrm{tot}})\)</span>: $<span class="math notranslate nohighlight">\(\begin{aligned}
+\ln\Omega_B(E_{\mathrm{tot}}-E,\;V_{\mathrm{tot}}-V)
+&amp;= \ln\Omega_B(E_{\mathrm{tot}},V_{\mathrm{tot}}) \\
+&amp;\quad - \left.\frac{\partial \ln\Omega_B}{\partial E}\right|_{\mathrm{tot}}\, E
+      - \left.\frac{\partial \ln\Omega_B}{\partial V}\right|_{\mathrm{tot}}\, V
+      + \mathcal{O}(E^2,EV,V^2).
+\end{aligned}\)</span>$ Since the reservoir is macroscopic, the system’s
+exchanges are tiny by comparison, and the higher-order terms are
+negligible.</p>
+<p>Exponentiating gives $<span class="math notranslate nohighlight">\(\Omega_B(E_{\mathrm{tot}}-E,\;V_{\mathrm{tot}}-V)
+\approx \Omega_B(E_{\mathrm{tot}},V_{\mathrm{tot}})
+\exp\!\left[
+ -\Big(\left.\frac{\partial \ln\Omega_B}{\partial E}\right|_{\mathrm{tot}} E
+        +\left.\frac{\partial \ln\Omega_B}{\partial V}\right|_{\mathrm{tot}} V\Big)
+\right].\)</span>$</p>
+<p>Define the coefficients
+$<span class="math notranslate nohighlight">\(\beta \equiv \left.\frac{\partial \ln\Omega_B}{\partial E}\right|_{\mathrm{tot}},
+\qquad
+\beta P \equiv \left.\frac{\partial \ln\Omega_B}{\partial V}\right|_{\mathrm{tot}}.\)</span>$</p>
+<p><strong>Important note for students:</strong> At this stage, <span class="math notranslate nohighlight">\(P\)</span> is simply a
+convenient symbol for the coefficient of <span class="math notranslate nohighlight">\(V\)</span> when we factor out the same
+<span class="math notranslate nohighlight">\(\beta\)</span> that appears in the energy term. You do <em>not</em> need to know the
+thermodynamic definition of pressure yet. This notation becomes
+physically meaningful only after reading later chapters.</p>
+<p>With this shorthand,
+$<span class="math notranslate nohighlight">\(\mathbb{P}(E,V) \;\propto\; e^{-\beta(E + P V)}.\)</span>$</p>
+<p>This leads to the isothermal–isobaric partition function,
+$<span class="math notranslate nohighlight">\(\Delta(N,P,T)
+= \sum_{\text{microstates } i} e^{-\beta(E_i + P V_i)},\)</span><span class="math notranslate nohighlight">\( or in
+classical phase-space form (optional), \)</span><span class="math notranslate nohighlight">\(\Delta(N,P,T)
+= \frac{1}{N! h^{3N}}
+\int_0^\infty dV\, e^{-\beta P V}
+\int d^{3N}p \int d^{3N}q \; e^{-\beta H(p,q;V)}.\)</span>$</p>
+<p><strong>A practical comment for students in biology and chemistry:</strong></p>
+<p>Most experiments in aqueous biological systems effectively take place at
+fixed pressure and fixed volume. This is because (i) liquids are nearly
+incompressible, so <span class="math notranslate nohighlight">\(V\)</span> barely fluctuates, and (ii) the pressure is just
+the ambient atmospheric pressure applied by the surrounding reservoir.
+Thus the NPT ensemble is often the most appropriate theoretical
+description for simulations and for interpreting experimental
+observables.</p>
+<p>The normalized probability density for a microstate <span class="math notranslate nohighlight">\(\rho(p,q,V)\)</span> is
+therefore
+$<span class="math notranslate nohighlight">\(\rho(p,q,V) = \frac{1}{\Delta(N,P,T)} \, e^{-\beta\left(H(p,q;V) + P V\right)}.\)</span>$</p>
+</section>
+<section id="maxwell-boltzmann-speed-distribution">
+<h2>Maxwell Boltzmann Speed Distribution<a class="headerlink" href="#maxwell-boltzmann-speed-distribution" title="Link to this heading">#</a></h2>
+<p>From Boltzmann dist.,</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}_i = \frac{e^{-\epsilon_i\beta}}{\sum\limits_i e^{-\epsilon_i\beta}}\]</div>
+<p>This is in terms of energy.</p>
+<p>Rewrite this in terms of velocity using</p>
+<div class="math notranslate nohighlight">
+\[E = \frac{1}{2} mv^2 = \frac{1}{2}(v_x^2 + v_y^2 + v_z^2)\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+\mathbb{P}(v_x, v_y, v_z)dv_xdv_ydv_z &amp;= \frac{e^{-\frac{m\beta}{2}(v_x^2+v_y^2+v_z^2)}dv_xdv_ydv_z}{\sum\limits_x\sum\limits_y\sum\limits_z e^{-\frac{m\beta}{2}(v_x^2+v_y^2+v_z^2)}}\\
+&amp;= \frac{e^{-\frac{m\beta}{2}(v_x^2+v_y^2+v_z^2)}dv_xdv_ydv_z}{\left(\sum\limits_x e^{-\frac{m\beta}{2}v_x^2}\right)\left(\sum\limits_y e^{-\frac{m\beta}{2}v_y^2}\right)\left(\sum\limits_z e^{-\frac{m\beta}{2}v_z^2}\right)}\\
+&amp; \text{ \hspace{35pt} } \downarrow\\
+&amp; \text{ \hspace{10pt} } \int_{-\infty}^{\infty} e^{-\frac{m\beta}{2} v_x^2} dx = \left(\frac{2\pi }{m\beta}\right)^{\frac{1}{2}}\\
+&amp;=\left(\frac{m\beta}{2\pi }\right)^{3/2} e^{-\frac{mv^2\beta}{2}}dv_xdv_ydv_z\\
+&amp; \text{ \hspace{100pt} } \downarrow \text{ convert this to spherical polar coord.}\\
+&amp; \text{ \hspace{100pt} } d\theta d\phi dv \\
+&amp; \text{ \hspace{100pt} \&amp; symmetric in } \theta \&amp; \phi\\
+&amp;= \left(\frac{m\beta}{2\pi }\right)^{3/2} e^{-\frac{mv^2\beta}{2}}4\pi v^2 dv
+\end{align*}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\boxed{\mathbb{P}(v)dv = \left(\frac{m\beta}{2\pi}\right)^{3/2} e^{-\frac{mv^2\beta}{2}}4\pi v^2 dv}\]</div>
+<p>For a benefit of the reader, we should put the more useful alternative
+form(we have not identified <span class="math notranslate nohighlight">\(\beta\)</span> yet)
+$<span class="math notranslate nohighlight">\(\boxed{\mathbb{P}(v)dv = \left(\frac{m}{2\pi k_BT}\right)^{3/2} e^{-\frac{mv^2}{2k_BT}}4\pi v^2 dv}\)</span>$</p>
+<p>[Lab1]{.underline} Using M-B speed distribution, derive the average
+speed, the average kinetic energy &amp; most probable speed of gas.</p>
+<hr/>
+      $\beta =$   $\frac{1}{k_\beta T}$
+                  $\uparrow$
+                  Boltzman const
+<hr/>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>then
+
+$$\boxed{\mathbb{P}_i = \frac{N_i}{N} = \frac{e^{-\epsilon_i/k_\beta T}}{\sum\limits_i e^{-\epsilon_i/k_\beta T}}}$$
+</pre></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deriving-boltzmann-distribution-for-isolated-system">Deriving Boltzmann distribution for isolated system</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deriving-the-partition-function-for-the-nvt-ensemble-canonical-ensemble">Deriving the partition function for the NVT ensemble (canonical ensemble)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#canonical-partition-function-canonical-partition-function-unnumbered">Canonical partition function {#canonical-partition-function .unnumbered}</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deriving-the-partition-function-for-the-npt-ensemble-most-useful-ensemble">Deriving the partition function for the NPT ensemble (Most useful ensemble)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maxwell-boltzmann-speed-distribution">Maxwell Boltzmann Speed Distribution</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hideya Koizumi & Eiko Koizumi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

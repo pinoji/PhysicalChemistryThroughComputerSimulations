@@ -1,0 +1,782 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Energy, Entropy and Temperature &#8212; Physical Chemistry Through Computer Simulations</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"uvec": ["\\hat{\\mathbf{#1}}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch16';</script>
+    <link rel="icon" href="_static/favicon.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Physical Chemistry Through Computer Simulations</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Physical Chemistry Through Computer Simulations
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Quantum Mechanics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="qm01.html">Math Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm02.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm03.html">Foundation of Quantum Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm04.html">Simple Quantum Mechanical Models and Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm05.html">Hydrogen-Like Atom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm06.html">Approximation Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm07.html">Electron Spin (Quantum Mechanics Concept)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm08.html">System Containing Only One Atom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm09.html">System Containing Two Atoms (Diatomic System)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm10.html">Hybrid Orbitals in Polyatomic Molecule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm11.html">Symmetry, Group Theory, Representation Theory and Thier Application to Chemistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm12.html">Molecular Spectroscopy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm13.html">Resonance by Variational Methods</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Thermodynamics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="td01.html">Math Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td02.html">Transition from Classical to Statistical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td03.html">Boltzmann Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td04.html">State function, dealing with partial derivatives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td05.html">Energy, Entropy and Temperature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td06.html">Free Energy, Pressure, &amp; Gas Laws</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td07.html">Maxwell Relation, Basic Thermodynamics Process, Second and Third Laws of Thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td08.html">The Equipartition Principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td09.html">Chemical Potential</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td10.html">Thermodynamics of Mixing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td11.html">Chemical Equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td12.html">Reaction Dynamics and Kinetics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td13.html">Chemistry of Fluid</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/ch16.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Energy, Entropy and Temperature</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#derive-e-or-e-text-system-for-canonical-ensemble">Derive <span class="math notranslate nohighlight">\(&lt;E&gt;\)</span> or <span class="math notranslate nohighlight">\(E_\text{system}\)</span>. for canonical ensemble</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gibbs-entropy-and-the-definition-of-temperature">Gibbs Entropy and the Definition of Temperature</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maximizing-entropy-using-lagrange-multipliers-maximizing-entropy-using-lagrange-multipliers-unnumbered">Maximizing entropy using Lagrange multipliers {#maximizing-entropy-using-lagrange-multipliers .unnumbered}</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-beta-to-the-bath-and-defining-temperature-connecting-beta-to-the-bath-and-defining-temperature-unnumbered">Connecting <span class="math notranslate nohighlight">\(\beta\)</span> to the bath and defining temperature {#connecting-beta-to-the-bath-and-defining-temperature .unnumbered}</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-temperature">Definition of Temperature</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gibb-s-entropy-to-boltzmann-entropy-for-microcanonical-ensemble">Gibb’s Entropy to Boltzmann Entropy for microcanonical ensemble</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-first-law-of-thermodynamics">The First Law of Thermodynamics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#internal-energy-as-a-function-of-s-and-v">Internal energy as a function of <span class="math notranslate nohighlight">\(S\)</span> and <span class="math notranslate nohighlight">\(V\)</span>.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-s-and-v-are-the-natural-variables-of-u">Why <span class="math notranslate nohighlight">\(S\)</span> and <span class="math notranslate nohighlight">\(V\)</span> are the natural variables of <span class="math notranslate nohighlight">\(U\)</span>.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remark">Remark.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classical-definition-of-entropy-classical-1824">Classical Definition of Entropy (Classical 1824)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-reversible-why-reversible-unnumbered">Why reversible? {#why-reversible .unnumbered}</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reversible-process-at-constant-volume-reversible-process-at-constant-volume-unnumbered">Reversible process at constant volume {#reversible-process-at-constant-volume .unnumbered}</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connection-to-gibbs-entropy-connection-to-gibbs-entropy-unnumbered">Connection to Gibbs entropy {#connection-to-gibbs-entropy .unnumbered}</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="energy-entropy-and-temperature">
+<h1>Energy, Entropy and Temperature<a class="headerlink" href="#energy-entropy-and-temperature" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>From this point on, we will reconstruct<br />
+“Thermodynamics” from partition function.<br />
+The approach we take is to<br />
+define (or “generate”) thermodynamic variables or function</p>
+<div class="center docutils">
+</div>
+<p>introduce free energies using variables &amp; functions defined above.<br />
+E, A, H, G<br />
+introduce 3 laws of Thermodynamics.</p>
+<p>introduce chemical potential (chemistry class) and describe equilibrium
+from microscopic point of view.</p>
+</section>
+<section id="derive-e-or-e-text-system-for-canonical-ensemble">
+<h2>Derive <span class="math notranslate nohighlight">\(&lt;E&gt;\)</span> or <span class="math notranslate nohighlight">\(E_\text{system}\)</span>. for canonical ensemble<a class="headerlink" href="#derive-e-or-e-text-system-for-canonical-ensemble" title="Link to this heading">#</a></h2>
+<p>For microcanonical ensemble, system energy <span class="math notranslate nohighlight">\(E_{sys}=E\)</span>, For canonical
+ensemble, we can obtain the energy of the system <span class="math notranslate nohighlight">\(&lt;E&gt;\)</span>.</p>
+<p>We have found that</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}_i = \frac{N_i}{N} = \frac{e^{-E_i\beta}}{\sum\limits_i e^{-E_i\beta}}\]</div>
+<p>As mentioned previously, we use <span class="math notranslate nohighlight">\(Z\)</span> for canonical the partition
+function.</p>
+<div class="math notranslate nohighlight">
+\[Z  = \sum\limits_i e^{-\beta E_i}\]</div>
+<p>then,</p>
+<div class="math notranslate nohighlight">
+\[&lt;E&gt; = \sum\limits_i E_i \mathbb{P}_i = \frac{\sum\limits_i E_i e^{-\beta E_i}}{\sum\limits_i e^{-\beta E_i}}\]</div>
+<p>Since <span class="math notranslate nohighlight">\(\frac{d}{d\beta} e^{-\beta E_i} = -E_i e^{-\beta E_i}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[-\left(\frac{\partial \ln Z}{\partial \beta}\right)= -\frac{1}{Z}\left(\frac{\partial Z}{\partial \beta}\right) = \frac{1}{Z}\sum\limits_i E_i e^{-\beta E_i} = &lt;E&gt;\]</div>
+<p>Note that we are dealing with NVT ensemble here. For that reason, Our
+partition function is denoted as <span class="math notranslate nohighlight">\(Z\)</span>. Different ensemble uses different
+partition function and letter used for those partition function will be
+different.<br />
+<span class="math notranslate nohighlight">\(\star\)</span> One way to predict the fluctuation of E<br />
+of the system can be achieved by<br />
+calculating variance of energy.<br />
+$<span class="math notranslate nohighlight">\(\sigma^2 = &lt;E^2&gt; -&lt;E&gt;^2\)</span>$</p>
+<p>[HW]{.underline}<br />
+Calculate <span class="math notranslate nohighlight">\(\sigma^2\)</span> in terms of <span class="math notranslate nohighlight">\(Z\)</span>.\</p>
+<p>Go over <span class="math notranslate nohighlight">\(&lt;E&gt;\)</span> &amp; somehow get <span class="math notranslate nohighlight">\(&lt;E^2&gt;\)</span>.</p>
+</section>
+<section id="gibbs-entropy-and-the-definition-of-temperature">
+<h2>Gibbs Entropy and the Definition of Temperature<a class="headerlink" href="#gibbs-entropy-and-the-definition-of-temperature" title="Link to this heading">#</a></h2>
+<p>Consider a system in contact with a large heat bath, forming a canonical
+ensemble. In this ensemble, the system’s energy can fluctuate, but the
+temperature is held constant by the bath. We start from the <strong>Gibbs
+definition of entropy</strong> for the system:</p>
+<div class="math notranslate nohighlight">
+\[\boxed{
+S_\mathrm{system} = - k_B \sum_j\mathbb{P}_j(E_j)\ln \mathbb{P}_j (E_j)
+}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathbb{P}_j\)</span> is the probability that the system occupies
+microstate <span class="math notranslate nohighlight">\(j\)</span> with energy <span class="math notranslate nohighlight">\(E_j\)</span>. Our goal is to determine the
+equilibrium distribution <span class="math notranslate nohighlight">\(\mathbb{P}_j\)</span> that maximizes
+<span class="math notranslate nohighlight">\(S_\mathrm{system}\)</span> under the constraints:</p>
+<div class="math notranslate nohighlight">
+\[\sum_j \mathbb{P}_j = 1, \qquad
+\sum_j \mathbb{P}_j E_j = \langle E \rangle.\]</div>
+<section id="maximizing-entropy-using-lagrange-multipliers-maximizing-entropy-using-lagrange-multipliers-unnumbered">
+<h3>Maximizing entropy using Lagrange multipliers {#maximizing-entropy-using-lagrange-multipliers .unnumbered}<a class="headerlink" href="#maximizing-entropy-using-lagrange-multipliers-maximizing-entropy-using-lagrange-multipliers-unnumbered" title="Link to this heading">#</a></h3>
+<p>Introduce Lagrange multipliers <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> to enforce the
+constraints. We extremize the functional:</p>
+<div class="math notranslate nohighlight">
+\[\Phi = S_\mathrm{system} - k_B \alpha \left( \sum_j \mathbb{P}_j - 1 \right) - k_B \beta \left( \sum_j \mathbb{P}_j E_j - \langle E \rangle \right).\]</div>
+<p>Taking derivatives with respect to <span class="math notranslate nohighlight">\(\mathbb{P}_j\)</span> and setting them to
+zero:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial \Phi}{\partial \mathbb{P}_j} = -k_B \ln \mathbb{P}_j - k_B + k_B \alpha + k_B \beta E_j = 0
+\quad \Rightarrow \quad
+\ln \mathbb{P}_j = \alpha - \beta E_j.\]</div>
+<p>Exponentiating and normalizing gives the <strong>canonical (Boltzmann)
+distribution from the partition function</strong>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{equation}
+\mathbb{P}_j = \frac{e^{-\beta E_j}}{Z}, 
+\qquad 
+Z = \sum_j e^{-\beta E_j}
+\tag{Eq 1}
+\end{equation}\]</div>
+<p>Here <span class="math notranslate nohighlight">\(Z\)</span> is the canonical partition function, and <span class="math notranslate nohighlight">\(\beta\)</span> is, so far, a
+Lagrange multiplier associated with the constraint on the average
+energy.</p>
+</section>
+<section id="connecting-beta-to-the-bath-and-defining-temperature-connecting-beta-to-the-bath-and-defining-temperature-unnumbered">
+<h3>Connecting <span class="math notranslate nohighlight">\(\beta\)</span> to the bath and defining temperature {#connecting-beta-to-the-bath-and-defining-temperature .unnumbered}<a class="headerlink" href="#connecting-beta-to-the-bath-and-defining-temperature-connecting-beta-to-the-bath-and-defining-temperature-unnumbered" title="Link to this heading">#</a></h3>
+<p>The system is in contact with a macroscopic heat bath. The probability
+of finding the system in state <span class="math notranslate nohighlight">\(j\)</span> is proportional to the number of bath
+microstates available when the bath has energy
+<span class="math notranslate nohighlight">\(E_\mathrm{bath} = E_\mathrm{tot} - E_j\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}_j \propto \Omega_B(E_\mathrm{bath}) = \Omega_B(E_\mathrm{tot} - E_j).\]</div>
+<p>For clarity, this can be written explicitly as:</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}_j = \frac{\Omega_B(E_\mathrm{tot} - E_j)}{\Omega_B(E_\mathrm{tot})}.\]</div>
+<p>Expanding <span class="math notranslate nohighlight">\(\ln \Omega_B(E_\mathrm{tot} - E_j)\)</span> to first order (valid for
+a macroscopic bath):</p>
+<div class="math notranslate nohighlight">
+\[\ln \Omega_B(E_\mathrm{tot} - E_j) 
+\approx \ln \Omega_B(E_\mathrm{tot}) - E_j \left. \frac{\partial \ln \Omega_B}{\partial E_B} \right|_{E_\mathrm{tot}}.\]</div>
+<p>Exponentiating gives the <strong>canonical distribution from the bath</strong>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{equation}
+\mathbb{P}_j = \frac{\Omega_B(E_\mathrm{tot} - E_j)}{\Omega_B(E_\mathrm{tot})} \approx e^{- \beta E_j}, 
+\qquad 
+\beta = \left. \frac{\partial \ln \Omega_B}{\partial E_B} \right|_{E_\mathrm{tot}}
+\tag{Eq 2}
+\end{equation}\]</div>
+<p>This shows that **Eq1 and Eq2 are identical in form**, confirming
+that the Lagrange multiplier <span class="math notranslate nohighlight">\(\beta\)</span> is physically the slope of the bath
+entropy with respect to energy.</p>
+</section>
+<section id="definition-of-temperature">
+<h3>Definition of Temperature<a class="headerlink" href="#definition-of-temperature" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}\frac{1}{T} = \frac{\partial S_B}{\partial E_B} = k_B \frac{\partial \ln \Omega_B}{\partial E_B} 
+\quad \Rightarrow \quad \beta = \frac{1}{k_B T}.$$ The first equality is
+the definition of Temperature. Note that the temperature is properly
+defined for the **bath**, not the small system inside it:\\Since the total energy of the system and bath is fixed,
+$$E_\mathrm{tot} = E_\mathrm{system} + E_B,$$ the combined system is
+microcanonical, and its total entropy can also be expressed in the
+Boltzmann form(see the following section):\\$$S_\mathrm{tot} = k_B \ln \Omega_\mathrm{tot}(E_\mathrm{tot}).\end{aligned}\end{align} \]</div>
+<p>Because the system is small compared with the bath, the probability of
+finding the system in a microstate of energy <span class="math notranslate nohighlight">\(E_j\)</span> is proportional to
+the number of bath microstates at energy <span class="math notranslate nohighlight">\(E_B = E_\mathrm{tot} - E_j\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}_j \propto \Omega_B(E_\mathrm{tot} - E_j) \approx e^{-\beta E_j}.\]</div>
+<p>Thus, the canonical distribution naturally emerges from the
+microcanonical description of the bath.</p>
+<p>[HW]{.underline} Using the definition of Gibb’s entropy, can you show
+that S is really extensive? (hint, think of 2 independent system and
+think about its probability as a product. )\</p>
+</section>
+</section>
+<section id="gibb-s-entropy-to-boltzmann-entropy-for-microcanonical-ensemble">
+<h2>Gibb’s Entropy to Boltzmann Entropy for microcanonical ensemble<a class="headerlink" href="#gibb-s-entropy-to-boltzmann-entropy-for-microcanonical-ensemble" title="Link to this heading">#</a></h2>
+<p>Before we do this, Gibb’s entropy is correct form of entropy but
+Boltzmann Entropy is a special form of Gibb’s entropy which only works
+in microcanonical ensemble (isolated system where each state has equal
+probability)<br />
+Starting out with its definition<br />
+$<span class="math notranslate nohighlight">\(S_\text{system}= -k_B\sum\limits_j \mathbb{P}_j (E_j)\ln \mathbb{P}_j (E_j) = -k_B \sum_{j}^{\Omega} \mathbb{P}(E)\ln{\mathbb{P}(E)}  \text{\hspace{30pt} for microcanonical ensemble}\)</span><span class="math notranslate nohighlight">\(
+Since all states are equally probable, \)</span>\mathbb{P}(E)=\frac{1}{\Omega}<span class="math notranslate nohighlight">\(\
+\)</span><span class="math notranslate nohighlight">\(S_\text{system}= -k_B \frac{\Omega}{\Omega} \ln{\frac{1}{\Omega}} =k_B \ln{\Omega}\)</span>$</p>
+<div class="math notranslate nohighlight">
+\[\text{\hspace{60pt}} S_\text{system}=k_B \ln{\Omega}  \text{\hspace{30pt} Boltzmann entropy}\]</div>
+<p>[HW]{.underline} We have used the fact that S is extensive (size
+dependent). Using the definition of Boltzmann entropy(microcanonical
+ensemble), can you show that S is really extensive? (hint, think of 2
+independent system and think about its degeneracy as a whole.
+<span class="math notranslate nohighlight">\(\Omega_{total}=\Omega_{1}+\Omega_{2}\)</span> )</p>
+</section>
+<section id="the-first-law-of-thermodynamics">
+<h2>The First Law of Thermodynamics<a class="headerlink" href="#the-first-law-of-thermodynamics" title="Link to this heading">#</a></h2>
+<p>Now that we have defined temperature <span class="math notranslate nohighlight">\(T\)</span> and entropy <span class="math notranslate nohighlight">\(S\)</span>, we can state
+the <em>first law of thermodynamics</em>, which expresses the conservation of
+energy. Energy cannot be created or destroyed; it can only be
+transferred between the system and its surroundings.</p>
+<p>There are two modes of energy transfer:</p>
+<ul class="simple">
+<li><p><strong>Work</strong>, denoted <span class="math notranslate nohighlight">\(\delta w\)</span>,</p></li>
+<li><p><strong>Heat</strong>, denoted <span class="math notranslate nohighlight">\(\delta q\)</span>.</p></li>
+</ul>
+<p>Because both <span class="math notranslate nohighlight">\(\delta w\)</span> and <span class="math notranslate nohighlight">\(\delta q\)</span> depend on the path taken by the
+system, they are written with the symbol “<span class="math notranslate nohighlight">\(\delta\)</span>” rather than “<span class="math notranslate nohighlight">\(d\)</span>”.
+The internal energy <span class="math notranslate nohighlight">\(U\)</span>, however, is a state function.</p>
+<p>Thus the first law is written as $<span class="math notranslate nohighlight">\(dU = \delta q + \delta w.\)</span>$</p>
+<section id="internal-energy-as-a-function-of-s-and-v">
+<h3>Internal energy as a function of <span class="math notranslate nohighlight">\(S\)</span> and <span class="math notranslate nohighlight">\(V\)</span>.<a class="headerlink" href="#internal-energy-as-a-function-of-s-and-v" title="Link to this heading">#</a></h3>
+<p>For a simple compressible system, the internal energy can be expressed
+as a function of entropy and volume, $<span class="math notranslate nohighlight">\(U = U(S,V).\)</span><span class="math notranslate nohighlight">\( Its total
+differential is \)</span>$dU
+= \left( \frac{\partial U}{\partial S} \right)_V dS</p>
+<ul class="simple">
+<li><p>\left( \frac{\partial U}{\partial V} \right)_S dV .$$</p></li>
+</ul>
+<p>The thermodynamic definition of work for such a system is
+$<span class="math notranslate nohighlight">\(\delta w = -P\, dV,\)</span><span class="math notranslate nohighlight">\( where \)</span>P<span class="math notranslate nohighlight">\( is the pressure. Comparing this with
+the \)</span>dV<span class="math notranslate nohighlight">\( term in \)</span>dU<span class="math notranslate nohighlight">\( shows that
+\)</span><span class="math notranslate nohighlight">\(\left( \frac{\partial U}{\partial V} \right)_S = -P .\)</span>$</p>
+<p>Similarly, by comparing the <span class="math notranslate nohighlight">\(dS\)</span> term in <span class="math notranslate nohighlight">\(dU\)</span> with <span class="math notranslate nohighlight">\(\delta q\)</span>, we
+identify $<span class="math notranslate nohighlight">\(\left( \frac{\partial U}{\partial S} \right)_V = T,\)</span>$ which
+is consistent with our definition of temperature obtained from
+reversible heat transfer.</p>
+<p>Substituting both identifications into the total differential yields the
+fundamental thermodynamic equation: $<span class="math notranslate nohighlight">\(dU = T\, dS - P\, dV.\)</span>$</p>
+</section>
+<section id="why-s-and-v-are-the-natural-variables-of-u">
+<h3>Why <span class="math notranslate nohighlight">\(S\)</span> and <span class="math notranslate nohighlight">\(V\)</span> are the natural variables of <span class="math notranslate nohighlight">\(U\)</span>.<a class="headerlink" href="#why-s-and-v-are-the-natural-variables-of-u" title="Link to this heading">#</a></h3>
+<p>If the entropy <span class="math notranslate nohighlight">\(S\)</span> and volume <span class="math notranslate nohighlight">\(V\)</span> of a system are specified and the
+system is allowed to relax to equilibrium, the internal energy <span class="math notranslate nohighlight">\(U\)</span> takes
+on a unique value. Moreover, the partial derivatives of <span class="math notranslate nohighlight">\(U(S,V)\)</span>
+directly give the thermodynamic quantities <span class="math notranslate nohighlight">\(T\)</span> and <span class="math notranslate nohighlight">\(P\)</span> in their simplest
+form: $<span class="math notranslate nohighlight">\(T = \left( \frac{\partial U}{\partial S} \right)_V, 
+\qquad
+-P = \left( \frac{\partial U}{\partial V} \right)_S.\)</span><span class="math notranslate nohighlight">\( For this reason
+we say that *\)</span>S<span class="math notranslate nohighlight">\( and \)</span>V<span class="math notranslate nohighlight">\( are the natural variables of \)</span>U$*.</p>
+</section>
+<section id="remark">
+<h3>Remark.<a class="headerlink" href="#remark" title="Link to this heading">#</a></h3>
+<p>The derivative <span class="math notranslate nohighlight">\(\left( \frac{\partial U}{\partial V} \right)_S\)</span>
+represents the pressure at constant entropy. Although processes at
+exactly constant entropy are difficult to realize in the laboratory, the
+expression is extremely useful theoretically. It serves as a starting
+point for constructing other thermodynamic potentials via Legendre
+transforms, such as the Helmholtz free energy <span class="math notranslate nohighlight">\(A(T,V)\)</span>, whose natural
+variables are often more convenient for practical calculations.</p>
+</section>
+</section>
+<section id="classical-definition-of-entropy-classical-1824">
+<h2>Classical Definition of Entropy (Classical 1824)<a class="headerlink" href="#classical-definition-of-entropy-classical-1824" title="Link to this heading">#</a></h2>
+<p>Sadi Carnot published exactly one scientific book in his lifetime: This
+is the foundational text of thermodynamics. But Carnot did not derive
+entropy—Rudolf Clausius (1850–1865) defined the entropy based on
+Carnot idea (he found <span class="math notranslate nohighlight">\(\frac{q}{T}\)</span> is important). The concept of
+temperature introduced from the bath in the previous section is
+consistent with classical thermodynamics. From the first law of
+thermodynamics for a system:</p>
+<div class="math notranslate nohighlight">
+\[dE = \delta q + \delta w,\]</div>
+<p>we can define a thermodynamic entropy <span class="math notranslate nohighlight">\(S\)</span> using reversible processes.</p>
+<section id="why-reversible-why-reversible-unnumbered">
+<h3>Why reversible? {#why-reversible .unnumbered}<a class="headerlink" href="#why-reversible-why-reversible-unnumbered" title="Link to this heading">#</a></h3>
+<p>Entropy is a <strong>state function</strong>, which means it depends only on the
+equilibrium state of the system, not on the path taken. However, the
+ratio <span class="math notranslate nohighlight">\(\delta q / T\)</span> is <em>not automatically an exact differential</em> for
+arbitrary processes. Only in a <strong>reversible (quasi-static) process</strong>,
+where the system is infinitesimally close to equilibrium at all times,
+does</p>
+<div class="math notranslate nohighlight">
+\[dS = \frac{\delta q_\mathrm{rev}}{T}\]</div>
+<p>become exact. If the process were irreversible, dissipative effects
+(e.g., friction, gradients, turbulence) would cause the heat exchange to
+differ from the equilibrium energy change, so <span class="math notranslate nohighlight">\(\delta q / T\)</span> would not
+match the change in entropy.</p>
+</section>
+<section id="reversible-process-at-constant-volume-reversible-process-at-constant-volume-unnumbered">
+<h3>Reversible process at constant volume {#reversible-process-at-constant-volume .unnumbered}<a class="headerlink" href="#reversible-process-at-constant-volume-reversible-process-at-constant-volume-unnumbered" title="Link to this heading">#</a></h3>
+<p>Consider an infinitesimal reversible process at constant volume
+(<span class="math notranslate nohighlight">\(\delta w = 0\)</span>, <span class="math notranslate nohighlight">\(dV = 0\)</span>), in which the system exchanges only heat with
+the surroundings:</p>
+<div class="math notranslate nohighlight">
+\[dE = \delta q_\mathrm{rev}.\]</div>
+<p>By definition of temperature, we can write:</p>
+<div class="math notranslate nohighlight">
+\[dS = \frac{\delta q_\mathrm{rev}}{T}.\]</div>
+<p>The change in entropy between two equilibrium states is obtained by
+integration along a reversible path:</p>
+<div class="math notranslate nohighlight">
+\[\Delta S = \int \frac{\delta q_\mathrm{rev}}{T}.\]</div>
+</section>
+<section id="connection-to-gibbs-entropy-connection-to-gibbs-entropy-unnumbered">
+<h3>Connection to Gibbs entropy {#connection-to-gibbs-entropy .unnumbered}<a class="headerlink" href="#connection-to-gibbs-entropy-connection-to-gibbs-entropy-unnumbered" title="Link to this heading">#</a></h3>
+<p>In the canonical ensemble, the system exchanges energy with a large
+bath. For a quasi-static (infinitesimal) process, the <strong>average energy
+change</strong> of the system corresponds to the heat exchanged:</p>
+<div class="math notranslate nohighlight">
+\[d\langle E \rangle = \delta q_\mathrm{rev}.\]</div>
+<p>Using the bath-based temperature <span class="math notranslate nohighlight">\(T\)</span> defined previously, we then have:</p>
+<div class="math notranslate nohighlight">
+\[dS_\mathrm{system} = \frac{d\langle E \rangle}{T} = \frac{\delta q_\mathrm{rev}}{T}.\]</div>
+<p>Thus, the Gibbs/statistical definition of entropy naturally reduces to
+the classical Carnot definition for reversible processes, and the two
+are fully consistent.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#derive-e-or-e-text-system-for-canonical-ensemble">Derive <span class="math notranslate nohighlight">\(&lt;E&gt;\)</span> or <span class="math notranslate nohighlight">\(E_\text{system}\)</span>. for canonical ensemble</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gibbs-entropy-and-the-definition-of-temperature">Gibbs Entropy and the Definition of Temperature</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maximizing-entropy-using-lagrange-multipliers-maximizing-entropy-using-lagrange-multipliers-unnumbered">Maximizing entropy using Lagrange multipliers {#maximizing-entropy-using-lagrange-multipliers .unnumbered}</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-beta-to-the-bath-and-defining-temperature-connecting-beta-to-the-bath-and-defining-temperature-unnumbered">Connecting <span class="math notranslate nohighlight">\(\beta\)</span> to the bath and defining temperature {#connecting-beta-to-the-bath-and-defining-temperature .unnumbered}</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-temperature">Definition of Temperature</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gibb-s-entropy-to-boltzmann-entropy-for-microcanonical-ensemble">Gibb’s Entropy to Boltzmann Entropy for microcanonical ensemble</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-first-law-of-thermodynamics">The First Law of Thermodynamics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#internal-energy-as-a-function-of-s-and-v">Internal energy as a function of <span class="math notranslate nohighlight">\(S\)</span> and <span class="math notranslate nohighlight">\(V\)</span>.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-s-and-v-are-the-natural-variables-of-u">Why <span class="math notranslate nohighlight">\(S\)</span> and <span class="math notranslate nohighlight">\(V\)</span> are the natural variables of <span class="math notranslate nohighlight">\(U\)</span>.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remark">Remark.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classical-definition-of-entropy-classical-1824">Classical Definition of Entropy (Classical 1824)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-reversible-why-reversible-unnumbered">Why reversible? {#why-reversible .unnumbered}</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reversible-process-at-constant-volume-reversible-process-at-constant-volume-unnumbered">Reversible process at constant volume {#reversible-process-at-constant-volume .unnumbered}</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connection-to-gibbs-entropy-connection-to-gibbs-entropy-unnumbered">Connection to Gibbs entropy {#connection-to-gibbs-entropy .unnumbered}</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hideya Koizumi & Eiko Koizumi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

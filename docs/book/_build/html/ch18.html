@@ -1,0 +1,833 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Maxwell Relation, Basic Thermodynamics Process, Second and Third Laws of Thermodynamics &#8212; Physical Chemistry Through Computer Simulations</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"uvec": ["\\hat{\\mathbf{#1}}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch18';</script>
+    <link rel="icon" href="_static/favicon.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Physical Chemistry Through Computer Simulations</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Physical Chemistry Through Computer Simulations
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Quantum Mechanics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="qm01.html">Math Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm02.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm03.html">Foundation of Quantum Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm04.html">Simple Quantum Mechanical Models and Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm05.html">Hydrogen-Like Atom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm06.html">Approximation Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm07.html">Electron Spin (Quantum Mechanics Concept)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm08.html">System Containing Only One Atom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm09.html">System Containing Two Atoms (Diatomic System)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm10.html">Hybrid Orbitals in Polyatomic Molecule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm11.html">Symmetry, Group Theory, Representation Theory and Thier Application to Chemistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm12.html">Molecular Spectroscopy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm13.html">Resonance by Variational Methods</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Thermodynamics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="td01.html">Math Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td02.html">Transition from Classical to Statistical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td03.html">Boltzmann Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td04.html">State function, dealing with partial derivatives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td05.html">Energy, Entropy and Temperature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td06.html">Free Energy, Pressure, &amp; Gas Laws</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td07.html">Maxwell Relation, Basic Thermodynamics Process, Second and Third Laws of Thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td08.html">The Equipartition Principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td09.html">Chemical Potential</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td10.html">Thermodynamics of Mixing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td11.html">Chemical Equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td12.html">Reaction Dynamics and Kinetics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td13.html">Chemistry of Fluid</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/ch18.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Maxwell Relation, Basic Thermodynamics Process, Second and Third Laws of Thermodynamics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Maxwell Relation, Basic Thermodynamics Process, Second and Third Laws of Thermodynamics</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maxwell-relation">Maxwell Relation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-of-basic-thermodynamic-process">Example of Basic Thermodynamic Process</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-definition-of-heat-capacity-using-the-definition-of-heat-capacity-unnumbered">Using the definition of heat capacity {#using-the-definition-of-heat-capacity .unnumbered}</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-a-maxwell-relation-using-a-maxwell-relation-unnumbered">Using a Maxwell relation {#using-a-maxwell-relation .unnumbered}</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#from-the-helmholtz-free-energy-a-u-ts-qquad-da-s-dt-p-dv-we-obtain-the-maxwell-relation-left-frac-partial-s-partial-v-right-t">From the Helmholtz free energy,
+$<span class="math notranslate nohighlight">\(A = U - TS, \qquad dA = -S\, dT - P\, dV,\)</span><span class="math notranslate nohighlight">\( we obtain the Maxwell
+relation \)</span>$\left(\frac{\partial S}{\partial V}\right)_T</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simplification-for-an-ideal-gas-simplification-for-an-ideal-gas-unnumbered">Simplification for an ideal gas {#simplification-for-an-ideal-gas .unnumbered}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-and-heat-in-a-cyclic-process">Work and Heat in a Cyclic Process</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expected-results-expected-results-unnumbered">Expected Results {#expected-results .unnumbered}</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-conclusion-unnumbered">Conclusion {#conclusion .unnumbered}</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-law-of-thermodynamics">Second Law of Thermodynamics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-homework-unnumbered">Homework {#homework .unnumbered}</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#third-law-of-thermodynamics">Third Law of Thermodynamics</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="maxwell-relation-basic-thermodynamics-process-second-and-third-laws-of-thermodynamics">
+<h1>Maxwell Relation, Basic Thermodynamics Process, Second and Third Laws of Thermodynamics<a class="headerlink" href="#maxwell-relation-basic-thermodynamics-process-second-and-third-laws-of-thermodynamics" title="Link to this heading">#</a></h1>
+<section id="maxwell-relation">
+<h2>Maxwell Relation<a class="headerlink" href="#maxwell-relation" title="Link to this heading">#</a></h2>
+<p>So far we have <span class="math notranslate nohighlight">\(U\)</span>, <span class="math notranslate nohighlight">\(H\)</span>, <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(G\)</span> state function of energy.<br />
+Because total derivative of any of these are</p>
+<p>exact, we can use mathematical technique called “Maxwell relation”.\</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{ll}dA &amp;= \left(\frac{\partial A}{\partial V}\right)_TdV + \left(\frac{\partial A}{\partial T}\right)_VdT \cdots \text{total}\\
+dA &amp;= -PdV - SdT
+\end{array}\end{split}\]</div>
+<p>then</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{rcl}
+\begin{array}{l}\left(\frac{\partial A}{\partial V}\right)_T = -P\\ \left(\frac{\partial A}{\partial T}\right)_V = -S\end{array}
+&amp; \overset{\text{exact}}{\Rightarrow} &amp; \left(\frac{\partial P}{\partial T}\right)_V = \left(\frac{\partial S}{\partial V}\right)_T\\
+&amp; &amp; \text{\hspace{30pt}} \downarrow\\
+&amp; &amp; \text{ Maxwell relation }
+\end{array}$$ [HW]{.underline}\
+Obtain all other Maxwell relation.\
+$$\begin{array}{c|c|c}
+\text{Thermodynamic energy} &amp; \text{Total diff} &amp; \text{Maxwell relation}\\
+&amp; &amp; \\
+U &amp; dU = TdS-PdV &amp;\left(\frac{\partial T}{\partial V}\right)_S = -\left(\frac{\partial P}{\partial S}\right)_V \\
+&amp; &amp; \\
+H &amp; dH = TdS + VdP &amp; \left(\frac{\partial T}{\partial P}\right)_S = \left(\frac{\partial V}{\partial S}\right)_P\\
+&amp; &amp; \\
+A &amp; dA = -SdT-PdV &amp; \left(\frac{\partial S}{\partial V}\right)_T = \left(\frac{\partial P}{\partial T}\right)_V \\
+&amp; &amp; \\
+G &amp; dG = -SdT+VdP &amp; \left(\frac{\partial S}{\partial P}\right)_T = -\left(\frac{\partial V}{\partial T}\right)_P 
+\end{array}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+T =\left(\frac{\partial U}{\partial S}\right)_V = \left(\frac{\partial H}{\partial S}\right)_P\\
+P =-\left(\frac{\partial U}{\partial V}\right)_S = -\left(\frac{\partial A}{\partial V}\right)_T\\
+S = -\left(\frac{\partial A}{\partial T}\right)_V = -\left(\frac{\partial G}{\partial T}\right)_P\\
+V = \left(\frac{\partial H}{\partial P}\right)_S = \left(\frac{\partial G}{\partial P}\right)_T
+\end{align*}\end{split}\]</div>
+<p>Example of use of Maxwell relation<br />
+Compute <span class="math notranslate nohighlight">\(\Delta S(T,V)\)</span> at const <span class="math notranslate nohighlight">\(T\)</span> for ideal gas.<br />
+$<span class="math notranslate nohighlight">\(\begin{align*}
+\Delta S &amp;= \int_{V_1}^{V_2}\left(\frac{\partial S}{\partial V}\right)_TdV\\
+&amp; \downarrow \text{ Maxwell }\\
+&amp;= \int_{V_1}^{V_2}\left(\frac{\partial P}{\partial T}\right)_VdV\\
+&amp; \downarrow \text{ Ideal gas }\\
+&amp;=\int_{V_1}^{V_2}\frac{nR}{V}dV\\
+&amp;= nR \ln \frac{V_2}{V_1} \hspace{20pt} \text{ isothermal process }
+\end{align*}\)</span>$</p>
+</section>
+<section id="example-of-basic-thermodynamic-process">
+<h2>Example of Basic Thermodynamic Process<a class="headerlink" href="#example-of-basic-thermodynamic-process" title="Link to this heading">#</a></h2>
+<p>We have already discussed that the internal energy <span class="math notranslate nohighlight">\(U\)</span> is a state
+function. We also showed that the <em>natural variables</em> of <span class="math notranslate nohighlight">\(U\)</span> are the
+entropy <span class="math notranslate nohighlight">\(S\)</span> and the volume <span class="math notranslate nohighlight">\(V\)</span>, so that <span class="math notranslate nohighlight">\(U = U(S,V)\)</span> and
+$<span class="math notranslate nohighlight">\(dU = T\, dS - P\, dV.\)</span><span class="math notranslate nohighlight">\( Starting from this expression, we can use
+Maxwell relations to rewrite \)</span>U<span class="math notranslate nohighlight">\( in terms of different variables. In
+particular, we now derive an expression for \)</span>U<span class="math notranslate nohighlight">\( as a function of
+temperature \)</span>T<span class="math notranslate nohighlight">\( and volume \)</span>V$.</p>
+<p>To do this, we want to re-express <span class="math notranslate nohighlight">\(dS\)</span> in terms of <span class="math notranslate nohighlight">\(dT\)</span> and <span class="math notranslate nohighlight">\(dV\)</span>. We
+consider entropy <span class="math notranslate nohighlight">\(S\)</span> as a function of <span class="math notranslate nohighlight">\(T\)</span> and <span class="math notranslate nohighlight">\(V\)</span>: $<span class="math notranslate nohighlight">\(S = S(T,V).\)</span><span class="math notranslate nohighlight">\( Thus
+its total differential is \)</span><span class="math notranslate nohighlight">\(dS = 
+\left(\frac{\partial S}{\partial T}\right)_V dT
++
+\left(\frac{\partial S}{\partial V}\right)_T dV.\)</span><span class="math notranslate nohighlight">\( Substituting this
+into \)</span>dU = T, dS - P, dV<span class="math notranslate nohighlight">\( gives \)</span>$dU =
+T\left(\frac{\partial S}{\partial T}\right)_V dT
++
+T\left(\frac{\partial S}{\partial V}\right)_T dV</p>
+<ul class="simple">
+<li><p>P, dV.$$</p></li>
+</ul>
+<section id="using-the-definition-of-heat-capacity-using-the-definition-of-heat-capacity-unnumbered">
+<h3>Using the definition of heat capacity {#using-the-definition-of-heat-capacity .unnumbered}<a class="headerlink" href="#using-the-definition-of-heat-capacity-using-the-definition-of-heat-capacity-unnumbered" title="Link to this heading">#</a></h3>
+<p>From previous HW problem, the heat capacity at constant volume is
+$<span class="math notranslate nohighlight">\(C_V = T\left(\frac{\partial S}{\partial T}\right)_V.\)</span><span class="math notranslate nohighlight">\( Therefore,
+\)</span>$dU = C_V, dT</p>
+<ul class="simple">
+<li><p>T\left(\frac{\partial S}{\partial V}\right)_T dV</p></li>
+</ul>
+<ul class="simple">
+<li><p>P, dV.$$</p></li>
+</ul>
+</section>
+<section id="using-a-maxwell-relation-using-a-maxwell-relation-unnumbered">
+<h3>Using a Maxwell relation {#using-a-maxwell-relation .unnumbered}<a class="headerlink" href="#using-a-maxwell-relation-using-a-maxwell-relation-unnumbered" title="Link to this heading">#</a></h3>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="from-the-helmholtz-free-energy-a-u-ts-qquad-da-s-dt-p-dv-we-obtain-the-maxwell-relation-left-frac-partial-s-partial-v-right-t">
+<h1>From the Helmholtz free energy,
+$<span class="math notranslate nohighlight">\(A = U - TS, \qquad dA = -S\, dT - P\, dV,\)</span><span class="math notranslate nohighlight">\( we obtain the Maxwell
+relation \)</span>$\left(\frac{\partial S}{\partial V}\right)_T<a class="headerlink" href="#from-the-helmholtz-free-energy-a-u-ts-qquad-da-s-dt-p-dv-we-obtain-the-maxwell-relation-left-frac-partial-s-partial-v-right-t" title="Link to this heading">#</a></h1>
+<p>\left(\frac{\partial P}{\partial T}\right)_V.$<span class="math notranslate nohighlight">\( Substituting this into
+our expression for \)</span>dU<span class="math notranslate nohighlight">\(, we obtain \)</span>$dU = C_V, dT</p>
+<ul class="simple">
+<li><p>T\left(\frac{\partial P}{\partial T}\right)_V dV</p></li>
+</ul>
+<ul class="simple">
+<li><p>P, dV.$$</p></li>
+</ul>
+<p>Thus, the general expression is $<span class="math notranslate nohighlight">\(\boxed{
+dU = C_V\, dT + 
+\bigg[\, T\left(\frac{\partial P}{\partial T}\right)_V - P \bigg] dV.
+}\)</span>$</p>
+<section id="simplification-for-an-ideal-gas-simplification-for-an-ideal-gas-unnumbered">
+<h2>Simplification for an ideal gas {#simplification-for-an-ideal-gas .unnumbered}<a class="headerlink" href="#simplification-for-an-ideal-gas-simplification-for-an-ideal-gas-unnumbered" title="Link to this heading">#</a></h2>
+<p>For an ideal gas, $<span class="math notranslate nohighlight">\(P = \frac{nRT}{V}.\)</span><span class="math notranslate nohighlight">\( Therefore,
+\)</span><span class="math notranslate nohighlight">\(\left(\frac{\partial P}{\partial T}\right)_V
+= \frac{nR}{V},
+\qquad
+T\left(\frac{\partial P}{\partial T}\right)_V = \frac{nRT}{V} = P.\)</span>$</p>
+<p>Hence the bracketed term vanishes:
+$<span class="math notranslate nohighlight">\(T\left(\frac{\partial P}{\partial T}\right)_V - P = 0.\)</span>$</p>
+<p>So for an ideal gas, $<span class="math notranslate nohighlight">\(\boxed{
+dU = C_V\, dT.
+}\)</span>$</p>
+<p>This result shows that the internal energy of an ideal gas depends only
+on its temperature and not on its volume. Let’s think this in terms of
+physics.<br />
+Internal energy (<span class="math notranslate nohighlight">\(U\)</span>) is the energy contained in the system (i.e.
+translations, rotations, vibrations of each molecule in the system). The
+internal energy is the energy of the whole system excluding the
+potential energy and kinetic enregy of the whole system. In other words,
+internal energy U does not depend on any variable associated with center
+of mass of the system. In fact, internal energy is a function of
+relative coordinates <span class="math notranslate nohighlight">\(\left( x^{3N-3},p^{3N-3} \right)_{CM}\)</span> of the
+particles cointained in the system. In general, internal energy often
+depends on volume as well as temperature. However, <span class="math notranslate nohighlight">\(U\)</span> for an ideal gas
+(translation, rotation, vibration) is not affected by other molecules
+because ideal gas does not possess any intermolecular interaction. Since
+ideal gas system is composed of completely independent molecules by
+definition, volume has no effect to those the energy contained in the
+system (i.e. translations, rotations, vibrations of each molecule in the
+system). In general, ideal gas are assumed to have zero vibrational <span class="math notranslate nohighlight">\(\&amp;\)</span>
+rotational energies. Although there is no ideal gas found in nature, He
+gas is considered to be close to an ideal gas system.\</p>
+</section>
+<section id="work-and-heat-in-a-cyclic-process">
+<h2>Work and Heat in a Cyclic Process<a class="headerlink" href="#work-and-heat-in-a-cyclic-process" title="Link to this heading">#</a></h2>
+<p>To understand the behavior of the internal energy <span class="math notranslate nohighlight">\(U\)</span>, as well as heat
+<span class="math notranslate nohighlight">\(q\)</span> and work <span class="math notranslate nohighlight">\(w\)</span>, let us examine a simple cyclic process in the <span class="math notranslate nohighlight">\(T\)</span>–<span class="math notranslate nohighlight">\(V\)</span>
+plane. Assume the system is an ideal gas with constant heat capacity
+<span class="math notranslate nohighlight">\(C_V = \frac{3}{2}k_B\)</span> (monatomic ideal gas).</p>
+<p>The cycle consists of four steps:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+&amp;1.\ \textbf{Isothermal expansion} 
+        &amp;&amp; (T_1, V_1) \rightarrow (T_1, V_2) 
+        &amp;&amp; \text{(expansion at constant temperature)} \\
+&amp;2.\ \textbf{Isochoric heating}    
+        &amp;&amp; (T_1, V_2) \rightarrow (T_2, V_2) 
+        &amp;&amp; \text{(temperature increases at constant volume)} \\
+&amp;3.\ \textbf{Isothermal compression} 
+        &amp;&amp; (T_2, V_2) \rightarrow (T_2, V_1) 
+        &amp;&amp; \text{(compression at constant temperature)} \\
+&amp;4.\ \textbf{Isochoric cooling}    
+        &amp;&amp; (T_2, V_1) \rightarrow (T_1, V_1) 
+        &amp;&amp; \text{(temperature decreases at constant volume)}
+\end{align*}\end{split}\]</div>
+<p>[<strong>HW</strong>]{.underline}<br />
+For each step, compute the work <span class="math notranslate nohighlight">\(w\)</span> and heat <span class="math notranslate nohighlight">\(q\)</span> transferred. Use the
+ideal gas law and the expressions $<span class="math notranslate nohighlight">\(w = -\int P_{\mathrm{ext}}\, dV,
+\qquad
+dU = C_V\, dT \qquad (\text{ideal gas}).\)</span>$</p>
+<section id="expected-results-expected-results-unnumbered">
+<h3>Expected Results {#expected-results .unnumbered}<a class="headerlink" href="#expected-results-expected-results-unnumbered" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}\boxed{
+\begin{aligned}
+&amp;\textbf{Step 1 (isothermal expansion)} \\
+&amp; w_1 = -n k_B T_1 \ln\!\left(\frac{V_2}{V_1}\right), 
+\qquad
+q_1 = +n k_B T_1 \ln\!\left(\frac{V_2}{V_1}\right), \\[6pt]
+&amp;\textbf{Step 2 (isochoric heating)} \\
+&amp; w_2 = 0,
+\qquad
+q_2 = \frac{3}{2} n k_B (T_2 - T_1), \\[6pt]
+&amp;\textbf{Step 3 (isothermal compression)}\\
+&amp; w_3 = -n k_B T_2 \ln\!\left(\frac{V_1}{V_2}\right), 
+\qquad
+q_3 = +n k_B T_2 \ln\!\left(\frac{V_1}{V_2}\right), \\[6pt]
+&amp;\textbf{Step 4 (isochoric cooling)} \\
+&amp; w_4 = 0,
+\qquad
+q_4 = \frac{3}{2} n k_B (T_1 - T_2).
+\end{aligned}
+}\end{split}\]</div>
+<p>[<strong>HW:</strong>]{.underline} Add up <span class="math notranslate nohighlight">\(w_1 + w_2 + w_3 + w_4\)</span> and
+<span class="math notranslate nohighlight">\(q_1 + q_2 + q_3 + q_4\)</span> over the entire cycle. Show that neither the
+total work nor the total heat is zero, even though the system returns to
+its initial state <span class="math notranslate nohighlight">\((T_1, V_1)\)</span>.</p>
+</section>
+<section id="conclusion-conclusion-unnumbered">
+<h3>Conclusion {#conclusion .unnumbered}<a class="headerlink" href="#conclusion-conclusion-unnumbered" title="Link to this heading">#</a></h3>
+<p>At the end of the cycle, the system has returned to its original state,
+so its internal energy is unchanged: $<span class="math notranslate nohighlight">\(\Delta U_{\text{cycle}} = 0.\)</span><span class="math notranslate nohighlight">\(
+Therefore, from the first law of thermodynamics,
+\)</span><span class="math notranslate nohighlight">\(\sum q_i + \sum w_i = 0.\)</span>$</p>
+<p>However, the <strong>individual values</strong> of <span class="math notranslate nohighlight">\(\sum q_i\)</span> and <span class="math notranslate nohighlight">\(\sum w_i\)</span> depend
+on <em>the specific path taken in the <span class="math notranslate nohighlight">\(T\)</span>–<span class="math notranslate nohighlight">\(V\)</span> plane</em>. A different cycle
+connecting the same starting and ending point would give different total
+heats and works.</p>
+<div class="math notranslate nohighlight">
+\[\boxed{
+\text{Since } q_{\text{cycle}} \text{ and } w_{\text{cycle}} \text{ depend on the path},
+\quad
+q \text{ and } w \text{ are not state functions.}
+}\]</div>
+<p>This example demonstrates that only <span class="math notranslate nohighlight">\(U\)</span> (and other thermodynamic
+potentials with natural variables) are state functions, while <span class="math notranslate nohighlight">\(q\)</span> and
+<span class="math notranslate nohighlight">\(w\)</span> are path dependent.</p>
+</section>
+</section>
+<section id="second-law-of-thermodynamics">
+<h2>Second Law of Thermodynamics<a class="headerlink" href="#second-law-of-thermodynamics" title="Link to this heading">#</a></h2>
+<p>Up to this point, we have defined entropy only for <strong>reversible</strong>
+processes. For a reversible change, we showed
+$<span class="math notranslate nohighlight">\(dS = \frac{\delta q_{\mathrm{rev}}}{T},\)</span><span class="math notranslate nohighlight">\( and therefore \)</span>S$ is a state
+function.</p>
+<p>However, most real processes in nature are <strong>irreversible</strong>: friction,
+rapid expansion, heat flow across a finite temperature difference, and
+so on. During an irreversible process, the system is not in equilibrium,
+and describing such nonequilibrium states statistically is extremely
+difficult. Thus, we remain within classical thermodynamics and compare
+any real process to a hypothetical reversible path between the same
+initial and final equilibrium states.</p>
+<p><strong>Irreversible work is always larger in magnitude than reversible work</strong></p>
+<p>Consider the work term $<span class="math notranslate nohighlight">\(w = -\int P_{\text{ext}}\, dV.\)</span><span class="math notranslate nohighlight">\( For a
+reversible process, \)</span>P_{\text{ext}}<span class="math notranslate nohighlight">\( is always adjusted so that
+\)</span>P_{\text{ext}} = P_{\text{sys}}<span class="math notranslate nohighlight">\(. For an irreversible expansion,
+\)</span>P_{\text{ext}} &lt; P_{\text{sys}}<span class="math notranslate nohighlight">\(, and the system does less (more
+negative) work in magnitude. Thus,
+\)</span><span class="math notranslate nohighlight">\(w_{\mathrm{irr}} &gt; w_{\mathrm{rev}} \quad \text{(expansion)}.\)</span>$</p>
+<p>A similar argument for compression (<span class="math notranslate nohighlight">\(P_{\text{ext}} &gt; P_{\text{sys}}\)</span>)
+again yields $<span class="math notranslate nohighlight">\(w_{\mathrm{irr}} &gt; w_{\mathrm{rev}}.\)</span><span class="math notranslate nohighlight">\( Therefore, for any
+process, \)</span><span class="math notranslate nohighlight">\(w_{\mathrm{irr}} &gt; w_{\mathrm{rev}}.\)</span>$</p>
+<p><strong>Consequences for heat: the Clausius inequality</strong></p>
+<p>Because internal energy is a state function,
+$<span class="math notranslate nohighlight">\(dU = w_{\mathrm{irr}} + q_{\mathrm{irr}}
+      = w_{\mathrm{rev}} + q_{\mathrm{rev}}.\)</span><span class="math notranslate nohighlight">\( Since
+\)</span>w_{\mathrm{irr}} &gt; w_{\mathrm{rev}}<span class="math notranslate nohighlight">\(, the reversible path must transfer
+more heat: \)</span><span class="math notranslate nohighlight">\(q_{\mathrm{rev}} &gt; q_{\mathrm{irr}}.\)</span>$</p>
+<p>Using the definition of entropy for the reversible path,
+$<span class="math notranslate nohighlight">\(dS = \frac{\delta q_{\mathrm{rev}}}{T},\)</span><span class="math notranslate nohighlight">\( we obtain the **Clausius
+inequality** for irreversible processes: \)</span><span class="math notranslate nohighlight">\(dS \ge \frac{\delta q}{T},\)</span>$
+with equality only for reversible processes.</p>
+<p>Integrating around a cycle gives the engineering form of the Second Law:
+$<span class="math notranslate nohighlight">\(\oint \frac{\delta q}{T} \le 0.\)</span>$</p>
+<p><strong>Statement of the Second Law</strong></p>
+<p>For an isolated system (<span class="math notranslate nohighlight">\(\delta q = 0\)</span>),
+$<span class="math notranslate nohighlight">\(dS_{\text{isolated}} &gt; 0 \qquad \text{(irreversible process)}.\)</span>$ Thus,</p>
+<blockquote>
+<div><p><strong>The entropy of an isolated system never decreases during a
+spontaneous process. It remains constant only for reversible
+processes.</strong></p>
+</div></blockquote>
+<section id="homework-homework-unnumbered">
+<h3>Homework {#homework .unnumbered}<a class="headerlink" href="#homework-homework-unnumbered" title="Link to this heading">#</a></h3>
+<p>[HW]{.underline}<br />
+Consider the work term <span class="math notranslate nohighlight">\(w = -\int P_{\mathrm{ext}}\, dV\)</span>. Draw a
+<span class="math notranslate nohighlight">\(P\)</span>–<span class="math notranslate nohighlight">\(V\)</span> diagram and show that for both expansion and compression,
+$<span class="math notranslate nohighlight">\(w_{\mathrm{irr}} &gt; w_{\mathrm{rev}}.\)</span>$</p>
+<p>[HW]{.underline}<br />
+Using the first law of thermodynamics
+$<span class="math notranslate nohighlight">\(dU = w_{\mathrm{irr}} + q_{\mathrm{irr}} = w_{\mathrm{rev}} + q_{\mathrm{rev}},\)</span><span class="math notranslate nohighlight">\(
+and your result from HW 1, show that
+\)</span><span class="math notranslate nohighlight">\(q_{\mathrm{rev}} &gt; q_{\mathrm{irr}}.\)</span>$</p>
+<p>[HW]{.underline}<br />
+Using the Clausius inequality, derive the engineering form
+$<span class="math notranslate nohighlight">\(\oint \frac{\delta q}{T} \le 0,\)</span><span class="math notranslate nohighlight">\( noting that \)</span>S$ is a state function.</p>
+</section>
+</section>
+<section id="third-law-of-thermodynamics">
+<h2>Third Law of Thermodynamics<a class="headerlink" href="#third-law-of-thermodynamics" title="Link to this heading">#</a></h2>
+<p>Every substance has a finite positive entropy, but at 0K the entropy may
+become 0, and it does so in case of a perfect crystalline substance.\</p>
+<p>From <span class="math notranslate nohighlight">\(dU=C_VdT=TdS-PdV\)</span>, you obtain</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{ll}
+\left(\frac{\partial S}{\partial T}\right)_V &amp;= \frac{C_V}{T}\\
+\left(\frac{\partial S}{\partial V}\right)_T &amp;= \frac{1}{T}\left[P + \left(\frac{\partial u}{\partial V}\right)_T\right]
+\end{array}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{ll}
+dS &amp;= \left(\frac{\partial S}{\partial T}\right)_VdT + \left(\frac{\partial S}{\partial V}\right)_TdV\\
+&amp; \downarrow \text{ const } V\\
+&amp;= \frac{C_V}{T}dT
+\end{array}\end{split}\]</div>
+<p>At low <span class="math notranslate nohighlight">\(T\)</span>,</p>
+<p><span class="math notranslate nohighlight">\(\swarrow\)</span> molar <span class="math notranslate nohighlight">\(\swarrow\)</span> Obtained from solid state phys by Debye</p>
+<div class="math notranslate nohighlight">
+\[\bar{C_P}(T) = \frac{12\pi^4}{5}R\left(\frac{T}{\Theta_P}\right)^3 \hspace{10pt} 0&lt;T&lt;T_\text{low}\]</div>
+<p><span class="math notranslate nohighlight">\(\uparrow\)</span></p>
+<p>Note this is not <span class="math notranslate nohighlight">\(C_V\)</span>.<br />
+So we need the other formula.<br />
+<span class="math notranslate nohighlight">\(dH = TdS + VdP\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left.
+\begin{array} {l}
+\left(\frac{\partial S}{\partial T}\right)_P = \frac{C_P(T)}{T}\\
+\left(\frac{\partial S}{\partial P}\right)_T = \frac{1}{T}\left[\left(\frac{\partial H}{\partial P}\right)_T - V\right]
+\end{array}
+\right\}
+\text{\underline{HW} You derive these.}\end{split}\]</div>
+<p>$\Delta S = \int_{T_1}^{T_2}\frac{C_P(T)}{T} dT<span class="math notranslate nohighlight">\(\
+Now you can plug in Debye's expression and see what happens to \)</span>S<span class="math notranslate nohighlight">\( at
+lower temperature.\
+[HW]{.underline}\
+Compute \)</span>S(T) = \int_{0}^{T}\frac{C_P(T^<em>)}{T^</em>} dT^*$\</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Maxwell Relation, Basic Thermodynamics Process, Second and Third Laws of Thermodynamics</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maxwell-relation">Maxwell Relation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-of-basic-thermodynamic-process">Example of Basic Thermodynamic Process</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-definition-of-heat-capacity-using-the-definition-of-heat-capacity-unnumbered">Using the definition of heat capacity {#using-the-definition-of-heat-capacity .unnumbered}</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-a-maxwell-relation-using-a-maxwell-relation-unnumbered">Using a Maxwell relation {#using-a-maxwell-relation .unnumbered}</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#from-the-helmholtz-free-energy-a-u-ts-qquad-da-s-dt-p-dv-we-obtain-the-maxwell-relation-left-frac-partial-s-partial-v-right-t">From the Helmholtz free energy,
+$<span class="math notranslate nohighlight">\(A = U - TS, \qquad dA = -S\, dT - P\, dV,\)</span><span class="math notranslate nohighlight">\( we obtain the Maxwell
+relation \)</span>$\left(\frac{\partial S}{\partial V}\right)_T</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simplification-for-an-ideal-gas-simplification-for-an-ideal-gas-unnumbered">Simplification for an ideal gas {#simplification-for-an-ideal-gas .unnumbered}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-and-heat-in-a-cyclic-process">Work and Heat in a Cyclic Process</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expected-results-expected-results-unnumbered">Expected Results {#expected-results .unnumbered}</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-conclusion-unnumbered">Conclusion {#conclusion .unnumbered}</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-law-of-thermodynamics">Second Law of Thermodynamics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-homework-unnumbered">Homework {#homework .unnumbered}</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#third-law-of-thermodynamics">Third Law of Thermodynamics</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hideya Koizumi & Eiko Koizumi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

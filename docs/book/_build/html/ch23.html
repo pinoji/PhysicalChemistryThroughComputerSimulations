@@ -1,0 +1,1046 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Reaction Dynamics and Kinetics &#8212; Physical Chemistry Through Computer Simulations</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"uvec": ["\\hat{\\mathbf{#1}}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch23';</script>
+    <link rel="icon" href="_static/favicon.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Physical Chemistry Through Computer Simulations</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Physical Chemistry Through Computer Simulations
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Quantum Mechanics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="qm01.html">Math Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm02.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm03.html">Foundation of Quantum Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm04.html">Simple Quantum Mechanical Models and Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm05.html">Hydrogen-Like Atom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm06.html">Approximation Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm07.html">Electron Spin (Quantum Mechanics Concept)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm08.html">System Containing Only One Atom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm09.html">System Containing Two Atoms (Diatomic System)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm10.html">Hybrid Orbitals in Polyatomic Molecule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm11.html">Symmetry, Group Theory, Representation Theory and Thier Application to Chemistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm12.html">Molecular Spectroscopy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm13.html">Resonance by Variational Methods</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Thermodynamics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="td01.html">Math Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td02.html">Transition from Classical to Statistical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td03.html">Boltzmann Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td04.html">State function, dealing with partial derivatives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td05.html">Energy, Entropy and Temperature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td06.html">Free Energy, Pressure, &amp; Gas Laws</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td07.html">Maxwell Relation, Basic Thermodynamics Process, Second and Third Laws of Thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td08.html">The Equipartition Principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td09.html">Chemical Potential</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td10.html">Thermodynamics of Mixing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td11.html">Chemical Equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td12.html">Reaction Dynamics and Kinetics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td13.html">Chemistry of Fluid</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/ch23.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Reaction Dynamics and Kinetics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#collision-theory">Collision Theory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamics-without-detail">Dynamics without Detail</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kinetics">Kinetics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#th-and-1st-order-reaction">0th and 1st Order Reaction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nd-order-reaction">2nd Order Reaction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reversible-reaction">Reversible Reaction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enzymes">Enzymes</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="reaction-dynamics-and-kinetics">
+<h1>Reaction Dynamics and Kinetics<a class="headerlink" href="#reaction-dynamics-and-kinetics" title="Link to this heading">#</a></h1>
+<p>“Reaction Dynamics” is a branch of physical chemistry which deals with
+the motion of the system under the action of forces. This microscopic
+study is often done in a computer simulation (quantum mechanically or
+classically) and tracking motion of particles in the system (the system
+could contain a large number of particles) can be quite tedious. In this
+field of chemistry, many simulations are performed by combining
+trajectory calculation and probability theory. However, time windows of
+a simulation are often very short because a computational resource is
+limited. Collision theory is useful because one can count the number of
+chances that chemical reaction could happen without tracking all
+particle motion in the system. “Reaction Kinetics” is a study of a
+rate of reactions. Kinetics can be used to identify the reaction
+mechanism as well as some information on transition state. Both Dynamics
+and Kinetics are used to predict how fast the reaction proceeds in given
+conditions.\</p>
+<section id="collision-theory">
+<h2>Collision Theory<a class="headerlink" href="#collision-theory" title="Link to this heading">#</a></h2>
+<p>At the beginning of the semester, we derived<br />
+M-B speed distribution.<br />
+$<span class="math notranslate nohighlight">\(f(v) = 4\pi\left(\frac{m}{2\pi k_BT}\right)^{3/2}v^2e^{-\frac{mv^2}{2k_BT}}\)</span>$</p>
+<p>We also obtained,</p>
+<div class="math notranslate nohighlight">
+\[&lt;v&gt; = \left(\frac{8k_BT}{\pi m}\right)^{1/2}\]</div>
+<p>From this point on, we will try to understand
+<span class="math notranslate nohighlight">\(\left(\begin{tabular}{l} \text{mean free path  (MFP)}\\ \text{collision frequency (\)</span>z<span class="math notranslate nohighlight">\()}\end{tabular} \right.\)</span><br />
+Since velocity of a particle is completely independent of other
+particle’s velocity (these vectors are orthogonal), relative speed is
+expressed as\</p>
+<div class="center docutils">
+</div>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(200,230) (0,0)<span><img src="Collision.png" style="width:10cm"
+alt="image" /></span></p>
+</div>
+<p><br />
+</p>
+<figcaption>Collision of atoms</figcaption>
+</figure>
+<p>Volume of space covered in 1 second is</p>
+<div class="math notranslate nohighlight">
+\[v = \pi d^2 \cdot v_\text{rel} \overset{1}{\overset{\rotatebox{90}{=}}{t}} = v_\text{rel}\pi d^2\]</div>
+<div class="center docutils">
+<p># of particles that can be found inside<br />
+<br />
+<span class="math notranslate nohighlight">\(\begin{array}{rl}
+\rho\cdot V = \sigma v_\text{rel}\cdot \frac{N}{V} &amp;= \sigma v_\text{rel} \frac{nN_A}{V}\\
+&amp;= \sigma v_\text{rel}\frac{\cancel{n}N_A}{\cancel{n}RT/P}\\
+&amp;=\sigma v_\text{rel}\frac{P}{k_BT}
+\end{array}\)</span></p>
+<p>+:————–+:——————————————————————+
+|   ———– | <span class="math notranslate nohighlight">\(z = \frac{\sigma v_\text{rel}P}{k_BT} = \sigma v_\text{rel}\rho\)</span> |
+|   Collision   |                                                                   |
+|   freq        |                                                                   |
+|   for the     |                                                                   |
+|   molecule    |                                                                   |
+|   ———– |                                                                   |
++—————+——————————————————————-+</p>
+</div>
+<p><span class="math notranslate nohighlight">\(\star\)</span> Mean Free Path (MFP)</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+\lambda&amp;=\frac{&lt;v&gt;}{z}\\
+&amp;=\frac{k_BT}{\sqrt{2}\sigma P}
+\end{align*}\end{split}\]</div>
+<p>[HW]{.underline}\</p>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(200,100) (0,0)<span><img src="Tylenol.png" style="width:5cm"
+alt="image" /></span></p>
+</div>
+<p><br />
+</p>
+<figcaption>Nitrogen molecule</figcaption>
+</figure>
+<div class="center docutils">
+<hr/>  Calculate mean free path of N$_2$.
+  Use bond length 1.45Åand nitrogen atom $VdW$ radii = 1.55Å.
+  Calculate volume of $\leftarrow$ looks like Tylenol pill
+  Assume cow is spherical.
+  Obtain $r$.
+  Get $\sigma(r)$.
+<hr/>:::
+<p>[HW]{.underline}<br />
+Calculate mean free path of N<span class="math notranslate nohighlight">\(_2\)</span> at 1 ATM &amp; <span class="math notranslate nohighlight">\(10^{-6}\)</span> &#64; 298K.\</p>
+<p><span class="math notranslate nohighlight">\(\star\)</span> Pressure in terms of gas kinetics (small detour).<br />
+Consider the box containing ideal gas (no interaction) moving <span class="math notranslate nohighlight">\(\perp\)</span> to
+bc surface.</p>
+<div class="math notranslate nohighlight">
+\[\text{Time interval between collision } = \Delta T = \frac{2a}{u_x}\]</div>
+<div class="math notranslate nohighlight">
+\[\text{Momentum change } = \Delta P_x = 2mu_x\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{\Delta P_x}{\Delta t} = \frac{mu_x^2}{a} \cdots \text{ Momentum change per each second } \leftarrow \text{for 1 particle}\]</div>
+<p><span class="math notranslate nohighlight">\(P = \frac{mu_x^2}{abc}=\frac{mu_x^2}{V}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\uparrow\)</span> Pressure<br />
+<span class="math notranslate nohighlight">\(\underset{Ave}{\underline{\left(\frac{\Delta P}{\Delta t}\right)}} \leftarrow\)</span>
+Force<br />
+$<span class="math notranslate nohighlight">\(PV = mu_x^2 \cdots \text{ For system having one particle } \leftarrow \text{ not precisely what I can say ( \)</span>P<span class="math notranslate nohighlight">\( is bulk property.)}\)</span>$</p>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(100,180) (-10,0)<span><img src="Pressure.png" style="height:6.5cm"
+alt="image" /></span></p>
+</div>
+<p><br />
+</p>
+<figcaption>Pressure in terms of collision of a particle to the
+wall</figcaption>
+</figure>
+<p>Work with <span class="math notranslate nohighlight">\(N\)</span> particles.<br />
+$<span class="math notranslate nohighlight">\(P = \sum\limits_{i=1}^N \frac{mu_{x_i}^2}{V} = \frac{m}{V} \sum\limits_{i=1}^N u_{x_i}^2 =\frac{N}{V}m\left&lt;u_{x_i}\right&gt;^2\)</span>$</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+PV &amp;= Nm&lt;u_{x_i}^2&gt;\\
+&amp; \text{ Note\hspace{50pt}} u^2 = u_x^2+u_y^2+u_z^2\\
+&amp;= \frac{1}{3}Nm&lt;u^2&gt;
+\end{align*}\end{split}\]</div>
+<p>from equipartition
+<span class="math notranslate nohighlight">\(\left&lt;E\right&gt;_{trans}=\frac{1}{2}m&lt;u^2&gt; = \frac{3}{2}k_BT\Rightarrow m&lt;u^2&gt; = 3k_BT\)</span><br />
+<span class="math notranslate nohighlight">\(PV = nRT \cdots\)</span> ideal gas law //\</p>
+<p>$\star$Relation Between Mean Free Path and Reaction Rate\</p>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(100,180) (-10,0)<span><img src="NumCollisions.png"
+style="height:6.5cm" alt="image" /></span></p>
+</div>
+<p><br />
+</p>
+<figcaption>Collision probability</figcaption>
+</figure>
+<hr/>   Probability of collision in the shaded slab
+                $\sigma \rho$ dx
+<hr/>
+\
+Consider molecular beam (no particle traveling with same velocity).\
+Let $n(x) =$ The number of molecules that travel distance $x$ without
+collision.\
+<div class="center docutils">
+<p><span class="math notranslate nohighlight">\(\left(\begin{array}{l} \text{The number of molecules that} \\ \text{undergo a collision}\\ \text{between } x \&amp; x+dx \end{array}\right) = n(x) \sigma \rho dx\)</span></p>
+</div>
+</div>
+<p>Since any collision will remove a molecule from the beam,</p>
+<div class="math notranslate nohighlight">
+\[n(x) -n(x+dx) = \sigma \rho n(x)dx\]</div>
+<p>or</p>
+<div class="math notranslate nohighlight">
+\[\frac{n(x+dx)-n(x)}{dx} = \underbrace{\frac{dn}{dx} = -\sigma \rho n(x)}\]</div>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}\text{Solution } \longrightarrow n(x) = n_0e^{-\sigma \rho x}$$ Note
+that this is the alternative form of famous \&quot;Beer-Lambert Law\&quot;
+$\epsilon l c = \log_{10}{\frac{I_0}{I}}$.\
+$\left( -\sigma, \rho, x\right)$ is equivalent to
+$\left( \epsilon, l, c \right)$ up to log conversion factor. This
+equations shows up in analytical chemistry. Going back to collision
+probability,\\\::: center
+:::\\\begin{split}Prob $P(x)dx$ that fraction of $n_0$ molecule collide in this interval
+is\
+$$\begin{align*}
+P(x)dx = \frac{n(x)-n(x+dx)}{n_0} &amp;= -\frac{1}{n_0}\frac{dn}{dx}dx \cdots \circled{2}\\
+\text{\hspace{30pt} \circled{1} \&amp; \circled{2}} \rightarrow &amp;= \frac{1}{\lambda}e^{-x/\lambda}dx
+\end{align*}\end{split}\end{aligned}\end{align} \]</div>
+<p><span class="math notranslate nohighlight">\(\star\)</span> What is the fraction of molecule that travel distance <span class="math notranslate nohighlight">\(d\)</span>
+without collision?<br />
+$<span class="math notranslate nohighlight">\(\begin{align*}
+\begin{array}{l}
+\text{Fraction}\\ \text{collide}
+\end{array}
+&amp;= \int P(x)dx = \int_0^d \frac{1}{\lambda}e^{-x/\lambda}dx = 1-e^{-d/\lambda}\\
+\begin{array}{l}
+\text{Fraction}\\ \text{survival}
+\end{array}
+&amp;=1-(1-e^{-d/\lambda}) = e^{-d/\lambda}
+\end{align*}\)</span>$</p>
+</section>
+<section id="dynamics-without-detail">
+<h2>Dynamics without Detail<a class="headerlink" href="#dynamics-without-detail" title="Link to this heading">#</a></h2>
+<p>Up to this point, we talkabout
+<span class="math notranslate nohighlight">\(\left( \begin{array}{l}\text{MFP}\\ \text{Collision freq}\end{array}\right.\)</span><br />
+by tracking single molecule.<br />
+If we want to compute the total number of collision per unit volume unit
+time, then,\</p>
+<p>[HW]{.underline}<br />
+Calcultate the frequency of N<span class="math notranslate nohighlight">\(_2-\)</span>N<span class="math notranslate nohighlight">\(_2\)</span> collision in 1cm<span class="math notranslate nohighlight">\(^3\)</span> at
+20<span class="math notranslate nohighlight">\(^\circ\)</span>C, 1 bar, 80% N<span class="math notranslate nohighlight">\(_2\)</span>.</p>
+<p>For total number of collision per unitvolume for two different molecule
+(O<span class="math notranslate nohighlight">\(_2\)</span> and N<span class="math notranslate nohighlight">\(_2\)</span>).</p>
+<p>Use <span class="math notranslate nohighlight">\(Z_{AB}=\sigma_{AB}&lt;u_r&gt;\rho_A\rho_B\)</span> where
+<span class="math notranslate nohighlight">\(\sigma_{AB} = \pi \left(\frac{d_A+d_B}{2}\right)^2\)</span> and
+<span class="math notranslate nohighlight">\(u_r=\left(\frac{8KT}{\pi \mu}\right)^{1/2}\)</span>.<br />
+From this homework, you will see that the total collision frequency <span class="math notranslate nohighlight">\(&gt;&gt;\)</span>
+the rate of any chemical reaction.</p>
+<p>What is missing here?</p>
+<p>Not all collisions lead to chemical reaction.</p>
+<p>For example, collision energy must be larger than reaction barrier.<br />
+Adding multi-physics, you will get to current [theoretical]{.underline}
+model (Using computer simulation for few molecules).<br />
+The topic gets too difficult for undergraduate level very quickly.<br />
+However, this type of modeling offer the fundamental understanding of
+general chemical reaction.<br />
+Our approach for this class use experimental observations to bypass some
+difficult part.</p>
+</section>
+<section id="kinetics">
+<h2>Kinetics<a class="headerlink" href="#kinetics" title="Link to this heading">#</a></h2>
+<p>Kinetics <span class="math notranslate nohighlight">\(\cdots\)</span> Study of the rate of reaction</p>
+<p>with experimental observations.</p>
+<p>Consider reaction:</p>
+<div class="math notranslate nohighlight">
+\[aA + bB \longrightarrow cC + dD\]</div>
+<p>The rate of reaction is defined by:</p>
+<div class="math notranslate nohighlight">
+\[\text{Rate } := -\frac{1}{a}\frac{d[A]}{dt} = -{1}{b}\frac{d[B]}{dt}=\frac{1}{c}\frac{d[C]}{dt}=\frac{1}{d}\frac{d[D]}{dt}\]</div>
+<p>Experimentally</p>
+<div class="math notranslate nohighlight">
+\[\text{Rate } = k\overset{N}{\underset{i=1}{\Pi}} C_i^{\gamma_i} \text{ (i.e. } k[A]^2[B]^2 \text{)}\]</div>
+<div class="center docutils">
+<p>where</p>
+<hr/>
+                 $k=$ Rate constant
+              $C_i =$ Concentration of reactant $i$
+          $\gamma_i=$ Order of raction with respect to reactant $i$
+    $\sum \gamma_i =$ Total raction order
+<hr/>
+</div>
+<section id="th-and-1st-order-reaction">
+<h3>0th and 1st Order Reaction<a class="headerlink" href="#th-and-1st-order-reaction" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(\star\)</span> 0th Order Reaction<br />
+$<span class="math notranslate nohighlight">\(A \longrightarrow \text{  products }\)</span>$</p>
+<div class="math notranslate nohighlight">
+\[\text{Rate } = -\frac{d[A]}{dt} = k\]</div>
+<div class="math notranslate nohighlight">
+\[\text{ or }\]</div>
+<div class="math notranslate nohighlight">
+\[[A] = -kt + [A]_0\]</div>
+<p><span class="math notranslate nohighlight">\(\star\)</span> 1st Order Reaction<br />
+$<span class="math notranslate nohighlight">\(A \longrightarrow \text{products}\)</span>$</p>
+<div class="math notranslate nohighlight">
+\[-\frac{d[A]}{dt} = k[A]\]</div>
+<div class="math notranslate nohighlight">
+\[\text{ or}\]</div>
+<div class="math notranslate nohighlight">
+\[[A] = [A]_0e^{-kt}\]</div>
+</section>
+<section id="nd-order-reaction">
+<h3>2nd Order Reaction<a class="headerlink" href="#nd-order-reaction" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[-\frac{d[A]}{dt}=k[A]^2\]</div>
+<div class="math notranslate nohighlight">
+\[\text{ or }\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{1}{[A]}=\frac{1}{[A]_0}+kt\]</div>
+<p>Example: 2NO<span class="math notranslate nohighlight">\(_2 \longrightarrow\)</span> 2NO + O<span class="math notranslate nohighlight">\(_2\)</span>.</p>
+<p>Order maybe non-integer. Or order found in the experiment may not be
+what you expect…..\</p>
+<div class="math notranslate nohighlight">
+\[\text{Rate } = k[A]^a \nwarrow \text{ This assumption works only for simple reaction. }\]</div>
+<p>If that is the case, the reaction is not simple.</p>
+<p>multiple steps</p>
+<p><span class="math notranslate nohighlight">\(\star\)</span> Overall Second Order Reaction<br />
+$<span class="math notranslate nohighlight">\(A + B \longrightarrow \text{Product}\)</span>$</p>
+<div class="math notranslate nohighlight">
+\[\text{Rate } = \frac{d[A]}{dt} = -k([A]_0-x)([B]_0-x)\]</div>
+<p>where <span class="math notranslate nohighlight">\([A] = [A]_0-x\)</span>. Then,</p>
+<div class="math notranslate nohighlight">
+\[\frac{dx}{dt} = k([A]_0-x)([B]_0-x)\]</div>
+<div class="math notranslate nohighlight">
+\[\int\frac{1}{([A]_0-x)([B]_0-x)}dx = \int kdt \cdots \text{\circled{1}}\]</div>
+<p>Using partial fraction (Calculus II),</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{(a-x)(b-x)} = \frac{1}{b-a}\left(\frac{1}{a-x} - \frac{1}{b-x}\right)\]</div>
+<p>becomes</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{[B]_0-[A]_0}\left(\ln \frac{[A]_0}{[A]_0-x} - \ln \frac{[B]_0}{[B]_0-x}\right) = kt\]</div>
+<div class="math notranslate nohighlight">
+\[kt = \frac{1}{[B]_0-[A]_0} \ln \left(\frac{[A]_0[B]}{[B]_0[A]}\right) //\]</div>
+<p>Homework: For 0th, 1st, and 2nd order reaction (<span class="math notranslate nohighlight">\(A \rightarrow B\)</span>), how
+long does it take to reduce <span class="math notranslate nohighlight">\([A]_0\)</span> to half, i.e.,
+<span class="math notranslate nohighlight">\([A]_0 = \frac{1}{2}[A]_0\)</span> at time <span class="math notranslate nohighlight">\(t\)</span>. This is called the half life of
+the reaction.</p>
+</section>
+<section id="reversible-reaction">
+<h3>Reversible Reaction<a class="headerlink" href="#reversible-reaction" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[A \overset{{\Large{f}}}{\underset{{\Large{r}}}{\rightleftharpoons}} B\]</div>
+<div class="center docutils">
+<hr/>  Forward rate $= k_f[A]$
+  Backward rate $= k_r[B]$
+<hr/>:::
+<p>Case <span class="math notranslate nohighlight">\([B]_0 = 0\)</span> <span class="math notranslate nohighlight">\([B] = [A]_0-[A]\)</span><br />
+$<span class="math notranslate nohighlight">\(\begin{align*}
+\frac{dA}{dt} &amp;= -k_fA + k_rB\\
+&amp;=-k_fA + k_r(A_0-A)\\
+&amp;= -(k_f+k_r)A + k_r(A_0) \cdots \text{\circled{1}}
+\end{align*}\)</span>$</p>
+<p>The solution for this differential equation is</p>
+<div class="math notranslate nohighlight">
+\[[A] = [A]_0\frac{k_r + k_f e^{-(k_f+k_r)t}}{k_r+k_f}\]</div>
+<p>Homework: Take derivative to verify it is the solution.</p>
+<p>At equilibrium, <span class="math notranslate nohighlight">\(\frac{dA}{dt} = 0\)</span> and <span class="math notranslate nohighlight">\(t = \infty\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\Rightarrow [A] = \frac{k_r}{k_f+k_r}([A]_0)\)</span>.</p>
+<p><span class="math notranslate nohighlight">\([B] = (A_0-A) = \frac{k_f}{k_f+k_r}A_0\)</span></p>
+<p><span class="math notranslate nohighlight">\(K_\text{eq} = \frac{B}{A} = \frac{k_f}{k_r}//\)</span></p>
+<p>Example: Butene cis <span class="math notranslate nohighlight">\(\rightleftharpoons\)</span> trans (First order in either
+direction.)</p>
+<p><span class="math notranslate nohighlight">\(k_f = 4.21 \times 10^{-4} s^{-1}\)</span></p>
+<p><span class="math notranslate nohighlight">\(K_\text{eq} = 0.406\)</span></p>
+<p>Starting with pure [cis] = 0.115 mol/L, how long does it take for a
+half amount of trans compare to equilibrium?<br />
+Homework: Solve this problem and answerthis question.</p>
+<p>“Doe the [cis]<span class="math notranslate nohighlight">\(_0\)</span> matter at all?”</p>
+<h3 class="rubric" id="temperature-dependence-of-reaction-rate">Temperature Dependence of Reaction Rate</h3>
+<p>For many reactions,<br />
+$<span class="math notranslate nohighlight">\(A + B \longrightarrow AB^\ddagger \longrightarrow C\)</span>$</p>
+<p>A and B have to collide to make AB<span class="math notranslate nohighlight">\(^\ddagger\)</span>.<br />
+Let <span class="math notranslate nohighlight">\(Z\)</span> be the frequency of collision (how often?) of A and B and <span class="math notranslate nohighlight">\(\rho\)</span>
+be the steric factor for orientation dependent reaction.<br />
+Then, the Arrhenius equation is rewritten by $<span class="math notranslate nohighlight">\(k = Ae^{-E_a/RT}\)</span><span class="math notranslate nohighlight">\( or\
+\)</span><span class="math notranslate nohighlight">\(=\underset{Z\rho}{\underset{\rotatebox{90}{=}}{A}}e^{-E_a/k_BT}\)</span>$</p>
+<p>$Ea<span class="math notranslate nohighlight">\( is called activation energy and it is the barrier height for the
+forward reaction. Typical value of \)</span>E_a$ range from 50 to 200 kJ/mol.\</p>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(0,180) (-125,0)<span><img src="ActivationE.png" style="height:6.5cm"
+alt="image" /></span></p>
+</div>
+<p><br />
+</p>
+<figcaption>Potential Energy Surface</figcaption>
+</figure>
+<p>Example: To double the rate for some reaction at <span class="math notranslate nohighlight">\(T = 310K \cdots\)</span> Body
+Temperature and assume <span class="math notranslate nohighlight">\(E_a=100 kJ/mol\)</span> for this reaction.</p>
+<div class="math notranslate nohighlight">
+\[2 = \frac{k_2}{k_1} = \frac{\cancel{A}e^{-E_a/RT_2}}{\cancel{A}e^{-E_a/RT_1}}\]</div>
+<p>You should get 315K.</p>
+<p>Justification of Arrihenius Equation (intuitive version)</p>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(0,180) (-125,0)<span><img src="PES_Arr.png" style="height:6.5cm"
+alt="image" /></span></p>
+</div>
+<p><br />
+</p>
+<figcaption>PES: Area under blue curve(Boltzmann Distribution)
+represents the accessible states.</figcaption>
+</figure>
+<p>In order for a reaction to happen, reactant A and B must be close to
+each other. We call this special form of reactant as “AB complex”. The
+probability of forming AB complex is usually determined by collision
+theory and relate to pre-exponential factor in the Arrhenius Equation.
+The only part of AB complex (energy of the complex must be higher than
+<span class="math notranslate nohighlight">\(E_a\)</span>) can become a product. At the top (the saddle point) of the
+potential energy surface along the reaction coordinate, Ab complex turns
+into transition state (TS) and could become a product. In transition
+state theory, any product formation must go through this transition
+state. At transition state, the reaction coordinate must possess at
+least <span class="math notranslate nohighlight">\(E_a\)</span>. Subsequent energy randomization leads to the formation of
+products. Meanwhile, AB complex and transition state are assumed to be
+in static equilibrium (Steady state). Therefore, we can obtain the ratio
+of AB complex and TS by the statistical thermodynamics using state
+counting. To simplify the argument, we assume that all vibrational and
+rotational modes except one degree of freedom (the reaction coordinate)
+are shared by AB-complex and TS. By statistical mechanical concept, we
+can predict the ratio of reactant and product by counting the number of
+accessible states (number of ways to distribute the energy into each
+coordinate (modes)) for AB complex and TS. Since we can make all
+vibrational modes and rotational modes to be completely independent of
+each other, phase space volume can be computed as<br />
+$<span class="math notranslate nohighlight">\(\text{ phase space of AB complex} :=V_AB= Q_{AB} \times R\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(\text{ phase space of TS}:=V_{TS}= Q_{TS} \times R\)</span><span class="math notranslate nohighlight">\( where Q represent
+the number of way to randomize energy in the reaction coordinate and R
+represent the one for the rest of the degree of freedom. Then, it
+follows that,\
+\)</span><span class="math notranslate nohighlight">\(\frac{[TS]}{[\text{AB complex}]}=\frac{V_{TS}}{V_{AB}}=\frac{Q_{TS}}{Q_{AB}}\)</span><span class="math notranslate nohighlight">\(
+Now, assume both TS and AB complex obeys the Boltzmann distribution, we
+get\
+\)</span><span class="math notranslate nohighlight">\(Q_{TS}= \sum\limits_{i}\frac{e^{-(\epsilon_i+E_a)\beta}}{\sum\limits_{i}e^{-(\epsilon_i)\beta}}\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(Q_{AB}= \sum\limits_{i}\frac{e^{-(\epsilon_i)\beta}}{\sum\limits_{i}e^{-(\epsilon_i)\beta}}\)</span><span class="math notranslate nohighlight">\(
+Therefore, the ratio\
+\)</span><span class="math notranslate nohighlight">\(\frac{[TS]}{[\text{AB complex}]}=\frac{\sum\limits_{i}e^{-(\epsilon_i+E_a)\beta}}{\sum\limits_{i}e^{-(\epsilon_i)\beta}}=e^{-E_a\beta}\)</span><span class="math notranslate nohighlight">\(
+Since the product concentration \)</span>[\text{Prod}]<span class="math notranslate nohighlight">\(, and the reactant
+concentration \)</span>[\text{React}]<span class="math notranslate nohighlight">\( is related bythe following formula,\
+\)</span><span class="math notranslate nohighlight">\([\text{Prod}]=k[TS]\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(f[\text{React}]=[\text{AB complex}]   \cdots \text{f relates to collision frequency}\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(\frac{ [\text{Prod}]}{[\text{React}]}=  Ae^{-E_a\beta}=  Ae^{\frac{-E_a}{k_BT}}  \cdots \text{pre-exponential factor \)</span>A=kf<span class="math notranslate nohighlight">\(}\)</span>$</p>
+<p>This ratio, <span class="math notranslate nohighlight">\(\frac{ [\text{Prod}]}{[\text{React}]}\)</span> is different from
+the corresponding thermodynamic ratio(equilibrium constant <span class="math notranslate nohighlight">\(K\)</span>) if there
+is a distinct TS along the reaction coordinates. The ratio will be
+identical to the thermodynamic ration if the reaction involves a
+barrierless process. In the exothermic reaction, reverse reaction
+becomes negligible, and RHS of the equation becomes a rate constant as
+desired for Arrhenius rate constant.\</p>
+<h3 class="rubric" id="reaction-mechanisms">Reaction Mechanisms</h3>
+<p>The study of reaction rate often leads to an understanding of the
+mechanisms of the reaction, their analysis into a sequence of elementary
+steps.</p>
+<p>$\star$ Consecutive (elementary) reaction\</p>
+<div class="center docutils">
+</div>
+</div>
+<p><span class="math notranslate nohighlight">\(\frac{dA}{dt} = -k_aA \longrightarrow A = A_0e^{-k_at}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\frac{dI}{dt} = k_aA-k_bI = k_aA_0e^{-k_at}-k_bI \rightarrow I = I_0e^{-k_2t}+A_0\frac{k_a}{k_b-k_a}(e^{-k_at}-e^{-k_bt})\)</span></p>
+<p><span class="math notranslate nohighlight">\(\frac{dP}{dt}=k_bI\)</span> From A + I + P = A<span class="math notranslate nohighlight">\(_0 \leftarrow\)</span> mass balance,</p>
+<p><span class="math notranslate nohighlight">\(P = \left\{1 + \frac{k_ae^{-k_bt}-k_be^{-k_at}}{k_b-k_a}\right\}A_0\)</span></p>
+<p>Homework: Use Mathematica to show these solutions are acceptable
+(derive). Do this in the computer lab.<br />
+Simplify the consecutive reaction using steady state approximation.</p>
+<div class="center docutils">
+<p><span class="math notranslate nohighlight">\(\begin{array}{rc}
+\text{s.s.} \Rightarrow \frac{dI}{dt} = 0 = &amp; k_aA - k_bI\\
+&amp; \Downarrow\\
+&amp; I = \frac{k_a}{k_b}A\\
+&amp; \Downarrow\\
+\frac{dP}{dt} = k_bI \Rightarrow &amp; \frac{dP}{dt} = k_aA\\
+&amp; \Downarrow\\
+A=A_0e^{-k_at} \Rightarrow &amp; P = k_aA_0\int_0^te^{-k_at}dt\\
+&amp; = (1-e^{-k_at})A_0
+\end{array}\)</span></p>
+</div>
+<p>Homework: Compare this approximation to the previous homework.</p>
+<p>$\star$ The Rate Determining Step (RDS)\</p>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(0,180) (-125,0)<span><img src="Conseq.png" style="height:6.5cm"
+alt="image" /></span></p>
+</div>
+<p><br />
+</p>
+<figcaption>PES for consecutive reactions</figcaption>
+</figure>
+<p>[Thought Experiment]{.underline}:<br />
+Does this mean RDS is at highest point in <span class="math notranslate nohighlight">\(E\)</span>? If not, why?<br />
+(Hint: Collision rate and heat bath)\</p>
+<p><span class="math notranslate nohighlight">\(\star\)</span> Pre-equilibria (<span class="math notranslate nohighlight">\(k_r&gt;&gt;k_b\)</span>)<br />
+Consider reaction:</p>
+<div class="math notranslate nohighlight">
+\[A + B \underset{k_r}{\overset{k_f}{\rightleftharpoons}} I \overset{k_b}{\longrightarrow} P\]</div>
+<div class="math notranslate nohighlight">
+\[k_\text{eq} = \frac{[I]}{[A][B]} = \frac{k_f}{k_r}\]</div>
+<p>Then,<br />
+$<span class="math notranslate nohighlight">\(\begin{align*}
+\frac{dP}{dt} = k_bI &amp;= \underbrace{k_bk_\text{eq}}AB\\
+&amp; \text{\hspace{10pt}}=K[A][B]
+\end{align*}\)</span>$</p>
+<p>*This approximation only works if <span class="math notranslate nohighlight">\(k_r&gt;&gt;k_b\)</span>.<br />
+Homework: Plot potential energy versus reaction coordinate that is
+consistent with this mechanism.</p>
+<p><span class="math notranslate nohighlight">\(\star\)</span> Kinetic Control (One reactant, multiple outcomes)</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+A \longrightarrow B &amp; \hspace{50pt}\frac{dB}{dt} = k_1[A]\\
+A \longrightarrow C &amp; \hspace{50pt}\frac{dC}{dt} = k_2[A]
+\end{align*}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\% B \text{ formed } = \frac{k_1}{k_1 + k_2} \text{ in general } \frac{k_i}{k_\text{tot}}\]</div>
+<p>Product B or C can be favored depending on the condition.</p>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(0,230) (-125,0)<span><img src="LowT_Kinetic.png" style="height:8cm"
+alt="image" /></span></p>
+</div>
+<p><br />
+</p>
+<figcaption>Kinetic control: Low Temperature</figcaption>
+</figure>
+<p>At low T, Most of reactant do not have enough energy to overcome the
+barrior for the formation of product A. Therefore, Porduct B with low
+reaction barrior is favored. Thermodynamically more stable product A is
+not significantly formed at this temperature. It is important to note
+that almost no product can go back to reactant at this temperature
+because required energy in the reaction coordinate are tend to be
+absorbed by the heat bath.\</p>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(0,180) (-125,0)<span><img src="HighT_Kinetic.png" style="height:8cm"
+alt="image" /></span></p>
+</div>
+<p><br />
+</p>
+<figcaption>Kinetic control: High Temperature</figcaption>
+</figure>
+<p>At high T, more reactant have enough energy to overcome the barrior for
+the formation of product A. Therefore, the increase in the formation of
+product A is observed by increasing the temperature of the system. Note
+that Product B is still produced.\</p>
+<p>[Thought Experiment]{.underline}: Does any other surface work? i.e. Can
+you control the outcomes (like in the previous case)?</p>
+</section>
+<section id="enzymes">
+<h3>Enzymes<a class="headerlink" href="#enzymes" title="Link to this heading">#</a></h3>
+<p>$\star<span class="math notranslate nohighlight">\( Enzymes \)</span>\cdots$ Special protein or nucleic acid containing [an
+active site]{.underline} (bind to substrate, reactant and turn them into
+product).\</p>
+<hr/>
+    E  $\cdots$  Enzyme
+    S  $\cdots$  Substrate
+    P  $\cdots$  Product
+<hr/>
+<div class="math notranslate nohighlight">
+\[E + S \underset{k_r}{\overset{k_f}{\rightleftharpoons}} ES \overset{k_b}{\longrightarrow} P + E\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{dP}{dt} = k_b(ES)\]</div>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(0,180) (-125,0)<span><img src="Enzyme.png" style="height:6.5cm"
+alt="image" /></span></p>
+</div>
+<p><br />
+</p>
+<figcaption>Potential energy surfase with or without Enzyme</figcaption>
+</figure>
+<p>Using S.S.,</p>
+<div class="math notranslate nohighlight">
+\[\frac{d(ES)}{dt} = k_fE\cdot S-k_r(ES) - k_b(ES) = 0\]</div>
+<div class="math notranslate nohighlight">
+\[(ES) = \frac{k_fE\cdot S}{k_r+k_b} = \frac{1}{k_M}E\cdot S \text{ where } k_M = \frac{k_r + k_b}{k_f}\]</div>
+<p>by conservation law,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+E_0 = E + (ES) &amp;= \frac{k_M(ES)}{S} + (ES)\\
+&amp;= (ES) \left\{1 + \frac{k_M}{S}\right\}
+\end{align*}\end{split}\]</div>
+<p>Typically, <span class="math notranslate nohighlight">\([S]&gt;&gt;E_0\)</span> in biological environment (<span class="math notranslate nohighlight">\([S]=[S]_0\)</span>)</p>
+<p>then, $<span class="math notranslate nohighlight">\((ES) = \frac{E_0}{1+\frac{k_M}{S_0}}\)</span>$</p>
+<div class="math notranslate nohighlight">
+\[Rate = \frac{dP}{dt} = k_b(ES) = \frac{k_bE_0}{1 + \frac{k_M}{S_0}} \cdots \text{ The Michaelis-Menton equation }\]</div>
+<p><span class="math notranslate nohighlight">\(\begin{array}{l} k_M&gt;0\\S_0&gt;0\end{array}\)</span>
+<span class="math notranslate nohighlight">\(\underset{v_\text{max} = k_bE_0}{\underbrace{\frac{dP}{dt} \text{ is maximum}}_{\rotatebox{90}{=:}}}\)</span>
+when <span class="math notranslate nohighlight">\(S_0&gt;&gt;k_M\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\frac{dP}{dt} = \frac{v_\text{max}}{1+\frac{k_M}{S_0}} \Rightarrow \frac{1}{Rate} = \frac{1}{v_\text{max}} + \left(\frac{k_M}{v_\text{max}}\right)\frac{1}{S_0}\]</div>
+<p>Lineweaver-Burk Plot<br />
+This plot is often used in biological chemistry.\</p>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(0,180) (-125,0)<span><img src="Lineweaver-Burk.png"
+style="height:6.5cm" alt="image" /></span></p>
+</div>
+<p><br />
+</p>
+<figcaption>Lineweaver-Burk Plote</figcaption>
+</figure>
+<p>$\star$ Enzyme Inhibition\</p>
+<p>Then by conservation (mass balance),</p>
+<div class="math notranslate nohighlight">
+\[E_0 = E+ EI + ES+ ESI\]</div>
+<p>By defining,</p>
+<div class="math notranslate nohighlight">
+\[\alpha = 1 + \frac{[I]}{k_I} \hspace{20pt} \alpha' = 1 + \frac{[I]}{K'_I}\]</div>
+<div class="math notranslate nohighlight">
+\[E_0 = \alpha E + \alpha'(ES)\]</div>
+<hr/>
+  $\begin{array}[t]{l} k_M = \frac{E\cdot S}{(ES)}\\ S\simeq S_0\end{array}$    $\Rightarrow$  $\begin{array}[t]{rl} E_0 &= \frac{\alpha k_M(ES)}{S_0} + \alpha'(ES) \\ &=\left(\frac{\alpha k_M}{S_0} + \alpha'\right)(ES)\\ & \Downarrow  \\ \frac{dP}{dt} = k_b(ES) &= \frac{k_bE_0}{\alpha \frac{k_M}{S_0}+\alpha'}// \end{array}$
+<hr/>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#collision-theory">Collision Theory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamics-without-detail">Dynamics without Detail</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kinetics">Kinetics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#th-and-1st-order-reaction">0th and 1st Order Reaction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nd-order-reaction">2nd Order Reaction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reversible-reaction">Reversible Reaction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enzymes">Enzymes</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hideya Koizumi & Eiko Koizumi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

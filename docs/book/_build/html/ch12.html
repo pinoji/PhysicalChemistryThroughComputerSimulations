@@ -1,0 +1,798 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Math Prerequisites &#8212; Physical Chemistry Through Computer Simulations</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"uvec": ["\\hat{\\mathbf{#1}}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch12';</script>
+    <link rel="icon" href="_static/favicon.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Physical Chemistry Through Computer Simulations</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Physical Chemistry Through Computer Simulations
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Quantum Mechanics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="qm01.html">Math Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm02.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm03.html">Foundation of Quantum Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm04.html">Simple Quantum Mechanical Models and Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm05.html">Hydrogen-Like Atom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm06.html">Approximation Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm07.html">Electron Spin (Quantum Mechanics Concept)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm08.html">System Containing Only One Atom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm09.html">System Containing Two Atoms (Diatomic System)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm10.html">Hybrid Orbitals in Polyatomic Molecule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm11.html">Symmetry, Group Theory, Representation Theory and Thier Application to Chemistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm12.html">Molecular Spectroscopy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm13.html">Resonance by Variational Methods</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Thermodynamics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="td01.html">Math Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td02.html">Transition from Classical to Statistical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td03.html">Boltzmann Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td04.html">State function, dealing with partial derivatives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td05.html">Energy, Entropy and Temperature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td06.html">Free Energy, Pressure, &amp; Gas Laws</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td07.html">Maxwell Relation, Basic Thermodynamics Process, Second and Third Laws of Thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td08.html">The Equipartition Principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td09.html">Chemical Potential</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td10.html">Thermodynamics of Mixing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td11.html">Chemical Equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td12.html">Reaction Dynamics and Kinetics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td13.html">Chemistry of Fluid</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/ch12.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Math Prerequisites</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probability">Probability</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-random-variable">Discrete Random Variable</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-probability">Continuous Probability</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-mathematical-concepts">Other Mathematical Concepts</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="math-prerequisites">
+<h1>Math Prerequisites<a class="headerlink" href="#math-prerequisites" title="Link to this heading">#</a></h1>
+<section id="probability">
+<h2>Probability<a class="headerlink" href="#probability" title="Link to this heading">#</a></h2>
+<p>Definition:<br />
+[event]{.underline} := outcome<br />
+[population]{.underline}: A set of similar items (events) that you are
+interested in.<br />
+[sample]{.underline}: a subset of population.<br />
+In this class, we assume that population is well represented by a
+sample. In other words, all charactoristics of population can be
+recovered from a sample set.</p>
+<section id="discrete-random-variable">
+<h3>Discrete Random Variable<a class="headerlink" href="#discrete-random-variable" title="Link to this heading">#</a></h3>
+<p>A discrete random variable is a function from a sample space <span class="math notranslate nohighlight">\(S\)</span> to a
+countable set <span class="math notranslate nohighlight">\(B\)</span>: $<span class="math notranslate nohighlight">\(X : S \rightarrow B.\)</span><span class="math notranslate nohighlight">\( For each outcome \)</span>s \in S<span class="math notranslate nohighlight">\(,
+the random variable \)</span>X$ assigns a countable value (e.g., an integer).</p>
+<p><strong>Example.</strong> Consider a sample of 100 U.S. pennies. Suppose that 5 of
+them were minted in 1970. Then the probability of selecting a penny made
+in 1970 is <span class="math notranslate nohighlight">\(5\% = 5/100 = 0.05\)</span>. We write
+$<span class="math notranslate nohighlight">\(\mathbb{P}(X = 1970) = 0.05.\)</span>$</p>
+<p>For a discrete random variable <span class="math notranslate nohighlight">\(X\)</span>, we define the <em>probability mass
+function</em> (PMF) by $<span class="math notranslate nohighlight">\(p(x) := \mathbb{P}(X = x).\)</span><span class="math notranslate nohighlight">\( Thus, in this example,
+\)</span><span class="math notranslate nohighlight">\(p(1970) = 0.05.\)</span>$</p>
+<p>Probability is defined as a measure of the likelihood that an event
+occurs. The probability mass function satisfies the following
+properties: $<span class="math notranslate nohighlight">\(\sum_{x \in B} p(x) = 1, \qquad p(x) \ge 0.\)</span>$</p>
+<p>Since the United States began minting pennies in 1776, we may write
+$<span class="math notranslate nohighlight">\(\sum_{x=1776}^{\text{current year}} p(x) = 1,\)</span>$ which accounts for all
+possible years in which a penny could have been minted.</p>
+<p><span class="math notranslate nohighlight">\(\star\)</span> <strong>Multiple Discrete Random Variables</strong></p>
+<p>Let <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> be discrete random variables with ranges <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>,
+respectively. The <em>joint probability mass function</em> (joint PMF) is
+defined by $<span class="math notranslate nohighlight">\(p_{X,Y}(x,y) := \mathbb{P}(X = x, Y = y).\)</span>$</p>
+<p>The joint PMF satisfies the following properties:
+$<span class="math notranslate nohighlight">\(\sum_{x \in A} \sum_{y \in B} p_{X,Y}(x,y) = 1, \qquad p_{X,Y}(x,y) \ge 0.\)</span>$</p>
+<p>The <em>marginal probability mass functions</em> are obtained by summing over
+the other variable: $<span class="math notranslate nohighlight">\(p_X(x) = \sum_{y \in B} p_{X,Y}(x,y), \qquad
+p_Y(y) = \sum_{x \in A} p_{X,Y}(x,y).\)</span>$</p>
+<p><strong>Example.</strong> Let <span class="math notranslate nohighlight">\(X\)</span> denote the outcome of rolling a fair die, with
+$<span class="math notranslate nohighlight">\(A = \{1,2,3,4,5,6\},\)</span><span class="math notranslate nohighlight">\( and let \)</span>Y<span class="math notranslate nohighlight">\( denote the outcome of flipping a
+fair coin, with \)</span><span class="math notranslate nohighlight">\(B = \{h,t\}.\)</span><span class="math notranslate nohighlight">\( The joint PMF \)</span>p_{X,Y}(x,y)<span class="math notranslate nohighlight">\( describes
+the probability of observing each pair \)</span>(x,y)$.</p>
+<p><span class="math notranslate nohighlight">\(\star\)</span> <strong>Conditional Probability</strong></p>
+<p>The <em>conditional probability</em> of observing event <span class="math notranslate nohighlight">\(A\)</span> given that event
+<span class="math notranslate nohighlight">\(B\)</span> has occurred is defined by
+$<span class="math notranslate nohighlight">\(\mathbb{P}(A \mid B) := \frac{\mathbb{P}(A,B)}{\mathbb{P}(B)}, 
+\qquad \mathbb{P}(B) &gt; 0.\)</span>$</p>
+<p>From this definition, we obtain
+$<span class="math notranslate nohighlight">\(\mathbb{P}(A,B) = \mathbb{P}(A \mid B)\,\mathbb{P}(B)
+               = \mathbb{P}(B \mid A)\,\mathbb{P}(A).\)</span>$</p>
+<p><strong>Bayes’ Theorem.</strong>
+$<span class="math notranslate nohighlight">\(\mathbb{P}(A \mid B) = \frac{\mathbb{P}(B \mid A)\,\mathbb{P}(A)}{\mathbb{P}(B)}.\)</span>$</p>
+<p>If two random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are <em>independent</em>, then
+$<span class="math notranslate nohighlight">\(\mathbb{P}(X=x, Y=y) = \mathbb{P}_X(x)\,\mathbb{P}_Y(y),\)</span><span class="math notranslate nohighlight">\( and
+consequently, \)</span><span class="math notranslate nohighlight">\(\mathbb{P}(X=x \mid Y=y) = \mathbb{P}_X(x).\)</span>$</p>
+<p><span class="math notranslate nohighlight">\(\star\)</span> <strong>Mean and Moments</strong></p>
+<p>Let <span class="math notranslate nohighlight">\(X\)</span> be a discrete random variable with probability mass function
+<span class="math notranslate nohighlight">\(p(x)\)</span>. For any function <span class="math notranslate nohighlight">\(f(X)\)</span>, the <em>expected value</em> (or mean) is
+defined as $<span class="math notranslate nohighlight">\(\langle f(X) \rangle := \sum_{x \in B} f(x)\,p(x).\)</span>$</p>
+<p>In particular, the mean of <span class="math notranslate nohighlight">\(X\)</span> is
+$<span class="math notranslate nohighlight">\(\mu := \langle X \rangle = \sum_{x \in B} x\,p(x).\)</span>$</p>
+<p>The <em>variance</em> (second central moment) of <span class="math notranslate nohighlight">\(X\)</span> is defined by
+$<span class="math notranslate nohighlight">\(\mathrm{Var}(X) := \langle (X-\mu)^2 \rangle
+                 = \langle X^2 \rangle - \langle X \rangle^2
+                 = \sum_{x \in B} x^2 p(x) - \left(\sum_{x \in B} x p(x)\right)^2.\)</span>$</p>
+<p>The <em>standard deviation</em> is defined as
+$<span class="math notranslate nohighlight">\(\sigma := \sqrt{\mathrm{Var}(X)}.\)</span>$</p>
+<p><strong>Example.</strong> The average dollar value of pennies in circulation may
+exceed one cent because older pennies tend to have higher collectible
+value. However, both the variance and the standard deviation are
+relatively small, since very old pennies are rarely found in
+circulation.</p>
+<p>[<strong>HW</strong>]{.underline}<br />
+Show that the variance is equal to the square of the standard deviation,
+i.e., $<span class="math notranslate nohighlight">\(\mathrm{Var}(X) = \sigma^2.\)</span>$</p>
+<p>$\star<span class="math notranslate nohighlight">\( Correlation\
+Covariance := Measure of the joint variability of two random variable.\
+Basically, for random variable X and Y on joint support S, covariance
+is\
+\)</span><span class="math notranslate nohighlight">\(\begin{array}{cccc} 
+Cov(XY) = &amp; &lt;XY&gt; &amp;- &amp; &lt;X&gt;&lt;Y&gt;\\
+                 &amp; \uparrow &amp; &amp; \nwarrow \nearrow \\
+                 &amp; \begin{tabular}[t]{c} Mean value of  \)</span>XY<span class="math notranslate nohighlight">\( \\ --- Joint prob  \)</span>\mathbb{P}(a,b)<span class="math notranslate nohighlight">\(\end{tabular} &amp; &amp; \text{Indep. mean value} 
+\end{array}\)</span>$ More useful form is the normalized version of covarience
+(correlation coefficient)\</p>
+<div class="center docutils">
+<p>Correlation Coefficient: <span class="math notranslate nohighlight">\(\rho_{XY} = \frac{Cov(XY)}{\sigma_X\sigma_Y}\)</span></p>
+</div>
+<p>This value is useful becaause<br />
+<span class="math notranslate nohighlight">\(\rho_{XY} =1  \implies X\&amp; Y\)</span> are in perfect linear correlation<br />
+<span class="math notranslate nohighlight">\(\rho_{XY} =0  \implies X\&amp; Y\)</span> are completely independent<br />
+<span class="math notranslate nohighlight">\(\rho_{XY} =-1  \implies X\&amp; Y\)</span> are in perfect linear correlation
+(negatively)<br />
+Using the definitions up to this point, we can model a single die. i.e.
+random variable 1,2,3,4,5, and 6 with probability of 1/6 for each
+outcome. The mean is 3.5 and etc. We will consider system of dice (i.e.
+20 dice)<br />
+Define new randome variable <span class="math notranslate nohighlight">\(S = \sum\limits_{j=1}^N X_j\)</span> i.e. total sum
+of 20 dice<br />
+Because sum is interchangeable,<br />
+$<span class="math notranslate nohighlight">\(&lt;S&gt; = \sum\limits_j^N&lt;X_j&gt;\)</span><span class="math notranslate nohighlight">\(\
+Because dice are completely independent of each other,\
+\)</span><span class="math notranslate nohighlight">\(\sigma_S^2 = \sum\limits_j^N \sigma_j^2\)</span>$</p>
+<p>[HW]{.underline} Show this is true. This is complecated so proof by
+Excel is okay.<br />
+Because dice is identical (If <span class="math notranslate nohighlight">\(N\)</span> molecules in the system are
+identical),<br />
+$<span class="math notranslate nohighlight">\(&lt;S&gt; = N&lt;X&gt;\)</span><span class="math notranslate nohighlight">\( \)</span><span class="math notranslate nohighlight">\(\sigma_S^2 = N \sigma_X^2\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(\sigma_S = \sqrt{N} \sigma_X\)</span>$</p>
+<p>then, the coefficient of variation (standard deviation/mean) is</p>
+<div class="math notranslate nohighlight">
+\[\frac{\sigma_S}{&lt;S&gt;} = \frac{1}{\sqrt{N}}\frac{\sigma_X}{&lt;X&gt;}\]</div>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(200,135) (0,0)<span><img src="NumbreofDie.png" style="width:8cm"
+alt="image" /></span></p>
+</div>
+<figcaption>Coefficient of Variation</figcaption>
+</figure>
+<p><span class="math notranslate nohighlight">\(\star\)</span> <strong>Binomial Distribution</strong></p>
+<p>Consider a random experiment with two possible outcomes: <em>success</em>
+(True) and <em>failure</em> (False). Let <span class="math notranslate nohighlight">\(X\)</span> be a discrete random variable for
+a single trial:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}X = 
+\begin{cases}
+1, &amp; \text{with probability } p = \mathbb{P}(\text{success})\\
+0, &amp; \text{with probability } 1-p = \mathbb{P}(\text{failure})
+\end{cases}\end{split}\]</div>
+<p>The mean (expected value) and variance of a single trial are:</p>
+<div class="math notranslate nohighlight">
+\[\langle X \rangle = p, \qquad
+\langle X^2 \rangle = 1^2 \cdot p + 0^2 \cdot (1-p) = p,\]</div>
+<div class="math notranslate nohighlight">
+\[\sigma^2 = \mathrm{Var}(X) = \langle X^2 \rangle - \langle X \rangle^2 = p - p^2 = p(1-p).\]</div>
+<p>For <span class="math notranslate nohighlight">\(N\)</span> independent and identical trials, let <span class="math notranslate nohighlight">\(S = \sum_{i=1}^{N} X_i\)</span>
+denote the total number of successes. Then</p>
+<div class="math notranslate nohighlight">
+\[\langle S \rangle = N p, \qquad 
+\mathrm{Var}(S) = N p (1-p) \quad \cdots \text{\textcircled{1}}.\]</div>
+<p>The number of distinct sequences with exactly <span class="math notranslate nohighlight">\(n\)</span> successes (True
+outcomes) is given by</p>
+<div class="math notranslate nohighlight">
+\[\binom{N}{n} = \frac{N!}{n!(N-n)!}.\]</div>
+<p>Therefore, the probability of observing exactly <span class="math notranslate nohighlight">\(n\)</span> successes in <span class="math notranslate nohighlight">\(N\)</span>
+independent trials (the <em>binomial distribution</em>) is</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}(S=n) = \binom{N}{n} p^n (1-p)^{N-n}.\]</div>
+<p>As <span class="math notranslate nohighlight">\(N \to \infty\)</span>, the binomial distribution approaches the normal
+(Gaussian) distribution:</p>
+<div class="math notranslate nohighlight">
+\[G(S) = \frac{1}{\sqrt{2 \pi \sigma^2}} 
+\exp\left[-\frac{(S - \langle S \rangle)^2}{2 \sigma^2}\right] 
+\quad \cdots \text{\textcircled{2}},\]</div>
+<p>where <span class="math notranslate nohighlight">\(\langle S \rangle = N p\)</span> and <span class="math notranslate nohighlight">\(\sigma^2 = N p(1-p)\)</span>.</p>
+<p>This normal distribution arises frequently in physical chemistry and
+many other applications.</p>
+<p>[<strong>HW</strong>]{.underline}: Use 1⃝ and 2⃝ to plot the probability distribution
+for <span class="math notranslate nohighlight">\(N = 1{,}000\)</span> and <span class="math notranslate nohighlight">\(N = 10{,}000\)</span>.</p>
+</section>
+<section id="continuous-probability">
+<h3>Continuous Probability<a class="headerlink" href="#continuous-probability" title="Link to this heading">#</a></h3>
+<p>Probability density is</p>
+<p>continuous rand # such that</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}([l,u]) = \int_l^u \rho(x)dx\]</div>
+<div class="math notranslate nohighlight">
+\[\text{where } \int_{-\infty}^{\infty} \rho(x)dx = 1 \cdots \text{ normalized}\]</div>
+<p>Similar to discrete case</p>
+<p><span class="math notranslate nohighlight">\(n\)</span>th noment is given by</p>
+<div class="math notranslate nohighlight">
+\[&lt;x^n&gt; = \int_{-\infty}^{\infty} x^n \rho(x)dx \rightarrow \text{ What is average? }\]</div>
+<p>&amp; var is given by</p>
+<div class="math notranslate nohighlight">
+\[&lt;(x-&lt;x&gt;)^2&gt; = \int_{-\infty}^{\infty}(x-&lt;x&gt;)^2\rho(x)dx\]</div>
+<p><span class="math notranslate nohighlight">\(\star\)</span> multiple cont var</p>
+<p>Joint prob <span class="math notranslate nohighlight">\(\rho(x,y)dxdy\)</span></p>
+<div class="math notranslate nohighlight">
+\[\rho_x(x) = \int_{-\infty}^{\infty}\rho(x,y)dy\]</div>
+<div class="math notranslate nohighlight">
+\[\rho(y|x) = \frac{\rho(x,y)}{\rho_x(x)} \leftarrow \text{ conditional prob }\]</div>
+</section>
+</section>
+<section id="other-mathematical-concepts">
+<h2>Other Mathematical Concepts<a class="headerlink" href="#other-mathematical-concepts" title="Link to this heading">#</a></h2>
+<p>$\star<span class="math notranslate nohighlight">\( Dirac Delta Func \)</span>\delta$ has property\</p>
+<!-- rule removed for sphinx -->
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> $\delta(x) = 0$ if $x \neq 0$
+ $\int_{-\infty}^{\infty}\delta(x)dx = 1$
+</pre></div>
+</div>
+<!-- rule removed for sphinx -->
+<p>We use this to get a value of a func at <span class="math notranslate nohighlight">\(x_0\)</span>.<br />
+$<span class="math notranslate nohighlight">\(f(x_0) = \int_{-\infty}^{\infty} f(x)\delta(x-x_0)dx\)</span>$</p>
+<p><span class="math notranslate nohighlight">\(\star\)</span> Stirling’s Formula<br />
+$<span class="math notranslate nohighlight">\(\ln N! = \sum\limits_{n=1}^N \simeq N\ln N - N + 1 \simeq N\ln N - N\)</span>$</p>
+<p><span class="math notranslate nohighlight">\(\star\)</span> Lagrange Multipliters (Constraint Search Method)<br />
+The min or max of a func <span class="math notranslate nohighlight">\(f(x_1, x_2, \cdots, x_n)\)</span></p>
+<p>can be found by indentifying <span class="math notranslate nohighlight">\({x_i}\)</span> such that</p>
+<div class="math notranslate nohighlight">
+\[\delta f = \sum\limits_{i=1}^n \left(\frac{\partial f}{\partial x_i}\right) \delta x_i = 0\]</div>
+<p>For set of <span class="math notranslate nohighlight">\(r\)</span> constraints, <span class="math notranslate nohighlight">\(g_j(x_1, x_2, \cdots, x_n) = 0\)</span>,
+<span class="math notranslate nohighlight">\(j=1,2,\cdots,r\)</span></p>
+<p>min, max of <span class="math notranslate nohighlight">\(f(x_1, x_2, \cdots, x_n)\)</span> can be found by finding <span class="math notranslate nohighlight">\(\{x_i\}\)</span></p>
+<p>that satisfy</p>
+<div class="math notranslate nohighlight">
+\[\delta \mathscr{L} = \sum\limits_{i=1}^n \left[ \left(\frac{\partial f}{\partial x}\right) - \sum\limits_{j=1}^r \lambda_j \left(\frac{\partial g_j}{\partial x_i}\right) \right] \delta x_i = 0\]</div>
+<p>Another way of wrtiting under single constraint</p>
+<div class="center docutils">
+<p>+:——————————————————————————————————————————-+:——————————-+
+| <span class="math notranslate nohighlight">\(\left\{ \begin{array}{l} \bigtriangledown f = \lambda \bigtriangledown g \\ g(x_1, x_2, \cdots, x_n) = c \end{array} \right.\)</span> |   —————————- |
+|                                                                                                                                |    <span class="math notranslate nohighlight">\(n + 1\)</span> Eq <span class="math notranslate nohighlight">\(n + 1\)</span> unknown  |
+|                                                                                                                                |           <span class="math notranslate nohighlight">\(\Downarrow\)</span>         |
+|                                                                                                                                |             solvable           |
+|                                                                                                                                |   —————————- |
++——————————————————————————————————————————–+——————————–+</p>
+</div>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(0,180) (-125,0)<span><img src="Lmult.png" style="height:6.5cm"
+alt="image" /></span></p>
+</div>
+<p><br />
+</p>
+<figcaption>Maximum (minimum) points on a constraint.</figcaption>
+</figure>
+<p>Simple example\</p>
+<div class="center docutils">
+<hr/>
+   Minimize  $f(x,y) = x^2+y^2$
+      on     $g(x,y) => xy = 3$
+<hr/>
+</div>
+<div class="math notranslate nohighlight">
+\[L = L(x,y,\lambda) = x^2 + y^2 - \lambda(xy-3)\]</div>
+<div class="math notranslate nohighlight">
+\[Lx = 2x-\lambda y = 0 =&gt; \lambda = \frac{2x}{y}\]</div>
+<div class="math notranslate nohighlight">
+\[Ly = 2y-\lambda x = 0 =&gt; \lambda = \frac{2y}{x}\]</div>
+<div class="math notranslate nohighlight">
+\[\Downarrow\]</div>
+<div class="math notranslate nohighlight">
+\[2x^2 = 2y^2 =&gt; x = \pm y\]</div>
+<p>If <span class="math notranslate nohighlight">\(x = y\)</span>, then from <span class="math notranslate nohighlight">\(xy = 3\)</span>,<br />
+$<span class="math notranslate nohighlight">\(x = \sqrt{3} \hspace{10pt} y = \sqrt{3} \hspace{10pt} \text{ or } (-\sqrt{3}, -\sqrt{3})\)</span>$</p>
+<p>Before Legendre Transformation, we define convex function.<br />
+An intuitive definition is that a function is convex if the line segment
+connecting any two points on its graph always lies above or on the graph
+itself.\</p>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(0,170) (-120,0)<span><img src="Convex.png" style="height:6cm"
+alt="image" /></span></p>
+</div>
+<p><br />
+</p>
+<figcaption><span class="math inline">\(x^2\)</span> is a convex
+function</figcaption>
+</figure>
+<p>$\star$ Legendre Transformation\</p>
+<p>The Legendre transformation is a mathematical procedure that
+re-expresses a function in terms of a different independent variable,
+usually one that is more natural for the physical problem. It replaces a
+variable with its conjugate (such as replacing position with momentum,
+or volume with pressure) by performing a change of variables that
+preserves all the essential information of the original function. In
+thermodynamics and classical mechanics, this transformation allows us to
+switch from one potential to another—such as from internal energy to
+enthalpy or from the Lagrangian to the Hamiltonian—by exchanging a
+difficult variable for one that is easier to control or interpret.</p>
+<p>Some functions have inconvenient natural variables. For example, the
+internal energy <span class="math notranslate nohighlight">\(U(S,V)\)</span> uses entropy as a variable, but experiments
+typically control temperature instead. The Legendre transform provides a
+systematic way to replace a variable <span class="math notranslate nohighlight">\(x\)</span> with its conjugate
+<span class="math notranslate nohighlight">\(\displaystyle p = \frac{df}{dx}\)</span>.</p>
+<p>Let <span class="math notranslate nohighlight">\(f(x)\)</span> be a differentiable convex function and define
+$<span class="math notranslate nohighlight">\(p = \frac{df}{dx}.\)</span><span class="math notranslate nohighlight">\( The Legendre transform \)</span>g(p)<span class="math notranslate nohighlight">\( of \)</span>f(x)<span class="math notranslate nohighlight">\( is
+defined as \)</span><span class="math notranslate nohighlight">\(g(p) = px - f(x),\)</span><span class="math notranslate nohighlight">\( where \)</span>x<span class="math notranslate nohighlight">\( is understood as a function
+of \)</span>p<span class="math notranslate nohighlight">\( obtained from the relation \)</span>p = df/dx<span class="math notranslate nohighlight">\(. The transformation
+replaces dependence on \)</span>x<span class="math notranslate nohighlight">\( by dependence on its conjugate variable \)</span>p$.</p>
+<p>Geometrically, the Legendre transform represents <span class="math notranslate nohighlight">\(f(x)\)</span> in terms of the
+slopes of its tangent lines: <span class="math notranslate nohighlight">\(g(p)\)</span> is the negative of the <span class="math notranslate nohighlight">\(y\)</span>-intercept
+of the tangent line to <span class="math notranslate nohighlight">\(f\)</span> with slope <span class="math notranslate nohighlight">\(p\)</span>.</p>
+<p><strong>Math example:</strong> This example shows that the collection of tangent
+lines has an envelope (a curve that is tangent to all of them) that
+exactly reconstructs the original function. Thus, converting from the
+variable <span class="math notranslate nohighlight">\(x\)</span> to its conjugate variable <span class="math notranslate nohighlight">\(p\)</span> through the Legendre
+transform loses no information.</p>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(0,170) (-120,0)<span><img src="Tangent.png" style="height:6cm"
+alt="image" /></span></p>
+</div>
+<p><br />
+</p>
+<figcaption><span class="math inline">\(x^2\)</span> and tangent lines
+</figcaption>
+</figure>
+<div class="math notranslate nohighlight">
+\[p = \frac{df}{dx}=2x.\]</div>
+<div class="math notranslate nohighlight">
+\[g(p) = px - f(x) = \frac{p^2}{2} - \frac{p^2}{4}=\frac{p^2}{4},\]</div>
+<p>simply plug <span class="math notranslate nohighlight">\(p=2x\)</span> back into this expression will get the original
+function back.\</p>
+<p><strong>Classical Mechanics:</strong> Use the definition in next page to check he
+transformation from the Lagrangian <span class="math notranslate nohighlight">\(L(q,\dot q)\)</span> to the Hamiltonian:
+$<span class="math notranslate nohighlight">\(p = \frac{\partial L}{\partial \dot q}, \qquad 
+H(q,p) = p\dot q - L.\)</span><span class="math notranslate nohighlight">\( Can you guess the reason why why it is okay to
+take a derivative w.r.t. \)</span>\dot q<span class="math notranslate nohighlight">\( but we can't do the same for \)</span>q$?<br />
+This is a good opportunity to look up what these things are in upper
+devision physics textbook. For anyone interested in molecular dynamics
+simulation, the software uses Hamiltonian to produce the trajectory of
+the system</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probability">Probability</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-random-variable">Discrete Random Variable</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-probability">Continuous Probability</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-mathematical-concepts">Other Mathematical Concepts</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hideya Koizumi & Eiko Koizumi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1202 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Simple Quantum Mechanical Models and Solutions &#8212; Physical Chemistry Through Computer Simulations</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"uvec": ["\\hat{\\mathbf{#1}}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch04';</script>
+    <link rel="icon" href="_static/favicon.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Physical Chemistry Through Computer Simulations</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Physical Chemistry Through Computer Simulations
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Quantum Mechanics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="qm01.html">Math Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm02.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm03.html">Foundation of Quantum Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm04.html">Simple Quantum Mechanical Models and Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm05.html">Hydrogen-Like Atom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm06.html">Approximation Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm07.html">Electron Spin (Quantum Mechanics Concept)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm08.html">System Containing Only One Atom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm09.html">System Containing Two Atoms (Diatomic System)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm10.html">Hybrid Orbitals in Polyatomic Molecule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm11.html">Symmetry, Group Theory, Representation Theory and Thier Application to Chemistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm12.html">Molecular Spectroscopy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm13.html">Resonance by Variational Methods</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Thermodynamics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="td01.html">Math Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td02.html">Transition from Classical to Statistical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td03.html">Boltzmann Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td04.html">State function, dealing with partial derivatives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td05.html">Energy, Entropy and Temperature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td06.html">Free Energy, Pressure, &amp; Gas Laws</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td07.html">Maxwell Relation, Basic Thermodynamics Process, Second and Third Laws of Thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td08.html">The Equipartition Principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td09.html">Chemical Potential</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td10.html">Thermodynamics of Mixing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td11.html">Chemical Equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td12.html">Reaction Dynamics and Kinetics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td13.html">Chemistry of Fluid</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/ch04.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Simple Quantum Mechanical Models and Solutions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Simple Quantum Mechanical Models and Solutions</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-is-quantum-mechanics-important">When Is Quantum Mechanics Important?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#particle-in-a-box-p-i-b">Particle in a Box (P.I.B.)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-shrodinger-equation-1-d-p-i-b">1-D Shrödinger Equation (1-D P.I.B.)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-shrodinger-equation-3-d-p-i-b">3-D Shrödinger Equation (3-D P.I.B.)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#harmonic-oscillator">Harmonic Oscillator</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classical">Classical</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#center-of-mass-reduced-mass-2-body-problem-to-1-body">Center of Mass &amp; Reduced Mass (2-body problem to 1-body)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-mechanics-version-of-harmonic-oscillator">Quantum Mechanics Version of Harmonic Oscillator</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-realistic-potential">More Realistic Potential</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#morse-potential">Morse Potential</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lenerd-jones-potential">Lenerd Jones Potential</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rigid-rotor">Rigid Rotor</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-mass-orbiting-in-circular-path">A Mass Orbiting in Circular Path</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#k-e-associated-with-circular-motion">K.E. Associated with Circular Motion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rigid-rotor-2-body-problem-to-1-body">Rigid Rotor(2-body problem to 1-body)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rigid-rotor-3-d-quantum-mechanics">Rigid Rotor (3-D Quantum Mechanics)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hydrogen-like-atom">Hydrogen-Like Atom</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spherical-part-of-the-wavefunction-for-hydorogen-atom">Spherical Part of the Wavefunction for Hydorogen Atom</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hat-l-2-operator-and-eigenvalue"><span class="math notranslate nohighlight">\(\hat{L}^2\)</span> Operator and Eigenvalue</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hat-l-z-operator-and-quantum-number-relation-m-le-l-with-m-0-pm1-pm2-ldots-pm-l"><span class="math notranslate nohighlight">\(\hat{L}_z\)</span> Operator and Quantum Number Relation: <span class="math notranslate nohighlight">\(|m| \le l\)</span>, with <span class="math notranslate nohighlight">\(m = 0, \pm1, \pm2, \ldots, \pm l\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#radial-part-of-the-wavefunction-for-hydorogen-atom">Radial Part of the Wavefunction for Hydorogen Atom</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quntum-number-relation-1-le-n-0-le-l-le-n-1">Quntum number relation <span class="math notranslate nohighlight">\(1 \le n\)</span> &amp; <span class="math notranslate nohighlight">\(0 \le l \le n - 1\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dimentionless-eq-atomic-unit">Dimentionless Eq (atomic unit)</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="simple-quantum-mechanical-models-and-solutions">
+<h1>Simple Quantum Mechanical Models and Solutions<a class="headerlink" href="#simple-quantum-mechanical-models-and-solutions" title="Link to this heading">#</a></h1>
+<p><span class="math notranslate nohighlight">\(\hspace{30pt}\)</span>Now that we have reviewed postulates of quantum
+mechanics, it is time for us to apply them to some simple systems. By
+doing so, we may find some interesting outcomes that arise from quantum
+mechanics. Before we dive into quantum mechanics, we shall cover few
+physical concepts that are vital to physical chemists.</p>
+<section id="when-is-quantum-mechanics-important">
+<h2>When Is Quantum Mechanics Important?<a class="headerlink" href="#when-is-quantum-mechanics-important" title="Link to this heading">#</a></h2>
+<p>$\hspace{30pt}<span class="math notranslate nohighlight">\(Quantum mechanics is certainly important for the
+electronic property of the molecules as Bohr's model incorporate wave
+nature of electron through de Broglie relation. Since wave-nature of an
+electron has been demonstrated by double slit experiment, interest
+readers may look for an online video. For this reason, it is appropriate
+to apply Schrodinger's formulation which shares the same foundation to
+wave mechanics. A considerable amount of part 1 of this textbook deal
+with the quantum state of the electron. However, solving electronic
+state is just a part of the problem and it is certainly not enough to
+model any chemical reaction, the ultimate goal for physical chemistry.\
+\)</span>\hspace{30pt}<span class="math notranslate nohighlight">\(Because postulates of quantum mechanics is applied to not
+only apply to electrons as well as neclei, Shrödinger Equation is
+generally difficult to solve, even for simple atomic problems.
+Meanwhile, we know that the mass of an electron (0.00055AMU) is
+significantly smaller than that of any nuclei (\)</span>\geq<span class="math notranslate nohighlight">\( 1AMU). Therefore,
+an electron moves much faster than any of the nuclei in the molecule. In
+general, it is safe to assume that the motion of atomic nuclei and
+electrons in a molecule can be separated. This approximation, called the
+Born-Oppenheimer approximation, greatly simplifies the problem. After
+separating the motions of the nucleus and the electrons, one generally
+solves first the part of the electrons associated with the molecule of
+interest and then proceeds to the motions of the nucleus. After all,
+chemical reactions are nothing more than rearrangements of atoms, so to
+consider chemical reactions from a thermodynamic point of view, one must
+take into account the vibrations, rotations, and translations of the
+products and reactants.\
+\)</span>\hspace{30pt}$Consider a molecule consist of 3N atoms. Since each atom
+can move along x,y, &amp; z-direction, the total degrees of freedom is equal
+to 3N. If all atoms move in the same direction, center of mass moves.
+Therefore, three degrees of freedom is used for translation of the
+center of mass. If the molecule is non-linear, the molecule can be
+rotated around x, y, or z-axis; three degrees of freedom is used for
+rotational modes. Rest of the degrees of freedom (3N-6) is considered as
+vibrational modes. If the molecule is linear, the molecule can be
+rotated around only 2 axes; two degrees of freedom is used for
+rotational modes. Rest of the degrees of freedom (3N-5) is considered as
+vibrational modes. As Planck pointed out, energy is quantized. However,
+the energy gap between quantum state is so small for some of the modes;
+it can be approximated classically to simplify the problem. We shall
+cover some of these in this chapter.\</p>
+</section>
+<section id="particle-in-a-box-p-i-b">
+<h2>Particle in a Box (P.I.B.)<a class="headerlink" href="#particle-in-a-box-p-i-b" title="Link to this heading">#</a></h2>
+<section id="d-shrodinger-equation-1-d-p-i-b">
+<h3>1-D Shrödinger Equation (1-D P.I.B.)<a class="headerlink" href="#d-shrodinger-equation-1-d-p-i-b" title="Link to this heading">#</a></h3>
+<p>Shrödinger Equation<br />
+<span class="math notranslate nohighlight">\(-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}\psi + V(x) \psi = E\psi\)</span><br />
+<span class="math notranslate nohighlight">\(\hspace{10pt} \downarrow\)</span></p>
+<p><span class="math notranslate nohighlight">\(\frac{d^2}{dx^2}\psi + q\psi = 0 (0\leq x \leq a)\)</span><br />
+<span class="math notranslate nohighlight">\(q = \frac{2mE}{\hbar^2}\)</span><br />
+Recall our D.E.</p>
+<p><span class="math notranslate nohighlight">\(y&quot; + py' + qy = 0\)</span></p>
+<p><span class="math notranslate nohighlight">\(\hspace{20pt}\uparrow\)</span></p>
+<p><span class="math notranslate nohighlight">\(\hspace{20pt} \cancel{0}\)</span><br />
+Guess <span class="math notranslate nohighlight">\(y = e^{sx}\)</span><br />
+<span class="math notranslate nohighlight">\(s^2 e^{sx} + q e^{sx} = 0\)</span><br />
+<span class="math notranslate nohighlight">\(s^2 + q = 0\)</span><br />
+<span class="math notranslate nohighlight">\(s = \pm\sqrt{q} i = \pm \frac{(2mE)^{1/2}}{\hbar} i = \pm ki\)</span><br />
+So our solution is</p>
+<p><span class="math notranslate nohighlight">\(\psi = C_1 e^{ikx} + C_2 e^{-ikx}\)</span><br />
+<span class="math notranslate nohighlight">\(=(C_1+C_2)\cos(kx) + i(C_1-C_2)\sin{kx} \because e^{iax}=\cos(ax)+i\sin(ax)\)</span><br />
+<span class="math notranslate nohighlight">\(=A\cos(kx) + B\sin(kx)\)</span></p>
+<figure data-latex-placement="h">
+<p><img src="Figure4.png" style="width:7cm;height:5cm" alt="image" />
+(-38,85)<span><span style="color: gray"><strong><span
+class="smallcaps"><span><span
+class="math inline">\(V=\infty\)</span></span></span></strong></span></span>
+(-195,85)<span><span style="color: gray"><strong><span
+class="smallcaps"><span><span
+class="math inline">\(V=\infty\)</span></span></span></strong></span></span>
+(-117,85)<span><span style="color: black"><strong><span
+class="smallcaps"><span><span
+class="math inline">\(V=0\)</span></span></span></strong></span></span>
+(-173,0)<span><span style="color: black"><strong><span
+class="smallcaps"><span><span
+class="math inline">\(x=0\)</span></span></span></strong></span></span>
+(-55,0)<span><span style="color: black"><strong><span
+class="smallcaps"><span><span
+class="math inline">\(x=a\)</span></span></span></strong></span></span></p>
+<figcaption> Potential of Particle in a Box </figcaption>
+</figure>
+<p>Applying the boundary condition,<br />
+<span class="math notranslate nohighlight">\(\psi(0) = \psi(a) = 0 \Rightarrow A = 0\)</span><br />
+<span class="math notranslate nohighlight">\(\hspace{90pt} \psi(a) = B\sin(ka) = 0\)</span><br />
+<span class="math notranslate nohighlight">\(\hspace{90pt} ka = n\pi\)</span><br />
+<span class="math notranslate nohighlight">\(\hspace{120pt} \Downarrow\)</span><br />
+So,
+<span class="math notranslate nohighlight">\(\psi(x) = B\sin(kx) \hspace{20pt} \frac{(2mE)^{1/2}}{\hbar} a = n\pi (n = 0, 1, 2, \cdots)\)</span><br />
+<span class="math notranslate nohighlight">\(\hspace{38pt} = B\sin\Big(\frac{n\pi x}{a}\Big)\)</span><br />
+<span class="math notranslate nohighlight">\(\hspace{120pt} E = \frac{\pi^2 n^2 \hbar^2}{2ma^2}\)</span><br />
+<span class="math notranslate nohighlight">\(\hspace{130pt} \downarrow ( \hbar = \frac{h}{2\pi})\)</span><br />
+<span class="math notranslate nohighlight">\(\hspace{130pt} = \frac{n^2h^2}{8ma^2}\)</span><br />
+We still need to find B.<br />
+[requirement]{.underline} <span class="math notranslate nohighlight">\(\int \psi^* \psi dx = 1\)</span><br />
+<span class="math notranslate nohighlight">\(1 = |B|^2\int_0^a\sin^2\big(\frac{n\pi x}{a}\big) dx\)</span><br />
+<span class="math notranslate nohighlight">\(\hspace{10pt} = \frac{a|B|^2}{n\pi}\int_0^{n\pi}\sin^2 z dz \hspace{20pt} z = \frac{n\pi x}{a}\)</span><br />
+<span class="math notranslate nohighlight">\(\hspace{10pt} = |B|^2\frac{a}{n\pi}\big(\frac{n\pi}{2}\big) = |B|^2\frac{a}{2}\)</span><br />
+<span class="math notranslate nohighlight">\(B = \sqrt{\frac{2}{a}}\)</span> So,
+<span class="math notranslate nohighlight">\(\psi = \sqrt{\frac{2}{a}}\sin\big(\frac{n\pi x}{a}\big) \hspace{10pt} n = 1, 2, 3, \cdots\)</span><br />
+Note 0 is missing [why]{.underline}? <span class="math notranslate nohighlight">\(\rightarrow\)</span></p>
+<p>[HW]{.underline}</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left(
+                \begin{array}{ll}
+                 $ Plot $ \psi_n = \sqrt{{2}{a}}\sin\big(\frac{n\pi x}{a}\big) $ for up to $ n = 20\\
+                 $ Plot $ E_n $ versus $ n 
+                \end{array}
+              \right.\end{split}\]</div>
+<p>[HW]{.underline}<br />
+Consider Helium atom trapped in a 10 <span class="math notranslate nohighlight">\(cm^3\)</span> box and it is moving only in
+x-direction. From statistical mechanics (Part II of this book), average
+motion along x axis is <span class="math notranslate nohighlight">\(k_BT\)</span>. At room temperature, solve the average
+value of n. Then, solve the energy gap between n state and n+1 state. Is
+the energy gap look important for chemistry problem?<br />
+[Laboratory 1]{.underline}<br />
+see appendix\</p>
+</section>
+<section id="d-shrodinger-equation-3-d-p-i-b">
+<h3>3-D Shrödinger Equation (3-D P.I.B.)<a class="headerlink" href="#d-shrodinger-equation-3-d-p-i-b" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(-\frac{\hbar^2}{2m}\Big(\frac{\partial^2\psi}{\partial x^2} + \frac{\partial^2\psi}{\partial y^2} + \frac{\partial^2\psi}{\partial z^2}\Big) = E\psi\)</span><br />
+<span class="math notranslate nohighlight">\(-\frac{\hbar}{2m}\nabla^2\psi = E\psi\)</span><br />
+<span class="math notranslate nohighlight">\(\nabla^2 = \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} + \frac{\partial^2}{\partial z^2}\)</span><br />
+How do we solve this?<br />
+Assume <span class="math notranslate nohighlight">\(\psi(x, y, z) = X(x) Y(y) Z(z)\)</span><br />
+<span class="math notranslate nohighlight">\(\hspace{40pt} E = E_x + E_y + Ez\)</span><br />
+then,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{equation*}
+\begin{split}
+-\frac{\hbar^2}{2m} \frac{\partial^2}{\partial x^2} X(x) &amp;= E_x X(x)\\
+-\frac{\hbar^2}{2m} \frac{\partial^2}{\partial y^2} Y(y) &amp;= E_y Y(y)\\
+-\frac{\hbar^2}{2m} \frac{\partial^2}{\partial z^2} Z(z) &amp;= E_z Z(z)
+\end{split}
+\end{equation*}\end{split}\]</div>
+<p>Solution</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{equation*}
+\begin{split}
+ X(x) &amp;= A_x \sin\big(\frac{n_x\pi x}{a}\big)\\
+ Y(y) &amp;= A_y \sin\big(\frac{n_y\pi y}{b}\big)\\
+ Z(z) &amp;= A_z \sin\big(\frac{n_z\pi z}{c}\big) 
+\end{split}
+\end{equation*}\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(\psi = X Y Z\)</span> &amp;<br />
+<span class="math notranslate nohighlight">\(A_x\)</span><span class="math notranslate nohighlight">\(A_y\)</span><span class="math notranslate nohighlight">\(A_z\)</span> = <span class="math notranslate nohighlight">\(\left(\frac{8}{a b c}\right)^{1/2}\)</span>,
+<span class="math notranslate nohighlight">\(E_n = \frac{h^2}{8m}\left(\frac{n_x^2}{a^2} + \frac{n_y^2}{b^2} + \frac{n_z^2}{c^2}\right)\)</span><br />
+[HW]{.underline} Verify this.</p>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(200,125) (0,0)<span><img src="Figure5.png"
+style="width:7cm;height:5cm" alt="image" /></span> (-5,-5)<span><span
+style="color: blue"><strong><span
+class="smallcaps"><span>x</span></span></strong></span></span>
+(197,57)<span><span style="color: blue"><strong><span
+class="smallcaps"><span>y</span></span></strong></span></span>
+(65,140)<span><span style="color: blue"><strong><span
+class="smallcaps"><span>z</span></span></strong></span></span>
+(35,35)<span><span style="color: blue"><strong><span
+class="smallcaps"><span>a</span></span></strong></span></span>
+(160,60)<span><span style="color: blue"><strong><span
+class="smallcaps"><span>b</span></span></strong></span></span>
+(70,100)<span><span style="color: blue"><strong><span
+class="smallcaps"><span>c</span></span></strong></span></span></p>
+</div>
+<figcaption> 3-D Particle In a Box </figcaption>
+</figure>
+</section>
+</section>
+<section id="harmonic-oscillator">
+<h2>Harmonic Oscillator<a class="headerlink" href="#harmonic-oscillator" title="Link to this heading">#</a></h2>
+<section id="classical">
+<h3>Classical<a class="headerlink" href="#classical" title="Link to this heading">#</a></h3>
+<p>In harmonic oscillator, restoring force is given by</p>
+<p>$f = -k(l - l_0) = -kx$.<br />
+By Newton force balance,\</p>
+<p><span class="math notranslate nohighlight">\(f = ma\)</span></p>
+<p><span class="math notranslate nohighlight">\(m\frac{d^2x}{dt^2} + kx = 0\)</span></p>
+<p>By same ODE technique,\</p>
+<p><span class="math notranslate nohighlight">\(x = c_1\sin(\omega t) + c_2\cos(\omega t) = A\sin(\omega t + \phi)\)</span></p>
+<p><span class="math notranslate nohighlight">\(\hspace{60pt}\)</span> where <span class="math notranslate nohighlight">\(\omega = \Big(\frac{k}{m}\Big)^{1/2}\)</span></p>
+<p>From Physics I</p>
+<p><span class="math notranslate nohighlight">\(\hspace{20pt}\hookrightarrow\)</span></p>
+<p><span class="math notranslate nohighlight">\(f(x) = -\frac{\partial V}{\partial x} \Rightarrow V = \frac{1}{2} kx^2\)</span></p>
+<p><span class="math notranslate nohighlight">\(H = \frac{p^2}{2m} + V = \frac{m}{2}\big(\frac{dx}{dt}\big)^2 + \frac{1}{2} kx^2 = E\)</span></p>
+<p>If we choose <span class="math notranslate nohighlight">\(x(t) = A\cos(\omega t)\)</span>, then,\</p>
+<p><span class="math notranslate nohighlight">\(E = \frac{1}{2}m\omega^2A^2\cos^2(\omega t) + \frac{1}{2} kA^2\sin^2(\omega t)\)</span></p>
+<p><span class="math notranslate nohighlight">\(\omega = \big(\frac{k}{m}\big)^{1/2} \Rightarrow \hspace{10pt} E = \frac{kA^2}{2}\big(\sin^2(\omega t) + \cos^2(\omega t)\big)\)</span></p>
+<p><span class="math notranslate nohighlight">\(\hspace{80pt} =\frac{kA^2}{2} \hspace{10pt} \leftarrow\)</span> Energy is
+constant w.r.t. time.</p>
+<figure data-latex-placement="h">
+<img src="Figure8_HO.png" style="width:7cm;height:5cm" />
+<figcaption> Harmonic Oscillator </figcaption>
+</figure>
+</section>
+<section id="center-of-mass-reduced-mass-2-body-problem-to-1-body">
+<h3>Center of Mass &amp; Reduced Mass (2-body problem to 1-body)<a class="headerlink" href="#center-of-mass-reduced-mass-2-body-problem-to-1-body" title="Link to this heading">#</a></h3>
+<p>Center of mass for 2-body is defined as\</p>
+<p><span class="math notranslate nohighlight">\(X = \frac{m_1x_1 + m_2x_2}{m_1 + m_2} = \frac{m_1x_1 + m_2 x_2}{M}\)</span></p>
+<p>By force(ma) balance(sum of change in momentum of each fragment),\</p>
+<p><span class="math notranslate nohighlight">\(\frac{d^2}{dt^2}\big(MX\big) = \frac{d^2}{dt^2}\big(m_1x_1 + m_2x_2\big) = 0\)</span></p>
+<p>So, <span class="math notranslate nohighlight">\(X\)</span> is stationary.<br />
+Newton’s force balance</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{equation*}
+\begin{split}
+m_1\frac{d^2x_1}{dt^2} &amp;= k\big(x_2 - x_1 - l_0\big)\\
+m_2\frac{d^2x_2}{dt^2} &amp;= -k\big(x_2 - x_1 - l_0\big)
+\end{split}
+\end{equation*}\end{split}\]</div>
+<p>Letting <span class="math notranslate nohighlight">\(x= x_2 - x_1 - l_0\)</span>,\</p>
+<p><span class="math notranslate nohighlight">\(\frac{d^2x}{dt^2} = \frac{d^2dx_2}{dt^2} - \frac{d^2x_1}{dt^2} = -k\big(\frac{1}{m_1} + \frac{1}{m_2}\big)x =-kx\Big(\frac{m_1 + m_2}{m_1m_2}\Big)\)</span></p>
+<p>alg <span class="math notranslate nohighlight">\(\downarrow\)</span>\</p>
+<p><span class="math notranslate nohighlight">\(\mu\frac{d^2x}{dt^2} + kx = 0\)</span> where <span class="math notranslate nohighlight">\(\mu = \frac{m_1m_2}{m_1 + m_2}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\downarrow\)</span></p>
+<p><span class="math notranslate nohighlight">\(\mu\)</span> is the reduced mass.</p>
+<figure data-latex-placement="h">
+<img src="Figure8_1.png" style="width:7cm;height:5cm" />
+<figcaption> Simple Harmonic Oscillator </figcaption>
+</figure>
+</section>
+<section id="quantum-mechanics-version-of-harmonic-oscillator">
+<h3>Quantum Mechanics Version of Harmonic Oscillator<a class="headerlink" href="#quantum-mechanics-version-of-harmonic-oscillator" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(\hat{H}\psi = E\psi\)</span><br />
+<span class="math notranslate nohighlight">\(\hat{H} = \hat{T} + \hat{V}\)</span><br />
+<span class="math notranslate nohighlight">\(-\frac{\hbar^2}{2\mu}\frac{d^2\psi}{dx^2} + V(x)\psi = E\psi\)</span><br />
+<span class="math notranslate nohighlight">\(\frac{d^2\psi}{dx^2} + \frac{2\mu}{\hbar^2}\Big(E - \frac{1}{2}kx^2\Big)\psi = 0\)</span><br />
+The solution is already found by mathematician.<br />
+<span class="math notranslate nohighlight">\(\psi_v(x) = N_v\uwave{H_v\big(\alpha^{1/2}x\big)}e^{-\alpha x^2/2}\)</span><br />
+called Hermite polynomial<br />
+<span class="math notranslate nohighlight">\(\alpha = -\big(\frac{k\mu}{\hbar^2}\big)^{1/2}\)</span><br />
+<span class="math notranslate nohighlight">\(N_v = \frac{1}{(2^vv!)^{1/2}}\big(\frac{\alpha}{\pi}\big)^{1/4}\)</span><br />
+[Laboratory 2]{.underline}<br />
+see appendix</p>
+<p>Using the laboratory results, the energy of harmonic oscillator is given
+by:\</p>
+<p><span class="math notranslate nohighlight">\(E_v = \hbar\omega\big(v + \frac{1}{2}\big)\)</span> <span class="math notranslate nohighlight">\(v = 0, 1, 2, 3, \cdots\)</span></p>
+<figure data-latex-placement="h">
+<img src="Figure8_2.png" style="height:5cm" />
+<figcaption>Solutions of a Harmonic Oscillator </figcaption>
+</figure>
+<p>[HW]{.underline}<br />
+Consider a <span class="math notranslate nohighlight">\(H_2\)</span> molecule. The energy gap of the vibration is measured
+as 4401 <span class="math notranslate nohighlight">\(cm^{-1}\)</span> by the experiment. What is the zero point enregy of
+this system? What is the force constant for this molecule? Does energy
+gap looks important to chemistry problem? What is the obvious weakness
+of the Harmonic Oscillator approximation?</p>
+</section>
+</section>
+<section id="more-realistic-potential">
+<h2>More Realistic Potential<a class="headerlink" href="#more-realistic-potential" title="Link to this heading">#</a></h2>
+<p>We have learned that Harmonic Oscillator has infinite potential at large
+bond distance, and the molecule will not break apart no matter how
+strong they oscillate. This is a very poor approximation for the
+chemistry and more acculate model should be introduced.</p>
+<section id="morse-potential">
+<h3>Morse Potential<a class="headerlink" href="#morse-potential" title="Link to this heading">#</a></h3>
+<p>Potential energy of Morse potential is given as<br />
+<span class="math notranslate nohighlight">\(E_v=D\left( 1-e^{(-\alpha(l-l_o))}\right)^2\)</span><br />
+where <span class="math notranslate nohighlight">\(\alpha=\sqrt{\frac{k_e}{2D_e}}\)</span><br />
+<span class="math notranslate nohighlight">\(D_e\)</span> represent the classical well depth. Note that harmonic oscillator
+is similar to the Morse potential near the bottom of the well.<br />
+[HW]{.underline} Show that Harmonic potential is identical to the Morse
+potential near the bottom of the potential well. Hint: Expand the
+exponential<br />
+It can be shown that allowed vibrational energy of the morse potential
+(up to some point) is given as<br />
+<span class="math notranslate nohighlight">\(E_v=\hbar v_o(v+\frac{1}{2})-\frac{\left( \hbar v_o(v+\frac{1}{2}) \right)^2}{4D_e}\)</span><br />
+where <span class="math notranslate nohighlight">\(v_o=\alpha\sqrt{\frac{2D_e}{m}}=\sqrt{\frac{k_e}{m}}\)</span>\</p>
+<figure data-latex-placement="h">
+<img src="MorseP.png" style="height:4cm" />
+<figcaption>Energy level of Morse Potential </figcaption>
+</figure>
+<p>Note that energy gap becomes narrower as <span class="math notranslate nohighlight">\(v\)</span> becomes large. This is and
+harmonic oscillator fails to predict this correct behavior .\</p>
+</section>
+<section id="lenerd-jones-potential">
+<h3>Lenerd Jones Potential<a class="headerlink" href="#lenerd-jones-potential" title="Link to this heading">#</a></h3>
+<p>This potential (also known as 6-12 potential) is a popular choice for
+modeling chemistry problems because of its simplicity.<br />
+<span class="math notranslate nohighlight">\(V_{LJ}=4\epsilon\left[ \left( \frac{\sigma}{r}\right)^{12}-\left( \frac{\sigma}{r}\right)^{6} \right]\)</span><br />
+[HW]{.underline} Take a deribative w.r.t. internuclear distance r and
+solve for zero to find the bottome of the well. What is the well depth
+there?\</p>
+</section>
+</section>
+<section id="rigid-rotor">
+<h2>Rigid Rotor<a class="headerlink" href="#rigid-rotor" title="Link to this heading">#</a></h2>
+<section id="a-mass-orbiting-in-circular-path">
+<h3>A Mass Orbiting in Circular Path<a class="headerlink" href="#a-mass-orbiting-in-circular-path" title="Link to this heading">#</a></h3>
+<p>Circular path <span class="math notranslate nohighlight">\(\perp\)</span> to <span class="math notranslate nohighlight">\(x\)</span> at
+<span class="math notranslate nohighlight">\(\overrightarrow{r} = \overrightarrow{x}\)</span><br />
+$<span class="math notranslate nohighlight">\(\begin{equation*}
+\begin{split}
+L_z = \overrightarrow{r} \times \overrightarrow{P} &amp;= xP_y - yP_x \\
+&amp;= xP_y \\
+&amp; \downarrow |v|\text{ constant magnitude }\\
+&amp;= xmv\\
+&amp;= rmv\\
+&amp;=mr^2\frac{v}{r}\\
+&amp;\downarrow \text{ momentum of inertia } I = mr^2\\
+&amp;= I\frac{v}{r} = I\omega
+\end{split}
+\end{equation*}\)</span>$</p>
+<p>Let <span class="math notranslate nohighlight">\(\nu_{rot} =\)</span> frequency of rotation<br />
+<span class="math notranslate nohighlight">\(v = 2\pi r \nu_{rot} \Rightarrow \frac{v}{r} = 2\pi \nu_{rot} = \omega \leftarrow\)</span>
+angular velocity<br />
+The equation should look similar to linear momentum.<br />
+<span class="math notranslate nohighlight">\(p = m\overrightarrow{v} \hspace{20pt} L_z = I\omega\)</span><br />
+<span class="math notranslate nohighlight">\(\hspace{22pt} \uparrow \hspace{10pt} \nwarrow \hspace{39pt} \uparrow \hspace{9pt} \nwarrow\)</span><br />
+<span class="math notranslate nohighlight">\(\hspace{10pt}\)</span> mass <span class="math notranslate nohighlight">\(\hspace{2pt}\)</span> velocity <span class="math notranslate nohighlight">\(\hspace{2pt}\)</span> inertia
+<span class="math notranslate nohighlight">\(\hspace{2pt}\)</span> angular velocity</p>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(200,125) (0,0)<span><img src="Figure7.png"
+style="width:7cm;height:5cm" alt="image" /></span> (25,-5)<span><span
+style="color: blue"><strong><span
+class="smallcaps"><span>x</span></span></strong></span></span>
+(200,58)<span><span style="color: blue"><strong><span
+class="smallcaps"><span>y</span></span></strong></span></span>
+(82,140)<span><span style="color: blue"><strong><span
+class="smallcaps"><span>z</span></span></strong></span></span></p>
+</div>
+<figcaption> Circular Path </figcaption>
+</figure>
+</section>
+<section id="k-e-associated-with-circular-motion">
+<h3>K.E. Associated with Circular Motion<a class="headerlink" href="#k-e-associated-with-circular-motion" title="Link to this heading">#</a></h3>
+<p>[Classical Version]{.underline}</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{equation*}
+\begin{split}
+T_{\text{linear}} &amp;= \frac{p^2}{2m} = \frac{1}{2} mv^2\\
+T_{\text{ang}} &amp;= \frac{L_z^2}{2I} = \frac{1}{2} I\omega^2
+\end{split}
+\end{equation*}\end{split}\]</div>
+<p>[Quantum Mechanics Version]{.underline}</p>
+<p><br />
+Because <span class="math notranslate nohighlight">\(L_z = \pm pr = \pm \frac{hr}{\lambda}\)</span> (By de Broglie
+<span class="math notranslate nohighlight">\(p = \frac{h}{\lambda}\)</span>)<br />
+From boundary condition, $<span class="math notranslate nohighlight">\(\begin{equation*}
+\begin{split}
+2\pi r &amp;= m_l\lambda \hspace{10pt} m_l = 0, \pm1, \pm2, \pm3, \cdots\\
+L_z &amp;= \frac{m_lh}{2\pi} = m_l\hbar
+\end{split}
+\end{equation*}\)</span>$</p>
+<p>So, K.E. of circular motion is<br />
+<span class="math notranslate nohighlight">\(E = \frac{L_z^2}{2I} = \frac{(m_l\hbar^2)}{2I}\)</span></p>
+<p><br />
+Assume particle follow circular orbit<br />
+on <span class="math notranslate nohighlight">\(xy-\)</span> plane (no potential <span class="math notranslate nohighlight">\(V(x) = 0\)</span>)<br />
+<span class="math notranslate nohighlight">\(\hat{H} = -\frac{\hbar^2}{2m}\big(\frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2}\big)\)</span><br />
+<span class="math notranslate nohighlight">\(\hspace{15pt} = -\frac{\hbar^2}{2m}\big(\cancel{\frac{\partial^2}{\partial r^2}} + \cancel{\frac{1}{r}\frac{\partial}{\partial r}} + \frac{1}{r^2}\frac{\partial^2}{\partial \phi^2}\big)\)</span></p>
+<p><span class="math notranslate nohighlight">\(\hspace{50pt}\)</span> <span class="math notranslate nohighlight">\(\hspace{20pt}\)</span><br />
+So,
+<span class="math notranslate nohighlight">\(\hat{H} = -\frac{\hbar^2}{2mr^2}\frac{d^2}{d\phi^2} = -\frac{\hbar^2}{2I}\frac{d^2}{d\phi^2}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\hspace{88pt} \rightarrow\)</span></p>
+<p><span class="math notranslate nohighlight">\(\hspace{78pt} I = mr^2\)</span><br />
+Shrödinger Equation is<br />
+<span class="math notranslate nohighlight">\(-\frac{\hbar^2}{2I}\frac{d^2}{d\phi^2}\psi = E\psi\)</span></p>
+<p><span class="math notranslate nohighlight">\(\hspace{40pt} \Big\downarrow\)</span> This is identical to 1-D Shrödinger
+Equation</p>
+<p><span class="math notranslate nohighlight">\(\frac{d^2}{d\phi^2}\psi + \frac{2IE}{\hbar^2}\psi = 0\)</span></p>
+<p><span class="math notranslate nohighlight">\(\hspace{40pt} \Big\downarrow m_l^2 = \frac{2IE}{\hbar^2}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\frac{d^2}{d\phi^2}\psi + m_l^2\psi = 0\)</span></p>
+<p><span class="math notranslate nohighlight">\(\hspace{40pt} \Big\downarrow\)</span> From previous page. You don’t need this
+but it simplify algebra.</p>
+<p><span class="math notranslate nohighlight">\(\psi(\phi) = A e^{im_e\phi}\)</span><br />
+[note]{.underline} <span class="math notranslate nohighlight">\(\psi(\phi) = \psi(\phi + 2\pi)\)</span> force <span class="math notranslate nohighlight">\(m_l\)</span> to be
+integer.</p>
+<p>Now, <span class="math notranslate nohighlight">\(\psi(\phi)\)</span> must be normalized</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{equation*}
+\begin{split}
+\int_0^{2\pi}\psi^\ast(\phi)\psi(\phi) d\phi \\
+&amp;= |A|^2\int_0^{2\pi}e^{-im_l\phi}e^{im_l\phi} d\phi\\
+&amp;= |A|^2\int_0^{2\pi} d\phi\\
+&amp;= |A|^2 2\pi\\
+&amp;\Rightarrow \psi = \sqrt{\frac{1}{2\pi}}e^{im_l\phi}
+\end{split}
+\end{equation*}\end{split}\]</div>
+<p>[HW (Particle on a Ring)]{.underline} Using normalized <span class="math notranslate nohighlight">\(\psi\)</span>, obtain
+rotational energy expression. Then, consider electron moving on circular
+orbit on benzen ring with radius of 1.44 <span class="math notranslate nohighlight">\(\AA\)</span>. What is the excitation
+energy from ground state to first excited state?</p>
+</section>
+<section id="rigid-rotor-2-body-problem-to-1-body">
+<h3>Rigid Rotor(2-body problem to 1-body)<a class="headerlink" href="#rigid-rotor-2-body-problem-to-1-body" title="Link to this heading">#</a></h3>
+<p>Kinetic Energy</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{equation*}
+\begin{split}
+T &amp;= \frac{1}{2}m_1 v_1^2 + \frac{1}{2}m_2 v_2\\
+&amp;= \frac{1}{2}\big(m_1r_1^2 + m_2r_2^2\big)\omega^2\\
+&amp;= \frac{1}{2}I\omega^2
+\end{split}
+\end{equation*}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{equation*}
+\begin{split}
+I &amp;= m_1r_1^2 + m_2r_2^2\\
+&amp;= \mu r^2
+\end{split}
+\end{equation*}\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mu = \frac{m_1m_2}{m_1 + m_2}\)</span> and <span class="math notranslate nohighlight">\(r = r_1 + r_2\)</span>.<br />
+[HW]{.underline}<br />
+Check <span class="math notranslate nohighlight">\(I = \mu r^2\)</span>.<br />
+(Hint: <span class="math notranslate nohighlight">\(m_1r_1 = m_2r_2 \leftarrow\)</span> center of mass. Just plug in &amp; do
+alg.)<br />
+<span class="math notranslate nohighlight">\(T = \frac{L^2}{2I}\)</span> where <span class="math notranslate nohighlight">\(L = I\omega\)</span>.</p>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(200,125) (0,0)<span><img src="Figure9.png"
+style="width:7cm;height:5cm" alt="image" /></span> (45,75)<span><span
+style="color: blue"><strong><span class="smallcaps"><span><span
+class="math inline">\(r_1\)</span></span></span></strong></span></span>
+(110,55)<span><span style="color: blue"><strong><span
+class="smallcaps"><span><span
+class="math inline">\(r_2\)</span></span></span></strong></span></span>
+(200,58)<span><span style="color: blue"><strong><span
+class="smallcaps"><span><span
+class="math inline">\(m_2\)</span></span></span></strong></span></span>
+(-18,115)<span><span style="color: blue"><strong><span
+class="smallcaps"><span><span
+class="math inline">\(m_1\)</span></span></span></strong></span></span>
+(65,145)<span><span style="color: blue"><strong><span
+class="smallcaps"><span>z</span></span></strong></span></span>
+(110,88)<span><span style="color: blue"><strong><span
+class="smallcaps"><span>r</span></span></strong></span></span></p>
+</div>
+<figcaption> Rigid Rotor </figcaption>
+</figure>
+</section>
+<section id="rigid-rotor-3-d-quantum-mechanics">
+<h3>Rigid Rotor (3-D Quantum Mechanics)<a class="headerlink" href="#rigid-rotor-3-d-quantum-mechanics" title="Link to this heading">#</a></h3>
+<p>Ø</p>
+<p><span class="math notranslate nohighlight">\(\hat{H} = -\frac{\hbar^2}{2m}\nabla^2 + \cancel{V}\)</span><br />
+Because <span class="math notranslate nohighlight">\(r\)</span> is constant in Rigid Roter, we should use spherical
+coordinate system. <span class="math notranslate nohighlight">\(\uparrow\)</span> from pervious page<br />
+From Calc II and III,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{equation*}
+\begin{split}
+\nabla^2 &amp;= \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} + \frac{\partial^2}{\partial z^2}\\
+&amp;= \frac{1}{r^2}\frac{\partial}{\partial r}\Big(r^2\frac{\partial}{\partial r}\Big) + \frac{1}{r^2\sin\theta}\frac{\partial}{\partial\theta}\Big(\sin\theta\frac{\partial}{\partial\theta}\Big) + \frac{1}{r^2\sin^2\theta}\Big(\frac{\partial^2}{\partial\phi^2}\Big)\\
+&amp;\downarrow r \text{ const}\\
+&amp;= \frac{1}{r^2\sin\theta}\frac{\partial}{\partial\theta}\Big(\sin\theta\frac{\partial}{\partial\theta}\Big) + \frac{1}{r^2\sin^2\theta}\Big(\frac{\partial^2}{\partial\phi^2}\Big)
+\end{split}
+\end{equation*}\end{split}\]</div>
+<p>[Eq 1]{.underline}\</p>
+<p><span class="math notranslate nohighlight">\(\hat{H} = -\frac{\hbar^2}{2I}\big[\frac{1}{\sin\theta}\frac{\partial}{\partial\theta}\big(\sin\theta\frac{\partial}{\partial\theta}\big) + \frac{1}{\sin^2\theta}\big(\frac{\partial^2}{\partial\phi^2}\big)\big]\)</span></p>
+<p><span class="math notranslate nohighlight">\(\hat{H}\psi = E\psi\)</span><br />
+Assume <span class="math notranslate nohighlight">\(\psi(r, \theta, \phi) = R(r)Y(\theta, \phi)\)</span><br />
+then,<br />
+<span class="math notranslate nohighlight">\(\hat{H}Y(\theta, \phi) = EY(\theta, \phi)\)</span>.</p>
+<p>The solution (Sperical Harmonics <span class="math notranslate nohighlight">\(Y_l^m\)</span>) is already tabulated by
+mathematians (See tables).\</p>
+<p>[HW]{.underline}<br />
+Plug in solution to this Eq to verify <span class="math notranslate nohighlight">\(E = \frac{\hbar^2}{2I}l(l+1)\)</span>.<br />
+Note that above Shrödinger Equation can be slightly simplified by
+setting <span class="math notranslate nohighlight">\(\beta = \frac{2IE}{\hbar^2}\)</span>.<br />
+<span class="math notranslate nohighlight">\(\sin\theta\frac{\partial}{\partial\theta}\big(\sin\theta\frac{\partial Y}{\partial\theta}\big) + \frac{\partial^2Y}{\partial\phi^2} + \big(\beta\sin^2\theta\big)Y = 0\)</span>.</p>
+<p>[HW]{.underline}<br />
+Consider rotation of <span class="math notranslate nohighlight">\(HCl\)</span> molecule rotating around z axis. Using 1.27
+Åas a bond length, what is the energy spacing of ground state to 1st
+excited state (kJ/mol)? Does the quantization of rotational energy look
+important to you? (Answer is “Yes”)<br />
+<span class="math notranslate nohighlight">\(\star\)</span> Note that spherical harmonics allows <span class="math notranslate nohighlight">\(2l+1\)</span> solutions for each
+value of <span class="math notranslate nohighlight">\(l\)</span>. This means that there are <span class="math notranslate nohighlight">\(2l+1\)</span> degenerate states
+available for each <span class="math notranslate nohighlight">\(l\)</span> rotational level. This increase in degeneracies
+with respect to <span class="math notranslate nohighlight">\(l\)</span> can be observed by simply taking <span class="math notranslate nohighlight">\(\frac{dE}{dl}\)</span>.\</p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="hydrogen-like-atom">
+<h1>Hydrogen-Like Atom<a class="headerlink" href="#hydrogen-like-atom" title="Link to this heading">#</a></h1>
+<p>We are now in position to consider real chemistry problem. The simplest
+real system is hydrogen-like atom which contain single electron orbiting
+around one atom. This solution also works for any nuclear charge and
+sometimes called as Hydrogen-Like system. Such system include
+<span class="math notranslate nohighlight">\(H, He^+, Li^{2+}, etc\)</span>. Because hydrogen-like system do not contain
+electron-electron repulsive interactions, we will try to obtain analytic
+solution for these system in this chapter.</p>
+<section id="spherical-part-of-the-wavefunction-for-hydorogen-atom">
+<h2>Spherical Part of the Wavefunction for Hydorogen Atom<a class="headerlink" href="#spherical-part-of-the-wavefunction-for-hydorogen-atom" title="Link to this heading">#</a></h2>
+<section id="hat-l-2-operator-and-eigenvalue">
+<h3><span class="math notranslate nohighlight">\(\hat{L}^2\)</span> Operator and Eigenvalue<a class="headerlink" href="#hat-l-2-operator-and-eigenvalue" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(\hat{H}\psi = E\psi\)</span><br />
+<span class="math notranslate nohighlight">\(\Downarrow\)</span><br />
+<span class="math notranslate nohighlight">\(\frac{1}{R(r)}\big[\frac{d}{dr}\big(r^2\frac{dR}{dr}\big) + \frac{2m_er^2}{\hbar^2}\big(\frac{Ze^2}{4\pi\epsilon_0r} + E\big)R(r)\big]\)</span><br />
+<span class="math notranslate nohighlight">\(= \frac{-1}{Y}\big[\frac{1}{\sin\theta}\frac{\partial}{\partial\theta}\big(\sin\theta\frac{\partial Y}{\partial\theta}\big) + \frac{1}{\sin^2\theta}\frac{\partial^2Y}{\partial\phi^2}\big] \cdots Eq 2\)</span><br />
+<span class="math notranslate nohighlight">\(= \beta\)</span> (<span class="math notranslate nohighlight">\(\leftarrow\)</span> const) because L.H.S. &amp; R.H.S. are totally
+independent.<br />
+<span class="math notranslate nohighlight">\(\times\)</span> <span class="math notranslate nohighlight">\(Y\sin^2\theta\)</span> for last equation, you get<br />
+<span class="math notranslate nohighlight">\(\sin\theta\frac{\partial}{\partial\theta}\big(\sin\theta\frac{\partial Y}{\partial\theta}\big) + \frac{\partial^2Y}{\partial\phi^2} + \big(\beta\sin^2\theta\big)Y = 0\)</span><br />
+<span class="math notranslate nohighlight">\(\uparrow\)</span><br />
+same as rigid rotor, so <span class="math notranslate nohighlight">\(\beta = \frac{2IE}{\hbar^2}\)</span> as in previous
+page.</p>
+<p>From <span class="math notranslate nohighlight">\(Eq 2\)</span> <span class="math notranslate nohighlight">\(\times\)</span> <span class="math notranslate nohighlight">\(\hbar^2\)</span>,<br />
+<span class="math notranslate nohighlight">\(-\hbar^2\big[\frac{1}{\sin\theta}\frac{\partial}{\partial\theta}\big(\sin\theta\frac{\partial}{\partial\theta}\big) + \frac{1}{\sin^2\theta}\frac{\partial^2}{\partial\phi^2}\big]Y = \beta\hbar^2Y\)</span><br />
+This <span class="math notranslate nohighlight">\(\big[ \hspace{20pt}\big]\)</span> is exactly idential to
+<span class="math notranslate nohighlight">\(\hat{H} = -\frac{\hbar^2}{2I}\big[ \hspace{20pt} \big]\)</span> in Eq 1.<br />
+<span class="math notranslate nohighlight">\(= \frac{\hat{L}^2}{2I}\)</span><br />
+So,<br />
+<span class="math notranslate nohighlight">\(\hat{L}^2Y_l^m = \hbar^2l(l+1)Y_l^m(\theta, \phi)\)</span><br />
+Remember <span class="math notranslate nohighlight">\(Y_l^m\)</span> is a part of <span class="math notranslate nohighlight">\(\psi = R(r)Y(\theta, \phi)\)</span>.<br />
+So,<br />
+<span class="math notranslate nohighlight">\(\hat{L}^2\psi = \hat{L}^2RY = R\hat{L}^2Y = R\hbar^2l(l+1)Y= \underline{\hbar^2l(l+1)}\psi\)</span><br />
+Eigenvalue of Hydrogen wavefunction for <span class="math notranslate nohighlight">\(\hat{L}^2\)</span> operator.</p>
+</section>
+<section id="hat-l-z-operator-and-quantum-number-relation-m-le-l-with-m-0-pm1-pm2-ldots-pm-l">
+<h3><span class="math notranslate nohighlight">\(\hat{L}_z\)</span> Operator and Quantum Number Relation: <span class="math notranslate nohighlight">\(|m| \le l\)</span>, with <span class="math notranslate nohighlight">\(m = 0, \pm1, \pm2, \ldots, \pm l\)</span><a class="headerlink" href="#hat-l-z-operator-and-quantum-number-relation-m-le-l-with-m-0-pm1-pm2-ldots-pm-l" title="Link to this heading">#</a></h3>
+<p>Recall, <span class="math notranslate nohighlight">\(\xrightarrow{\text{Calc III}}\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{equation*}
+\begin{split}
+\hat{L}_x = -i\hbar\Big(y\frac{\partial}{\partial z} - z\frac{\partial}{\partial y}\Big) &amp;= -i\hbar\Big(-\sin\phi\frac{\partial}{\partial\theta} - \cot\theta\cos\phi\frac{\partial}{\partial\phi}\Big)\\
+\hat{L}_y = -i\hbar\Big(z\frac{\partial}{\partial x} - x\frac{\partial}{\partial z}\Big) &amp;= -i\hbar\Big(\cos\phi\frac{\partial}{\partial\theta} - \cot\theta\sin\phi\frac{\partial}{\partial\phi}\Big)\\
+\hat{L}_z = -i\hbar\Big(x\frac{\partial}{\partial y} - y\frac{\partial}{\partial x}\Big) &amp;= -i\hbar\Big(\frac{\partial}{\partial\phi}\Big)
+\end{split}
+\end{equation*}\end{split}\]</div>
+<p>Only useful one is <span class="math notranslate nohighlight">\(\hat{L}_z\)</span> &amp; I show you part of it.<br />
+All <span class="math notranslate nohighlight">\(Y(\theta, \phi)\)</span> has form <span class="math notranslate nohighlight">\(Y(\theta, \phi) = W(\theta)e^{im\phi}\)</span>,
+<span class="math notranslate nohighlight">\(m = \pm0, \pm1, \cdots\)</span>.<br />
+<span class="math notranslate nohighlight">\(\hat{L}_z\psi = ////\hat{L}_ze^{im\phi} = //// (-i\hbar)\frac{\partial}{\partial\phi}e^{im\phi}\)</span><br />
+<span class="math notranslate nohighlight">\(= //// \hbar me^{im\phi}\)</span><br />
+<span class="math notranslate nohighlight">\(= m\hbar\psi\)</span><br />
+Because we can get the eigenvalues of <span class="math notranslate nohighlight">\(\hat{L}^2\)</span> &amp; <span class="math notranslate nohighlight">\(\hat{L}_z\)</span> from
+<span class="math notranslate nohighlight">\(\psi\)</span>,<br />
+they should commute.<br />
+then,<br />
+<span class="math notranslate nohighlight">\(\hat{L}_z^2\psi = m^2\hbar^2\psi\)</span><br />
+also,<br />
+<span class="math notranslate nohighlight">\(\hat{L}^2\psi = l(l + 1)\hbar^2\psi\)</span><br />
+Because<br />
+<span class="math notranslate nohighlight">\(\hat{L}^2 = \big(\hat{L}_x^2 + \hat{L}_y^2 + \hat{L}_z^2\big)\)</span><br />
+<span class="math notranslate nohighlight">\(\big(\hat{L}^2 - \hat{L}_z^2\big)\psi = \big(\underbrace{l(l + 1) - m^2}\big)\hbar^2\psi\)</span><br />
+<span class="math notranslate nohighlight">\(\hat{L}_x^2 + \hat{L}_y^2\)</span> They must be both positive.<br />
+<span class="math notranslate nohighlight">\(l(l + 1) - m^2 \ge 0\)</span> <span class="math notranslate nohighlight">\(m\)</span> &amp; <span class="math notranslate nohighlight">\(l\)</span> are both integers.<br />
+<span class="math notranslate nohighlight">\(|m| \le l \cdots m = 0, \pm1, \pm2, \cdots, \pm l\)</span><br />
+as expected from General Chemistry I.</p>
+<p>[Laboratory 3]{.underline}<br />
+see appendix</p>
+</section>
+</section>
+<section id="radial-part-of-the-wavefunction-for-hydorogen-atom">
+<h2>Radial Part of the Wavefunction for Hydorogen Atom<a class="headerlink" href="#radial-part-of-the-wavefunction-for-hydorogen-atom" title="Link to this heading">#</a></h2>
+<section id="quntum-number-relation-1-le-n-0-le-l-le-n-1">
+<h3>Quntum number relation <span class="math notranslate nohighlight">\(1 \le n\)</span> &amp; <span class="math notranslate nohighlight">\(0 \le l \le n - 1\)</span><a class="headerlink" href="#quntum-number-relation-1-le-n-0-le-l-le-n-1" title="Link to this heading">#</a></h3>
+<p>From <span class="math notranslate nohighlight">\(Eq\)</span> 2 &amp; <span class="math notranslate nohighlight">\(\beta = l(l + 1)\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{equation*}
+-\frac{\hbar^2}{2m_er^2}\frac{d}{dr}\Big(r^2\frac{dR}{dr}\Big) + \Big[\frac{\hbar^2l(l + 1)}{2m_er^2} - \frac{Ze^2}{4\pi\epsilon_0r} - E\Big]R = 0
+\end{equation*}\]</div>
+<p>The solutions are already tabulated by mathematicians.<br />
+$<span class="math notranslate nohighlight">\(\begin{equation*}
+R_{nl}(r) = -\Big\{\frac{(n - l - 1)!}{2n[(n + l)!]^3}\Big\}^{1/2}\Big(\frac{2Z}{na_0}\Big)^{l+3/2}r^le^{-\frac{rZ}{na_0}}\underbrace{L_{n + l}^{2l + 1}\Big(\frac{2rZ}{na_0}\Big)}
+\end{equation*}\)</span>$</p>
+<p><span class="math notranslate nohighlight">\(a_0 = \frac{\epsilon_0h^2}{\pi m_ee^2}\)</span> associated Laguerre Polynomial<br />
+From this use of tabulated table, n must be an positive integer
+<span class="math notranslate nohighlight">\(1 \le n\)</span> .<br />
+Plug this solution back, you obtain,<br />
+<span class="math notranslate nohighlight">\(E_n = \frac{-Z^2e^2}{8\pi\epsilon_0a_0n^2}\)</span><br />
+Because radia solution contains associated Lagurre Polynomial, quantum
+number <span class="math notranslate nohighlight">\(l\)</span> is restricted to be an integer between <span class="math notranslate nohighlight">\(0 \le l \le n - 1\)</span><br />
+.</p>
+<p>Another Genenal Chemistry I topic confirmed. //</p>
+<p>[Laboratory 4]{.underline}<br />
+see appendix<br />
+[Laboratory 5]{.underline}<br />
+see appendix\</p>
+</section>
+</section>
+<section id="dimentionless-eq-atomic-unit">
+<h2>Dimentionless Eq (atomic unit)<a class="headerlink" href="#dimentionless-eq-atomic-unit" title="Link to this heading">#</a></h2>
+<p>Recall Shrödinger Equation for H atom.</p>
+<div class="math notranslate nohighlight">
+\[\begin{equation*}
+\Big[-\frac{\hbar^2}{2m_e}\nabla^2 - \frac{e^2}{4\pi\epsilon_0}\frac{1}{r}\Big]\psi = E\psi \cdots \text{\textcircled{1}}
+\end{equation*}\]</div>
+<p>The coordinate we use for 1⃝ is <span class="math notranslate nohighlight">\((x, y, z)\)</span>.</p>
+<p>Now, let<br />
+$<span class="math notranslate nohighlight">\(\begin{array}{lcl}
+\left.\begin{array}{l} x = \lambda x'\\ y = \lambda y'\\ z = \lambda z'\end{array}\right) &amp; \Rightarrow &amp; \begin{array}{l} x' = \frac{x}{\lambda}\\y' = \frac{y}{\lambda}\\ z' = \frac{z}{\lambda}\end{array}
+\end{array}\)</span>$</p>
+<p>then,
+<span class="math notranslate nohighlight">\(\frac{\partial}{\partial x} = \frac{1}{\lambda}\frac{\partial}{\partial x'}\)</span>
+&amp;
+<span class="math notranslate nohighlight">\(\frac{\partial^2}{\partial x^2} = \frac{1}{\lambda^2}\frac{\partial^2}{\partial {x'}^2}\)</span>
+&amp; <span class="math notranslate nohighlight">\(\frac{1}{r} = \frac{1}{\lambda}\frac{1}{r'}\)</span><br />
+1⃝ becomes<br />
+$<span class="math notranslate nohighlight">\(\begin{equation*}
+\left[-\frac{\hbar^2}{2m_e\lambda^2}{\nabla'}^2 - \frac{e^2}{4\pi\epsilon_0\lambda}\frac{1}{r'}\right]\psi(x', y', z') = E\psi(x', y', z')
+\end{equation*}\)</span>$</p>
+<p>We can choose <span class="math notranslate nohighlight">\(\lambda\)</span> such that</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{cccc}
+\underbrace{\frac{\hbar^2}{m_e\lambda^2} = \frac{e^2}{4\pi\epsilon_0\lambda}} &amp; \Rightarrow&amp; \lambda = \underbrace{\frac{4\pi\epsilon_0\hbar^2}{m_e e^2}} &amp;= \underbrace{a_0}\\
+$dimension is in energy$ &amp; &amp; \hspace{10pt} $unit of distance$ &amp;\hspace{10pt} $Bohr radius$\\
+$call this as$ E_a &amp; &amp; &amp;
+\end{array}\end{split}\]</div>
+<p>Plug them into 2⃝<br />
+<span class="math notranslate nohighlight">\(E_a\left[-\frac{1}{2}{\nabla'}^2 - \frac{1}{r'}\right] = E\psi\)</span></p>
+<p><span class="math notranslate nohighlight">\(\Downarrow\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{equation*}
+\left[-\frac{1}{2}{\nabla'}^2 - \frac{1}{r'}\right]\psi(x', y', z') = \frac{E}{\epsilon_a}(x', y', z') \cdots \text{\textcircled{3}}
+\end{equation*}\]</div>
+<p>Note that <span class="math notranslate nohighlight">\(\frac{E}{\epsilon_a}\)</span> has no dimension.<br />
+Neither do <span class="math notranslate nohighlight">\(x', y', z'\)</span> &amp; <span class="math notranslate nohighlight">\(\frac{d}{dx'}\)</span> e.t.c.</p>
+<p><span class="math notranslate nohighlight">\(\frac{x}{\lambda}\)</span><br />
+So, 3⃝ has no dimension at all. //<br />
+<span class="math notranslate nohighlight">\(\star\)</span> These units <span class="math notranslate nohighlight">\(\left(\begin{array}{l}a_0\)</span>(Bohr
+radius)<span class="math notranslate nohighlight">\(\\ \epsilon_a\)</span>(atomic unit)<span class="math notranslate nohighlight">\(\end{array}\right.\)</span><br />
+simplify the computer program.<br />
+(convert physics problem to math problem)<br />
+[HW]{.underline}<br />
+Obtain the energy expression for the atomic unit. Convert a.u. to
+kJ/mol. How does it compare to Bohr’s model?</p>
+<p>In next two chaptors, we will cover the diatomic system. While we do not
+try to solve these complex problems, it is good to know that atomic
+units also simplify the problems especially when you are writing
+computer programs. Here, we peek the Hamiltonian operators for <span class="math notranslate nohighlight">\(H_2\)</span>
+molecule and <span class="math notranslate nohighlight">\(H_2^+\)</span> ion<br />
+<span class="math notranslate nohighlight">\(\blacksquare\)</span>Hamitonian Operators for Simplest Multi Atomic System
+<span class="math notranslate nohighlight">\(H_2\)</span> and <span class="math notranslate nohighlight">\(H_2^+\)</span><br />
+(<span class="math notranslate nohighlight">\(H_2^+\)</span> does not include terms with underline)</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{equation*}
+\begin{split}
+\hat{H} = -\frac{\hbar^2}{2m_e}\left(\overbrace{\frac{\partial^2}{\partial x_1^2} + \frac{\partial^2}{\partial y_1^2} + \frac{\partial^2}{\partial z_1^2}}^{\nabla_1^2} + \nabla_2^2\right) &amp;- \frac{e^2}{4\pi\epsilon_0r_{1A}} - \frac{e^2}{4\pi\epsilon_0r_{1B}}\\
+&amp;-\frac{e^2}{4\pi\epsilon_0r_{2A}} - \frac{e^2}{4\pi\epsilon_0r_{2B}}\\
+&amp;+ \underline{\frac{e^2}{4\pi\epsilon_0r_{12}}} + \frac{e^2}{4\pi\epsilon_0R}
+\end{split}
+\end{equation*}\end{split}\]</div>
+<p>[in a.u.]{.underline}<br />
+<span class="math notranslate nohighlight">\(= -\frac{1}{2}\big(\nabla_1^2 + \nabla_2^2\big) - \frac{1}{r_{1A}} - \frac{1}{r_{1B}} - \frac{1}{r_{2A}} - \frac{1}{r_{2B}} + \underline{\frac{1}{r_{12}}} + \frac{1}{R}\)</span><br />
+by Bohn Oppenheimer Approximation</p>
+<p>(nuc-nuc interaction is constant)</p>
+<p><span class="math notranslate nohighlight">\(= -\frac{1}{2}\big(\nabla_1^2 + \nabla_2^2\big) - \frac{1}{r_{1A}} - \frac{1}{r_{1B}} - \frac{1}{r_{2A}} - \frac{1}{r_{2B}} + \underline{\frac{1}{r_{12}}}\)</span></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Simple Quantum Mechanical Models and Solutions</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-is-quantum-mechanics-important">When Is Quantum Mechanics Important?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#particle-in-a-box-p-i-b">Particle in a Box (P.I.B.)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-shrodinger-equation-1-d-p-i-b">1-D Shrödinger Equation (1-D P.I.B.)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-shrodinger-equation-3-d-p-i-b">3-D Shrödinger Equation (3-D P.I.B.)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#harmonic-oscillator">Harmonic Oscillator</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classical">Classical</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#center-of-mass-reduced-mass-2-body-problem-to-1-body">Center of Mass &amp; Reduced Mass (2-body problem to 1-body)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-mechanics-version-of-harmonic-oscillator">Quantum Mechanics Version of Harmonic Oscillator</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-realistic-potential">More Realistic Potential</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#morse-potential">Morse Potential</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lenerd-jones-potential">Lenerd Jones Potential</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rigid-rotor">Rigid Rotor</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-mass-orbiting-in-circular-path">A Mass Orbiting in Circular Path</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#k-e-associated-with-circular-motion">K.E. Associated with Circular Motion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rigid-rotor-2-body-problem-to-1-body">Rigid Rotor(2-body problem to 1-body)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rigid-rotor-3-d-quantum-mechanics">Rigid Rotor (3-D Quantum Mechanics)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hydrogen-like-atom">Hydrogen-Like Atom</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spherical-part-of-the-wavefunction-for-hydorogen-atom">Spherical Part of the Wavefunction for Hydorogen Atom</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hat-l-2-operator-and-eigenvalue"><span class="math notranslate nohighlight">\(\hat{L}^2\)</span> Operator and Eigenvalue</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hat-l-z-operator-and-quantum-number-relation-m-le-l-with-m-0-pm1-pm2-ldots-pm-l"><span class="math notranslate nohighlight">\(\hat{L}_z\)</span> Operator and Quantum Number Relation: <span class="math notranslate nohighlight">\(|m| \le l\)</span>, with <span class="math notranslate nohighlight">\(m = 0, \pm1, \pm2, \ldots, \pm l\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#radial-part-of-the-wavefunction-for-hydorogen-atom">Radial Part of the Wavefunction for Hydorogen Atom</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quntum-number-relation-1-le-n-0-le-l-le-n-1">Quntum number relation <span class="math notranslate nohighlight">\(1 \le n\)</span> &amp; <span class="math notranslate nohighlight">\(0 \le l \le n - 1\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dimentionless-eq-atomic-unit">Dimentionless Eq (atomic unit)</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hideya Koizumi & Eiko Koizumi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

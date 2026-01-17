@@ -1,0 +1,1190 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>I Quantum Mechanics &#8212; Physical Chemistry Through Computer Simulations</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch02';</script>
+    <link rel="icon" href="_static/favicon.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Physical Chemistry Through Computer Simulations</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Physical Chemistry Through Computer Simulations
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Quantum Mechanics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="qm01.html">Math Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm02.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm03.html">Foundation of Quantum Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm04.html">Simple Quantum Mechanical Models and Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm05.html">Hydrogen-Like Atom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm06.html">Approximation Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm07.html">Electron Spin (Quantum Mechanics Concept)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm08.html">System Containing Only One Atom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm09.html">System Containing Two Atoms (Diatomic System)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm10.html">Hybrid Orbitals in Polyatomic Molecule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm11.html">Symmetry, Group Theory, Representation Theory and Thier Application to Chemistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm12.html">Molecular Spectroscopy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm13.html">Resonance by Variational Methods</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Thermodynamics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="td01.html">Math Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td02.html">Transition from Classical to Statistical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td03.html">Boltzmann Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td04.html">State function, dealing with partial derivatives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td05.html">Energy, Entropy and Temperature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td06.html">Free Energy, Pressure, &amp; Gas Laws</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td07.html">Maxwell Relation, Basic Thermodynamics Process, Second and Third Laws of Thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td08.html">The Equipartition Principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td09.html">Chemical Potential</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td10.html">Thermodynamics of Mixing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td11.html">Chemical Equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td12.html">Reaction Dynamics and Kinetics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td13.html">Chemistry of Fluid</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/ch02.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>I Quantum Mechanics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="i-quantum-mechanics">
+<h1>I Quantum Mechanics<a class="headerlink" href="#i-quantum-mechanics" title="Link to this heading">#</a></h1>
+<figure class="align-default" id="id1">
+<a class="full-width reference internal image-reference" href="_images/p0010.png"><img alt="_images/p0010.png" class="full-width" src="_images/p0010.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 1</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="full-width reference internal image-reference" href="_images/p0011.png"><img alt="_images/p0011.png" class="full-width" src="_images/p0011.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 2</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id3">
+<a class="full-width reference internal image-reference" href="_images/p0012.png"><img alt="_images/p0012.png" class="full-width" src="_images/p0012.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 3</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id4">
+<a class="full-width reference internal image-reference" href="_images/p0013.png"><img alt="_images/p0013.png" class="full-width" src="_images/p0013.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 4</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id5">
+<a class="full-width reference internal image-reference" href="_images/p0014.png"><img alt="_images/p0014.png" class="full-width" src="_images/p0014.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 5</span><a class="headerlink" href="#id5" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id6">
+<a class="full-width reference internal image-reference" href="_images/p0015.png"><img alt="_images/p0015.png" class="full-width" src="_images/p0015.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 6</span><a class="headerlink" href="#id6" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id7">
+<a class="full-width reference internal image-reference" href="_images/p0016.png"><img alt="_images/p0016.png" class="full-width" src="_images/p0016.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 7</span><a class="headerlink" href="#id7" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id8">
+<a class="full-width reference internal image-reference" href="_images/p0017.png"><img alt="_images/p0017.png" class="full-width" src="_images/p0017.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 8</span><a class="headerlink" href="#id8" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id9">
+<a class="full-width reference internal image-reference" href="_images/p0018.png"><img alt="_images/p0018.png" class="full-width" src="_images/p0018.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 9</span><a class="headerlink" href="#id9" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id10">
+<a class="full-width reference internal image-reference" href="_images/p0019.png"><img alt="_images/p0019.png" class="full-width" src="_images/p0019.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 10</span><a class="headerlink" href="#id10" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id11">
+<a class="full-width reference internal image-reference" href="_images/p0020.png"><img alt="_images/p0020.png" class="full-width" src="_images/p0020.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 11</span><a class="headerlink" href="#id11" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id12">
+<a class="full-width reference internal image-reference" href="_images/p0021.png"><img alt="_images/p0021.png" class="full-width" src="_images/p0021.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 12</span><a class="headerlink" href="#id12" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id13">
+<a class="full-width reference internal image-reference" href="_images/p0022.png"><img alt="_images/p0022.png" class="full-width" src="_images/p0022.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 13</span><a class="headerlink" href="#id13" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id14">
+<a class="full-width reference internal image-reference" href="_images/p0023.png"><img alt="_images/p0023.png" class="full-width" src="_images/p0023.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 14</span><a class="headerlink" href="#id14" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id15">
+<a class="full-width reference internal image-reference" href="_images/p0024.png"><img alt="_images/p0024.png" class="full-width" src="_images/p0024.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 15</span><a class="headerlink" href="#id15" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id16">
+<a class="full-width reference internal image-reference" href="_images/p0025.png"><img alt="_images/p0025.png" class="full-width" src="_images/p0025.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 16</span><a class="headerlink" href="#id16" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id17">
+<a class="full-width reference internal image-reference" href="_images/p0026.png"><img alt="_images/p0026.png" class="full-width" src="_images/p0026.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 17</span><a class="headerlink" href="#id17" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id18">
+<a class="full-width reference internal image-reference" href="_images/p0027.png"><img alt="_images/p0027.png" class="full-width" src="_images/p0027.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 18</span><a class="headerlink" href="#id18" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id19">
+<a class="full-width reference internal image-reference" href="_images/p0028.png"><img alt="_images/p0028.png" class="full-width" src="_images/p0028.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 19</span><a class="headerlink" href="#id19" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id20">
+<a class="full-width reference internal image-reference" href="_images/p0029.png"><img alt="_images/p0029.png" class="full-width" src="_images/p0029.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 20</span><a class="headerlink" href="#id20" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id21">
+<a class="full-width reference internal image-reference" href="_images/p0030.png"><img alt="_images/p0030.png" class="full-width" src="_images/p0030.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 21</span><a class="headerlink" href="#id21" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id22">
+<a class="full-width reference internal image-reference" href="_images/p0031.png"><img alt="_images/p0031.png" class="full-width" src="_images/p0031.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 22</span><a class="headerlink" href="#id22" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id23">
+<a class="full-width reference internal image-reference" href="_images/p0032.png"><img alt="_images/p0032.png" class="full-width" src="_images/p0032.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 23</span><a class="headerlink" href="#id23" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id24">
+<a class="full-width reference internal image-reference" href="_images/p0033.png"><img alt="_images/p0033.png" class="full-width" src="_images/p0033.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 24</span><a class="headerlink" href="#id24" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id25">
+<a class="full-width reference internal image-reference" href="_images/p0034.png"><img alt="_images/p0034.png" class="full-width" src="_images/p0034.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 25</span><a class="headerlink" href="#id25" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id26">
+<a class="full-width reference internal image-reference" href="_images/p0035.png"><img alt="_images/p0035.png" class="full-width" src="_images/p0035.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 26</span><a class="headerlink" href="#id26" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id27">
+<a class="full-width reference internal image-reference" href="_images/p0036.png"><img alt="_images/p0036.png" class="full-width" src="_images/p0036.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 27</span><a class="headerlink" href="#id27" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id28">
+<a class="full-width reference internal image-reference" href="_images/p0037.png"><img alt="_images/p0037.png" class="full-width" src="_images/p0037.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 28</span><a class="headerlink" href="#id28" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id29">
+<a class="full-width reference internal image-reference" href="_images/p0038.png"><img alt="_images/p0038.png" class="full-width" src="_images/p0038.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 29</span><a class="headerlink" href="#id29" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id30">
+<a class="full-width reference internal image-reference" href="_images/p0039.png"><img alt="_images/p0039.png" class="full-width" src="_images/p0039.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 30</span><a class="headerlink" href="#id30" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id31">
+<a class="full-width reference internal image-reference" href="_images/p0040.png"><img alt="_images/p0040.png" class="full-width" src="_images/p0040.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 31</span><a class="headerlink" href="#id31" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id32">
+<a class="full-width reference internal image-reference" href="_images/p0041.png"><img alt="_images/p0041.png" class="full-width" src="_images/p0041.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 32</span><a class="headerlink" href="#id32" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id33">
+<a class="full-width reference internal image-reference" href="_images/p0042.png"><img alt="_images/p0042.png" class="full-width" src="_images/p0042.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 33</span><a class="headerlink" href="#id33" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id34">
+<a class="full-width reference internal image-reference" href="_images/p0043.png"><img alt="_images/p0043.png" class="full-width" src="_images/p0043.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 34</span><a class="headerlink" href="#id34" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id35">
+<a class="full-width reference internal image-reference" href="_images/p0044.png"><img alt="_images/p0044.png" class="full-width" src="_images/p0044.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 35</span><a class="headerlink" href="#id35" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id36">
+<a class="full-width reference internal image-reference" href="_images/p0045.png"><img alt="_images/p0045.png" class="full-width" src="_images/p0045.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 36</span><a class="headerlink" href="#id36" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id37">
+<a class="full-width reference internal image-reference" href="_images/p0046.png"><img alt="_images/p0046.png" class="full-width" src="_images/p0046.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 37</span><a class="headerlink" href="#id37" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id38">
+<a class="full-width reference internal image-reference" href="_images/p0047.png"><img alt="_images/p0047.png" class="full-width" src="_images/p0047.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 38</span><a class="headerlink" href="#id38" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id39">
+<a class="full-width reference internal image-reference" href="_images/p0048.png"><img alt="_images/p0048.png" class="full-width" src="_images/p0048.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 39</span><a class="headerlink" href="#id39" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id40">
+<a class="full-width reference internal image-reference" href="_images/p0049.png"><img alt="_images/p0049.png" class="full-width" src="_images/p0049.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 40</span><a class="headerlink" href="#id40" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id41">
+<a class="full-width reference internal image-reference" href="_images/p0050.png"><img alt="_images/p0050.png" class="full-width" src="_images/p0050.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 41</span><a class="headerlink" href="#id41" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id42">
+<a class="full-width reference internal image-reference" href="_images/p0051.png"><img alt="_images/p0051.png" class="full-width" src="_images/p0051.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 42</span><a class="headerlink" href="#id42" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id43">
+<a class="full-width reference internal image-reference" href="_images/p0052.png"><img alt="_images/p0052.png" class="full-width" src="_images/p0052.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 43</span><a class="headerlink" href="#id43" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id44">
+<a class="full-width reference internal image-reference" href="_images/p0053.png"><img alt="_images/p0053.png" class="full-width" src="_images/p0053.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 44</span><a class="headerlink" href="#id44" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id45">
+<a class="full-width reference internal image-reference" href="_images/p0054.png"><img alt="_images/p0054.png" class="full-width" src="_images/p0054.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 45</span><a class="headerlink" href="#id45" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id46">
+<a class="full-width reference internal image-reference" href="_images/p0055.png"><img alt="_images/p0055.png" class="full-width" src="_images/p0055.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 46</span><a class="headerlink" href="#id46" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id47">
+<a class="full-width reference internal image-reference" href="_images/p0056.png"><img alt="_images/p0056.png" class="full-width" src="_images/p0056.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 47</span><a class="headerlink" href="#id47" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id48">
+<a class="full-width reference internal image-reference" href="_images/p0057.png"><img alt="_images/p0057.png" class="full-width" src="_images/p0057.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 48</span><a class="headerlink" href="#id48" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id49">
+<a class="full-width reference internal image-reference" href="_images/p0058.png"><img alt="_images/p0058.png" class="full-width" src="_images/p0058.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 49</span><a class="headerlink" href="#id49" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id50">
+<a class="full-width reference internal image-reference" href="_images/p0059.png"><img alt="_images/p0059.png" class="full-width" src="_images/p0059.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 50</span><a class="headerlink" href="#id50" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id51">
+<a class="full-width reference internal image-reference" href="_images/p0060.png"><img alt="_images/p0060.png" class="full-width" src="_images/p0060.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 51</span><a class="headerlink" href="#id51" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id52">
+<a class="full-width reference internal image-reference" href="_images/p0061.png"><img alt="_images/p0061.png" class="full-width" src="_images/p0061.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 52</span><a class="headerlink" href="#id52" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id53">
+<a class="full-width reference internal image-reference" href="_images/p0062.png"><img alt="_images/p0062.png" class="full-width" src="_images/p0062.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 53</span><a class="headerlink" href="#id53" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id54">
+<a class="full-width reference internal image-reference" href="_images/p0063.png"><img alt="_images/p0063.png" class="full-width" src="_images/p0063.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 54</span><a class="headerlink" href="#id54" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id55">
+<a class="full-width reference internal image-reference" href="_images/p0064.png"><img alt="_images/p0064.png" class="full-width" src="_images/p0064.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 55</span><a class="headerlink" href="#id55" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id56">
+<a class="full-width reference internal image-reference" href="_images/p0065.png"><img alt="_images/p0065.png" class="full-width" src="_images/p0065.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 56</span><a class="headerlink" href="#id56" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id57">
+<a class="full-width reference internal image-reference" href="_images/p0066.png"><img alt="_images/p0066.png" class="full-width" src="_images/p0066.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 57</span><a class="headerlink" href="#id57" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id58">
+<a class="full-width reference internal image-reference" href="_images/p0067.png"><img alt="_images/p0067.png" class="full-width" src="_images/p0067.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 58</span><a class="headerlink" href="#id58" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id59">
+<a class="full-width reference internal image-reference" href="_images/p0068.png"><img alt="_images/p0068.png" class="full-width" src="_images/p0068.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 59</span><a class="headerlink" href="#id59" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id60">
+<a class="full-width reference internal image-reference" href="_images/p0069.png"><img alt="_images/p0069.png" class="full-width" src="_images/p0069.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 60</span><a class="headerlink" href="#id60" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id61">
+<a class="full-width reference internal image-reference" href="_images/p0070.png"><img alt="_images/p0070.png" class="full-width" src="_images/p0070.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 61</span><a class="headerlink" href="#id61" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id62">
+<a class="full-width reference internal image-reference" href="_images/p0071.png"><img alt="_images/p0071.png" class="full-width" src="_images/p0071.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 62</span><a class="headerlink" href="#id62" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id63">
+<a class="full-width reference internal image-reference" href="_images/p0072.png"><img alt="_images/p0072.png" class="full-width" src="_images/p0072.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 63</span><a class="headerlink" href="#id63" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id64">
+<a class="full-width reference internal image-reference" href="_images/p0073.png"><img alt="_images/p0073.png" class="full-width" src="_images/p0073.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 64</span><a class="headerlink" href="#id64" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id65">
+<a class="full-width reference internal image-reference" href="_images/p0074.png"><img alt="_images/p0074.png" class="full-width" src="_images/p0074.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 65</span><a class="headerlink" href="#id65" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id66">
+<a class="full-width reference internal image-reference" href="_images/p0075.png"><img alt="_images/p0075.png" class="full-width" src="_images/p0075.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 66</span><a class="headerlink" href="#id66" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id67">
+<a class="full-width reference internal image-reference" href="_images/p0076.png"><img alt="_images/p0076.png" class="full-width" src="_images/p0076.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 67</span><a class="headerlink" href="#id67" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id68">
+<a class="full-width reference internal image-reference" href="_images/p0077.png"><img alt="_images/p0077.png" class="full-width" src="_images/p0077.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 68</span><a class="headerlink" href="#id68" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id69">
+<a class="full-width reference internal image-reference" href="_images/p0078.png"><img alt="_images/p0078.png" class="full-width" src="_images/p0078.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 69</span><a class="headerlink" href="#id69" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id70">
+<a class="full-width reference internal image-reference" href="_images/p0079.png"><img alt="_images/p0079.png" class="full-width" src="_images/p0079.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 70</span><a class="headerlink" href="#id70" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id71">
+<a class="full-width reference internal image-reference" href="_images/p0080.png"><img alt="_images/p0080.png" class="full-width" src="_images/p0080.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 71</span><a class="headerlink" href="#id71" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id72">
+<a class="full-width reference internal image-reference" href="_images/p0081.png"><img alt="_images/p0081.png" class="full-width" src="_images/p0081.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 72</span><a class="headerlink" href="#id72" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id73">
+<a class="full-width reference internal image-reference" href="_images/p0082.png"><img alt="_images/p0082.png" class="full-width" src="_images/p0082.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 73</span><a class="headerlink" href="#id73" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id74">
+<a class="full-width reference internal image-reference" href="_images/p0083.png"><img alt="_images/p0083.png" class="full-width" src="_images/p0083.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 74</span><a class="headerlink" href="#id74" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id75">
+<a class="full-width reference internal image-reference" href="_images/p0084.png"><img alt="_images/p0084.png" class="full-width" src="_images/p0084.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 75</span><a class="headerlink" href="#id75" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id76">
+<a class="full-width reference internal image-reference" href="_images/p0085.png"><img alt="_images/p0085.png" class="full-width" src="_images/p0085.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 76</span><a class="headerlink" href="#id76" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id77">
+<a class="full-width reference internal image-reference" href="_images/p0086.png"><img alt="_images/p0086.png" class="full-width" src="_images/p0086.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 77</span><a class="headerlink" href="#id77" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id78">
+<a class="full-width reference internal image-reference" href="_images/p0087.png"><img alt="_images/p0087.png" class="full-width" src="_images/p0087.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 78</span><a class="headerlink" href="#id78" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id79">
+<a class="full-width reference internal image-reference" href="_images/p0088.png"><img alt="_images/p0088.png" class="full-width" src="_images/p0088.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 79</span><a class="headerlink" href="#id79" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id80">
+<a class="full-width reference internal image-reference" href="_images/p0089.png"><img alt="_images/p0089.png" class="full-width" src="_images/p0089.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 80</span><a class="headerlink" href="#id80" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id81">
+<a class="full-width reference internal image-reference" href="_images/p0090.png"><img alt="_images/p0090.png" class="full-width" src="_images/p0090.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 81</span><a class="headerlink" href="#id81" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id82">
+<a class="full-width reference internal image-reference" href="_images/p0091.png"><img alt="_images/p0091.png" class="full-width" src="_images/p0091.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 82</span><a class="headerlink" href="#id82" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id83">
+<a class="full-width reference internal image-reference" href="_images/p0092.png"><img alt="_images/p0092.png" class="full-width" src="_images/p0092.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 83</span><a class="headerlink" href="#id83" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id84">
+<a class="full-width reference internal image-reference" href="_images/p0093.png"><img alt="_images/p0093.png" class="full-width" src="_images/p0093.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 84</span><a class="headerlink" href="#id84" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id85">
+<a class="full-width reference internal image-reference" href="_images/p0094.png"><img alt="_images/p0094.png" class="full-width" src="_images/p0094.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 85</span><a class="headerlink" href="#id85" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id86">
+<a class="full-width reference internal image-reference" href="_images/p0095.png"><img alt="_images/p0095.png" class="full-width" src="_images/p0095.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 86</span><a class="headerlink" href="#id86" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id87">
+<a class="full-width reference internal image-reference" href="_images/p0096.png"><img alt="_images/p0096.png" class="full-width" src="_images/p0096.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 87</span><a class="headerlink" href="#id87" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id88">
+<a class="full-width reference internal image-reference" href="_images/p0097.png"><img alt="_images/p0097.png" class="full-width" src="_images/p0097.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 88</span><a class="headerlink" href="#id88" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id89">
+<a class="full-width reference internal image-reference" href="_images/p0098.png"><img alt="_images/p0098.png" class="full-width" src="_images/p0098.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 89</span><a class="headerlink" href="#id89" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id90">
+<a class="full-width reference internal image-reference" href="_images/p0099.png"><img alt="_images/p0099.png" class="full-width" src="_images/p0099.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 90</span><a class="headerlink" href="#id90" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id91">
+<a class="full-width reference internal image-reference" href="_images/p0100.png"><img alt="_images/p0100.png" class="full-width" src="_images/p0100.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 91</span><a class="headerlink" href="#id91" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id92">
+<a class="full-width reference internal image-reference" href="_images/p0101.png"><img alt="_images/p0101.png" class="full-width" src="_images/p0101.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 92</span><a class="headerlink" href="#id92" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id93">
+<a class="full-width reference internal image-reference" href="_images/p0102.png"><img alt="_images/p0102.png" class="full-width" src="_images/p0102.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 93</span><a class="headerlink" href="#id93" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id94">
+<a class="full-width reference internal image-reference" href="_images/p0103.png"><img alt="_images/p0103.png" class="full-width" src="_images/p0103.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 94</span><a class="headerlink" href="#id94" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id95">
+<a class="full-width reference internal image-reference" href="_images/p0104.png"><img alt="_images/p0104.png" class="full-width" src="_images/p0104.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 95</span><a class="headerlink" href="#id95" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id96">
+<a class="full-width reference internal image-reference" href="_images/p0105.png"><img alt="_images/p0105.png" class="full-width" src="_images/p0105.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 96</span><a class="headerlink" href="#id96" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id97">
+<a class="full-width reference internal image-reference" href="_images/p0106.png"><img alt="_images/p0106.png" class="full-width" src="_images/p0106.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 97</span><a class="headerlink" href="#id97" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id98">
+<a class="full-width reference internal image-reference" href="_images/p0107.png"><img alt="_images/p0107.png" class="full-width" src="_images/p0107.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 98</span><a class="headerlink" href="#id98" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id99">
+<a class="full-width reference internal image-reference" href="_images/p0108.png"><img alt="_images/p0108.png" class="full-width" src="_images/p0108.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 99</span><a class="headerlink" href="#id99" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id100">
+<a class="full-width reference internal image-reference" href="_images/p0109.png"><img alt="_images/p0109.png" class="full-width" src="_images/p0109.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 100</span><a class="headerlink" href="#id100" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id101">
+<a class="full-width reference internal image-reference" href="_images/p0110.png"><img alt="_images/p0110.png" class="full-width" src="_images/p0110.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 101</span><a class="headerlink" href="#id101" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id102">
+<a class="full-width reference internal image-reference" href="_images/p0111.png"><img alt="_images/p0111.png" class="full-width" src="_images/p0111.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 102</span><a class="headerlink" href="#id102" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id103">
+<a class="full-width reference internal image-reference" href="_images/p0112.png"><img alt="_images/p0112.png" class="full-width" src="_images/p0112.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 103</span><a class="headerlink" href="#id103" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id104">
+<a class="full-width reference internal image-reference" href="_images/p0113.png"><img alt="_images/p0113.png" class="full-width" src="_images/p0113.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 104</span><a class="headerlink" href="#id104" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id105">
+<a class="full-width reference internal image-reference" href="_images/p0114.png"><img alt="_images/p0114.png" class="full-width" src="_images/p0114.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 105</span><a class="headerlink" href="#id105" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id106">
+<a class="full-width reference internal image-reference" href="_images/p0115.png"><img alt="_images/p0115.png" class="full-width" src="_images/p0115.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Page 106</span><a class="headerlink" href="#id106" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hideya Koizumi & Eiko Koizumi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

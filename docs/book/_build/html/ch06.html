@@ -1,0 +1,1024 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Electron Spin (Quantum Mechanics Concept) &#8212; Physical Chemistry Through Computer Simulations</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"uvec": ["\\hat{\\mathbf{#1}}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch06';</script>
+    <link rel="icon" href="_static/favicon.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Physical Chemistry Through Computer Simulations</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Physical Chemistry Through Computer Simulations
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Quantum Mechanics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="qm01.html">Math Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm02.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm03.html">Foundation of Quantum Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm04.html">Simple Quantum Mechanical Models and Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm05.html">Hydrogen-Like Atom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm06.html">Approximation Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm07.html">Electron Spin (Quantum Mechanics Concept)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm08.html">System Containing Only One Atom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm09.html">System Containing Two Atoms (Diatomic System)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm10.html">Hybrid Orbitals in Polyatomic Molecule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm11.html">Symmetry, Group Theory, Representation Theory and Thier Application to Chemistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm12.html">Molecular Spectroscopy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm13.html">Resonance by Variational Methods</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Thermodynamics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="td01.html">Math Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td02.html">Transition from Classical to Statistical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td03.html">Boltzmann Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td04.html">State function, dealing with partial derivatives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td05.html">Energy, Entropy and Temperature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td06.html">Free Energy, Pressure, &amp; Gas Laws</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td07.html">Maxwell Relation, Basic Thermodynamics Process, Second and Third Laws of Thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td08.html">The Equipartition Principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td09.html">Chemical Potential</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td10.html">Thermodynamics of Mixing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td11.html">Chemical Equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td12.html">Reaction Dynamics and Kinetics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td13.html">Chemistry of Fluid</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/ch06.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Electron Spin (Quantum Mechanics Concept)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Electron Spin (Quantum Mechanics Concept)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#electron-spin-angular-momentum">Electron Spin Angular Momentum</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consequence-of-spin">Consequence of Spin</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sharing-four-quantum-numbers-is-not-allowed">Sharing Four Quantum Numbers Is Not Allowed</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-consequence-of-spin-hunds-rule">Other Consequence of Spin (Hunds Rule)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#system-containing-only-one-atom">System Containing Only One Atom</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#total-orbital-angular-momentum-and-total-spin-angular-momentum-for-multi-electron-atom">Total Orbital Angular Momentum and Total Spin Angular Momentum for Multi-electron Atom</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atomic-term-symbol-underline">Atomic [Term Symbol]{.underline}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithm-of-generating-term-symbol-and-hund-s-rule">Algorithm of Generating Term Symbol and Hund’s rule</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-the-term-symbol-with-exclusion-principle">Generating the term symbol with exclusion principle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-total-angular-momentum-to-the-term-symbol">Adding Total Angular Momentum to the Term Symbol</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#term-symbols-are-useful-for-atomic-spectroscopy">Term Symbols Are Useful for Atomic Spectroscopy</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="electron-spin-quantum-mechanics-concept">
+<h1>Electron Spin (Quantum Mechanics Concept)<a class="headerlink" href="#electron-spin-quantum-mechanics-concept" title="Link to this heading">#</a></h1>
+<p>Discovery of spin involved many experiments (Famous Stern-Gerlach
+experiment) and theories by many scientists including Kronig, Pauli and
+Dirac. Since physics relates to any of these is beyond the scope for
+this class, we simply accept existence of intrinsic spin on electron.
+Pauli’s exclusion principle as well as Hund’s rule follows as
+consequences of electron spin. Property of spin also suggest usage of a
+determinant to <span class="math notranslate nohighlight">\(\psi\)</span> as a simplest approximation.</p>
+<section id="electron-spin-angular-momentum">
+<h2>Electron Spin Angular Momentum<a class="headerlink" href="#electron-spin-angular-momentum" title="Link to this heading">#</a></h2>
+<p>Each electron has an instrinsic form of angular momentum, called
+“spin”. <span class="math notranslate nohighlight">\(\leftarrow\)</span> If you’re interested in delving deeper into this
+topic, I recommend exploring the Stern-Gerlach experiment and related
+physics materials. It’s worth noting that intrinsic spin angular
+momentum cannot possess integer values, as there are no integer spins
+that would yield two distinct orientations, consistent with the
+experimental observation of electron deflection resulting in only two
+distinct spots. It turns out that <span class="math notranslate nohighlight">\(1/2\)</span> works for this case.<br />
+Just like angular momentum (associated with orbital <span class="math notranslate nohighlight">\(\psi\)</span> spatial)</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{equation*}
+\begin{split}
+\widehat{L}^2 Y_l^m\big(\theta, \phi\big) &amp;= \hbar^2l\big(l + 1\big)Y_l^m\big(\theta, \phi\big)\\
+\widehat{L}_z Y_l^m\big(\theta, \phi\big) &amp;= m\hbar Y_l^m\big(\theta, \phi\big)
+\end{split}
+\end{equation*}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{tabular}{c|c}
+$\widehat{S}^2\alpha = \frac{1}{2}\big(\frac{1}{2} + 1\big)\hbar^2\alpha$ &amp; $ \widehat{S}^2\beta = \frac{1}{2}\big(\frac{1}{2} + 1\big)\hbar^2\beta$ \\
+$\widehat{S}_z\alpha = m_s\alpha = \frac{1}{2}\hbar\alpha$ &amp; $ \widehat{S}_z\beta = m_s\beta = -\frac{1}{2}\beta$
+\end{tabular}\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(\alpha\)</span>, <span class="math notranslate nohighlight">\(\beta\)</span> are eigenfunctions.<br />
+<span class="math notranslate nohighlight">\(m_s = \pm\frac{1}{2}\)</span> are eigenvalues for <span class="math notranslate nohighlight">\(\widehat{S}_z\)</span> operator.<br />
+So, complete wavefunction is <span class="math notranslate nohighlight">\(\psi(x, y, z) \alpha\)</span> or
+<span class="math notranslate nohighlight">\(\psi(x, y, z)\beta\)</span>.<br />
+Because <span class="math notranslate nohighlight">\(\frac{1}{2} \neq -\frac{1}{2}\)</span>, <span class="math notranslate nohighlight">\(\alpha \perp \beta\)</span>,<br />
+<span class="math notranslate nohighlight">\(\int \alpha\beta d\omega = 0 \rightarrow\)</span> electron spin coordinate<br />
+Then, W. Pauli found crucial rule that was missing in quantum mechanics<br />
+Postulate of quantum mechanics #6<br />
+6⃝ All <span class="math notranslate nohighlight">\(\psi\)</span> must be antisymmetric under interchange of any two <span class="math notranslate nohighlight">\(e^-\)</span>.
+(Exclusion Principle)<br />
+[i.e.]{.underline} If
+<span class="math notranslate nohighlight">\(\psi = \phi_1(1)\phi_2(2) = 1S\alpha(1)1S\beta(2)\)</span></p>
+<p><span class="math notranslate nohighlight">\(\hspace{60pt} \uparrow \hspace{60pt} || \hspace{30pt} \downarrow e^-\)</span>
+are identical</p>
+<p>orbital #2 <span class="math notranslate nohighlight">\(1S\alpha(2)1S\beta(1)\)</span></p>
+<p>occupied by</p>
+<p>electron #1<br />
+<span class="math notranslate nohighlight">\(\phi_1(1)\phi_2(2) \neq -\phi_2(1)\phi_1(2) \hspace{10pt} \Rightarrow\Leftarrow\)</span></p>
+<p>One way to satisfy Exclusion Principle is to antisymmetrize <span class="math notranslate nohighlight">\(\psi\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{equation*}
+\psi\big(1, 2\big) = C_1\big[1\text{S}\alpha(1) 1S\beta(2) - 1S\beta(1)1S\alpha(2)\big]
+\end{equation*}\]</div>
+<p><span class="math notranslate nohighlight">\(\uparrow\)</span> normalization const <span class="math notranslate nohighlight">\(= \frac{1}{\sqrt{2}}\)</span><br />
+Is <span class="math notranslate nohighlight">\(\psi(1, 2) = -\psi(2, 1)\)</span>?<br />
+We can write <span class="math notranslate nohighlight">\(\xrightarrow{\text{orb}}\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{equation*}
+\psi\big(1, 2) = \frac{1}{\sqrt{2!}}\begin{bmatrix} 1S\alpha(1) &amp; 1S\beta(1)\\ 1S\alpha(2) &amp; 1S\beta(2) \end{bmatrix} \downarrow e^-
+\end{equation*}\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(\uparrow\)</span> # <span class="math notranslate nohighlight">\(e^-\)</span><br />
+In General,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{equation*}
+\psi\big(1, 2, \cdots, N) = \frac{1}{N!}
+ \begin{vmatrix} \phi_1(1) &amp; \phi_2(1) &amp; \cdots &amp; \phi_N(1)\\
+                           \phi_1(2) &amp; \phi_2(2) &amp; \cdots &amp; \phi_N(2)\\
+                           \vdots &amp;                     &amp; \ddots &amp; \vdots \\
+                          \phi_1(N) &amp; \phi_2(N) &amp; \cdots &amp; \phi_N(N) \end{vmatrix}
+\end{equation*}\end{split}\]</div>
+<p>Making wavefunction using single determinant is simple and used often in
+the field of chmiestry and physics. This simple form of wavefunction is
+called “Slater determinant”. Determinant automatically satisfy the
+Exclusion Principle because any raw swap will produce a multiplication
+factor of (-1). <a class="footnote-reference brackets" href="#id2" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a><br />
+[HW]{.underline}<br />
+Show swapping electron 1 and 2 produce multiplication factor of (-1). If
+general case is too difficult, then try 3x3 by hand. Create random 5x5
+matrix having nonzero determinant in excel. You can manually swap raws
+to see what happens as well.<br />
+$<span class="math notranslate nohighlight">\(\begin{equation*}
+ \frac{1}{N!}
+ \begin{vmatrix} \phi_1(1) &amp; \phi_2(1) &amp; \cdots &amp; \phi_N(1)\\
+                           \phi_1(2) &amp; \phi_2(2) &amp; \cdots &amp; \phi_N(2)\\
+                           \vdots &amp;                     &amp; \ddots &amp; \vdots \\
+                          \phi_1(N) &amp; \phi_2(N) &amp; \cdots &amp; \phi_N(N) \end{vmatrix} = -\frac{1}{N!}
+ \begin{vmatrix} \phi_1(2) &amp; \phi_2(2) &amp; \cdots &amp; \phi_N(2)\\
+                           \phi_1(1) &amp; \phi_2(1) &amp; \cdots &amp; \phi_N(1)\\
+                           \vdots &amp;                     &amp; \ddots &amp; \vdots \\
+                          \phi_1(N) &amp; \phi_2(N) &amp; \cdots &amp; \phi_N(N) \end{vmatrix}
+\end{equation*}\)</span>$</p>
+</section>
+<section id="consequence-of-spin">
+<h2>Consequence of Spin<a class="headerlink" href="#consequence-of-spin" title="Link to this heading">#</a></h2>
+<section id="sharing-four-quantum-numbers-is-not-allowed">
+<h3>Sharing Four Quantum Numbers Is Not Allowed<a class="headerlink" href="#sharing-four-quantum-numbers-is-not-allowed" title="Link to this heading">#</a></h3>
+<p>Assume elec #1 &amp; elec #2 occupy the same orbital, then,<br />
+[Case]{.underline} 2<span class="math notranslate nohighlight">\(e^-\)</span> system</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{equation*}
+\begin{split}
+\psi\big(1, 2\big) &amp;= \frac{1}{\sqrt{2!}}\begin{vmatrix}1S\alpha(1) &amp; 1S\alpha(1) \\ 1S\alpha(2) &amp; 1S\alpha(2) \end{vmatrix}\\
+&amp; = \frac{1}{\sqrt{2!}}\big(1S\alpha(1)1S\alpha(2) - 1S\alpha(1)1S\alpha(2)\big)\\
+&amp;= 0 \hspace{40pt} \Rightarrow\Leftarrow
+\end{split}
+\end{equation*}\end{split}\]</div>
+<p>as we learned in General Chemistry I.\</p>
+</section>
+<section id="other-consequence-of-spin-hunds-rule">
+<h3>Other Consequence of Spin (Hunds Rule)<a class="headerlink" href="#other-consequence-of-spin-hunds-rule" title="Link to this heading">#</a></h3>
+<p>Hunds rule states that electrons in subshell tends to maximize spin. In
+higher level physical chemistry class, you will learn that <span class="math notranslate nohighlight">\(e^-\)</span> with
+same spin tend to stay away from each other.<br />
+<span class="math notranslate nohighlight">\(\Downarrow\)</span><br />
+Less repulsive interaction<br />
+<span class="math notranslate nohighlight">\(\Downarrow\)</span><br />
+More stable <span class="math notranslate nohighlight">\(E_system\)</span><br />
+[i.e.]{.underline} N atom\</p>
+<p>Hund’s Rule</p>
+<p>This HW part can be used as one laboratory experiment for the
+demonstration of Hund’s rule.<br />
+[HW]{.underline}<br />
+Write out the Hamiltonian operator for He atom in dimensionless form.
+Then, separate this operator into 3 distinct operators. First one only
+depends on electron 1 coordinate. Second one only depends on electronn 2
+coordinate. Third operator(called two electron operator) depends on both
+coordinate 1 and 2.<br />
+[HW]{.underline}<br />
+Let us consider the case for excite state of He where orbitals are px
+and py. Construct Slater orbitals for the case both orbitals are spin
+up. Then construct orbitals for the case px orbital is spin up but py
+orbital is spin down. Expand the determinants for both cases.<br />
+[HW]{.underline}<br />
+Write out the complete Shrödinger Equation. Then, compute the
+energy(This means you will need to write out E = blah blah) Substitute
+hamiltonian operator as well as wave function. Expand the entire
+equation. Be explicit on variables and sign.<br />
+[HW]{.underline}<br />
+In above question, identify the term which become zero after integrating
+the term with respect to choice of variable. After eliminating all zero
+terms, identify Coulomb interaction terms. The rest of two electron
+integral term are called exchange terms. These are purely quantum
+mechanical terms and there is no classical way to explain the exchange
+terms. By the symmetry, these exchange integral is positive. With the
+sign in front of the integral, these are known to stabilize the energy
+of the system. With that in mind, explain how the Hund’s rule works.\</p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="system-containing-only-one-atom">
+<h1>System Containing Only One Atom<a class="headerlink" href="#system-containing-only-one-atom" title="Link to this heading">#</a></h1>
+<p>As explained in previous chapter, it is difficult to compute repulsive
+interactions between electrons since it rely heavily on neumerical
+analysis techniques which is developed after the computer evolution.
+Before that, multi-electron atomic system were studied in detail with
+experimental result from atomic spectroscopy. We will follow this
+approach because numerical approach is too involved for this textbook.
+Just like in GC1, procedure is streamlined so you just need to follow
+the procedure all the way through. Our goal for this chapter is to
+introduce you the true Hund’s rule which is not taught in GC1. At the
+same time, we also introduce term symbol which is commonly used in the
+field of spectroscopy.\</p>
+<section id="total-orbital-angular-momentum-and-total-spin-angular-momentum-for-multi-electron-atom">
+<h2>Total Orbital Angular Momentum and Total Spin Angular Momentum for Multi-electron Atom<a class="headerlink" href="#total-orbital-angular-momentum-and-total-spin-angular-momentum-for-multi-electron-atom" title="Link to this heading">#</a></h2>
+<p>Classification of atom’s electronic states based on Quantum #s</p>
+<p><span class="math notranslate nohighlight">\(\Uparrow\)</span></p>
+<p>associated with operation that commute</p>
+<p>with <span class="math notranslate nohighlight">\(\widehat{H}\)</span> for muti <span class="math notranslate nohighlight">\(e^-\)</span> system.<br />
+[Assumption]{.underline}<br />
+Assume each <span class="math notranslate nohighlight">\(e^-\)</span> occupy orbital of <span class="math notranslate nohighlight">\(H\)</span>-like atom (single <span class="math notranslate nohighlight">\(e^-\)</span> system)<br />
+Total orbital angular momentum <span class="math notranslate nohighlight">\(L_z = \sum_i\hat{l}_{z_i}\)</span></p>
+<p>Total spin angular momentum <span class="math notranslate nohighlight">\(S_z = \sum_i\underbrace{\hat{s}_{z_i}}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\uparrow\)</span></p>
+<p>single <span class="math notranslate nohighlight">\(e^-\)</span> operator<br />
+[Ex]{.underline}</p>
+<hr/>
+  $\underbrace{2s^13p^1}$       $L_z = 1, 0, -1$
+  expression of $\psi$          $S_z = 1, 0, -1$
+  used in Genenal Chemistry I   
+<hr/>
+<p>I start out with writing the electronic configuration in GC1 while we
+have seen that actual wavefunction is a determinant. The best way to
+relate the electronic configuration in GC1 to the corresponding
+determinant is to write out only the diagonal part of the determinant.
+There is a 1-1 correspondence so it is justified. So from here on, every
+time we write the electronic configuration, it is understood that it is
+a determinant. One of the possible <span class="math notranslate nohighlight">\(\psi\)</span> to this example is</p>
+<p><span class="math notranslate nohighlight">\(\downarrow\)</span> required anti-symmetry</p>
+<p><span class="math notranslate nohighlight">\(\frac{1}{\sqrt{2}}\big[2s\alpha(1)2p_y\beta(2) - 2p_y\beta(1)2s\alpha(2)\big]\)</span><br />
+Now <span class="math notranslate nohighlight">\(\hat{l}_{z_i}\)</span>, <span class="math notranslate nohighlight">\(\hat{s}_{z_i}\)</span> are not well defined</p>
+<p><span class="math notranslate nohighlight">\(\uparrow\)</span> <span class="math notranslate nohighlight">\(\uparrow\)</span></p>
+<p>We can’t really tell (<span class="math notranslate nohighlight">\(&lt;l&gt; = \frac{1}{2}\)</span> is not allowed solution of the
+differential equation. Each atomic orbitals, both radial and spherical
+harmonic part, is only defined in specific integer value for set of
+quantum numbers.)</p>
+<p>[HW]{.underline}<br />
+Write out the the other possible slater determinant wave functions for
+given electronic configuration. Then, compute the total angular momentum
+and total spin angular momentum for each of those possible wavefunctions
+to convince yourself that they are well defined. This can be easily
+proven logically by noticing each term in the determinant has same set
+of orbitals.<br />
+While <span class="math notranslate nohighlight">\(\hat{l}_{z_i}\)</span>, <span class="math notranslate nohighlight">\(\hat{s}_{z_i}\)</span> are not well defined in
+multi-electron atom(requiring the slater determinant),
+<span class="math notranslate nohighlight">\(\underbrace{\widehat{L}_z, \widehat{L}^2, \widehat{S}_z, \widehat{S}^2}_{\text{total A.M. operator}}\)</span>
+are well defined and will commute with <span class="math notranslate nohighlight">\(\widehat{H}\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{alignat*}
+{3}
+  &amp;\widehat{L}^2\psi &amp;&amp;= L(L + 1)\hbar^2\psi &amp;&amp;\hspace{20pt} L = 0, 1, 2, \cdots\\
+  &amp;\widehat{L}_z\psi &amp;&amp;= M_L\hbar\psi &amp;&amp;\hspace{20pt}M_L = L, (L -1), \cdots, -(L - 1), -L \\
+  &amp;\widehat{S}^2\psi &amp;&amp;= S(S + 1)\hbar^2\psi &amp;&amp;\hspace{20pt} S = 0, \frac{1}{2}, 1, \frac{3}{2}, \cdots \\
+  &amp;\widehat{S}_z\psi &amp;&amp;= M_S\hbar\psi &amp;&amp;\hspace{20pt} M_S = S, S - 1, \cdots, -S
+\end{alignat*}\end{split}\]</div>
+<p>While we do not use <span class="math notranslate nohighlight">\(\widehat{L}^2\)</span> or <span class="math notranslate nohighlight">\(\widehat{S}^2\)</span> in this chapter,
+it is useful to think about the values of L and S which in turn
+generates all <span class="math notranslate nohighlight">\(M_L\)</span> values.</p>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(100,60) (0,0)<span><img src="Figure15.png"
+style="width:4cm;height:2.5cm" alt="image" /></span> (35,45)<span><span
+style="color: red"><strong><span
+class="smallcaps"><span>u+v</span></span></strong></span></span>
+(55,5)<span><span style="color: red"><strong><span
+class="smallcaps"><span>u</span></span></strong></span></span>
+(110,40)<span><span style="color: red"><strong><span
+class="smallcaps"><span>v</span></span></strong></span></span></p>
+</div>
+<figcaption> Vector Sum of u and v limit the length of u+v </figcaption>
+</figure>
+<p>As shown in figure above, vector sum is used for setting the bound for
+the length of the vector. To compute the vector sum, look for the
+integer value of L that satisfy the following inequality.</p>
+<p><span class="math notranslate nohighlight">\(|l_1 - l_2| \le L \le l_1 + l_2\)</span><br />
+For example, <span class="math notranslate nohighlight">\(2p^13p^1\)</span> where I did not specify the orientation of p
+orbitals.</p>
+<p>+:————————-+:————–+:——————————————————————+
+|   ———–            | <span class="math notranslate nohighlight">\(\Rightarrow\)</span> | <span class="math notranslate nohighlight">\(|1 -1| \le L \le 1 + 1\)</span>                                          |
+|   <span class="math notranslate nohighlight">\(l_1 = 1\)</span>              |               |                                                                   |
+|   <span class="math notranslate nohighlight">\(l_2 = 1\)</span>              |               |                                                                   |
+|   ———–            |               |                                                                   |
++————————–+—————+——————————————————————-+
+|                          |               | <span class="math notranslate nohighlight">\(L = 0, 1, 2\)</span>                                                     |
++————————–+—————+——————————————————————-+
+|   ———————  | <span class="math notranslate nohighlight">\(\Rightarrow\)</span> | <span class="math notranslate nohighlight">\(|\frac{1}{2} - \frac{1}{2}| \le S \le \frac{1}{2} + \frac{1}{2}\)</span> |
+|   <span class="math notranslate nohighlight">\(s_1 = \frac{1}{2}\)</span>    |               |                                                                   |
+|   <span class="math notranslate nohighlight">\(s_2 = \frac{1}{2}\)</span>    |               |                                                                   |
+|   ———————  |               |                                                                   |
++————————–+—————+——————————————————————-+
+|                          |               | <span class="math notranslate nohighlight">\(S = 0, 1\)</span>                                                        |
++————————–+—————+——————————————————————-+</p>
+<p>[HW]{.underline}<br />
+This is a bit of detour, but you can easily show that<br />
+<span class="math notranslate nohighlight">\(\big[\hat{H}\hat{L}^2\big] = 0\)</span></p>
+<p><span class="math notranslate nohighlight">\(\big[\hat{H}\hat{L}_z\big] = 0\)</span></p>
+</section>
+<section id="atomic-term-symbol-underline">
+<h2>Atomic [Term Symbol]{.underline}<a class="headerlink" href="#atomic-term-symbol-underline" title="Link to this heading">#</a></h2>
+<p>Atomic term symbol is written in the form<br />
+<span class="math notranslate nohighlight">\(2S + 1\)</span></p>
+<p>L<br />
+$<span class="math notranslate nohighlight">\(\begin{array}{ccccccc}
+0 &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 &amp; 6 \\
+\mbox{S} &amp; \mbox{P} &amp; \mbox{D} &amp; \mbox{F} &amp; \mbox{G} &amp; \mbox{H} &amp; \mbox{I}
+ \end{array}\)</span>$</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}\begin{split}\begin{array}{llll}
+^1S &amp; \begin{pmatrix} S = 0\\ L = 0 \end{pmatrix} &amp;^3D&amp; \begin{pmatrix} S = 1\\ L = 2 \end{pmatrix} \\
+&amp;&amp;&amp;\\
+^2P &amp;\begin{pmatrix} S = \frac{1}{2}\\ L = 1 \end{pmatrix} &amp;^5F &amp;\begin{pmatrix} S = 2\\ L = 3 \end{pmatrix}
+ \end{array}$$ [Ex]{.underline}\
+$\frac{1}{\sqrt{2}}\big[2s\alpha(1)2p_y\beta(2) - 2p_y\beta(1)2s\alpha(2)\big]$\
+$M_L = 1 \hspace{10pt} M_S = 0 \hspace{10pt} M_L = 1 \hspace{10pt} M_S = 0$\
+This determinant belongs to $^1P$ family of determinant.\
+[Ex]{.underline} What term symbol generate following set of
+$M_L \&amp; M_S$?\end{split}\\+:-----------------------+:--------------+:--+:--------------------------------+
+|   ------------------   | $\Rightarrow$ |   |   ----------------------------- |
+|   $M_L = 0$            |               |   |   $^3S$ will generate           |
+|   $M_S = 1, 0, -1$     |               |   |   all comb of $M_L$ and $M_S$   |
+|   ------------------   |               |   |   ----------------------------- |
++------------------------+---------------+---+---------------------------------+\\Okay, we add one more characteristics of $\psi$ to atomic symbol.\\[Inversion]{.underline}\
+$f$ is [even]{.underline} when $f(x, y, z) = f(-x, -y, -z)$\
+$f$ is [odd]{.underline} when $f(x, y, z) = -f(-x, -y, -z)$\
+$\sin(x)$ is odd, $\cos(x)$ is even.\\in science $\downarrow$ $\downarrow$\\ungerade gerade (German \&quot;even\&quot;)\\&lt;figure data-latex-placement=&quot;h&quot;&gt;
+&lt;div class=&quot;picture&quot;&gt;
+&lt;p&gt;(100,60) (0,0)&lt;span&gt;&lt;img src=&quot;Figure13.png&quot;
+style=&quot;width:6cm;height:2.5cm&quot; alt=&quot;image&quot; /&gt;&lt;/span&gt; (125,0)&lt;span&gt;&lt;span
+style=&quot;color: red&quot;&gt;&lt;strong&gt;&lt;span
+class=&quot;smallcaps&quot;&gt;&lt;span&gt;odd&lt;/span&gt;&lt;/span&gt;&lt;/strong&gt;&lt;/span&gt;&lt;/span&gt;
+(35,0)&lt;span&gt;&lt;span style=&quot;color: red&quot;&gt;&lt;strong&gt;&lt;span
+class=&quot;smallcaps&quot;&gt;&lt;span&gt;even&lt;/span&gt;&lt;/span&gt;&lt;/strong&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;figcaption&gt; Parity of Function &lt;/figcaption&gt;
+&lt;/figure&gt;\\By looking at orbitals,\\\begin{split}$$\begin{array}{lcl}
+s &amp; = &amp; \mbox{even} \\
+p &amp; = &amp; \mbox{odd} \\
+d &amp; = &amp; \mbox{even} \\
+f &amp; = &amp; \mbox{odd} \\
+ &amp; \vdots &amp;
+\end{array}\end{split}\end{aligned}\end{align} \]</div>
+<p>How to tell multi-electron wave-function <span class="math notranslate nohighlight">\(\phi\)</span> is even or odd<br />
+Consider<br />
+<span class="math notranslate nohighlight">\(1s^22s^2\)</span> <span class="math notranslate nohighlight">\(2p^2\)</span> anti sym <span class="math notranslate nohighlight">\(\psi\)</span></p>
+<hr/>
+$(-1) \times (-1)$
+<p><span class="math notranslate nohighlight">\(\downarrow\)</span> <span class="math notranslate nohighlight">\(\searrow\)</span> <span class="math notranslate nohighlight">\(\Downarrow\)</span></p>
+<p>even odd <span class="math notranslate nohighlight">\(\times\)</span> odd <span class="math notranslate nohighlight">\(1s^2 2s^2 2p^2\)</span> is “g”</p>
+<p><span class="math notranslate nohighlight">\((-1) \times (-1)\)</span><br />
+or short cut</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\sum_i l_i = \left\{ \begin{array}{ll}
+         \mbox{even} &amp; \Rightarrow \mbox{&quot;g&quot;};\\
+        \mbox{odd} &amp; \Rightarrow \mbox{&quot;u&quot;}.\end{array} \right.\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(\uparrow\)</span></p>
+<p>length</p>
+<p>[Ex]{.underline}<br />
+$<span class="math notranslate nohighlight">\(\begin{array}{lcl} 1s^12s^1 &amp;\longrightarrow &amp; ^3S_g \text{or} ^1S_g\\ 1s^2 &amp;\longrightarrow&amp; ^1S_g \end{array}\)</span>$</p>
+<p>[HW]{.underline}<br />
+Prove that any completely filled subshell will result in</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left. \begin{array}{ll}
+         S =0 &amp; \mbox{&quot;g&quot;};\\
+        L = 0 &amp; \end{array} \right\} \Rightarrow ^1S_g\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(1s^2\rightarrow S=0\)</span></p>
+<p><span class="math notranslate nohighlight">\(1s^22p^6 \rightarrow L=0\)</span><br />
+Hint: Think of the possible value of <span class="math notranslate nohighlight">\(M_L\)</span> first. Then, deduce the
+possible L value.<br />
+Make sure to convince yourself that <span class="math notranslate nohighlight">\(2p_x^2\)</span> &amp;
+<span class="math notranslate nohighlight">\(\underbrace{1s^2s^2}2p_x^2\)</span> give identical term symbol</p>
+<p>completely filled <span class="math notranslate nohighlight">\(\rightarrow\)</span> you can ignore<br />
+[HW]{.underline}<br />
+Using a similar logic, show that <span class="math notranslate nohighlight">\(2p^5\)</span> and <span class="math notranslate nohighlight">\(2p\)</span> produce the same term
+symbol.\</p>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(100,60) (0,0)<span><img src="Figure14.png"
+style="width:6cm;height:2.5cm" alt="image" /></span></p>
+</div>
+<figcaption> <span class="math inline">\(2p^13p^1\)</span>
+configuration</figcaption>
+</figure>
+<p>Consider <span class="math notranslate nohighlight">\(2p^13p^1\)</span> configuration</p>
+<p><span class="math notranslate nohighlight">\(\downarrow\)</span></p>
+<p>could be any of <span class="math notranslate nohighlight">\(3 \times 2\)</span> orb</p>
+<p><span class="math notranslate nohighlight">\(\uparrow \hspace{14pt} \searrow\)</span></p>
+<p>spatial spin<br />
+All possibility <span class="math notranslate nohighlight">\(6 \times 6 = 36\)</span> states.</p>
+<hr/>
+  $L = 2$   $^3D_g$   $5 \times 3$   
+            $^1D_g$   $5 \times 1$   
+  $L = 1$             $3 \times 3$   
+            $^1P_g$   $3 \times 1$   
+  $L = 0$   $^3S_g$   $1 \times 3$   
+            $^1S_g$   $1 \times 1$   
+                      36             as expected
+<hr/>
+<p>[Note]{.underline} Actual wavefunction for multi-electron atom is a
+linear combination of all of these states. But we deal with those at
+higher level physical chemistry or Spectroscopy class.</p>
+</section>
+<section id="algorithm-of-generating-term-symbol-and-hund-s-rule">
+<h2>Algorithm of Generating Term Symbol and Hund’s rule<a class="headerlink" href="#algorithm-of-generating-term-symbol-and-hund-s-rule" title="Link to this heading">#</a></h2>
+<p>(same stuff as previous pg)\</p>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(100,60) (0,0)<span><img src="Figure15.png"
+style="width:4cm;height:2.5cm" alt="image" /></span> (35,45)<span><span
+style="color: red"><strong><span
+class="smallcaps"><span>u+v</span></span></strong></span></span>
+(55,5)<span><span style="color: red"><strong><span
+class="smallcaps"><span>u</span></span></strong></span></span>
+(110,40)<span><span style="color: red"><strong><span
+class="smallcaps"><span>v</span></span></strong></span></span></p>
+</div>
+<figcaption> Vector Sum of u and v limit the length of u+v </figcaption>
+</figure>
+<p>Vector Sum</p>
+<p><span class="math notranslate nohighlight">\(|l_1 - l_2| \le L \le l_1 + l_2\)</span><br />
+For <span class="math notranslate nohighlight">\(2p^13p^1\)</span>, (Note that this system has only one electron per
+subshell. This means that we do not have to worry about exclusion
+principle. In that case, generating term symbol is not too difficult. )</p>
+<p>+:————————-+:————–+:——————————————————————+
+|   ———–            | <span class="math notranslate nohighlight">\(\Rightarrow\)</span> | <span class="math notranslate nohighlight">\(|1 -1| \le L \le 1 + 1\)</span>                                          |
+|   <span class="math notranslate nohighlight">\(l_1 = 1\)</span>              |               |                                                                   |
+|   <span class="math notranslate nohighlight">\(l_2 = 1\)</span>              |               |                                                                   |
+|   ———–            |               |                                                                   |
++————————–+—————+——————————————————————-+
+|                          |               | <span class="math notranslate nohighlight">\(L = 0, 1, 2\)</span>                                                     |
++————————–+—————+——————————————————————-+
+|   ———————  | <span class="math notranslate nohighlight">\(\Rightarrow\)</span> | <span class="math notranslate nohighlight">\(|\frac{1}{2} - \frac{1}{2}| \le S \le \frac{1}{2} + \frac{1}{2}\)</span> |
+|   <span class="math notranslate nohighlight">\(s_1 = \frac{1}{2}\)</span>    |               |                                                                   |
+|   <span class="math notranslate nohighlight">\(s_2 = \frac{1}{2}\)</span>    |               |                                                                   |
+|   ———————  |               |                                                                   |
++————————–+—————+——————————————————————-+
+|                          |               | <span class="math notranslate nohighlight">\(S = 0, 1\)</span>                                                        |
++————————–+—————+——————————————————————-+
+|                          | <span class="math notranslate nohighlight">\(\Downarrow\)</span>  |                                                                   |
++————————–+—————+——————————————————————-+</p>
+<p><span class="math notranslate nohighlight">\(^1S_g\)</span>, <span class="math notranslate nohighlight">\(^3S_g\)</span>, <span class="math notranslate nohighlight">\(^1P_g\)</span>, <span class="math notranslate nohighlight">\(^3P_g\)</span>, <span class="math notranslate nohighlight">\(^1D_g\)</span>, <span class="math notranslate nohighlight">\(^3D_g\)</span> //</p>
+<p>All six states will have different energy due to <span class="math notranslate nohighlight">\(e^--e^-\)</span> repulsion.<br />
+Hund’s rulw will help us identify the lowest <span class="math notranslate nohighlight">\(E\)</span> state.<br />
+1⃝ G.S. will have the max value of <span class="math notranslate nohighlight">\(S\)</span>.</p>
+<p>2⃝ If more than one term has max <span class="math notranslate nohighlight">\(S\)</span> value, the max <span class="math notranslate nohighlight">\(L\)</span> will be the
+lowest among states with max <span class="math notranslate nohighlight">\(S\)</span>.<br />
+[Ex]{.underline} Out of 6 states in previous [Ex]{.underline}, <span class="math notranslate nohighlight">\(^3D_g\)</span>
+is the lowest <span class="math notranslate nohighlight">\(E\)</span>state.<br />
+You can extend this method to <span class="math notranslate nohighlight">\(2p^13p^14p^1\)</span> by applying procedure on
+<span class="math notranslate nohighlight">\(2p^13p^1\)</span> first, then resulting <span class="math notranslate nohighlight">\(L\)</span>, <span class="math notranslate nohighlight">\(S\)</span>, to <span class="math notranslate nohighlight">\(4p^1\)</span>. But we don’t do
+this in this class (because it is unlikely event to have
+<span class="math notranslate nohighlight">\(2p^13p^14p^1\)</span>).</p>
+</section>
+<section id="generating-the-term-symbol-with-exclusion-principle">
+<h2>Generating the term symbol with exclusion principle<a class="headerlink" href="#generating-the-term-symbol-with-exclusion-principle" title="Link to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(2p^2\)</span> — More than <span class="math notranslate nohighlight">\(1 e^-\)</span> in same subshell<br />
+w/ Exclusion Principle</p>
+<p><span class="math notranslate nohighlight">\(2p_1\)</span>      <span class="math notranslate nohighlight">\(\uparrow\downarrow\)</span>                                                 <span class="math notranslate nohighlight">\(\uparrow\)</span>         <span class="math notranslate nohighlight">\(\uparrow\)</span>                            <span class="math notranslate nohighlight">\(\uparrow\)</span>     <span class="math notranslate nohighlight">\(\uparrow\)</span>     <span class="math notranslate nohighlight">\(\downarrow\)</span>       <span class="math notranslate nohighlight">\(\downarrow\)</span>                                         <span class="math notranslate nohighlight">\(\downarrow\)</span>       <span class="math notranslate nohighlight">\(\downarrow\)</span></p>
+<hr/>
+  $2p_0$                             $\uparrow\downarrow$                          $\uparrow$                            $\uparrow$         $\downarrow$                  $\uparrow$                            $\downarrow$   $\uparrow$         $\downarrow$                          $\downarrow$
+  $2p_{-1}$                                                 $\uparrow\downarrow$                      $\uparrow$         $\uparrow$                        $\downarrow$                      $\uparrow$         $\uparrow$     $\downarrow$                          $\downarrow$       $\downarrow$
+  $M_L$       2                      0                      -2                     1                  0                  -1                 1              0              1                  0                  -1             -1                 1                  0                  -1
+  $M_S$       0                      0                      0                      1                  1                  1                  0              0              0                  0                  0              0                  -1                 -1                 -1
+              $\times$               $\times$               $\times$               $\bigtriangleup$   $\bigtriangleup$   $\bigtriangleup$   $\times$                      $\bigtriangleup$   $\bigtriangleup$   $\times$       $\bigtriangleup$   $\bigtriangleup$   $\bigtriangleup$   $\bigtriangleup$
+<p>Procedure<br />
+1⃝ Find max <span class="math notranslate nohighlight">\(M_L \rightarrow\)</span> then choose max <span class="math notranslate nohighlight">\(M_S\)</span> out of that set.</p>
+<p>[i.e.]{.underline} <span class="math notranslate nohighlight">\(M_L = 2\)</span></p>
+<p><span class="math notranslate nohighlight">\(M_S = 0\)</span></p>
+<p>2⃝ Cross out all the states that comes out of this <span class="math notranslate nohighlight">\(M_L\)</span> &amp; <span class="math notranslate nohighlight">\(M_S\)</span>.</p>
+<p>[i.e.]{.underline}<br />
+1st round <span class="math notranslate nohighlight">\(\times\)</span><br />
+2nd round <span class="math notranslate nohighlight">\(\bigtriangleup\)</span><br />
+3rd round <span class="math notranslate nohighlight">\(\square\)</span><br />
+3⃝ Repeat steps 1⃝ &amp; 2⃝.</p>
+<p>[i.e.]{.underline}</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{ccccc}
+&amp; &amp; &amp; &amp; M_L - 0 \hspace{5pt} M_S = 0\\
+\begin{array}{c} M_L = 2\\ M_S = 0 \end{array} &amp; ^1D_g &amp; \begin{array}{c} M_L = 1\\ M_S = 1\end{array} &amp; ^3P_g &amp; ^1S_g\\
+&amp; \text{\textcircled{x}} &amp; &amp; \bigtriangleup &amp; \square 
+\end{array}\end{split}\]</div>
+</section>
+<section id="adding-total-angular-momentum-to-the-term-symbol">
+<h2>Adding Total Angular Momentum to the Term Symbol<a class="headerlink" href="#adding-total-angular-momentum-to-the-term-symbol" title="Link to this heading">#</a></h2>
+<p>We can define Total A.M. $<span class="math notranslate nohighlight">\(\begin{alignat*}
+{3}
+  &amp;\widehat{J}^2\psi &amp;&amp;= J(J + 1)\hbar^2\psi &amp;&amp;\hspace{20pt} J = 0, \frac{1}{2}, 1, \frac{3}{2}, \cdots \\
+  &amp;\widehat{J}_z\psi &amp;&amp;= M_J\hbar\psi &amp;&amp;\hspace{20pt} M_J = J, J - 1, \cdots, -J
+\end{alignat*}\)</span><span class="math notranslate nohighlight">\( \)</span>^{2S + 1}L_{J \leftarrow}<span class="math notranslate nohighlight">\( total angular momentum
+where \)</span>|L - S| \le J \le L + S$<br />
+[Ex]{.underline}</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{lclcl}
+^3D &amp; \xrightarrow{\begin{array}{l}S = 1\\L = 2\end{array}} &amp; J = 3, 2, 1 &amp; \Rightarrow &amp; ^3D_3\hspace{5pt} ^3D_2 \hspace{10pt} ^3D_1\\
+^4F &amp; \xrightarrow{\begin{array}{l}S = \frac{3}{2}\\L = 3\end{array}} &amp; J = \frac{9}{2}, \frac{7}{2}, \frac{5}{2}, \frac{3}{2} &amp; \Rightarrow &amp; ^4F_{\frac{9}{2}}\hspace{10pt}^4F_{\frac{7}{2}} \hspace{10pt} ^4F_{\frac{5}{2}} \hspace{10pt} ^4F_{\frac{3}{2}}
+\end{array}\end{split}\]</div>
+<p>Hund’s Rule<br />
+3⃝ [[addition to rule 1⃝ &amp; 2⃝]{.underline}]{.underline},<br />
+subshell more than half filled <span class="math notranslate nohighlight">\(\rightarrow\)</span> large <span class="math notranslate nohighlight">\(J\)</span> is more stable<br />
+subshell less than half filled <span class="math notranslate nohighlight">\(\rightarrow\)</span> small <span class="math notranslate nohighlight">\(J\)</span> is more stable</p>
+<p>[Ex]{.underline} <span class="math notranslate nohighlight">\(2p^2\)</span><br />
+We found <span class="math notranslate nohighlight">\(^1D_g\)</span>, <span class="math notranslate nohighlight">\(^3P_g\)</span>, <span class="math notranslate nohighlight">\(^1S_g\)</span><br />
+by Hund’s rule 1⃝ &amp; 2⃝. <span class="math notranslate nohighlight">\(^3P_g\)</span> is the most stable.<br />
+Then, <span class="math notranslate nohighlight">\(^3P\)</span> generates<br />
+$<span class="math notranslate nohighlight">\(\begin{array}{ll}
+\begin{array}{l} S = 1\\L = 1\end{array} &amp; J = 2, 1, 0
+\end{array}\)</span>$</p>
+<p><span class="math notranslate nohighlight">\(^3P_2\)</span>, <span class="math notranslate nohighlight">\(^3P_1\)</span>, <span class="math notranslate nohighlight">\(^3P_0\)</span><br />
+because less than half filled<br />
+<span class="math notranslate nohighlight">\(^3P_0\)</span> is the most stable.</p>
+<p>Degeneracy w.r.t. <span class="math notranslate nohighlight">\(J\)</span><br />
+<span class="math notranslate nohighlight">\(^{2S + 1}L_J\)</span><br />
+<span class="math notranslate nohighlight">\(2J + 1\)</span> states are in this term.</p>
+<p>[i.e.]{.underline}<br />
+<span class="math notranslate nohighlight">\(2P^1 \rightarrow ^2P_{3/2}\)</span>
+<span class="math notranslate nohighlight">\(J = \frac{3}{2} \Rightarrow M_J = \underbrace{\frac{3}{2}, \frac{1}{2}, -\frac{1}{2}, -\frac{3}{2}}\)</span></p>
+<p><span class="math notranslate nohighlight">\(4 = 2\big(\frac{3}{2}\big) + 1\)</span></p>
+<p><span class="math notranslate nohighlight">\(^3D_3\)</span> <span class="math notranslate nohighlight">\(J = 3 \Rightarrow M_J = 3, 2, 1, 0, -1, -2, -3,\)</span></p>
+<p><span class="math notranslate nohighlight">\(7 = 3 \times 2 + 1\)</span><br />
+in <span class="math notranslate nohighlight">\(2P^2\)</span> case, we found</p>
+<p><span class="math notranslate nohighlight">\(^1D_g\)</span> <span class="math notranslate nohighlight">\(^3P_g\)</span>, <span class="math notranslate nohighlight">\(^1S_g\)</span></p>
+</section>
+<section id="term-symbols-are-useful-for-atomic-spectroscopy">
+<h2>Term Symbols Are Useful for Atomic Spectroscopy<a class="headerlink" href="#term-symbols-are-useful-for-atomic-spectroscopy" title="Link to this heading">#</a></h2>
+<p>In the field of spectroscopy, we can observe transition that satisfy
+selection rule.</p>
+<p>[Selection Rule]{.underline}</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{equation*}
+\begin{split}
+\Delta L &amp;= \pm 1\\
+\Delta S &amp;= 0\\
+\Delta J &amp;= 0, \pm1
+\end{split}
+\end{equation*}\end{split}\]</div>
+<p>[Ex]{.underline}<br />
+$<span class="math notranslate nohighlight">\(\begin{array}{ccccc}
+^2S &amp; \rightarrow &amp; ^2S &amp; not allowed &amp; L = 0 \rightarrow L = 0 \\
+^2S &amp; \rightarrow &amp; ^2D &amp; not allowed &amp; \Delta L = 2\\
+^1S &amp; \rightarrow &amp; ^3S &amp; not allowed &amp; \Delta S = 1\\
+^2S_{\frac{1}{2}} &amp; \rightarrow &amp; ^2P_{\frac{1}{2}} &amp; allowed &amp; \checkmark\\
+\begin{array}{c}S = \frac{1}{2}\\ L = 0\\ J = \frac{1}{2}\end{array} &amp; &amp; \begin{array}{c}S= \frac{1}{2}\\ L = 1\\ J = \frac{1}{2}\end{array} &amp; &amp;   
+\end{array}\)</span>$</p>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id2" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>In general chemistry, we teach electron configuration such as
+<span class="math notranslate nohighlight">\(1s^22s\)</span> One could argue that electron configuration we teach at
+general chemistry is actually a determinant and we are simply
+writing diagonal element of the determinant without providing them
+the explanation.</p>
+</aside>
+</aside>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Electron Spin (Quantum Mechanics Concept)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#electron-spin-angular-momentum">Electron Spin Angular Momentum</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consequence-of-spin">Consequence of Spin</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sharing-four-quantum-numbers-is-not-allowed">Sharing Four Quantum Numbers Is Not Allowed</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-consequence-of-spin-hunds-rule">Other Consequence of Spin (Hunds Rule)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#system-containing-only-one-atom">System Containing Only One Atom</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#total-orbital-angular-momentum-and-total-spin-angular-momentum-for-multi-electron-atom">Total Orbital Angular Momentum and Total Spin Angular Momentum for Multi-electron Atom</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atomic-term-symbol-underline">Atomic [Term Symbol]{.underline}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithm-of-generating-term-symbol-and-hund-s-rule">Algorithm of Generating Term Symbol and Hund’s rule</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-the-term-symbol-with-exclusion-principle">Generating the term symbol with exclusion principle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-total-angular-momentum-to-the-term-symbol">Adding Total Angular Momentum to the Term Symbol</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#term-symbols-are-useful-for-atomic-spectroscopy">Term Symbols Are Useful for Atomic Spectroscopy</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hideya Koizumi & Eiko Koizumi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

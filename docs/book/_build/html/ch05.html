@@ -1,0 +1,692 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Approximation Methods &#8212; Physical Chemistry Through Computer Simulations</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"uvec": ["\\hat{\\mathbf{#1}}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch05';</script>
+    <link rel="icon" href="_static/favicon.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Physical Chemistry Through Computer Simulations</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Physical Chemistry Through Computer Simulations
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Quantum Mechanics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="qm01.html">Math Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm02.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm03.html">Foundation of Quantum Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm04.html">Simple Quantum Mechanical Models and Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm05.html">Hydrogen-Like Atom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm06.html">Approximation Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm07.html">Electron Spin (Quantum Mechanics Concept)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm08.html">System Containing Only One Atom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm09.html">System Containing Two Atoms (Diatomic System)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm10.html">Hybrid Orbitals in Polyatomic Molecule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm11.html">Symmetry, Group Theory, Representation Theory and Thier Application to Chemistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm12.html">Molecular Spectroscopy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm13.html">Resonance by Variational Methods</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Thermodynamics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="td01.html">Math Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td02.html">Transition from Classical to Statistical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td03.html">Boltzmann Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td04.html">State function, dealing with partial derivatives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td05.html">Energy, Entropy and Temperature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td06.html">Free Energy, Pressure, &amp; Gas Laws</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td07.html">Maxwell Relation, Basic Thermodynamics Process, Second and Third Laws of Thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td08.html">The Equipartition Principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td09.html">Chemical Potential</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td10.html">Thermodynamics of Mixing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td11.html">Chemical Equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td12.html">Reaction Dynamics and Kinetics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td13.html">Chemistry of Fluid</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/ch05.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Approximation Methods</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variational-principle">Variational Principle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-variational-principle">Check Variational Principle</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hydrogen-atom-by-gaussian-orbitals-with-variable-standard-deviation">Hydrogen Atom by Gaussian Orbitals with Variable Standard Deviation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#helium-atom-2-e-system-with-ignoring-e-e-repulsive-interaction">Helium Atom (2 <span class="math notranslate nohighlight">\(e^-\)</span> System) with ignoring <span class="math notranslate nohighlight">\(e^--e^-\)</span> repulsive interaction</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#secular-equation">Secular Equation</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="approximation-methods">
+<h1>Approximation Methods<a class="headerlink" href="#approximation-methods" title="Link to this heading">#</a></h1>
+<p>We now consider system containing more than two electrons. Because
+electrons are charged, they repel each other. Repulsion between nuclei
+is easy to compute because they are represented by a point charge.
+However, the electron density is a distribution determined by
+<span class="math notranslate nohighlight">\(\left| \psi  \right|^2\)</span>. Calculating repulsive interaction between two
+orbitals is performed by numerical integrations which are out of scope
+for this textbook. Also, repulsive interactions introduce the additional
+term in Hamiltonian; therefore, hydrogen-like atomic orbitals is not an
+exact solution to the Schrödinger equation anymore. In other words,
+<span class="math notranslate nohighlight">\(\psi\)</span> becomes the unknown and central theme of quantum mechanics become
+how to obtain an accurate representation of <span class="math notranslate nohighlight">\(\psi\)</span> in terms of the
+available basis. In this chapter, we introduce the fundamental
+mathematical concept that is vital for obtaining the solution to the
+Schrödinger equation.\</p>
+<section id="variational-principle">
+<h2>Variational Principle<a class="headerlink" href="#variational-principle" title="Link to this heading">#</a></h2>
+<p>Ground state <span class="math notranslate nohighlight">\(\psi_0\)</span> has the lowest energy denoted as <span class="math notranslate nohighlight">\(E_0\)</span> by
+definition</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{equation*}
+\begin{split}
+\hat{H}\psi_0 &amp;= E_0\psi_0\\
+\int\psi_0^\ast\hat{H}\psi_0dx &amp;= E_0\int\psi_0^\ast\psi_0dx\\
+\frac{\int\psi_0^\ast\hat{H}\psi_0dx}{\int\psi_0^\ast\psi dx} &amp;= E_0
+\end{split}
+\end{equation*}\end{split}\]</div>
+<p>by def. any <span class="math notranslate nohighlight">\(\psi\)</span> other than <span class="math notranslate nohighlight">\(\psi_0\)</span> for non degenerate system<br />
+$<span class="math notranslate nohighlight">\(\begin{equation*}
+\frac{\int\psi^\ast\hat{H}\psi dx}{\int\psi^\ast\psi dx} = E &gt; E_0
+\end{equation*}\)</span>$</p>
+<p>This is called “variational principle”.<br />
+This is super useful for chemistry because we do not know how to solve
+Shrödinger Equation for any system having more than 1 electron.<br />
+[i.e.]{.underline} He atom must be solved numerically using variational
+theorem.</p>
+</section>
+<section id="check-variational-principle">
+<h2>Check Variational Principle<a class="headerlink" href="#check-variational-principle" title="Link to this heading">#</a></h2>
+<section id="hydrogen-atom-by-gaussian-orbitals-with-variable-standard-deviation">
+<h3>Hydrogen Atom by Gaussian Orbitals with Variable Standard Deviation<a class="headerlink" href="#hydrogen-atom-by-gaussian-orbitals-with-variable-standard-deviation" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\begin{equation*}
+\hat{H} = -\frac{\hbar^2}{2m_er^2}\frac{d}{dr}\Big(r^2\frac{d}{dr}\Big) - \frac{e^2}{4\pi\epsilon_0r}
+\end{equation*}\]</div>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(250,140) (0,0)<span><img src="Figure10.png"
+style="width:8cm;height:5cm" alt="image" /></span> (118,55)<span><span
+style="color: blue"><strong><span
+class="smallcaps"><span>std</span></span></strong></span></span></p>
+</div>
+<figcaption> Gaussian Orbital </figcaption>
+</figure>
+<p>Let us use <span class="math notranslate nohighlight">\(\phi(r) = e^{-\alpha r^2}\)</span>.<br />
+We optimize <span class="math notranslate nohighlight">\(\alpha\)</span> later.</p>
+<p>[Calc II]{.underline} <span class="math notranslate nohighlight">\(\downarrow\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{equation*}
+\begin{split}
+4\pi\int\phi^\ast\hat{H}\phi r^2dr &amp; = \frac{3\hbar^2\pi^{3/2}}{4\sqrt{2}m_e\alpha^{1/2}} - \frac{e^2}{4\epsilon_0\alpha}\\
+4\pi\int\phi^\ast\phi r^2dr&amp; = \Big(\frac{\pi}{2\alpha}\Big)^{3/2}
+\end{split}
+\end{equation*}\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(E(\alpha) = \frac{3\hbar^2\alpha}{2m_e} - \frac{e^2\alpha^{1/2}}{2^{1/2}\epsilon_0\pi^{3/2}}\)</span><br />
+Shoot for lowest <span class="math notranslate nohighlight">\(E\)</span> by optimizing <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{equation*}
+\begin{split}
+\frac{dE}{d\alpha} &amp;= 0 = \frac{3\hbar^2}{2m_e} - \frac{e^2}{(2\pi)^{3/2}\epsilon_0\alpha^{1/2}} \Rightarrow \alpha = \frac{m_e^2 e^4}{18\pi^3\epsilon_0^2\hbar^4}\\
+E_{min} &amp;= -\underbrace{\frac{4}{3\pi}}\Big(\frac{m_e e^4}{16\pi^2\epsilon_0^2\hbar^2}\Big) &gt; -\frac{1}{2}\Big(\frac{m_e e^4}{16\pi^2\epsilon^2\hbar^2}\Big) = E_0 \hspace{10pt} \text{//}
+\end{split}
+\end{equation*}\end{split}\]</div>
+<p>-0.424 <span class="math notranslate nohighlight">\(&gt;\)</span> -0.5 (known G.S. of the system)</p>
+</section>
+<section id="helium-atom-2-e-system-with-ignoring-e-e-repulsive-interaction">
+<h3>Helium Atom (2 <span class="math notranslate nohighlight">\(e^-\)</span> System) with ignoring <span class="math notranslate nohighlight">\(e^--e^-\)</span> repulsive interaction<a class="headerlink" href="#helium-atom-2-e-system-with-ignoring-e-e-repulsive-interaction" title="Link to this heading">#</a></h3>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(200,125) (0,0)<span><img src="Figure11.png"
+style="width:7cm;height:5cm" alt="image" /></span> (45,75)<span><span
+style="color: red"><strong><span class="smallcaps"><span><span
+class="math inline">\(r_1\)</span></span></span></strong></span></span>
+(100,45)<span><span style="color: blue"><strong><span
+class="smallcaps"><span>nuc</span></span></strong></span></span>
+(200,120)<span><span style="color: blue"><strong><span
+class="smallcaps"><span><span
+class="math inline">\(e_2^{-1}\)</span></span></span></strong></span></span>
+(-18,115)<span><span style="color: blue"><strong><span
+class="smallcaps"><span><span
+class="math inline">\(e_1^{-1}\)</span></span></span></strong></span></span>
+(98,120)<span><span style="color: purple"><strong><span
+class="smallcaps"><span><span
+class="math inline">\(r_{12}\)</span></span></span></strong></span></span>
+(120,88)<span><span style="color: red"><strong><span
+class="smallcaps"><span><span
+class="math inline">\(r_2\)</span></span></span></strong></span></span></p>
+</div>
+<figcaption> Helium Atom (2 <span class="math inline">\(e^-\)</span>
+System) </figcaption>
+</figure>
+<p><span class="math notranslate nohighlight">\(\downarrow\)</span> nuc charge</p>
+<div class="math notranslate nohighlight">
+\[\begin{equation*}
+\hat{H} = -\frac{\hbar^2}{2m_e}\Big(\nabla_1^2 + \nabla_2^2\Big) - \frac{Ze^2}{4\pi\epsilon_0}\Big(\frac{1}{r_1} + \frac{1}{r_2}\Big) + \frac{e^2}{4\pi\epsilon_0}\frac{1}{r_{12}}
+\end{equation*}\]</div>
+<p>Simplest way to obtain approximate solutionis to ignore repulsion</p>
+<div class="math notranslate nohighlight">
+\[\begin{equation*}
+\hat{H}_{simple} = \hat{H}(1) + \hat{H}(2) + \cancel{\frac{e^2}{4\pi\epsilon_0}\frac{1}{r_{12}}}
+\end{equation*}\]</div>
+<p>Because each part of Hamiltonian only depends on single electron
+coordinates, simple product of hydrogen-like atomic solution is an eigen
+function to this hamiltonian. i.e.
+<span class="math notranslate nohighlight">\(\phi_0(r_1, r_2) = \psi_{1s}(r_1)\psi_{1s}(r_2)\)</span><br />
+where
+<span class="math notranslate nohighlight">\(\psi_{1s}(r) = \Big(\frac{Z^3}{\pi a_0^3}\Big)^{1/2}e^{-\frac{Zr}{a_0}}\)</span>,
+<span class="math notranslate nohighlight">\(a_0 = \frac{4\pi\epsilon_0\hbar^2}{m_e e^2}\)</span></p>
+<p>These simple product wavefunction is often called Hartree product
+wavefunction.<br />
+[HW]{.underline} Check <span class="math notranslate nohighlight">\(\phi_0(r_1, r_2)\)</span> is an eigenfunction of
+<span class="math notranslate nohighlight">\(\hat{H}_{simple}\)</span> given above.<br />
+With the help of computer program, one can obtain</p>
+<div class="math notranslate nohighlight">
+\[\begin{equation*}
+E = \int\int\phi_0^\ast\big(r_1, r_2\big)\hat{H}\phi_0\big(r_1, r_2\big) dr_1dr_2 = -2.75 a.u.
+\end{equation*}\]</div>
+<p>Note that Hamiltonian is not the simple Hamiltonian. So the solution is
+not the optimum solution for normal Hamiltonian. This energy is higher
+than the eigenvalue of exact wavefunction (-2.90 a.u.). So, variational
+theorem is not violated.\</p>
+</section>
+</section>
+<section id="secular-equation">
+<h2>Secular Equation<a class="headerlink" href="#secular-equation" title="Link to this heading">#</a></h2>
+<p>So far, we have verified our trial wavefunction (simple hartree product)
+is an eigenfunction and it did not violate the variational principle.
+The Hartree product may be equivalent of the electron configuration we
+studied in general chemistry.<a class="footnote-reference brackets" href="#id2" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> For example, He atom electron
+configuration is <span class="math notranslate nohighlight">\(1s\alpha(1)1s\beta(2)\)</span> following aufbau principle.
+Because single hydrogen-like atomic orbital is not a good representation
+of atomic orbital for multi-electron atomic system, we may represent
+orbital by linear combination of hydrogen-like atomic orbitals.<br />
+This time, we make <span class="math notranslate nohighlight">\(\psi\)</span> more flexible.<br />
+<span class="math notranslate nohighlight">\(\phi = \sum_{n=1}^N C_n f_n \hspace{10pt} \leftarrow\)</span> linear
+combination of some functions(i.e. hydrogen-like atomic orbitals)</p>
+<p><span class="math notranslate nohighlight">\(\uparrow\)</span></p>
+<p>our guess <span class="math notranslate nohighlight">\(\psi\)</span><br />
+[Case]{.underline}<br />
+<span class="math notranslate nohighlight">\(\phi = C_1f_1 + C_2f_2\)</span><br />
+$<span class="math notranslate nohighlight">\(\begin{equation*}
+\begin{split}
+\int\phi^\ast\hat{H}\phi d\tau &amp;= \int\Big(C_1f_1 + C_2f_2\Big)^\ast\hat{H}\Big(C_1f_1 + C_2f_2\Big)d\tau\\
+&amp;= C_1^2\int f_1^\ast\hat{H}f_1d\tau + C_1C_2\int f_1^\ast\hat{H}f_2d\tau + C_2C_1\int f_2^\ast\hat{H}f_1d\tau + C_2^2\int f_2^\ast\hat{H}f_2d\tau\\
+&amp;= C_1^2H_{11} + 2C_1C_2H_{12} + C_2^2H_{22}\\
+\int\phi^\ast\hat{S}\phi d\tau &amp;= C_1^2S_{11} + 2C_1C_2S_{12} + C_2^2S_{22}
+\end{split}
+\end{equation*}\)</span>$</p>
+<p>Then, by Variational Principle,</p>
+<div class="math notranslate nohighlight">
+\[\begin{equation*}
+E\big(C_1 \hspace{2pt} C_2\big) = \frac{C_1^2H_{11} + 2C_1C_2H_{12} + C_2^2H_{22}}{C_1^2S_{11} + 2C_1C_2S_{12} + C_2^2S_{22}} = \frac{\big(\text{\textcircled{1}}\big)}{\big(\text{\textcircled{2}}\big)}
+\end{equation*}\]</div>
+<p>|</p>
+<p>rewrite</p>
+<p><span class="math notranslate nohighlight">\(\downarrow\)</span></p>
+<p>1⃝ = <span class="math notranslate nohighlight">\(E\)</span> 2⃝<br />
+<span class="math notranslate nohighlight">\(E\)</span> is min by <span class="math notranslate nohighlight">\(C_J\)</span> <span class="math notranslate nohighlight">\(\Rightarrow \frac{\partial E}{\partial C_J} = 0\)</span>
+for all <span class="math notranslate nohighlight">\(J\)</span>. Use this fact after you perform product rule of the
+derivative on the RHS.<br />
+<span class="math notranslate nohighlight">\(\left(
+                \begin{array}{ll}
+                  \frac{\partial E}{\partial C_1} = 0 \Rightarrow C_1\Big(H_{11} - ES_{11}\Big) + C_2\Big(H_{12} - ES_{12}\Big) = 0\\
+                  \frac{\partial E}{\partial C_2} = 0 \Rightarrow C_1\Big(H_{12} - ES_{12}\Big) + C_2\Big(H_{22} - ES_{22}\Big) = 0
+                \end{array}
+              \right.\)</span><br />
+<span class="math notranslate nohighlight">\(\downarrow\)</span> in matrix form,<br />
+<span class="math notranslate nohighlight">\(\begin{bmatrix}
+H_{11} - ES_{11} &amp; H_{12} - ES_{11}\\
+H_{12} - ES_{12} &amp; H_{22} - ES_{22}
+\end{bmatrix}
+ \begin{bmatrix} C_1\\ C_2 \end{bmatrix} = \begin{bmatrix} 0\\0 \end{bmatrix} = \O\)</span>\</p>
+<p>This means either both <span class="math notranslate nohighlight">\(C_1\)</span> &amp; <span class="math notranslate nohighlight">\(C_2 = 0 \leftarrow\)</span> absolutely
+meaningless<br />
+or
+det<span class="math notranslate nohighlight">\(\begin{vmatrix} H_{11}-ES_{11} &amp; H_{12}-ES_{12}\\ H_{12}-ES_{12} &amp; H_{22}-ES_{22}\end{vmatrix} = 0\)</span></p>
+<p><span class="math notranslate nohighlight">\(\uparrow\)</span></p>
+<p><span class="math notranslate nohighlight">\(A = \begin{bmatrix} a &amp; b\\ c&amp; d\end{bmatrix}\)</span><br />
+det<span class="math notranslate nohighlight">\(A = ad - bc \leftarrow\)</span> is a polynomial of <span class="math notranslate nohighlight">\(E\)</span></p>
+<p><span class="math notranslate nohighlight">\(=0\)</span> [i.e.]{.underline} <span class="math notranslate nohighlight">\(aE^2 + bE + c = 0\)</span><br />
+Solve for <span class="math notranslate nohighlight">\(E\)</span>. You get Energy of the system.<br />
+[Case]{.underline}<br />
+<span class="math notranslate nohighlight">\(\phi = \sum_{n=1}^N C_nf_n\)</span><br />
+<span class="math notranslate nohighlight">\(\begin{vmatrix} H_{11}-ES_{11} &amp; H_{12}-ES_{12} &amp; \cdots &amp; H_{1N}-ES_{1N}\\ H_{12}-ES_{12}&amp; &amp; &amp; \vdots \\ \vdots &amp; &amp; &amp; \vdots\\ \vdots &amp; &amp; &amp; \vdots\\ H_{1N}-ES_{1N} &amp; \cdots &amp; \cdots &amp; H_{NN}-ES_{NN}\end{vmatrix} = 0\)</span><br />
+Solve this polynomial. (Seqular Eq)</p>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id2" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>This is probably the worst interpretation of the electron
+configuration tought at General chemistry level. There is a much
+better(more favorable) interpritation of the electron configuration
+which is introduced in the next section.</p>
+</aside>
+</aside>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variational-principle">Variational Principle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-variational-principle">Check Variational Principle</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hydrogen-atom-by-gaussian-orbitals-with-variable-standard-deviation">Hydrogen Atom by Gaussian Orbitals with Variable Standard Deviation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#helium-atom-2-e-system-with-ignoring-e-e-repulsive-interaction">Helium Atom (2 <span class="math notranslate nohighlight">\(e^-\)</span> System) with ignoring <span class="math notranslate nohighlight">\(e^--e^-\)</span> repulsive interaction</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#secular-equation">Secular Equation</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hideya Koizumi & Eiko Koizumi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

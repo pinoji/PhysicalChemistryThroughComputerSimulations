@@ -1,0 +1,1172 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Simulations in Physica Chemistry: Laboratory Components &#8212; Physical Chemistry Through Computer Simulations</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"uvec": ["\\hat{\\mathbf{#1}}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch26';</script>
+    <link rel="icon" href="_static/favicon.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Physical Chemistry Through Computer Simulations</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Physical Chemistry Through Computer Simulations
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Quantum Mechanics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="qm01.html">Math Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm02.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm03.html">Foundation of Quantum Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm04.html">Simple Quantum Mechanical Models and Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm05.html">Hydrogen-Like Atom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm06.html">Approximation Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm07.html">Electron Spin (Quantum Mechanics Concept)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm08.html">System Containing Only One Atom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm09.html">System Containing Two Atoms (Diatomic System)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm10.html">Hybrid Orbitals in Polyatomic Molecule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm11.html">Symmetry, Group Theory, Representation Theory and Thier Application to Chemistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm12.html">Molecular Spectroscopy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm13.html">Resonance by Variational Methods</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Thermodynamics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="td01.html">Math Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td02.html">Transition from Classical to Statistical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td03.html">Boltzmann Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td04.html">State function, dealing with partial derivatives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td05.html">Energy, Entropy and Temperature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td06.html">Free Energy, Pressure, &amp; Gas Laws</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td07.html">Maxwell Relation, Basic Thermodynamics Process, Second and Third Laws of Thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td08.html">The Equipartition Principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td09.html">Chemical Potential</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td10.html">Thermodynamics of Mixing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td11.html">Chemical Equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td12.html">Reaction Dynamics and Kinetics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td13.html">Chemistry of Fluid</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/ch26.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Simulations in Physica Chemistry: Laboratory Components</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Simulations in Physica Chemistry: Laboratory Components</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spectral-theorem-linear-algebra-version">Spectral Theorem: Linear Algebra Version</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#particle-in-a-box-p-i-b">Particle In a Box (P.I.B)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#harmonic-oscillator">Harmonic Oscillator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spherical-harmonics">Spherical Harmonics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#radial-wavefunction">Radial Wavefunction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hydrogen-like-atomic-system">Hydrogen-Like Atomic System</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#h-2-system"><span class="math notranslate nohighlight">\(H_2^{+}\)</span> System</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hybrid-orbitals">Hybrid Orbitals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#term-project-group-theory-on-electronic-transition">Term Project: Group Theory on Electronic Transition</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#project-procedure">Project Procedure</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ftir-ro-vibrational-spectra-of-hcl">FTIR ro-vibrational spectra of HCl</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#huckel-theory-on-conjugated-bonds-system">Huckel Theory on Conjugated Bonds System</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-table">Useful Table</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-polynomial">Table of Polynomial</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hermite-polynomial">Hermite Polynomial</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Spherical Harmonics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#associated-laguerre-polynomial">Associated Laguerre Polynomial</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#charactor-table">Charactor Table</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-i"><span class="math notranslate nohighlight">\(C_{i}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-2v"><span class="math notranslate nohighlight">\(C_{2v}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-3v"><span class="math notranslate nohighlight">\(C_{3v}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-6h"><span class="math notranslate nohighlight">\(D_{6h}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-2h"><span class="math notranslate nohighlight">\(C_{2h}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#t-d"><span class="math notranslate nohighlight">\(T_{d}\)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="simulations-in-physica-chemistry-laboratory-components">
+<h1>Simulations in Physica Chemistry: Laboratory Components<a class="headerlink" href="#simulations-in-physica-chemistry-laboratory-components" title="Link to this heading">#</a></h1>
+<section id="spectral-theorem-linear-algebra-version">
+<h2>Spectral Theorem: Linear Algebra Version<a class="headerlink" href="#spectral-theorem-linear-algebra-version" title="Link to this heading">#</a></h2>
+<p>The spectral theorem states, “If <span class="math notranslate nohighlight">\(n \times n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> is real &amp;
+symmetric, then there will be <span class="math notranslate nohighlight">\(n\)</span> independent eigenvectors &amp; all
+eigenvalues are real.”<br />
+This exercise will use Mathematica.<br />
+Let us consider arbitrary picked real symmetric matrix. i.e. B</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix} 1.0 &amp; 2 &amp; 3 &amp; 4\\ 2 &amp; 2 &amp; 5&amp; 6\\ 3 &amp; 5 &amp; 3 &amp; 7 \\ 4 &amp; 6 &amp; 7 &amp; 4 \end{bmatrix}\end{split}\]</div>
+<p>Note that I used floating numbers for at least one of the entries to
+force Mathematica to perform numerical computations. Simply type the
+following in the input line and shift enter to perform computation.<br />
+First line will spit out all eigenvalues and second line will output all
+eigenvectors.<br />
+Note that all eigenvalues are real as you expected.\</p>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(200,75) (-75,0)<span><img src="Lab_SpectralTheorem.png"
+style="width:14cm" alt="image" /></span></p>
+</div>
+<figcaption>Mathematica code for obtaining Eigenvalues and Eigenvectors
+</figcaption>
+</figure>
+<p>To perform matrix multiplication (including dot product), type the
+following in the input line. For the dot product, Mathematica
+automatically transpose the first vector.</p>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(200,75) (-75,0)<span><img src="Lab_SpectralTheorem1.png"
+style="width:14cm" alt="image" /></span></p>
+</div>
+<figcaption>Mathematica code for Matrix multiplication </figcaption>
+</figure>
+<p>Let’s multiply matrix B times one of the eigenvectors (L.H.S. of the
+eigenvalue equation)<br />
+and multiply eigenvalue with the eigenvector (R.H.S. of the eigenvalue
+equation) by typing the following.\</p>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(200,75) (-75,0)<span><img src="Lab_SpectralTheorem2.png"
+style="width:14cm" alt="image" /></span></p>
+</div>
+<figcaption>Mathematica code for Checking Eigenvalue
+Equation</figcaption>
+</figure>
+<p>Repeat this procedure for all eigenvalue &amp; eigenvector pairs.<br />
+Lastly, we still need to check that the eigenvectors are orthogonal.
+Compute the dot product of all possible pairs of eigenvectors. Are your
+results consistent with the spectral theorem?</p>
+</section>
+<section id="particle-in-a-box-p-i-b">
+<h2>Particle In a Box (P.I.B)<a class="headerlink" href="#particle-in-a-box-p-i-b" title="Link to this heading">#</a></h2>
+<p>This exercise will use Mathematica. Read the related sections and type
+out the followings. Understand how to assign name for constant, and
+define function. Look up all the command/built-in functions used in the
+code. Using 1-D PIB set up; plot solutions, and obtain their
+eigenvalues. Check orthonormality of the solutions. Compute
+<span class="math notranslate nohighlight">\(\left&lt; x \right&gt;\)</span>, <span class="math notranslate nohighlight">\(\left&lt; x^{2} \right&gt;\)</span>, <span class="math notranslate nohighlight">\(\left&lt; p_x \right&gt;\)</span>,
+<span class="math notranslate nohighlight">\(\left&lt; p_x^{2} \right&gt;\)</span>, <span class="math notranslate nohighlight">\(\sigma_x\)</span>, and <span class="math notranslate nohighlight">\(\sigma_{p_x}\)</span> Verify
+uncertainty principle <span class="math notranslate nohighlight">\(\sigma_x\sigma_{p_x} \leq \frac{\hbar}{2}\)</span></p>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(200,75) (-75,0)<span><img src="Lab_PIB.png" style="width:14cm"
+alt="image" /></span></p>
+</div>
+<figcaption> 1-D Particle In a Box </figcaption>
+</figure>
+</section>
+<section id="harmonic-oscillator">
+<h2>Harmonic Oscillator<a class="headerlink" href="#harmonic-oscillator" title="Link to this heading">#</a></h2>
+<p>This exercise will use Mathematica. Read the related sections and type
+out the followings. Understand how to assign name for constant, and
+define function. Look up all the command/built-in functions used in the
+code. This Laboratory uses standard way of computing energy by
+integration. Using built in polynomial HemiteH (Hermite polynomial);
+obtain solutions, and their eigenvalues. Check orthonormality of the
+solutions. Using the plot you have generated, discuss the penetration of
+wave functions into classically forbidden regions.</p>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(200,75) (-75,0)<span><img src="Lab_HO.png" style="width:14cm"
+alt="image" /></span></p>
+</div>
+<figcaption>Mathematica code for Harmonic Oscilator </figcaption>
+</figure>
+</section>
+<section id="spherical-harmonics">
+<h2>Spherical Harmonics<a class="headerlink" href="#spherical-harmonics" title="Link to this heading">#</a></h2>
+<p>This exercise will use Mathematica. Read the related sections and type
+out all the input. Understand how to assign name for constant, and
+define function. Look up all the command/built-in functions used in the
+code. This excercise, you are doing polynomial division to obtain
+eigenvalue. Spherical polar coordinate is used. Using built in
+polynomial SphericalHarmonicY (Spherical Harmonics); obtain solutions,
+and their eigenvalues for <span class="math notranslate nohighlight">\(\hat {L}^{2}\)</span> operator. Note that this
+operator is closely related to Hamiltonian Operator <span class="math notranslate nohighlight">\(\hat H\)</span> <span class="math notranslate nohighlight">\(=\)</span>
+<span class="math notranslate nohighlight">\(\frac{\hat {L}^{2}}{2I}\)</span> where I is the moment of inertia. You can use
+spherical coordinate as in the textbook. Do not try to plot the
+solution. You check the orthonormality in Lab V.</p>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(200,225) (-75,0)<span><img src="Lab_SH.png" style="width:14cm"
+alt="image" /></span></p>
+</div>
+<figcaption>Mathematica code for Spherical Harmonics </figcaption>
+</figure>
+</section>
+<section id="radial-wavefunction">
+<h2>Radial Wavefunction<a class="headerlink" href="#radial-wavefunction" title="Link to this heading">#</a></h2>
+<p>This exercise will use Mathematica. Read the related sections and type
+out all the input. Understand how to assign name for constant, and
+define function. Look up all the command/built-in functions used in the
+code. This excercise, you are doing polynomial division to obtain
+eigenvalue. Spherical polar coordinate is used.</p>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(200,225) (-75,0)<span><img src="Lab_Rad.png" style="width:14cm"
+alt="image" /></span></p>
+</div>
+<figcaption>Mathematica code for Radial Wavefunction </figcaption>
+</figure>
+</section>
+<section id="hydrogen-like-atomic-system">
+<h2>Hydrogen-Like Atomic System<a class="headerlink" href="#hydrogen-like-atomic-system" title="Link to this heading">#</a></h2>
+<p>This exercise will use Mathematica. Download the program from <a class="reference external" href="https://drive.google.com/open?id=1zvDKsBYDbdPKBXhqMDbAbWYRoqj_WrSR">Student
+Associated
+Files</a>.<br />
+Hydrogen-Like atom is a system containing only one electron orbiting
+around nucleus. Therefore, this system is solvable and the exact
+solution to this problem is given by the product of radial wave function
+and spherical harmonics we studied so far. Because Mathematica can
+convert spherical polar coordinate to Cartesian coordinate, we can
+repeat the same problem using simple Cartesian coordinate system.
+Understanding how the actual code for this coordinate transformation
+works is out of scope for this class. Therefore, the automated radial
+wave function and spherical harmonics are encoded and attached to your
+Mathematica file. Because swapping coordinate system does not affect the
+outcome, we should obtain the same solutions, and their eigenvalues
+obtained by using spherical polar coordinate system. To complete this
+exercise, you will need to check orthogonality of the solutions. (Pick 5
+random cases) Check all the orbitals for normalization. Also, obtain the
+average distance away from the center; for example, Bohr radius for 1s
+orbital of the Hydrogen atom. Compute the energy of all the orbitals. To
+do this in Cartesian coordinate, you need to compute<br />
+$<span class="math notranslate nohighlight">\(\begin{equation*}
+\begin{split}
+&amp; E =\int\int \int \psi^{*}(x,y,z) \hat {H}\psi(x,y,z) dxdydz \\
+&amp; =\int\int \int \psi^{*}(x,y,z) \left(  \frac{-1}{2} \nabla^2- \frac{1}{\sqrt{x^2+y^2+z^2}} \right)\psi(x,y,z) dxdydz  \\
+\end{split}
+\end{equation*}\)</span>$ Do this for all orbitals up to 4f. (this is an art so
+use pptx and excel wisely) I want orbital pictures as an insert art.</p>
+</section>
+<section id="h-2-system">
+<h2><span class="math notranslate nohighlight">\(H_2^{+}\)</span> System<a class="headerlink" href="#h-2-system" title="Link to this heading">#</a></h2>
+<p>This exercise will use Mathematica. Download the program from <a class="reference external" href="https://drive.google.com/open?id=1zvDKsBYDbdPKBXhqMDbAbWYRoqj_WrSR">Student
+Associated
+Files</a>.<br />
+<span class="math notranslate nohighlight">\(H_2^{+}\)</span> is a system containing only one electron orbiting around two
+nuclei (one electron non-central body problem). Assume wave function is
+a simple combination of 1S orbitals from both H atoms. Because we only
+deal with linear operators, we can describe this system by just simply
+computing Coulomb and Exchange integral at given nuclear separation in
+addition to isolated H atom. The definitions of Exchange (K) and Coulomb
+(J) integral in this problem are given as follows. If only one orbital
+is involved in the integrand, then it is Coulomb, and Exchange
+otherwise. Vary the atomic separation from 1 to 4, plot out the
+contributions of J, K and total energy for this system. Calculate J &amp; K
+to estimate the energy of the system with <span class="math notranslate nohighlight">\(\psi_+\)</span> and <span class="math notranslate nohighlight">\(\psi_-\)</span>. Plot
+the energy diagram and predict the bond length.</p>
+</section>
+<section id="hybrid-orbitals">
+<h2>Hybrid Orbitals<a class="headerlink" href="#hybrid-orbitals" title="Link to this heading">#</a></h2>
+<p>This exercise will use Mathematica. Download the program from <a class="reference external" href="https://drive.google.com/open?id=1zvDKsBYDbdPKBXhqMDbAbWYRoqj_WrSR">Student
+Associated
+Files</a>.<br />
+Hybrid orbitals are often used in Organic chemistry as well as Inorganic
+chemistry. Using the formula in the related section of the textbook,
+create <span class="math notranslate nohighlight">\(sp\)</span> hybrid orbitals. Check orthonormality of
+<span class="math notranslate nohighlight">\(\left\{\psi_{sp\pm}\right\}\)</span>. Then, proceed to make <span class="math notranslate nohighlight">\(sp^2\)</span> hybrid
+orbitals.</p>
+</section>
+<section id="term-project-group-theory-on-electronic-transition">
+<h2>Term Project: Group Theory on Electronic Transition<a class="headerlink" href="#term-project-group-theory-on-electronic-transition" title="Link to this heading">#</a></h2>
+<p>If you do not understand any word, look for it online (AI will do the
+job). In many field of chemistry, you will hear <span class="math notranslate nohighlight">\(\pi\)</span> to <span class="math notranslate nohighlight">\(\pi^{*}\)</span>
+transition as well as <span class="math notranslate nohighlight">\(n\)</span> to <span class="math notranslate nohighlight">\(\pi^{*}\)</span> transition (lone pair to exited
+MO of particular kind). In this exercise, you will learn these important
+transitions from physical chemistry point of view. So the tool we will
+use for this project is a group theory. You might want to review the
+lecture notes or read the relevant section of the textbook. In this
+project, you will study formaldehyde (<span class="math notranslate nohighlight">\(CH_2O\)</span>) which includes <span class="math notranslate nohighlight">\(sp^{2}\)</span>
+hybridized orbitals on C and O atoms. You can symmetrize these hybrid
+atomic orbitals centered at C and O by the procedures given in the
+textbook.\</p>
+<section id="project-procedure">
+<h3>Project Procedure<a class="headerlink" href="#project-procedure" title="Link to this heading">#</a></h3>
+<p>1st step [100pts] Answer these in typed report\</p>
+<ol class="arabic simple">
+<li><p>Identify the symmetry of <span class="math notranslate nohighlight">\(CH_2O\)</span>\</p></li>
+<li><p>Create character table (copy it from textbook) for this point group\</p></li>
+<li><p>Draw a figure of the <span class="math notranslate nohighlight">\(sp^{2}\)</span> hybridized orbitals. (This could be a
+repeat of the previous laboratory). Note <span class="math notranslate nohighlight">\(P_x\)</span> orbital is sticking out
+of the paper. Use the subscript o and c represent Oxygen and Carbon,
+respectively.\</p></li>
+<li><p>Using the method described in the textbook, predict irreducible
+representation of these orbitals.\</p></li>
+<li><p>Using generating operator, create symmetry adopted molecular orbitals
+(it is not completely done yet)\</p></li>
+<li><p>Realizing orbital with same symmetry will have positive overlap,
+identify molecular orbitals involved in the formation of a <span class="math notranslate nohighlight">\(\sigma\)</span> bond
+along C-O bond using symmetry adopted MO\</p></li>
+<li><p>Similarly, identify molecular orbitals involved in the formation of a
+<span class="math notranslate nohighlight">\(\pi\)</span> bond along C-O bond\</p></li>
+<li><p>Our discussion from this point will focus on C=O part. So we need to
+identify and eliminate orbitals used in <span class="math notranslate nohighlight">\(\sigma\)</span> bond along C-H bond.
+Realize that these have to be singly occupied\</p></li>
+</ol>
+<figure data-latex-placement="h">
+<table>
+<tbody>
+<tr>
+<td style="text-align: center;"><table>
+<tbody>
+<tr>
+<td style="text-align: center;"><div class="picture">
+<p>(100,100) (-10,0)<span><img src="Project1.png" style="height:4cm"
+alt="image" /></span> (33,78)<span><span
+style="color: black"><strong><span class="smallcaps"><span><span
+class="math inline">\(p_{x_{O}}\)</span></span></span></strong></span></span>
+(33,33)<span><span style="color: black"><strong><span
+class="smallcaps"><span><span
+class="math inline">\(p_{x_{C}}\)</span></span></span></strong></span></span>
+(18,65)<span><span style="color: black"><strong><span
+class="smallcaps"><span><span
+class="math inline">\(0_{O}\)</span></span></span></strong></span></span>
+(18,45)<span><span style="color: black"><strong><span
+class="smallcaps"><span><span
+class="math inline">\(0_{C}\)</span></span></span></strong></span></span>
+(0,95)<span><span style="color: black"><strong><span
+class="smallcaps"><span><span
+class="math inline">\(1_{O}\)</span></span></span></strong></span></span>
+(0,15)<span><span style="color: black"><strong><span
+class="smallcaps"><span><span
+class="math inline">\(1_{C}\)</span></span></span></strong></span></span>
+(33,95)<span><span style="color: black"><strong><span
+class="smallcaps"><span><span
+class="math inline">\(2_{O}\)</span></span></span></strong></span></span>
+(33,15)<span><span style="color: black"><strong><span
+class="smallcaps"><span><span
+class="math inline">\(2_{C}\)</span></span></span></strong></span></span></p>
+</div></td>
+</tr>
+</tbody>
+</table></td>
+<td style="text-align: center;"><span
+class="math inline">\(\begin{bmatrix}
+0_o\\1_o\\2_o\\0_c\\1_c\\2_c\\{p_x}_o\\{p_x}_c\end{bmatrix}\)</span></td>
+</tr>
+</tbody>
+</table>
+<figcaption>Valance Orbitals Centered at C and O </figcaption>
+</figure>
+<p>2nd step (hybridization and assigning irreducible representation )<br />
+Oxygen atom<br />
+Using 2s, <span class="math notranslate nohighlight">\(2p_z\)</span> and <span class="math notranslate nohighlight">\(2p_y\)</span> orbitals, create new set of orbitals consist
+of sp2 hybrid orbitals and px (note: any combination of orbitals will
+result in new orbitals. In that process, total energy must be conserved.
+(i.e. sum of <span class="math notranslate nohighlight">\(E_{2s}\)</span>+2<span class="math notranslate nohighlight">\(E_{2p}\)</span>=3<span class="math notranslate nohighlight">\(E_{sp^{2}}\)</span>) Fill in electron from the
+bottom(aufbau principle) while keeping total number of unpaired
+electrons to be 2. This number tend to equal number of covalent bonds
+for non radical molecules.<br />
+Carbon atom<br />
+Rrepeat the same procedure, but set the total number of unpaired
+electron to be 4.\</p>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(100,230) (-10,0)<span><img src="Project2.png" style="height:7cm"
+alt="image" /></span></p>
+</div>
+<p><br />
+</p>
+<figcaption>Hybridization of Valance Orbitals Centered at C and
+O</figcaption>
+</figure>
+<p>Make sure to explain these in no more than few sentences each (keep it
+short) same as step 1 question<br />
+Each single electron occupying the orbital can form a chemical bond but
+not those electrons in doubly occupied orbitals. (explain.)<br />
+Also, which of the following orbital can overlap to make a bond? (px
+with px? or hybrid with hybrid?)<br />
+From your experience in previous computer simulation, which bond is more
+stable in terms of energy? (bond made by px with px? or hybrid with
+hybrid?)<br />
+Which one become sigma or pi bond? Which one become lone pair? Are those
+doubly occupied?<br />
+Type of MO you are going to generate and thier irrep (irreproducible
+representation)<br />
+Identify the AO belongs to which irrep?<br />
+Do you think these keep the shape when it become true Molecular
+orbitals? If not, which orbitals are likely to mix? (explain this in
+detail)<br />
+3rd step [record data and extract info in typed report for instructor
+100 points]<br />
+This step require HyperChem program. To set you as user, go to c drive
+hyper80. Program then run Newuser80 (this must be done before you open
+HyperChem)<br />
+Draw molecular orbital diagram with the assist of computational
+program.<br />
+(Note: Only same symmetry will mix [form bonds] —– you can think in
+terms of integral)\</p>
+<ol class="arabic simple">
+<li><p>Using Hyperchem, optimize the geometry with ab initio HF/6-31G*
+level\</p></li>
+<li><p>After you are done with optimization<br />
+Go to file tab and “Start log” at this moment (you will use this file
+later)\</p></li>
+<li><p>Perform single point CI (using singly excited) When you compute, make
+sure to set the orbital criterion to occupied=3 unoccupied=5\</p></li>
+<li><p>After computation, compute orbital (just 3D plotting orbital)<br />
+Make sure to highlight the number and start from 1. Push [plot]
+button\</p></li>
+<li><p>Watch the display of orbitals and record symmetry of orbital (also
+check it in your head as well) <span class="math notranslate nohighlight">\(\&amp;\)</span> orbital energy\</p></li>
+<li><p>Now change the orbital <span class="math notranslate nohighlight">\(\#\)</span> to 2 and push [plot], record symmetry.
+Repeat this until you reach orbital <span class="math notranslate nohighlight">\(\#\)</span> 12\</p></li>
+<li><p>List out all occupied orbitals and make a Figure (attach the small
+orbital picture)<br />
+Your output look like this<br />
+Orbital symmetries:<br />
+Occupied (A1)(A1) etc<br />
+Virtual (A1)(B2) etc\</p></li>
+<li><p>Using the energy of the MO, you can construct molecular orbital
+diagram.Your diagram shoud look like this.<br />
+$<span class="math notranslate nohighlight">\(\begin{array}{l|l}
+A_1 &amp; 0_o, 0_c, \frac{1}{2}(1_o + 2_o), \frac{1}{2}(1_c + 2_c)\\
+\hline
+B_1 &amp; P_{x_o}, P_{x_c}\\
+\hline
+B_2 &amp; \frac{1}{2}(1_o -2_o), \frac{1}{2}(1_c - 2_c)
+\end{array}\)</span>$</p></li>
+</ol>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(80,150) (-10,0)<span><img src="Project3.png" style="height:6.5cm"
+alt="image" /></span> (120,0)<span><span
+style="color: black"><strong><span class="smallcaps"><span>These are
+used for <span class="math inline">\(\sigma\)</span> bond with
+Hs</span></span></strong></span></span></p>
+</div>
+<p><br />
+</p>
+<figcaption>Molecular Orbital diagram</figcaption>
+</figure>
+<p>4th step.[application to Molecular spectroscopy 50 pts for typed up
+report]<br />
+It is possible to excite any electrons in occupied orbitals to
+unoccupied orbitals. We want to determine the symmetry type (irreducible
+representation of total wave function <span class="math notranslate nohighlight">\(\psi\)</span>) Rule: Consider
+multiplication of function f and function g. symmetry operation on fxg
+will be predicted by multiplying the value in the character table. i.e.
+product of function falls under B2 multiplied by another under B1 will
+produce A2\</p>
+<div class="array docutils">
+<p>c|rrrrr C_2v &amp; &amp; _2 &amp; _v(xz) &amp; _v(yz)<br />
+&amp; 1 &amp; 1 &amp; 1 &amp; 1<br />
+&amp; 1 &amp; 1 &amp; -1 &amp; -1<br />
+&amp; 1 &amp;- 1 &amp; 1 &amp; -1<br />
+&amp; 1 &amp; -1 &amp; -1 &amp; 1<br />
+&amp;1<span class="math notranslate nohighlight">\(\times\)</span><code class="docutils literal notranslate"><span class="pre">&lt;!--</span> <span class="pre">--&gt;</span></code>{=html}1 &amp;(-1)<span class="math notranslate nohighlight">\(\times\)</span>(-1)
+&amp;(-1)<span class="math notranslate nohighlight">\(\times\)</span><code class="docutils literal notranslate"><span class="pre">&lt;!--</span> <span class="pre">--&gt;</span></code>{=html}1 &amp;1<span class="math notranslate nohighlight">\(\times\)</span>(-1)\</p>
+</div>
+<p>Electronic transition can be achieved by applying EM radiation. With a
+molecule.</p>
+<p>(dipole operator <span class="math notranslate nohighlight">\(\hat{r}\)</span>)</p>
+<p>$\searrow<span class="math notranslate nohighlight">\( having component in \)</span>x, y, z<span class="math notranslate nohighlight">\(.\
+for molecule with \)</span>C_{2v}<span class="math notranslate nohighlight">\( symmetry (CH\)</span>_2$O)\</p>
+<hr/>  $x = B_1$
+  $y = B_2$
+  $z = A_1$
+<hr/>
+To become excited state,\
+$\int\psi_{GR} r\psi_{EX} dr$ must have $A_1$ symmetry.\
+$\psi_{GR}$ for Formaldehyde is
+$\underbrace{\text{closed shell molecular orbital}}_{\text{means }A_1}$.\
+Now, consider transition of exciting $\pi$ bonding orbital to $\pi$
+anti-bonding orbital ($B_1$ to $B_1^\star$)\
+note that initial ground state has all molecular orbitals completely
+filled (A1)\
+considertriple product $\psi_{ini}\times dipole \times \psi_{fin}$ along
+$z$ $A_1 \times A_1 \times(B_1 \times B_1)= A_1$\
+$\uparrow$
+<p><span class="math notranslate nohighlight">\(z\)</span> along <span class="math notranslate nohighlight">\(z\)</span> <span class="math notranslate nohighlight">\(A_1 \times B_2 \times(B_1 \times B_1)= B_2\)</span><br />
+along <span class="math notranslate nohighlight">\(z\)</span> <span class="math notranslate nohighlight">\(A_1 \times B_1 \times(B_1 \times B_1)= B_1\)</span><br />
+Any efficient transition must have <span class="math notranslate nohighlight">\(A_1\)</span> for triple product, <span class="math notranslate nohighlight">\(\pi\)</span> to
+<span class="math notranslate nohighlight">\(\pi^\ast\)</span> transition is allowed along <span class="math notranslate nohighlight">\(z\)</span> direction.<br />
+Other directions are forbidden<br />
+Overall <span class="math notranslate nohighlight">\(\pi-\pi^\ast\)</span> transition occurs. (efficiently)</p>
+<p>Consider exciting lone pair <span class="math notranslate nohighlight">\(e^-\)</span> to <span class="math notranslate nohighlight">\(B_1^\ast\)</span></p>
+<p>(non bonding)</p>
+<p>ignoring filled orbital <span class="math notranslate nohighlight">\(\psi = B_2'B_1 = A_2\)</span><br />
+Triple product</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{ll}
+x &amp; A_1  \times B_1\times A_2 = B_2\\
+y &amp; A_1  \times B_2\times A_2 = B_1\\
+z &amp; A_1  \times A_1\times A_2 = A_2
+\end{array}\end{split}\]</div>
+<p>So, this transition is forbidden. In real experiment, there may be a
+very weak <span class="math notranslate nohighlight">\(n-\pi^\ast\)</span> transition, but require highre level Physicaal
+Chemistry.<br />
+5th Step [extract data and type up the report for instructor 50 pts ]<br />
+Open the log file you saved for CI calculation. It contains all the
+electronic transition with oscillator strength (peak intensity). Now
+using all of the techniques introduced here and information available
+from computational program(Hyperchem), discuss all the electronic
+transition possible. Write out the complete procedure used with
+figures.<br />
+Entire report should not exceed 8 pages.</p>
+</section>
+</section>
+<section id="ftir-ro-vibrational-spectra-of-hcl">
+<h2>FTIR ro-vibrational spectra of HCl<a class="headerlink" href="#ftir-ro-vibrational-spectra-of-hcl" title="Link to this heading">#</a></h2>
+<p>This laboratory does not require Mathematica.<br />
+Download the image file from <a class="reference external" href="https://drive.google.com/open?id=1zvDKsBYDbdPKBXhqMDbAbWYRoqj_WrSR">Student Associated
+Files</a>.\</p>
+<ol class="arabic simple">
+<li><p>Briefly explain how FTIR spectrometer works. Figure can be included.\</p></li>
+<li><p>Obtain high resolution spectra of HCl from NIST website\</p></li>
+<li><p>Count the number of visible peaks on R &amp; P branch. Estimate the
+maximum J value. Approximate the pure vibrational transition ( j goes
+from zero to zero ). Confirm that this is not allowed transition.\</p></li>
+<li><p>Using your note, find formula to predict ro-vibrational peaks (or you
+can simply count them all) Discuss which peak corresponds to <span class="math notranslate nohighlight">\(\Delta\)</span> j
+= zero in R-branch.\</p></li>
+<li><p>What are the undetermined variables in the formula?\</p></li>
+<li><p>List out all J in P and R branch 7) List out all visible experimental
+ro-vibrational modes in one column\</p></li>
+<li><p>With arbitrary picked initial rotational constant, create peak list
+using the formula\</p></li>
+<li><p>Using excel, optimize the rotational constant to minimize the error
+(square of the difference between your peak positions and experimental
+peak positions) to obtain optimized rotational constant. You should use
+solver option in excel.\</p></li>
+<li><p>Using your Rotational constant, obtain bond length.\</p></li>
+<li><p>Write separate paragraph on how you determined bond length from
+experimental peaks.\</p></li>
+</ol>
+</section>
+<section id="huckel-theory-on-conjugated-bonds-system">
+<h2>Huckel Theory on Conjugated Bonds System<a class="headerlink" href="#huckel-theory-on-conjugated-bonds-system" title="Link to this heading">#</a></h2>
+<p>This exercise will not use Mathematica. Download the program from
+<a class="reference external" href="https://drive.google.com/open?id=1zvDKsBYDbdPKBXhqMDbAbWYRoqj_WrSR">Student Associated
+Files</a>.<br />
+You will study conjugate bond system by Huckel methods. This approach
+uses matrix algebra. Complete the excel file. After excel excercise, try
+to solve the same system by Mathematica. Algorithm they use can be found
+in neumerical analysis textbook.</p>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(200,75) (-75,0)<span><img src="Lab_Huckel.png" style="width:14cm"
+alt="image" /></span></p>
+</div>
+<figcaption> 1-D Particle In a Box </figcaption>
+</figure>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="useful-table">
+<h1>Useful Table<a class="headerlink" href="#useful-table" title="Link to this heading">#</a></h1>
+<section id="table-of-polynomial">
+<h2>Table of Polynomial<a class="headerlink" href="#table-of-polynomial" title="Link to this heading">#</a></h2>
+<section id="hermite-polynomial">
+<h3>Hermite Polynomial<a class="headerlink" href="#hermite-polynomial" title="Link to this heading">#</a></h3>
+<div class="center docutils">
+<hr/>
+   $v$        $H_v(x)$
+    0            $1$
+    1           $2x$
+    2         $4x^2-2$
+    3        $8x^3-12x$
+    4     $16x^4-48x^2+12$
+    5    $32x^5-160x^3+120x$
+<hr/>
+</div>
+</section>
+<section id="id1">
+<h3>Spherical Harmonics<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<div class="center docutils">
+<hr/>
+   $l$   $m_l$                                  $Y_l^{m_l}(\theta,\phi)$
+    0      0                              $\left(\frac{1}{4\pi}\right)^{1/2}$
+    1     -1                    $\left(\frac{3}{8\pi}\right)^{1/2} sin\theta e^{-i\phi}$
+    1      0                         $\left(\frac{3}{4\pi}\right)^{1/2} cos\theta$
+    1      1                    $-\left(\frac{3}{8\pi}\right)^{1/2} sin\theta e^{i\phi}$
+    2     -2                 $\left(\frac{15}{32\pi}\right)^{1/2}  sin^2\theta e^{-i2\phi}$
+    2     -1              $\left(\frac{15}{8\pi}\right)^{1/2} cos\theta sin\theta e^{-i\phi}$
+    2      0                $\left(\frac{5}{16\pi}\right)^{1/2}\left( 3cos^2\theta-1\right)$
+    2      1              \-$\left(\frac{15}{8\pi}\right)^{1/2} cos\theta sin\theta e^{i\phi}$
+    2      2                 $\left(\frac{15}{32\pi}\right)^{1/2}  sin^2\theta e^{i2\phi}$
+    3     -3                 $\left(\frac{35}{64\pi}\right)^{1/2} sin^3\theta  e^{-i3\phi}$
+    3     -2            $\left(\frac{105}{32\pi}\right)^{1/2} sin^2\theta cos\theta e^{-i2\phi}$
+    3     -1     $\left(\frac{21}{64\pi}\right)^{1/2} \left( 5cos^2\theta-1\right)sin\theta e^{-i\phi}$
+    3      0           $\left(\frac{7}{16\pi}\right)^{1/2}\left( 5cos^3\theta-3cos\theta\right)$
+    3      1     $-\left(\frac{21}{64\pi}\right)^{1/2} \left( 5cos^2\theta-1\right)sin\theta e^{i\phi}$
+    3      2            $\left(\frac{105}{32\pi}\right)^{1/2} sin^2\theta cos\theta e^{i2\phi}$
+    3      3                 $-\left(\frac{35}{64\pi}\right)^{1/2} sin^3\theta  e^{i3\phi}$
+<hr/>
+</div>
+</section>
+<section id="associated-laguerre-polynomial">
+<h3>Associated Laguerre Polynomial<a class="headerlink" href="#associated-laguerre-polynomial" title="Link to this heading">#</a></h3>
+<div class="center docutils">
+<hr/>
+   $n$   $l$            $L_{l+n}^{2l+1}(x)$
+    1     0                     $-1$
+    2     0            $-2!\left( 2-x\right)$
+    2     1                   \-$-3!$
+    3     0    $-3!\left( 3-3x+\frac{1}{2}x^2\right)$
+    3     1            $-4!\left( 4-x\right)$
+    3     2                    $-5!$
+<hr/>
+</div>
+</section>
+</section>
+<section id="charactor-table">
+<h2>Charactor Table<a class="headerlink" href="#charactor-table" title="Link to this heading">#</a></h2>
+<section id="c-i">
+<h3><span class="math notranslate nohighlight">\(C_{i}\)</span><a class="headerlink" href="#c-i" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{cc|c|c|l}
+&amp;C_i &amp; \hat{E} &amp; \hat{ i} &amp; \text{Example}\\
+\hline
+&amp; A_g  &amp; 1 &amp; 1 &amp;  R_x, R_y, R_z\\
+\hline
+ &amp; A_u &amp;  1  &amp; -1 &amp; x,y,z
+\end{array}\end{split}\]</div>
+</section>
+<section id="c-2v">
+<h3><span class="math notranslate nohighlight">\(C_{2v}\)</span><a class="headerlink" href="#c-2v" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{cc|c|c|c|c|l}
+&amp; C_{2v} &amp; \hat{E} &amp; \hat{C}_2 &amp; \hat{\sigma}_v &amp; \hat{\sigma}_{v'} &amp; \text{Example}\\
+\hline
+&amp; A_1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; z\\
+\hline
+ &amp; A_2 &amp; 1 &amp; 1 &amp; -1 &amp; -1 &amp; R_z\\
+\hline
+ &amp; B_1 &amp; 1 &amp; -1 &amp; 1 &amp; -1 &amp; x, R_y\\
+\hline
+ &amp; B_2 &amp; 1 &amp; -1 &amp; -1 &amp; 1 &amp; y, R_x
+\end{array}\end{split}\]</div>
+</section>
+<section id="c-3v">
+<h3><span class="math notranslate nohighlight">\(C_{3v}\)</span><a class="headerlink" href="#c-3v" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{cc|c|c|c|l}
+&amp; C_{3v} &amp; \hat{E} &amp; 2\hat{C}_3 &amp; 3\hat{\sigma}_v  &amp; \text{Example}\\
+\hline
+&amp; A_1 &amp; 1 &amp; 1 &amp; 1 &amp; z, z^2, x^2+y^2\\
+\hline
+ &amp; A_2 &amp; 1 &amp; 1 &amp; -1  &amp; R_z\\
+\hline
+ &amp; E &amp; 2 &amp; -1 &amp; 0 &amp; (x, y),(xy, x^2-y^2),(yz, zx), (R_x, R_y)\\
+\end{array}\end{split}\]</div>
+</section>
+<section id="d-6h">
+<h3><span class="math notranslate nohighlight">\(D_{6h}\)</span><a class="headerlink" href="#d-6h" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}\begin{split}\begin{array}{cc|c|c|c|c|c|c|c|c|c|c|c|c|l}
+&amp; D_{6h} &amp; \hat{E} &amp; 2\hat{C}_6 (z) &amp; 2\hat{C}_3 &amp; \hat{C}_2  &amp; 3\hat{C'}_2  &amp; 3\hat{C''}_2 &amp;\hat{i} &amp; 2\hat {S}_3 &amp;2\hat {S}_6  &amp; \hat{\sigma}_h (xy) &amp; 3\hat{\sigma}_d &amp; 3\hat{\sigma}_v &amp; \text{Example}\\
+\hline
+&amp; A_{1g} &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp;1 &amp;  x^2+y^2, z^2\\
+\hline
+&amp; A_{2g} &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; -1 &amp; -1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; -1 &amp;-1 &amp;R_z  \\
+\hline
+&amp; B_{1g} &amp; 1 &amp; -1 &amp; 1 &amp; -1 &amp; 1 &amp; -1 &amp; 1 &amp; -1 &amp; 1 &amp; -1 &amp; 1 &amp;-1 &amp;  \\
+\hline
+&amp; B_{2g} &amp; 1 &amp; -1 &amp; 1 &amp; -1 &amp; -1 &amp; 1 &amp; 1 &amp; -1 &amp; 1 &amp; -1 &amp; -1 &amp;1 &amp;  \\
+\hline
+&amp; E_{1g} &amp; 2 &amp; 1 &amp;- 1 &amp; -2 &amp; 0 &amp; 0 &amp; 2 &amp; 1 &amp; -1 &amp; -2 &amp; 0 &amp;0 &amp;  (R_x,R_y),(xy,yz)\\
+\hline
+&amp; E_{2g} &amp; 2 &amp;- 1 &amp;- 1 &amp; 2 &amp; 0 &amp; 0 &amp; 2 &amp; -1 &amp; -1 &amp; 2 &amp; 0 &amp;0 &amp;  (x^2-y^2,xy)\\
+\hline
+&amp; A_{1u} &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; -1 &amp; -1 &amp; -1 &amp; -1 &amp; -1 &amp;-1 &amp;\\
+\hline
+&amp; A_{2u} &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; -1 &amp; -1 &amp; -1 &amp; -1 &amp; -1 &amp; -1 &amp; 1 &amp;1 &amp;  \\
+\hline
+&amp; B_{1u} &amp; 1 &amp; -1 &amp; 1 &amp; -1 &amp; 1 &amp; -1 &amp; -1 &amp; 1 &amp; -1 &amp; 1 &amp; -1 &amp;1 &amp;  \\
+\hline
+&amp; B_{2u} &amp; 1 &amp; -1 &amp; 1 &amp; -1 &amp; -1 &amp; 1 &amp; -1 &amp; 1 &amp; -1 &amp; 1 &amp; 1 &amp;-1 &amp;  \\
+\hline
+&amp; E_{1u} &amp; 2 &amp; 1 &amp;- 1 &amp; -2 &amp; 0 &amp; 0 &amp; -2 &amp; -1 &amp; 1 &amp; 2 &amp; 0 &amp;0 &amp;  (x,y)\\
+\hline
+&amp; E_{2u} &amp; 2 &amp;- 1 &amp;- 1 &amp; 2 &amp; 0 &amp; 0 &amp; -2 &amp; 1 &amp; 1 &amp; -2 &amp; 0 &amp;0 &amp;  \\\end{split}\\\end{array}\end{aligned}\end{align} \]</div>
+</section>
+<section id="c-2h">
+<h3><span class="math notranslate nohighlight">\(C_{2h}\)</span><a class="headerlink" href="#c-2h" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{cc|c|c|c|c|l}
+&amp; C_{2h} &amp; \hat{E} &amp; \hat{C}_2 &amp; \hat{i} &amp; \hat{\sigma}_{h} &amp; \text{Example}\\
+\hline
+&amp; A_g &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; R_z\\
+\hline
+ &amp; B_g &amp; 1 &amp; -1 &amp; 1 &amp; -1 &amp; R_x,R_y\\
+\hline
+ &amp; A_u &amp; 1 &amp; 1 &amp; -1 &amp; -1 &amp; z\\
+\hline
+ &amp; B_u &amp; 1 &amp; -1 &amp; -1 &amp; 1 &amp; x, y
+\end{array}\end{split}\]</div>
+</section>
+<section id="t-d">
+<h3><span class="math notranslate nohighlight">\(T_{d}\)</span><a class="headerlink" href="#t-d" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{cc|c|c|c|c|c|l}
+&amp; T_{d} &amp; \hat{E} &amp; 8\hat{C}_3&amp; 3\hat{C}_2 &amp; 6\hat{S}_4 &amp; 6\hat{\sigma}_{d} &amp; \text{Example}\\
+\hline
+&amp; A_1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; x^2+y^2+z^2\\
+\hline
+&amp; A_2 &amp; 1 &amp; 1 &amp; 1 &amp; -1 &amp; -1 &amp; \\
+\hline
+ &amp; E &amp; 2 &amp; -1 &amp; 2 &amp; 0 &amp; 0 &amp; \\
+\hline
+ &amp; T_1 &amp; 3 &amp; 0 &amp; -1 &amp; 1 &amp; -1 &amp; (R_x,R_y,R_z)\\
+\hline
+ &amp; T_2 &amp; 3 &amp; 0 &amp; -1&amp; -1  &amp; 1 &amp; (x, y,z)
+\end{array}\end{split}\]</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Simulations in Physica Chemistry: Laboratory Components</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spectral-theorem-linear-algebra-version">Spectral Theorem: Linear Algebra Version</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#particle-in-a-box-p-i-b">Particle In a Box (P.I.B)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#harmonic-oscillator">Harmonic Oscillator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spherical-harmonics">Spherical Harmonics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#radial-wavefunction">Radial Wavefunction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hydrogen-like-atomic-system">Hydrogen-Like Atomic System</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#h-2-system"><span class="math notranslate nohighlight">\(H_2^{+}\)</span> System</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hybrid-orbitals">Hybrid Orbitals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#term-project-group-theory-on-electronic-transition">Term Project: Group Theory on Electronic Transition</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#project-procedure">Project Procedure</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ftir-ro-vibrational-spectra-of-hcl">FTIR ro-vibrational spectra of HCl</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#huckel-theory-on-conjugated-bonds-system">Huckel Theory on Conjugated Bonds System</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-table">Useful Table</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-polynomial">Table of Polynomial</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hermite-polynomial">Hermite Polynomial</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Spherical Harmonics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#associated-laguerre-polynomial">Associated Laguerre Polynomial</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#charactor-table">Charactor Table</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-i"><span class="math notranslate nohighlight">\(C_{i}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-2v"><span class="math notranslate nohighlight">\(C_{2v}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-3v"><span class="math notranslate nohighlight">\(C_{3v}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-6h"><span class="math notranslate nohighlight">\(D_{6h}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-2h"><span class="math notranslate nohighlight">\(C_{2h}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#t-d"><span class="math notranslate nohighlight">\(T_{d}\)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hideya Koizumi & Eiko Koizumi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

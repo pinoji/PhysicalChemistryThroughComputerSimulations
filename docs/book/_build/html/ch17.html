@@ -1,0 +1,1048 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Free Energy, Pressure, \(\&amp;\) Gas Laws &#8212; Physical Chemistry Through Computer Simulations</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"uvec": ["\\hat{\\mathbf{#1}}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch17';</script>
+    <link rel="icon" href="_static/favicon.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Physical Chemistry Through Computer Simulations</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Physical Chemistry Through Computer Simulations
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Quantum Mechanics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="qm01.html">Math Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm02.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm03.html">Foundation of Quantum Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm04.html">Simple Quantum Mechanical Models and Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm05.html">Hydrogen-Like Atom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm06.html">Approximation Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm07.html">Electron Spin (Quantum Mechanics Concept)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm08.html">System Containing Only One Atom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm09.html">System Containing Two Atoms (Diatomic System)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm10.html">Hybrid Orbitals in Polyatomic Molecule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm11.html">Symmetry, Group Theory, Representation Theory and Thier Application to Chemistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm12.html">Molecular Spectroscopy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm13.html">Resonance by Variational Methods</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Thermodynamics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="td01.html">Math Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td02.html">Transition from Classical to Statistical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td03.html">Boltzmann Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td04.html">State function, dealing with partial derivatives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td05.html">Energy, Entropy and Temperature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td06.html">Free Energy, Pressure, &amp; Gas Laws</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td07.html">Maxwell Relation, Basic Thermodynamics Process, Second and Third Laws of Thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td08.html">The Equipartition Principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td09.html">Chemical Potential</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td10.html">Thermodynamics of Mixing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td11.html">Chemical Equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td12.html">Reaction Dynamics and Kinetics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td13.html">Chemistry of Fluid</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/ch17.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Free Energy, Pressure, \& Gas Laws</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Free Energy, Pressure, <span class="math notranslate nohighlight">\(\&amp;\)</span> Gas Laws</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#helmholtz-free-energy">Helmholtz Free Energy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gibbs-free-energy">Gibbs Free Energy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enthalpy">Enthalpy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key points:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#legendre-transforms-and-the-helmholtz-free-energy-legendre-transforms-and-the-helmholtz-free-energy-unnumbered">Legendre Transforms and the Helmholtz Free Energy {#legendre-transforms-and-the-helmholtz-free-energy .unnumbered}</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-conjugate-pair-about-conjugate-pair-unnumbered">About conjugate pair {#about-conjugate-pair .unnumbered}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pressure-from-helmholtz-free-energy">Pressure from Helmholtz Free Energy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entropy-is-a-state-function">Entropy is a State Function</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-express-thermodynamic-quantities-in-terms-of-z-step-1-express-thermodynamic-quantities-in-terms-of-z-unnumbered">Step 1: Express thermodynamic quantities in terms of <span class="math notranslate nohighlight">\(Z\)</span> {#step-1-express-thermodynamic-quantities-in-terms-of-z .unnumbered}</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-compute-n-t-v-explicitly-step-2-compute-ntv-explicitly-unnumbered">Step 2: Compute <span class="math notranslate nohighlight">\(N(T,V)\)</span> explicitly {#step-2-compute-ntv-explicitly .unnumbered}</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-differentiate-n-t-v-with-respect-to-t-step-3-differentiate-ntv-with-respect-to-t-unnumbered">Step 3: Differentiate <span class="math notranslate nohighlight">\(N(T,V)\)</span> with respect to <span class="math notranslate nohighlight">\(T\)</span> {#step-3-differentiate-ntv-with-respect-to-t .unnumbered}</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-derivative-of-the-first-term-using-the-product-rule">(a) Derivative of the first term using the product rule:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#thus-frac-1-t-left-frac-partial-partial-t-frac-partial-2-ln-z-partial-v-partial-beta-right">Thus
+$$\frac{1}{T}\left(-\frac{\partial}{\partial T}\frac{\partial^2\ln Z}{\partial V\partial\beta}\right)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-derivative-of-the-second-term">(b) Derivative of the second term:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-cancellation">(c) Cancellation</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#when-we-add-results-from-a-and-b-the-1-t-2-terms-cancel-frac-partial-n-partial-t">When we add results from (a) and (b), the <span class="math notranslate nohighlight">\(1/T^2\)</span> terms cancel:
+$$\frac{\partial N}{\partial T}</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-compute-partial-m-partial-v-and-compare-step-4-compute-partial-m-partial-v-and-compare-unnumbered">Step 4: Compute <span class="math notranslate nohighlight">\(\partial M / \partial V\)</span> and compare {#step-4-compute-partial-m-partial-v-and-compare .unnumbered}</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#now-differentiate-with-respect-to-v-frac-partial-m-partial-v">Now differentiate with respect to <span class="math notranslate nohighlight">\(V\)</span>: $$\frac{\partial M}{\partial V}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#this-matches-exactly-the-expression-above-frac-partial-m-partial-v">This matches exactly the expression above:
+$$\frac{\partial M}{\partial V}</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-conclusion-unnumbered">Conclusion {#conclusion .unnumbered}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-euler-equation-to-prove-u-is-a-state-function">Using Euler Equation to prove <span class="math notranslate nohighlight">\(U\)</span> is a state function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-on-the-first-laws-of-thermodynamics">More on the First Laws of Thermodynamics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ideal-gas-law">Ideal gas law</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#derive-van-de-waal-gas-equation-optional">Derive Van de Waal gas equation. (optional)</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="free-energy-pressure-gas-laws">
+<h1>Free Energy, Pressure, <span class="math notranslate nohighlight">\(\&amp;\)</span> Gas Laws<a class="headerlink" href="#free-energy-pressure-gas-laws" title="Link to this heading">#</a></h1>
+<section id="helmholtz-free-energy">
+<h2>Helmholtz Free Energy<a class="headerlink" href="#helmholtz-free-energy" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+S &amp;= -k_B\sum \mathbb{P}_i\ln \mathbb{P}_i\\
+&amp; \text{Since $\ln {\mathbb{P}_i}=-(\beta E_i + \ln Z)$}\\
+&amp;= -k_B\sum \mathbb{P}_i(-\beta E_i - \ln Z)\\
+&amp;= k_B\beta &lt;E&gt; + k_B \ln Z\\
+\end{align*}\end{split}\]</div>
+<p>Because we established <span class="math notranslate nohighlight">\(\beta=\frac{1}{k_BT}\)</span>, plug this back into
+expression of <span class="math notranslate nohighlight">\(S\)</span><br />
+$<span class="math notranslate nohighlight">\(\begin{align*}
+&amp; S= \frac{E}{T} + k_B \ln Z \hspace{10pt} \\
+&amp;A=\underbrace{E - TS}_{\Downarrow} = -k_B T \ln Z = -\beta^{-1} \ln Z\\
+&amp;\text{Often denote as A and is called Helmholtz free energy.}\\
+&amp;\text{(This quantity is often used in thermodynamics.)}
+\end{align*}\)</span>$</p>
+</section>
+<section id="gibbs-free-energy">
+<h2>Gibbs Free Energy<a class="headerlink" href="#gibbs-free-energy" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+S &amp;= -k_B\sum \mathbb{P}_i\ln \mathbb{P}_i\\
+&amp; \text{Since $\ln {\mathbb{P}_i}=-(\beta E_i+ \beta PV_i+ \ln \Delta)$}\\
+&amp;= -k_B\sum \mathbb{P}_i(-\beta E_i -\beta PV_i  - \ln \Delta)\\
+&amp;= k_B\beta (&lt;E&gt; +P&lt;V&gt;) + k_B \ln \Delta\\
+\end{align*}\end{split}\]</div>
+<p>Because we established <span class="math notranslate nohighlight">\(\beta=\frac{1}{k_BT}\)</span>, plug this back into
+expression of <span class="math notranslate nohighlight">\(S\)</span><br />
+$<span class="math notranslate nohighlight">\(\begin{align*}
+&amp; S= \frac{E+PV}{T}  + k_B \ln \Delta \hspace{10pt} \\
+&amp;G=\underbrace{E - TS+PV}_{\Downarrow} = -k_B T \ln \Delta = -\beta^{-1} \ln \Delta\\
+&amp;\text{Often denote as G and is called Gibbs free energy.}\\
+&amp;\text{(This quantity is central in thermodynamics of biology.)}
+\end{align*}\)</span>$</p>
+</section>
+<section id="enthalpy">
+<h2>Enthalpy<a class="headerlink" href="#enthalpy" title="Link to this heading">#</a></h2>
+<p>We can derive enthalpy starting from the statistical definition of
+entropy: $<span class="math notranslate nohighlight">\(S = -k_B \sum_i \mathbb{P}_i \ln \mathbb{P}_i.\)</span>$</p>
+<p>Suppose the system can exchange energy with the surroundings, and also
+do pressure-volume work. For each microstate <span class="math notranslate nohighlight">\(i\)</span>, the probability is
+$<span class="math notranslate nohighlight">\(\mathbb{P}_i = \frac{1}{\Delta} e^{-\beta (E_i + P V_i)},\)</span><span class="math notranslate nohighlight">\( where
+\)</span>\Delta = \sum_j e^{-\beta (E_j + P V_j)}<span class="math notranslate nohighlight">\( is the canonical partition
+function for the isobaric ensemble (\)</span>T,P$ fixed).</p>
+<p>Then $<span class="math notranslate nohighlight">\(\begin{align*}
+S &amp;= -k_B \sum_i \mathbb{P}_i \ln \mathbb{P}_i \\
+  &amp;= -k_B \sum_i \mathbb{P}_i \Big[-\beta(E_i + P V_i) - \ln \Delta \Big] \\
+  &amp;= k_B \beta \sum_i \mathbb{P}_i (E_i + P V_i) + k_B \ln \Delta \\
+  &amp;= k_B \beta \langle E + P V \rangle + k_B \ln \Delta,
+\end{align*}\)</span><span class="math notranslate nohighlight">\( where \)</span>\langle \cdot \rangle$ denotes the ensemble
+average.</p>
+<p>Since <span class="math notranslate nohighlight">\(\beta = 1/(k_B T)\)</span>, we can write
+$<span class="math notranslate nohighlight">\(S = \frac{\langle E + P V \rangle}{T} + k_B \ln \Delta.\)</span>$</p>
+<p>Up to this point, it is identical to previous page. Now define the
+enthalpy <span class="math notranslate nohighlight">\(H\)</span> as $<span class="math notranslate nohighlight">\(H \equiv \langle E + P V \rangle.\)</span>$</p>
+<p>Then we can express <span class="math notranslate nohighlight">\(H\)</span> in terms of the partition function:
+$<span class="math notranslate nohighlight">\(H = T S - k_B T \ln \Delta.\)</span>$</p>
+<p>Last term on the RHS is Gibbs free energy, so $<span class="math notranslate nohighlight">\(H - T S = G=E - TS+PV\)</span><span class="math notranslate nohighlight">\(
+Hence, \)</span><span class="math notranslate nohighlight">\(H =E +PV\)</span><span class="math notranslate nohighlight">\( and \)</span><span class="math notranslate nohighlight">\(dH =-PdV+TdS +PdV+Vdp=TdS+VdP\)</span>$</p>
+<section id="key-points">
+<h3>Key points:<a class="headerlink" href="#key-points" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>This mirrors the derivation of Gibbs free energy
+<span class="math notranslate nohighlight">\(G = U - TS + PV = - k_B T \ln \Delta\)</span>.</p></li>
+<li><p>Enthalpy naturally arises as the ensemble average of energy plus <span class="math notranslate nohighlight">\(PV\)</span>
+for the isobaric ensemble.</p></li>
+<li><p>Differential form: $<span class="math notranslate nohighlight">\(dH = T\, dS + V\, dP,\)</span><span class="math notranslate nohighlight">\( so the natural variables
+of \)</span>H<span class="math notranslate nohighlight">\( are \)</span>S<span class="math notranslate nohighlight">\( and \)</span>P<span class="math notranslate nohighlight">\(, just as the natural variables of \)</span>G<span class="math notranslate nohighlight">\( are \)</span>T<span class="math notranslate nohighlight">\(
+and \)</span>P$.</p></li>
+</ul>
+</section>
+<section id="summary">
+<h3>Summary:<a class="headerlink" href="#summary" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\boxed{H = U + PV = \langle E + P V \rangle}, \quad
+dH = T\,dS + V\,dP.\]</div>
+<p>Enthalpy is the thermodynamic potential that is most useful for
+processes at constant pressure, just as Gibbs free energy is most useful
+for processes at constant temperature and pressure.\</p>
+<p><span class="math notranslate nohighlight">\(\star\)</span> For ideal gas,<br />
+$<span class="math notranslate nohighlight">\(\begin{array}{ccc} PV = nRT &amp;\Rightarrow&amp; H = U + nRT\\
+&amp; &amp; \Downarrow\\
+&amp; &amp; \underset{C_P}{\underset{\downarrow}{\frac{dH}{dT}}} = \underset{C_V}{\underset{\downarrow}{\frac{dU}{dT}}} + nR
+\end{array}\)</span>$</p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="legendre-transforms-and-the-helmholtz-free-energy-legendre-transforms-and-the-helmholtz-free-energy-unnumbered">
+<h1>Legendre Transforms and the Helmholtz Free Energy {#legendre-transforms-and-the-helmholtz-free-energy .unnumbered}<a class="headerlink" href="#legendre-transforms-and-the-helmholtz-free-energy-legendre-transforms-and-the-helmholtz-free-energy-unnumbered" title="Link to this heading">#</a></h1>
+<p>Free energy represents the portion of a system’s internal energy that is
+available to perform work. In the case of the <strong>Helmholtz free energy</strong>,
+this quantity corresponds to the energy available to do (typically
+non-<span class="math notranslate nohighlight">\(PV\)</span>) work under conditions of constant temperature and constant
+volume.</p>
+<p>The Helmholtz free energy is defined as $<span class="math notranslate nohighlight">\(A = U - TS,\)</span><span class="math notranslate nohighlight">\( which is
+obtained by subtracting the term \)</span>TS<span class="math notranslate nohighlight">\( from the internal energy \)</span>U<span class="math notranslate nohighlight">\(.
+Because \)</span>U<span class="math notranslate nohighlight">\( and \)</span>TS<span class="math notranslate nohighlight">\( are both path-independent state functions, their
+combination is also a state function. The appearance of the negative
+sign in the definition of \)</span>A$ follows from the physics of thermodynamic
+consistency.</p>
+<p>This construction is an example of a <strong>Legendre transform</strong>, introduced
+in an earlier chapter. In thermodynamics, the Legendre transform of a
+function <span class="math notranslate nohighlight">\(f(x)\)</span> is typically written as $<span class="math notranslate nohighlight">\(\tilde{f}(p) = f(x) - px,\)</span><span class="math notranslate nohighlight">\(
+where \)</span>(x, p)<span class="math notranslate nohighlight">\( is a pair of conjugate variables. The extra negative sign
+in the Legendre transform has physical meaning: it replaces one natural
+variable with its conjugate while preserving the thermodynamic
+structure. In doing so, it subtracts the entropy--heat term \)</span>TS<span class="math notranslate nohighlight">\( from
+the internal energy, leaving the Helmholtz free energy. This quantity
+represents the portion of the system's energy that is actually available
+to perform useful work at constant temperature.\
+[Important point]{.underline}: We use Legendre transform because we want
+to exchange variable(difficult to manage experimentally) to more usable
+one for each experiment.\
+To perform Legendre transform, convexity of the function w.r.t. variable
+x has to be satisfied. This is a great exercise so make sure to finish
+the HW at the end of this section.\
+[Another important point]{.underline}: As shown in previous section, we
+use the same partition function \)</span>Z$as canonical ensemble (review
+partition function for NVT). However, for NPT ensemble, the partition
+function is different as described before(review partition function for
+NPT). Using correct partition function is critical for computational
+chemist.\</p>
+<section id="about-conjugate-pair-about-conjugate-pair-unnumbered">
+<h2>About conjugate pair {#about-conjugate-pair .unnumbered}<a class="headerlink" href="#about-conjugate-pair-about-conjugate-pair-unnumbered" title="Link to this heading">#</a></h2>
+<p>The products <span class="math notranslate nohighlight">\(TS\)</span> and <span class="math notranslate nohighlight">\(PV\)</span> are special because they are <em>conjugate
+pairs</em>: $<span class="math notranslate nohighlight">\(T \leftrightarrow S, \qquad P \leftrightarrow V.\)</span><span class="math notranslate nohighlight">\( Each pair
+consists of an intensive variable (\)</span>T<span class="math notranslate nohighlight">\( or \)</span>P<span class="math notranslate nohighlight">\() multiplied by its
+extensive counterpart (\)</span>S<span class="math notranslate nohighlight">\( or \)</span>V<span class="math notranslate nohighlight">\(), and their products have units of
+energy. This allows us to use them to transform one energy
+representation into another. For example, applying a Legendre transform
+to replace the natural variable \)</span>S<span class="math notranslate nohighlight">\( in \)</span>U(S,V)<span class="math notranslate nohighlight">\( yields the Helmholtz
+free energy \)</span>A(T,V)$.</p>
+<p>It is essential that both <span class="math notranslate nohighlight">\(TS\)</span> and <span class="math notranslate nohighlight">\(PV\)</span> are path-independent state
+functions. Therefore, adding or subtracting these quantities to
+construct new thermodynamic potentials always produces valid state
+functions. Each potential simply uses a different set of natural
+variables chosen to match a particular experimental setup.</p>
+<p>Finally, while we have not yet provided the general proof that the
+internal energy <span class="math notranslate nohighlight">\(U\)</span> is a state function, a concise proof is given in the
+following page after homework.</p>
+</section>
+<section id="pressure-from-helmholtz-free-energy">
+<h2>Pressure from Helmholtz Free Energy<a class="headerlink" href="#pressure-from-helmholtz-free-energy" title="Link to this heading">#</a></h2>
+<p>In this page, we prove some equation that is used in the Pressure
+derivation. Let us consider the isentropic process where the entropy is
+constant through out the process. This means process is adiabatic as
+well as reversible. In that case,</p>
+<p>The Helmholtz free energy is defined as $<span class="math notranslate nohighlight">\(A(T,V) = E - TS.\)</span>$</p>
+<p>Its differential is $<span class="math notranslate nohighlight">\(dA = dE - TdS - SdT.\)</span>$</p>
+<p>For a closed system (no particle exchange), the first law gives
+$<span class="math notranslate nohighlight">\(dE = TdS - PdV.\)</span>$</p>
+<p>Substituting into the differential of <span class="math notranslate nohighlight">\(A\)</span>:
+$<span class="math notranslate nohighlight">\(dA = (TdS - PdV) - TdS - SdT = -PdV - SdT.\)</span>$</p>
+<p>Since <span class="math notranslate nohighlight">\(A = A(T,V)\)</span>, we can also write the differential explicitly in
+terms of partial derivatives:
+$<span class="math notranslate nohighlight">\(dA = \left(\frac{\partial A}{\partial V}\right)_T dV + \left(\frac{\partial A}{\partial T}\right)_V dT.\)</span>$</p>
+<p>Comparing the two expressions for <span class="math notranslate nohighlight">\(dA\)</span>, we immediately identify
+$<span class="math notranslate nohighlight">\(\left(\frac{\partial A}{\partial V}\right)_T = -P, \quad 
+\left(\frac{\partial A}{\partial T}\right)_V = -S.\)</span>$</p>
+<p>Thus, the pressure is given by
+$<span class="math notranslate nohighlight">\(\boxed{P = -\left(\frac{\partial A}{\partial V}\right)_T}.\)</span>$</p>
+<p><strong>Optional: Statistical Mechanics Connection.</strong></p>
+<p>In the canonical ensemble, <span class="math notranslate nohighlight">\(A\)</span> is related to the partition function <span class="math notranslate nohighlight">\(Z\)</span>
+via $<span class="math notranslate nohighlight">\(A = -k_B T \ln Z,\)</span><span class="math notranslate nohighlight">\( so that
+\)</span><span class="math notranslate nohighlight">\(P = -\left(\frac{\partial A}{\partial V}\right)_T
+  = k_B T \left(\frac{\partial \ln Z}{\partial V}\right)_T.\)</span>$</p>
+</section>
+<section id="entropy-is-a-state-function">
+<h2>Entropy is a State Function<a class="headerlink" href="#entropy-is-a-state-function" title="Link to this heading">#</a></h2>
+<p>In this section, we demonstrate that entropy <span class="math notranslate nohighlight">\(S\)</span> is a state function by
+showing that the differential
+$<span class="math notranslate nohighlight">\(dS = \frac{1}{T}\left( dU + P\,dV \right)\)</span><span class="math notranslate nohighlight">\( is *exact*. We will use
+the canonical ensemble, where the partition function \)</span>Z(T,V)<span class="math notranslate nohighlight">\( is defined
+as
+\)</span><span class="math notranslate nohighlight">\(Z(T,V) = \sum_j e^{-\beta E_j(V)}, \qquad \beta = \frac{1}{k_B T}.\)</span>$</p>
+<section id="step-1-express-thermodynamic-quantities-in-terms-of-z-step-1-express-thermodynamic-quantities-in-terms-of-z-unnumbered">
+<h3>Step 1: Express thermodynamic quantities in terms of <span class="math notranslate nohighlight">\(Z\)</span> {#step-1-express-thermodynamic-quantities-in-terms-of-z .unnumbered}<a class="headerlink" href="#step-1-express-thermodynamic-quantities-in-terms-of-z-step-1-express-thermodynamic-quantities-in-terms-of-z-unnumbered" title="Link to this heading">#</a></h3>
+<p>From statistical mechanics we know:
+$<span class="math notranslate nohighlight">\(P = k_B T \left( \frac{\partial \ln Z}{\partial V} \right)_{T},
+\qquad
+U = - \frac{\partial \ln Z}{\partial \beta}.\)</span>$</p>
+<p>The heat term at constant volume is
+$<span class="math notranslate nohighlight">\(\delta q_{\text{rev}} = dU + P\,dV.\)</span><span class="math notranslate nohighlight">\( Thus the entropy differential is
+\)</span><span class="math notranslate nohighlight">\(dS = \frac{1}{T}\left( dU + P\,dV \right).\)</span>$</p>
+<p>Write it in terms of <span class="math notranslate nohighlight">\(T\)</span> and <span class="math notranslate nohighlight">\(V\)</span>: $<span class="math notranslate nohighlight">\(dS = M(T,V)\,dT + N(T,V)\,dV,\)</span><span class="math notranslate nohighlight">\(
+where \)</span><span class="math notranslate nohighlight">\(M = \frac{1}{T}\left( \frac{\partial U}{\partial T} \right)_V,
+\qquad
+N = \frac{1}{T}\left( \frac{\partial U}{\partial V} \right)_T + \frac{P}{T}.\)</span>$</p>
+<p>To show <span class="math notranslate nohighlight">\(S\)</span> is a state function, it is enough to show the mixed partials
+match:
+$<span class="math notranslate nohighlight">\(\frac{\partial M}{\partial V} = \frac{\partial N}{\partial T}.\)</span>$</p>
+</section>
+<section id="step-2-compute-n-t-v-explicitly-step-2-compute-ntv-explicitly-unnumbered">
+<h3>Step 2: Compute <span class="math notranslate nohighlight">\(N(T,V)\)</span> explicitly {#step-2-compute-ntv-explicitly .unnumbered}<a class="headerlink" href="#step-2-compute-n-t-v-explicitly-step-2-compute-ntv-explicitly-unnumbered" title="Link to this heading">#</a></h3>
+<p>Use <span class="math notranslate nohighlight">\(U = -\partial_\beta \ln Z\)</span>:
+$<span class="math notranslate nohighlight">\(\left( \frac{\partial U}{\partial V} \right)_T
+= -\frac{\partial}{\partial V}\frac{\partial\ln Z}{\partial\beta}
+= -\frac{\partial^2 \ln Z}{\partial V \partial \beta}.\)</span>$</p>
+<p>Therefore, $$N(T,V)
+= \frac{1}{T}\left( -\frac{\partial^2 \ln Z}{\partial V \partial \beta} \right)</p>
+<ul class="simple">
+<li><p>\frac{1}{T}\left( k_B T \frac{\partial \ln Z}{\partial V} \right)
+= -\frac{1}{T}\frac{\partial^2 \ln Z}{\partial V \partial \beta}</p></li>
+<li><p>k_B\frac{\partial \ln Z}{\partial V}.$$</p></li>
+</ul>
+</section>
+<section id="step-3-differentiate-n-t-v-with-respect-to-t-step-3-differentiate-ntv-with-respect-to-t-unnumbered">
+<h3>Step 3: Differentiate <span class="math notranslate nohighlight">\(N(T,V)\)</span> with respect to <span class="math notranslate nohighlight">\(T\)</span> {#step-3-differentiate-ntv-with-respect-to-t .unnumbered}<a class="headerlink" href="#step-3-differentiate-n-t-v-with-respect-to-t-step-3-differentiate-ntv-with-respect-to-t-unnumbered" title="Link to this heading">#</a></h3>
+<p>Here we provide full detail, including the part that “conveniently
+disappears.’’</p>
+<div class="math notranslate nohighlight">
+\[N(T,V)=\frac{1}{T}\Big(-\frac{\partial^2\ln Z}{\partial V\partial\beta}\Big)
++ k_B\frac{\partial\ln Z}{\partial V}.\]</div>
+<p>Differentiate each part.</p>
+<section id="a-derivative-of-the-first-term-using-the-product-rule">
+<h4>(a) Derivative of the first term using the product rule:<a class="headerlink" href="#a-derivative-of-the-first-term-using-the-product-rule" title="Link to this heading">#</a></h4>
+<div class="math notranslate nohighlight">
+\[\frac{\partial}{\partial T}
+\left[
+\frac{1}{T}\left( -\frac{\partial^2\ln Z}{\partial V\partial\beta} \right)
+\right]
+=
+-\frac{1}{T^2}\Big(-\frac{\partial^2\ln Z}{\partial V\partial\beta}\Big)
++\frac{1}{T}\left(-\frac{\partial}{\partial T}\frac{\partial^2\ln Z}{\partial V\partial\beta}\right).\]</div>
+<p>Use
+$<span class="math notranslate nohighlight">\(\frac{\partial}{\partial T} = -\frac{1}{k_B T^2}\frac{\partial}{\partial \beta}.\)</span>$</p>
+</section>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="thus-frac-1-t-left-frac-partial-partial-t-frac-partial-2-ln-z-partial-v-partial-beta-right">
+<h1>Thus
+$$\frac{1}{T}\left(-\frac{\partial}{\partial T}\frac{\partial^2\ln Z}{\partial V\partial\beta}\right)<a class="headerlink" href="#thus-frac-1-t-left-frac-partial-partial-t-frac-partial-2-ln-z-partial-v-partial-beta-right" title="Link to this heading">#</a></h1>
+<p>\frac{1}{k_B T^3}\frac{\partial^3\ln Z}{\partial V\partial\beta^2}.$$</p>
+<p>The full contribution becomes
+$<span class="math notranslate nohighlight">\(\frac{1}{T^2}\frac{\partial^2\ln Z}{\partial V\partial\beta}
++
+\frac{1}{k_B T^3}\frac{\partial^3\ln Z}{\partial V\partial\beta^2}.\)</span>$</p>
+<section id="b-derivative-of-the-second-term">
+<h2>(b) Derivative of the second term:<a class="headerlink" href="#b-derivative-of-the-second-term" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[\frac{\partial}{\partial T}\left[k_B\frac{\partial\ln Z}{\partial V}\right]
+=
+k_B\frac{\partial^2\ln Z}{\partial V\partial T}
+=
+k_B\left(-\frac{1}{k_B T^2}\right)
+\frac{\partial^2\ln Z}{\partial V\partial\beta}
+=
+-\frac{1}{T^2}\frac{\partial^2\ln Z}{\partial V\partial\beta}.\]</div>
+</section>
+<section id="c-cancellation">
+<h2>(c) Cancellation<a class="headerlink" href="#c-cancellation" title="Link to this heading">#</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="when-we-add-results-from-a-and-b-the-1-t-2-terms-cancel-frac-partial-n-partial-t">
+<h1>When we add results from (a) and (b), the <span class="math notranslate nohighlight">\(1/T^2\)</span> terms cancel:
+$$\frac{\partial N}{\partial T}<a class="headerlink" href="#when-we-add-results-from-a-and-b-the-1-t-2-terms-cancel-frac-partial-n-partial-t" title="Link to this heading">#</a></h1>
+<p>\frac{1}{k_B T^3}
+\frac{\partial^3\ln Z}{\partial V\partial\beta^2}.$$</p>
+<section id="step-4-compute-partial-m-partial-v-and-compare-step-4-compute-partial-m-partial-v-and-compare-unnumbered">
+<h2>Step 4: Compute <span class="math notranslate nohighlight">\(\partial M / \partial V\)</span> and compare {#step-4-compute-partial-m-partial-v-and-compare .unnumbered}<a class="headerlink" href="#step-4-compute-partial-m-partial-v-and-compare-step-4-compute-partial-m-partial-v-and-compare-unnumbered" title="Link to this heading">#</a></h2>
+<p>Similarly,
+$<span class="math notranslate nohighlight">\(M = \frac{1}{T}\left( \frac{\partial U}{\partial T} \right)_V
+= \frac{1}{T}\left( -\frac{\partial}{\partial T}\frac{\partial\ln Z}{\partial\beta}\right).\)</span>$</p>
+<p>Using <span class="math notranslate nohighlight">\(\partial/\partial T = -\frac{1}{k_B T^2}\partial_\beta\)</span>,
+$<span class="math notranslate nohighlight">\(M=\frac{1}{k_B T^3}\frac{\partial^2\ln Z}{\partial\beta^2}.\)</span>$</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="now-differentiate-with-respect-to-v-frac-partial-m-partial-v">
+<h1>Now differentiate with respect to <span class="math notranslate nohighlight">\(V\)</span>: $$\frac{\partial M}{\partial V}<a class="headerlink" href="#now-differentiate-with-respect-to-v-frac-partial-m-partial-v" title="Link to this heading">#</a></h1>
+<p>\frac{1}{k_B T^3}
+\frac{\partial^3\ln Z}{\partial V\partial\beta^2}.$$</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="this-matches-exactly-the-expression-above-frac-partial-m-partial-v">
+<h1>This matches exactly the expression above:
+$$\frac{\partial M}{\partial V}<a class="headerlink" href="#this-matches-exactly-the-expression-above-frac-partial-m-partial-v" title="Link to this heading">#</a></h1>
+<p>\frac{\partial N}{\partial T}.$$</p>
+<section id="conclusion-conclusion-unnumbered">
+<h2>Conclusion {#conclusion .unnumbered}<a class="headerlink" href="#conclusion-conclusion-unnumbered" title="Link to this heading">#</a></h2>
+<p>Since $<span class="math notranslate nohighlight">\(\frac{\partial M}{\partial V} = \frac{\partial N}{\partial T},\)</span><span class="math notranslate nohighlight">\(
+the differential \)</span>dS = M,dT + N,dV<span class="math notranslate nohighlight">\( is *exact*. Therefore, entropy \)</span>S$
+is a <strong>state function</strong>.</p>
+<p>[HW]{.underline}<br />
+Let <span class="math notranslate nohighlight">\(K=PV\)</span>, and <span class="math notranslate nohighlight">\(dK=d(PV)=\cdots\)</span><br />
+Show this expression is exact. repeat the same process for the variable
+pair <span class="math notranslate nohighlight">\(TS\)</span>.<br />
+Since all of these <span class="math notranslate nohighlight">\(P, V, T\)</span> are intuitively obvious that they are state
+variable, and now we established <span class="math notranslate nohighlight">\(S\)</span> is also state variable, any
+combination of these will be a state function. However, this is still a
+good simlpe exercise.<br />
+[HW]{.underline}<br />
+Let us perform our first Legendre transformation where you want to
+change the variable of energy from S and V to V and T. Start with 1st
+law <span class="math notranslate nohighlight">\(dU=-PdV+TdS\)</span> and take the differential of <span class="math notranslate nohighlight">\(A=U-TS\)</span> to obtain
+<span class="math notranslate nohighlight">\(dA=-pdV-SdT\)</span>. Differential form of 1st law identify its natural
+variable <span class="math notranslate nohighlight">\(U(V,S)\)</span> and differential form of Helmholtz free energy
+identify its natural variable as <span class="math notranslate nohighlight">\(A(V,T)\)</span><br />
+[HW]{.underline}<br />
+We are now going to justify the Legendre transformation from U to A. We
+need to show that U is convex w.r.t. S. Using the differential form of
+1st law, what is the <span class="math notranslate nohighlight">\(\left( \frac{\partial U}{\partial S}\right)_V\)</span>?<br />
+[HW]{.underline}<br />
+Following the previous question, what is the
+<span class="math notranslate nohighlight">\(\left( \frac{\partial T}{\partial S}\right)_V\)</span> is equivalent to? [hint
+second derivative]<br />
+[HW]{.underline}<br />
+Following the previous question, by chain rule,
+<span class="math notranslate nohighlight">\(\left( \frac{\partial T}{\partial X}\right)_V \left( \frac{\partial X}{\partial S}\right)_V\)</span>.
+What <span class="math notranslate nohighlight">\(X\)</span> would make the best choice? [hint second derivative in
+previous problem <span class="math notranslate nohighlight">\(&gt; 0\)</span> to make U convex w.r.t. S]<br />
+[HW]{.underline}<br />
+Wat is <span class="math notranslate nohighlight">\(\left( \frac{\partial X}{\partial T}\right)_V\)</span>?<br />
+[HW]{.underline}<br />
+What is <span class="math notranslate nohighlight">\(\left( \frac{\partial S}{\partial X}\right)_V\)</span>?<br />
+[HW]{.underline}<br />
+Are those partial derivative positive? If both are positive, what can
+you say about convexity of U w.r.t. S?<br />
+[HW]{.underline}<br />
+Just like the last 6 questions, what can you say about convexity of A
+w.r.t. V? [hint: use isothermal compressibility defined in previous
+chapter]<br />
+[HW]{.underline} 2nd part.<br />
+Plug the partition function Z into the LHS of the equation and take the
+second derivative w.r.t. <span class="math notranslate nohighlight">\(\beta\)</span>. You should get two terms. What are
+those?(These should look familiar to you). Then, what does the LHS of
+the equation really mean?</p>
+<div class="center docutils">
+</div>
+<p>[HW]{.underline}<br />
+Using previous HW, computed the standard deviation. Then, compare the
+ratio of <span class="math notranslate nohighlight">\(\frac{stdev}{&lt;E&gt;}\)</span>. Both variance of energy is linearly
+proportional to N(number of particles in the system) since it has Cv
+term in there. Also, energy is linearly proportional to N. Then, as the
+system size increase(i.e. 1 mol) what happens to the error
+(stdev/energy)?</p>
+</section>
+<section id="using-euler-equation-to-prove-u-is-a-state-function">
+<h2>Using Euler Equation to prove <span class="math notranslate nohighlight">\(U\)</span> is a state function<a class="headerlink" href="#using-euler-equation-to-prove-u-is-a-state-function" title="Link to this heading">#</a></h2>
+<p>We have shown that <span class="math notranslate nohighlight">\(S\)</span> and <span class="math notranslate nohighlight">\(V\)</span> is extensive variables and <span class="math notranslate nohighlight">\(U\)</span> is
+extensive function of these variables. More specifically, all of these
+are additive (linear relation to size). For this reason, it is obvious
+that following relation holds<br />
+$<span class="math notranslate nohighlight">\(\ U(aS,aV)=aU(S,V)\)</span><span class="math notranslate nohighlight">\( This equation can interprit as \&quot;if the new
+system has twice the volume (a=2) and entropy per volume is unchanged,
+internal energy is twice as large as original system.\&quot; Then, it follwos
+that\
+\)</span><span class="math notranslate nohighlight">\(\begin{equation*}
+\begin{split}
+ \frac{dU(aS,aV)}{da}&amp;=U(S,V)\\
+&amp;=\left( \frac{\partial U(aS,aV)}{\partial (aS)}     \right)_V \frac{d \left(aS\right)}{da}+\left( \frac{\partial U(aS,aV)}{\partial (aV)}     \right)_S \frac{d \left(aV\right)}{da}\\
+&amp;=\left( \frac{\partial U(aS,aV)}{\partial (aS)}     \right)_V S+\left( \frac{\partial U(aS,aV)}{\partial (aV)}     \right)_S V\\
+&amp; \text{by setting a=1}\\
+&amp;=\left( \frac{\partial U(S,V)}{\partial S}\right)_V S+\left( \frac{\partial U(S,V)}{\partial V}     \right)_S V\\
+&amp; \text{from 1st law} \\
+&amp; dU(S,T)=\left( \frac{\partial U(S,V)}{\partial S}\right)_VdS+\left( \frac{\partial U(S,V)}{\partial V}\right)_SdV=\delta q+ \delta w =Tds-Pdv\\
+&amp; \text{ first and second partial derivatives are \)</span>T<span class="math notranslate nohighlight">\( and  \)</span>-P<span class="math notranslate nohighlight">\(, respectively }\\
+&amp; U= TS-PV\\
+\end{split}
+\end{equation*}\)</span><span class="math notranslate nohighlight">\( It folllows from the HW in the previous page, U is a
+state function. This argument can be repeated for \)</span>U(S,V,N)$.\</p>
+</section>
+<section id="more-on-the-first-laws-of-thermodynamics">
+<h2>More on the First Laws of Thermodynamics<a class="headerlink" href="#more-on-the-first-laws-of-thermodynamics" title="Link to this heading">#</a></h2>
+<p>We have proved that total differential <span class="math notranslate nohighlight">\(du\)</span> is exact. So how does this
+path-independent imply that energy conservation?\</p>
+<p><span class="math notranslate nohighlight">\(u\)</span> is path-independent. <span class="math notranslate nohighlight">\(\Rightarrow\)</span> conservation of energy (Energy
+cannot be created.)</p>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(200,125) (0,0)<span><img src="images/cyclic.png" style="height:4cm"
+alt="image" /></span></p>
+</div>
+<figcaption>Cyclic path </figcaption>
+</figure>
+<p>path independent <span class="math notranslate nohighlight">\(\Rightarrow \Delta U_{12} = -\Delta U_{21}\)</span><br />
+whole cyclic path <span class="math notranslate nohighlight">\(\Delta U = 0\)</span><br />
+Energy of state 1 is unique <span class="math notranslate nohighlight">\(\Rightarrow\)</span> Energy conservation //</p>
+</section>
+<section id="ideal-gas-law">
+<h2>Ideal gas law<a class="headerlink" href="#ideal-gas-law" title="Link to this heading">#</a></h2>
+<p>Let us think about the meaning of partition function. When you are
+taking average value of <span class="math notranslate nohighlight">\(x\)</span>, you are putting <span class="math notranslate nohighlight">\(x\)</span> in front of <span class="math notranslate nohighlight">\(p(x)\)</span>.
+More precisely, <span class="math notranslate nohighlight">\(x \times events\)</span> divide by the total events. What if
+you put 1 in front of <span class="math notranslate nohighlight">\(p(x)\)</span> instead? You are simply counting the number
+of possible outcome. For example, average of exam score is obtained by
+the number of students who got same score multiplied by the score.
+Instead, if you replace the score by unity, you are just counting the
+number of student in the class which eventually serves as a
+normalization constant. It is really not too obvious from Boltzmann
+distribution, but we are counting the number of states having
+<span class="math notranslate nohighlight">\(\epsilon_i\)</span> and summing over all possible i. In similar philosophy, the
+partition function in classical mechanics is defined over all possible
+value of position and momenta which satisfy the energy term <span class="math notranslate nohighlight">\(H(p,q)\)</span>.
+<span class="math notranslate nohighlight">\(h^{3}\)</span> is a volume occupied by each state (see previous chapter or
+appendix). But this goes away when you integrate w.r.t. q and p.<br />
+$<span class="math notranslate nohighlight">\(\begin{align*}
+Z &amp;= \sum\limits_i e^{-\epsilon_i/k_BT}\\
+&amp;=\frac{1}{h^{3N}N!} \int\int dq^{3N}dp^{3N} e^{-\left(\frac{p_1^2}{2m}+\frac{p_2^2}{2m} + \cdots + \frac{p_{3N}^2}{2m}\right)/k_BT}\\
+&amp;= \frac{V^N}{N!}\underbrace{\left(\int e^\frac{-p^2}{2m/k_BT} dp\right)^{3N}}_{\text{This term does not depend on volume. Call this } f(\beta).}
+\end{align*}\)</span><span class="math notranslate nohighlight">\( We pretended that we did actual integration in the above
+equation so \)</span>h^{3N}<span class="math notranslate nohighlight">\( term disappear from the expression.\
+\)</span><span class="math notranslate nohighlight">\(\begin{align*}
+\ln Z &amp;= N\ln V + \ln f(\beta) - \ln N!
+\end{align*}\)</span>$</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial \ln Z}{\partial V}\Big|_T = \frac{N}{V}\]</div>
+<div class="math notranslate nohighlight">
+\[P= \beta^{-1} \frac{\partial \ln Z}{\partial V}\Big|_T = k_B T\frac{N}{V}\]</div>
+<p>There we have</p>
+<div class="math notranslate nohighlight">
+\[PV = nk_BT \hspace{10pt} \leftarrow \text{ ideal gas eq}\]</div>
+</section>
+<section id="derive-van-de-waal-gas-equation-optional">
+<h2>Derive Van de Waal gas equation. (optional)<a class="headerlink" href="#derive-van-de-waal-gas-equation-optional" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[E = \sum\limits_n \frac{p^2}{2m} + \sum\limits_{i&gt;j} u(|x_i - x_j|)\]</div>
+<p><span class="math notranslate nohighlight">\(\uparrow\)</span></p>
+<p>Some interaction between</p>
+<p>pair of gas molecules<br />
+<span class="math notranslate nohighlight">\(\star\)</span> There are <span class="math notranslate nohighlight">\(\frac{N(N-1)}{2}\)</span> way of picking</p>
+<p>pair &amp; each pair has</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+&amp;\int u(x_1, x_2)dx_1 dx_2 \\
+&amp;=\int dx'_1\underbrace{\int u(x'_1,x_2)dx_2}\cdots \text{ holding } x_1 \text{ constant}\\
+&amp; \text{as soon as } x_2 \text{ gets too far away } u\rightarrow 0\\
+&amp; \text{it means that this integration will be finite.}\\
+&amp; \text{So, set this integral as } u_0\\
+&amp;= \int dx'_1 u_0 = Vu_0
+\end{align*}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[E = \sum\limits_n\frac{p^2}{2m} + \sum\limits_{i&lt;j} u(|x_i-x_j|)\]</div>
+<p><span class="math notranslate nohighlight">\(\uparrow\)</span> <span class="math notranslate nohighlight">\(\uparrow\)</span></p>
+<p>KE <span class="math notranslate nohighlight">\(&gt;&gt;\)</span> PE <span class="math notranslate nohighlight">\(\leftarrow\)</span> dilute gas.</p>
+<p>They rarely interact.<br />
+Here, we simply ignore <span class="math notranslate nohighlight">\(h^{3N}\)</span> term in this section for the reason
+described in ideal gas.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+Z &amp;= \int\frac{dp^{3N} dx^{3N}}{N!}e^{-\sum\limits_n\beta\left(\frac{p^2}{2m}\right)} e^{-\sum\limits_{i&gt;j}\beta u(x)}\\
+&amp;= \frac{1}{N!}\int e^{-\sum\limits_n \beta\left(\frac{p^2}{2m}\right)} dp^{3N} \int e^{-\sum\limits_{i&gt;j}\beta u(x)} dx^{3N}\\
+&amp;= \underbrace{\frac{1}{N!}\int V^Ne^{-\sum\limits_n \beta\left(\frac{p^2}{2m}\right)} dp^{3N}}_{\text{ideal gas }Z} \int \frac{e^{-\sum\limits_{i&gt;j}\beta u(x)}}{V^N} dx^{3N}\\
+&amp;= Z_{\text{ideal}} \int\frac{(1-\sum\beta u(x))}{V^N} dx \leftarrow \text{Taylor expansion when } u \text{ small}\\
+&amp;= Z_{\text{ideal}} \left[ 1-\beta\int\frac{\sum u(x)}{V^N} dx\right]\\
+&amp;= Z_{\text{ideal}} \left[1-\beta \int \frac{\sum\limits_{i&gt;j} u(|x_i-x_j|)}{V^N} dx^{3N}\right]\\
+&amp; \text{\hspace{100pt}} \swarrow \text{ indistinguishability } \\
+&amp;= Z_{\text{ideal}} \left[1-\beta\frac{N(N-1)}{2}\left(\int\frac{1}{V^N}u(|x_1-x_2|)dx_1dx_2\right) \int dx_3dx_4\cdots x_N\right]\\
+&amp;= Z_{\text{ideal}}\left[1-\beta\frac{N(N-1)}{2}\frac{V^{N-2}}{V^N}\int dx_1 dx_2 u(|x_1-x_2|)\right]\\
+&amp;\simeq Z_{\text{ideal}}\left[1-\frac{\beta}{2}\frac{N^2}{V^2}\underbrace{\int dx_1 dx_2u(|x_1-x_2|)}_{u_oV}\right]\\
+&amp;= Z_{\text{ideal}}\left[1-\frac{\beta}{2}\frac{N^2}{V}u_0\right]
+\end{align*}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+\ln Z &amp;= \ln Z_{\text{ideal}} + \ln\left[1-\frac{\beta}{2}\frac{N^2}{V}u_0\right]\\
+&amp; \text{ using } \ln (1-x) \simeq -x\\
+&amp;= \ln Z_{\text{ideal}} - \frac{\beta}{2}\frac{N^2}{V}u_0
+\end{align*}\end{split}\]</div>
+<p><br />
+$$\begin{align*}
+&amp;  Z_{ideal}=\frac{V^N}{N!}\left(\int e^\frac{-p^2}{2m/k_BT} dp\right)^{3N}\
+&amp; ln{Z_{ideal}}=\ln{V^N}-\ln{N!}+3N\ln{\left(\int e^\frac{-p^2\beta}{2m} dp\right)}\
+&amp; E = -\frac{\partial \ln Z}{\partial \beta}\
+&amp; =-3N\frac{\left(\int \frac{-p^2}{2m}e^\frac{-p^2\beta}{2m} dp\right)}{\left(\int e^\frac{-p^2\beta}{2m} dp\right)}+ \frac{N^2}{2V}u_0\
+&amp;\text{using result from laboratory,}\
+&amp;= \frac{3}{2} Nk_BT + \frac{N^2}{2V}u_0\</p>
+<p>\end{align*}$$</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+P = \beta^{-1}\frac{\partial \ln Z}{\partial V} &amp;= k_BT \frac{N}{V} + \frac{1}{2}\frac{N^2}{V^2}u_0\\
+%&amp;= k_BT\rho + \frac{1}{2}\rho^2u_0
+\end{align*}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+%V\left(P - \frac{1}{2}\rho^2u_0\right) &amp;= Nk_BT\\
+&amp; \text{\hspace{20pt} Let } N = N_A\\
+\bar{V}\left(P - \frac{1}{2}\frac{N_A^2u_0}{\bar{V}^2}\right) &amp;= RT\\
+&amp; \text{\hspace{20pt} Let } a =\frac{-1}{2} N_A^2u_0\\
+\bar{V}\left(P +\underset{\uparrow}{\frac{a}{\bar{V}^2}}\right) &amp;= RT\\
+\frac{a}{V^2}&lt;&lt;P \text{ }&amp;\&amp; \text{ add volume correction (hard sphere overlap not allowed)}\\
+\left(\bar{V}-b\right)\left(P + \frac{a}{V^2}\right) &amp;= RT \leftarrow \text{ Van de Waals gas }
+\end{align*}\end{split}\]</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Free Energy, Pressure, <span class="math notranslate nohighlight">\(\&amp;\)</span> Gas Laws</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#helmholtz-free-energy">Helmholtz Free Energy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gibbs-free-energy">Gibbs Free Energy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enthalpy">Enthalpy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key points:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#legendre-transforms-and-the-helmholtz-free-energy-legendre-transforms-and-the-helmholtz-free-energy-unnumbered">Legendre Transforms and the Helmholtz Free Energy {#legendre-transforms-and-the-helmholtz-free-energy .unnumbered}</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-conjugate-pair-about-conjugate-pair-unnumbered">About conjugate pair {#about-conjugate-pair .unnumbered}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pressure-from-helmholtz-free-energy">Pressure from Helmholtz Free Energy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entropy-is-a-state-function">Entropy is a State Function</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-express-thermodynamic-quantities-in-terms-of-z-step-1-express-thermodynamic-quantities-in-terms-of-z-unnumbered">Step 1: Express thermodynamic quantities in terms of <span class="math notranslate nohighlight">\(Z\)</span> {#step-1-express-thermodynamic-quantities-in-terms-of-z .unnumbered}</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-compute-n-t-v-explicitly-step-2-compute-ntv-explicitly-unnumbered">Step 2: Compute <span class="math notranslate nohighlight">\(N(T,V)\)</span> explicitly {#step-2-compute-ntv-explicitly .unnumbered}</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-differentiate-n-t-v-with-respect-to-t-step-3-differentiate-ntv-with-respect-to-t-unnumbered">Step 3: Differentiate <span class="math notranslate nohighlight">\(N(T,V)\)</span> with respect to <span class="math notranslate nohighlight">\(T\)</span> {#step-3-differentiate-ntv-with-respect-to-t .unnumbered}</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-derivative-of-the-first-term-using-the-product-rule">(a) Derivative of the first term using the product rule:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#thus-frac-1-t-left-frac-partial-partial-t-frac-partial-2-ln-z-partial-v-partial-beta-right">Thus
+$$\frac{1}{T}\left(-\frac{\partial}{\partial T}\frac{\partial^2\ln Z}{\partial V\partial\beta}\right)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-derivative-of-the-second-term">(b) Derivative of the second term:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-cancellation">(c) Cancellation</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#when-we-add-results-from-a-and-b-the-1-t-2-terms-cancel-frac-partial-n-partial-t">When we add results from (a) and (b), the <span class="math notranslate nohighlight">\(1/T^2\)</span> terms cancel:
+$$\frac{\partial N}{\partial T}</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-compute-partial-m-partial-v-and-compare-step-4-compute-partial-m-partial-v-and-compare-unnumbered">Step 4: Compute <span class="math notranslate nohighlight">\(\partial M / \partial V\)</span> and compare {#step-4-compute-partial-m-partial-v-and-compare .unnumbered}</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#now-differentiate-with-respect-to-v-frac-partial-m-partial-v">Now differentiate with respect to <span class="math notranslate nohighlight">\(V\)</span>: $$\frac{\partial M}{\partial V}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#this-matches-exactly-the-expression-above-frac-partial-m-partial-v">This matches exactly the expression above:
+$$\frac{\partial M}{\partial V}</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-conclusion-unnumbered">Conclusion {#conclusion .unnumbered}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-euler-equation-to-prove-u-is-a-state-function">Using Euler Equation to prove <span class="math notranslate nohighlight">\(U\)</span> is a state function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-on-the-first-laws-of-thermodynamics">More on the First Laws of Thermodynamics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ideal-gas-law">Ideal gas law</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#derive-van-de-waal-gas-equation-optional">Derive Van de Waal gas equation. (optional)</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hideya Koizumi & Eiko Koizumi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

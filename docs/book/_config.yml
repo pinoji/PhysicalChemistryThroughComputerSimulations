@@ -1,0 +1,25 @@
+title: Physical Chemistry Through Computer Simulations
+author: Hideya Koizumi & Eiko Koizumi
+
+execute:
+  execute_notebooks: off
+
+parse:
+  myst_enable_extensions:
+    - dollarmath
+    - tasklist
+    - colon_fence
+    - linkify
+
+sphinx:
+  config:
+    master_doc: intro
+    mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+    mathjax3_config:
+      tex:
+        macros:
+          uvec: ["\\hat{\\mathbf{#1}}", 1]
+html:
+  favicon: images/favicon.png
+  use_mathjax: true

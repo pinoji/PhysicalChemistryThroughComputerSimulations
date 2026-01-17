@@ -1,0 +1,644 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Transition from Classical to Statistical Mechanics &#8212; Physical Chemistry Through Computer Simulations</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"uvec": ["\\hat{\\mathbf{#1}}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch13';</script>
+    <link rel="icon" href="_static/favicon.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Physical Chemistry Through Computer Simulations</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Physical Chemistry Through Computer Simulations
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Quantum Mechanics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="qm01.html">Math Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm02.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm03.html">Foundation of Quantum Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm04.html">Simple Quantum Mechanical Models and Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm05.html">Hydrogen-Like Atom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm06.html">Approximation Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm07.html">Electron Spin (Quantum Mechanics Concept)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm08.html">System Containing Only One Atom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm09.html">System Containing Two Atoms (Diatomic System)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm10.html">Hybrid Orbitals in Polyatomic Molecule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm11.html">Symmetry, Group Theory, Representation Theory and Thier Application to Chemistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm12.html">Molecular Spectroscopy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm13.html">Resonance by Variational Methods</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Thermodynamics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="td01.html">Math Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td02.html">Transition from Classical to Statistical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td03.html">Boltzmann Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td04.html">State function, dealing with partial derivatives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td05.html">Energy, Entropy and Temperature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td06.html">Free Energy, Pressure, &amp; Gas Laws</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td07.html">Maxwell Relation, Basic Thermodynamics Process, Second and Third Laws of Thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td08.html">The Equipartition Principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td09.html">Chemical Potential</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td10.html">Thermodynamics of Mixing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td11.html">Chemical Equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td12.html">Reaction Dynamics and Kinetics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td13.html">Chemistry of Fluid</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/ch13.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Transition from Classical to Statistical Mechanics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classical-mechanics">Classical Mechanics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transistion-to-statistical-mechanics">Transistion to Statistical Mechanics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ensemble">Ensemble</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equilibrium">Equilibrium</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="transition-from-classical-to-statistical-mechanics">
+<h1>Transition from Classical to Statistical Mechanics<a class="headerlink" href="#transition-from-classical-to-statistical-mechanics" title="Link to this heading">#</a></h1>
+<section id="classical-mechanics">
+<h2>Classical Mechanics<a class="headerlink" href="#classical-mechanics" title="Link to this heading">#</a></h2>
+<p>We define Lagrangian (<span class="math notranslate nohighlight">\(L\)</span>)<br />
+$<span class="math notranslate nohighlight">\(L = T - V = \frac{m}{2}\dot{q}^2 - V(q,t)\)</span>$</p>
+<p>Principle of L.A.<span class="math notranslate nohighlight">\(\rightarrow\)</span> Classical particle path follows min
+action path.</p>
+<div class="math notranslate nohighlight">
+\[\text{Action } S  = \int_{t_1}^{t_2} L(\dot{q}, q, t) dt\]</div>
+<div class="math notranslate nohighlight">
+\[\delta S = S[\bar{q}+\delta q] - S[\bar{q}] = 0\]</div>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}\begin{split}\begin{align*}
+S[q + \delta q] &amp;= \int_{t_1}^{t_2} L(\dot{q} + \delta \dot{q}, q + \delta q) dt\\
+&amp; \text{By Taylor expansion \&amp; discarding higher order terms}\\
+&amp;= \int_{t_1}^{t_2} L(\dot{q},q,t) + \delta \dot{q}\frac{\partial L}{\partial \dot{q}} + \delta q \frac{\partial L}{\partial q} dt\\
+&amp;= S[q] + \int_{t_1}^{t_2} \delta \dot{q}\frac{\partial L}{\partial \dot{q}} + \delta q \frac{\partial L}{\partial q} dt\\
+&amp; \boxed{\frac{d}{dt}\frac{\partial L}{\partial \dot{q}} - \frac{\partial L}{\partial q} = 0} \hspace{50pt}  \text{Lagrange's equation}\\
+\end{align*}$$ The last equation is obtained by integration by parts.
+Notice there are no variation at both end. This is left as exercise.\
+Familiar equation $F = ma$ can be recovered from Lagrange's equation\
+$m\frac{d^2q}{dt^2} - \frac{\partial V}{\partial q} = 0$\end{split}\\\begin{split}$$\begin{align*}
+L &amp; = T-V\\
+&amp;= \frac{1}{2} m\underset{vel}{\underset{\uparrow}{\dot{x}}}^2- \frac{1}{2}kx^2
+\end{align*}\end{split}\end{aligned}\end{align} \]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+ \frac{d}{dt}\frac{\partial L}{\partial\dot{q}} - \frac{\partial L}{\partial q} &amp;= \frac{d}{dt} m\dot{x} + kx\\
+&amp;= m\ddot{x} + kx = 0 \\
+&amp; \text{ \hspace{20pt} } \Downarrow \\
+&amp; \text{ } \ddot{x} + \left(\frac{k}{m}\right) x = 0
+\end{align*}\end{split}\]</div>
+<p>Available solution</p>
+<div class="math notranslate nohighlight">
+\[x(t) = a \cos(\omega t) + b \sin(\omega t)\]</div>
+<p>where <span class="math notranslate nohighlight">\(\omega = \sqrt{\frac{k}{m}}\)</span>.</p>
+</section>
+<section id="transistion-to-statistical-mechanics">
+<h2>Transistion to Statistical Mechanics<a class="headerlink" href="#transistion-to-statistical-mechanics" title="Link to this heading">#</a></h2>
+<p>Let’s consider <span class="math notranslate nohighlight">\(N\)</span> particle system.</p>
+<p>Any variations can be described by the</p>
+<p>set of coordinates. Each one of these are special and these are called
+microstate.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{lll}
+&amp; \hspace{5pt} (x,y,z) &amp; \hspace{5pt}(p_x, p_y, p_z) \\
+&amp; \hspace{5pt}\nearrow &amp; \hspace{5pt}\nearrow \\
+microstates := (r^N, p^N) = &amp; (\underbrace{r_1, r_2, \cdots, r_N}_{\text{position}}; &amp; \underbrace{p_1, p_2, \cdots, p_N}_{\text{momenta}}) 
+\end{array}\end{split}\]</div>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(0,180) (-125,0)<span><img src="PhaseSpace.png" style="height:6.5cm"
+alt="image" /></span></p>
+</div>
+<p><br />
+</p>
+<figcaption>Phase Space Volume</figcaption>
+</figure>
+<p>Collection of microstates span <span class="math notranslate nohighlight">\(6N\)</span> dimensional space called</p>
+<div class="center docutils">
+<p>“Phase Space”</p>
+</div>
+<p>+:———————————+:——————————–:+
+| The uncertainty principle        |   —————————    |
+| <span class="math notranslate nohighlight">\(\Rightarrow\)</span>                    |       We cannot know both        |
+|                                  |    <span class="math notranslate nohighlight">\(r\)</span> &amp; <span class="math notranslate nohighlight">\(p\)</span> simultaneously.     |
+|                                  |   —————————    |
++———————————-+———————————-+
+|                                  | <span class="math notranslate nohighlight">\(\Downarrow\)</span>                     |
++———————————-+———————————-+
+|                                  | there must be an elemental       |
++———————————-+———————————-+
+|                                  | “volume” that can be           |
++———————————-+———————————-+
+|                                  | occupied by a unique             |
++———————————-+———————————-+
+|                                  | “state”.                       |
++———————————-+———————————-+
+|                                  | <span class="math notranslate nohighlight">\(\Updownarrow\)</span>                   |
++———————————-+———————————-+
+|                                  | Average volume for single        |
+|                                  | particle <span class="math notranslate nohighlight">\((r,p)\)</span>                 |
++———————————-+———————————-+
+|                                  | is <span class="math notranslate nohighlight">\(h^3\)</span>.                        |
++———————————-+———————————-+
+|                                  | <span class="math notranslate nohighlight">\(\nwarrow\)</span> Plank constant.       |
++———————————-+———————————-+
+|                                  | see apendix.                     |
++———————————-+———————————-+</p>
+<p>Classical mechanics can, in principle, predict the future state of a
+system if all <span class="math notranslate nohighlight">\(6N\)</span> phase–space coordinates (positions and momenta) and
+the equations of motion are known. However, for a chemical system
+containing on the order of one mole of particles, tracking all
+microscopic variables is practically impossible. Instead, in chemistry
+and statistical mechanics, we describe systems using <em>macroscopic
+variables</em> such as average energy, temperature, and pressure. A
+<em>macrostate</em> is defined by these macroscopic quantities, while each
+macrostate corresponds to a large number of distinct <em>microstates</em> that
+share the same macroscopic properties. (In statistical mechanics, we
+count the number of microstates associated with a given macrostate. A
+macrostate with a larger number of microstates is more likely to be
+observed.)</p>
+<p>This approach is based on the <em>ergodic hypothesis</em>, which states that,
+over a sufficiently long time, a system evolving according to classical
+mechanics spends time in a region of phase space proportional to the
+volume of that region. Consequently, time averages along a trajectory
+are equivalent to ensemble averages over phase space.\</p>
+</section>
+<section id="ensemble">
+<h2>Ensemble<a class="headerlink" href="#ensemble" title="Link to this heading">#</a></h2>
+<p>Ensemble is a large collection of a system (M systems in the ensemble)
+such that\</p>
+<p>[Case 1]{.underline} Microcanonical Ensemble (NVE)<br />
+The system is isolated: the total energy <span class="math notranslate nohighlight">\(E\)</span>, volume <span class="math notranslate nohighlight">\(V\)</span>, and particle
+number <span class="math notranslate nohighlight">\(N\)</span> are all fixed. Because the system cannot exchange energy or
+particles with the surroundings, every accessible microstate with the
+same total energy is equally probable in thermodynamic equilibrium. This
+ensemble is conceptually useful when visualizing a perfectly isolated
+system.<br />
+[Case 2]{.underline} Canonical Ensemble (NVT)<br />
+Here, <span class="math notranslate nohighlight">\(N\)</span> and <span class="math notranslate nohighlight">\(V\)</span> are fixed, but the system is allowed to exchange
+energy with a much larger heat bath at temperature <span class="math notranslate nohighlight">\(T\)</span>. As a result, the
+system’s energy fluctuates around an average value <span class="math notranslate nohighlight">\(&lt;E&gt;\)</span>. The heat bath
+is so large that its temperature remains constant even when it exchanges
+energy with the system. To visualize the ensemble, imagine millions of
+independent copies of the system, each embedded in an enormous heat
+bath. The total energy of “system + bath” is fixed, but the system alone
+has fluctuating energy.<br />
+[Case 3]{.underline} NPT Ensemble<br />
+Here, <span class="math notranslate nohighlight">\(N\)</span> and <span class="math notranslate nohighlight">\(P\)</span> are fixed, but the system is allowed to exchange
+energy with a much larger heat bath at temperature <span class="math notranslate nohighlight">\(T\)</span>. As a result, the
+system’s energy fluctuates around an average value <span class="math notranslate nohighlight">\(&lt;E&gt;\)</span>. The heat bath
+is so large that its temperature remains constant even when it exchanges
+energy with the system. To visualize the ensemble, imagine millions of
+independent copies of the system, each embedded in an enormous heat
+bath. The total energy of “system + bath” is fixed, but the system alone
+has fluctuating energy.\</p>
+<p>[Case 4]{.underline} Grand Canonical Ensemble<br />
+The assembly of all microstates with fixed <span class="math notranslate nohighlight">\(V\)</span>. The energy &amp; # of each
+chemical (molecule A <span class="math notranslate nohighlight">\(\uparrow\)</span> molecule B <span class="math notranslate nohighlight">\(\downarrow\)</span>) can fluctuate,
+however and the system is kept at equilibrium by being in contact with a
+heat bath at temp <span class="math notranslate nohighlight">\(T\)</span>.<br />
+Generally, canonical ensemble is referred as <span class="math notranslate nohighlight">\(NVT\)</span> ensemble. For the
+biological system, we often uses <span class="math notranslate nohighlight">\(NPT\)</span> ensemble, and canonical ensemble
+are usually referred as <span class="math notranslate nohighlight">\(\mu VT\)</span> ensemble. In complex modeling for
+biological process, <span class="math notranslate nohighlight">\(\mu PT\)</span> ensemble is often used.</p>
+</section>
+<section id="equilibrium">
+<h2>Equilibrium<a class="headerlink" href="#equilibrium" title="Link to this heading">#</a></h2>
+<div class="center docutils">
+<hr/>
+  $\star \star$ Equilibrium:     A state of rest or balance due to the equal action of opposing force
+                                                             $\Downarrow$
+                                            If the system is at equil. then I can't really
+                                          tell the difference before & after some time $t$.
+<hr/>
+</div>
+<p>In this class (UG version), we exclude almost all topics relates to the
+system not in equilibrium.\</p>
+<p>The system in Case 1 is considered in equilibrium &amp; process is called
+reversible process. In this class(statistical thermodynamics part), we
+always treat the system in its equilibrium. Non-equilibrium case should
+be treated only in graduate school P-Chem class or research classes.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classical-mechanics">Classical Mechanics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transistion-to-statistical-mechanics">Transistion to Statistical Mechanics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ensemble">Ensemble</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equilibrium">Equilibrium</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hideya Koizumi & Eiko Koizumi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

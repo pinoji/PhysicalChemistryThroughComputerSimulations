@@ -1,0 +1,865 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Symmetry, Group Theory, Representation Theory and Thier Application to Chemistry &#8212; Physical Chemistry Through Computer Simulations</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"uvec": ["\\hat{\\mathbf{#1}}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch09';</script>
+    <link rel="icon" href="_static/favicon.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Physical Chemistry Through Computer Simulations</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Physical Chemistry Through Computer Simulations
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Quantum Mechanics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="qm01.html">Math Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm02.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm03.html">Foundation of Quantum Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm04.html">Simple Quantum Mechanical Models and Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm05.html">Hydrogen-Like Atom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm06.html">Approximation Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm07.html">Electron Spin (Quantum Mechanics Concept)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm08.html">System Containing Only One Atom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm09.html">System Containing Two Atoms (Diatomic System)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm10.html">Hybrid Orbitals in Polyatomic Molecule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm11.html">Symmetry, Group Theory, Representation Theory and Thier Application to Chemistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm12.html">Molecular Spectroscopy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qm13.html">Resonance by Variational Methods</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Thermodynamics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="td01.html">Math Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td02.html">Transition from Classical to Statistical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td03.html">Boltzmann Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td04.html">State function, dealing with partial derivatives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td05.html">Energy, Entropy and Temperature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td06.html">Free Energy, Pressure, &amp; Gas Laws</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td07.html">Maxwell Relation, Basic Thermodynamics Process, Second and Third Laws of Thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td08.html">The Equipartition Principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td09.html">Chemical Potential</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td10.html">Thermodynamics of Mixing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td11.html">Chemical Equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td12.html">Reaction Dynamics and Kinetics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td13.html">Chemistry of Fluid</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/ch09.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Symmetry, Group Theory, Representation Theory and Thier Application to Chemistry</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Symmetry, Group Theory, Representation Theory and Thier Application to Chemistry</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symmetry-operation">Symmetry operation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symmetry-identifying-point-group">Symmetry: Identifying Point Group</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representaion-theory">Representaion Theory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-determining-irreducible-representation-of-molecular-orbitals-generated-by-atomic-orbitals-reducible-rep-gamma">Application: Determining Irreducible Representation of molecular orbitals Generated by atomic orbitals ( reducible rep <span class="math notranslate nohighlight">\(\Gamma\)</span>)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-many-objects-can-you-make-for-each-type">how many objects can you make for each type??</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#valence-only-hat-e-begin-bmatrix-1s-1-1s-1-2s-2p-x-2p-y-2p-z-end-bmatrix">valence only<br/>
+$\hat{E}
+\begin{bmatrix} 1s_1\1s_1\2s\2p_x\2p_y\2p_z\end{bmatrix}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#begin-bmatrix-1-0-0-0-0-0-0-1-0-0-0-0-0-0-1-0-0-0-0-0-0-1-0-0-0-0-0-0-1-0-0-0-0-0-0-1-end-bmatrix-begin-bmatrix-hspace-10pt-vspace-15pt-end-bmatrix">\begin{bmatrix} 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0\
+0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0\
+0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+\begin{bmatrix} \hspace{10pt}\ \vspace{15pt} \ \ \ \ \end{bmatrix}</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-of-generating-symmetry-adopted-orbital">Method of Generating Symmetry Adopted Orbital</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="symmetry-group-theory-representation-theory-and-thier-application-to-chemistry">
+<h1>Symmetry, Group Theory, Representation Theory and Thier Application to Chemistry<a class="headerlink" href="#symmetry-group-theory-representation-theory-and-thier-application-to-chemistry" title="Link to this heading">#</a></h1>
+<p><span class="math notranslate nohighlight">\(\star\)</span> Molecular Symmetry<br />
+Symmetry can be used to…<br />
+1⃝ reduce computational time [i.e.]{.underline}
+<span class="math notranslate nohighlight">\(\int f_{\text{odd}} f_{\text{even}} dr = \O\)</span>.<br />
+2⃝ predict IR, Raman active vibrational mode.<br />
+3⃝ generate &amp; categolize molecular orbital.<br />
+4⃝ bond charactor [i.e.]{.underline} contribution of <span class="math notranslate nohighlight">\(np\)</span> orbital.<br />
+etc.<br />
+<span class="math notranslate nohighlight">\(\star\)</span> Typical question<br />
+If I mix <span class="math notranslate nohighlight">\(2s\)</span>, <span class="math notranslate nohighlight">\(p_x\)</span>, <span class="math notranslate nohighlight">\(p_z\)</span>, &amp; etc., what type of symmetry does
+molecular orbitals possess?<br />
+$<span class="math notranslate nohighlight">\(\int \psi_{\begin{array}{l} sym\\type 1\end{array}}\psi_{\begin{array}{l} sym\\type 2\end{array}} dr = ?\)</span>$</p>
+<section id="symmetry-operation">
+<h2>Symmetry operation<a class="headerlink" href="#symmetry-operation" title="Link to this heading">#</a></h2>
+<p>Symmetry operation is the permutation of atoms that leaves the molecule
+unchanged. We look at rotation <span class="math notranslate nohighlight">\((C_n)\)</span> , reflection <span class="math notranslate nohighlight">\((\sigma)\)</span>,
+inversion<span class="math notranslate nohighlight">\((i)\)</span>, inproper rotation <span class="math notranslate nohighlight">\((S_n)\)</span> and identity<span class="math notranslate nohighlight">\((E)\)</span>.</p>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(200,225) (0,0)<span><img src="FigureSym.png" style="height:7cm"
+alt="image" /></span></p>
+</div>
+<figcaption>Basic symmetry operation </figcaption>
+</figure>
+<p>Symmetry operation E does not do anything. This smily face does not have
+any symmetry operation that bring back the original figure. Operation
+<span class="math notranslate nohighlight">\(C_2\)</span> is the rotation around rotational axis (<span class="math notranslate nohighlight">\(\perp\)</span> to this paper).
+Note that <span class="math notranslate nohighlight">\(C_2\)</span> restores the original figure. Reflection operation is
+the reflection with respect to mirror plane (dashed plane). It also
+restore the original figure. Inversion operation <span class="math notranslate nohighlight">\(i\)</span> is the operation
+that move any points to the other side of the origin (black dot).
+Finally, the improper rotation <span class="math notranslate nohighlight">\(S_6\)</span> rotate any points by <span class="math notranslate nohighlight">\(60^o\)</span> and
+reflect with respect to <span class="math notranslate nohighlight">\(\sigma\)</span> plane (plane between 2 hexagram). Note
+that mirror plane is <span class="math notranslate nohighlight">\(\perp\)</span> to the rotational axis.<br />
+[Example]{.underline} A set of symmetry operations on H<span class="math notranslate nohighlight">\(_2\)</span>O</p>
+<div class="center docutils">
+<p>+:————————————-+:———————————————————————————-:+
+| <img alt="image" src="_images/Figure32.png" />{height=”3cm”} | +:—————————–+:————————————————+ |
+|                                      | | by <span class="math notranslate nohighlight">\(180^\circ\)</span> &amp; <span class="math notranslate nohighlight">\(360^\circ\)</span> |   ——————————————— | |
+|                                      | |                              |            <span class="math notranslate nohighlight">\(\leftarrow\)</span> same structure          | |
+|                                      | |                              |                  2 times during                 | |
+|                                      | |                              |                    <span class="math notranslate nohighlight">\(360^\circ\)</span>                  | |
+|                                      | |                              |    <span class="math notranslate nohighlight">\(\boxed{\text{C}_2}\)</span> <span class="math notranslate nohighlight">\(\boxed{\text{C}_2^2}\)</span>  | |
+|                                      | |                              |   ——————————————— | |
+|                                      | +——————————+————————————————-+ |
++————————————–+————————————————————————————+
+|                                      |                                                                                    |
++————————————–+————————————————————————————+
+| <img alt="image" src="_images/Figure33.png" />{height=”3cm”} |   —————————————————-                             |
+|                                      |   plane of sym- on this                                                            |
+|                                      |   paper plane                                                                      |
+|                                      |   <span class="math notranslate nohighlight">\(\sigma_v'\)</span>                                                                      |
+|                                      |   <span class="math notranslate nohighlight">\(\uparrow\)</span> <span class="math notranslate nohighlight">\(\nwarrow\)</span> plane include principle axis                               |
+|                                      |   plane of sym                                                                     |
+|                                      |   —————————————————-                             |
++————————————–+————————————————————————————+
+|                                      |                                                                                    |
++————————————–+————————————————————————————+
+|                                      |   —————————–                                                    |
+|                                      |   plane of sym on                                                                  |
+|                                      |   plane <span class="math notranslate nohighlight">\(\perp\)</span> to this paper                                                      |
+|                                      |   include principle axis                                                           |
+|                                      |   <span class="math notranslate nohighlight">\(\sigma_v\)</span>                                                                       |
+|                                      |   —————————–                                                    |
++————————————–+————————————————————————————+</p>
+</div>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(200,225) (-130,0)<span><img src="SymmetryFig1.png"
+style="height:10cm" alt="image" /></span></p>
+</div>
+<figcaption>Symmetry Operation </figcaption>
+</figure>
+</section>
+<section id="symmetry-identifying-point-group">
+<h2>Symmetry: Identifying Point Group<a class="headerlink" href="#symmetry-identifying-point-group" title="Link to this heading">#</a></h2>
+<p>Use the following flow chart to determine point group. Note that
+determination of point group is classified by the location of atoms in
+the molecule. Classification of symmetry operation, however, may use
+atomic orbitals.\</p>
+<figure data-latex-placement="h">
+<div class="picture">
+<p>(200,275) (-100,0)<span><img src="SymmetryFig2.png"
+style="height:10cm" alt="image" /></span></p>
+</div>
+<figcaption>Identification of point group </figcaption>
+</figure>
+<p>[HW]{.underline} Identify point group of these molecules.\</p>
+<div class="center docutils">
+<hr/>  H$_2$O
+  NH$_3$
+  Bz
+  CH$_4$
+<hr/>:::
+<h2 class="rubric" id="group-theory">Group Theory</h2>
+<p>Group theory is a topic of pure mathematics.<br />
+Basically,<br />
+A group is a of transformation that satisfy the following:\</p>
+<hr/>
+  1⃝   collection include \"identity\" $= I$ (do nothing)
+<p>2⃝   for every transformation <span class="math notranslate nohighlight">\(R\)</span>, there is an “inverse” transformation <span class="math notranslate nohighlight">\(R^{-1}\)</span> such that
+<span class="math notranslate nohighlight">\(RR^{-1} = R^{-1}R = I\)</span></p>
+<p>3⃝   any combination of transformation in the collection is also in the collection
+<span class="math notranslate nohighlight">\(RR' = R'' \rightarrow \text{ also in the set}\)</span></p>
+<p>4⃝   associative
+<span class="math notranslate nohighlight">\((RR')R'' = R(R'R'')\)</span></p>
+<hr/>
+<p>$\star<span class="math notranslate nohighlight">\( Consider H\)</span><em>2<span class="math notranslate nohighlight">\(O Molecule\
+Symmetry \)</span>\Rightarrow<span class="math notranslate nohighlight">\( C\)</span></em>{2v}$<br />
+Symmetry element\</p>
+<div class="center docutils">
+<p><span class="math notranslate nohighlight">\(\hat{E} \hspace{10pt} \hat{\text{C}}_2v \hspace{10pt} \hat{\sigma}_v \hspace{10pt} \hat{\sigma}_{v'}\)</span></p>
+</div>
+</div>
+<p>Do they form group?\</p>
+<p>+:——————————————————————————+:—————————————————————————————————————-+
+|   ————————————————————————— |      2nd op\1st op           <span class="math notranslate nohighlight">\(\hat{E}\)</span>            <span class="math notranslate nohighlight">\(\hat{C}_2\)</span>        <span class="math notranslate nohighlight">\(\hat{\sigma}_v\)</span>     <span class="math notranslate nohighlight">\(\hat{\sigma}_{v'}\)</span>  |
+|   1⃝                                                                           |   ——————— ——————— ——————— ——————— ——————— |
+|   2⃝                                                                           |         <span class="math notranslate nohighlight">\(\hat{E}\)</span>             <span class="math notranslate nohighlight">\(\hat{E}\)</span>            <span class="math notranslate nohighlight">\(\hat{C}_2\)</span>        <span class="math notranslate nohighlight">\(\hat{\sigma}_v\)</span>     <span class="math notranslate nohighlight">\(\hat{\sigma}_{v'}\)</span>  |
+|   3⃝ construct <span class="math notranslate nohighlight">\(\times\)</span> table                                                  |        <span class="math notranslate nohighlight">\(\hat{C}_2\)</span>           <span class="math notranslate nohighlight">\(\hat{C}_2\)</span>            <span class="math notranslate nohighlight">\(\hat{E}\)</span>        <span class="math notranslate nohighlight">\(\hat{\sigma}_{v'}\)</span>   <span class="math notranslate nohighlight">\(\hat{\sigma}_{v}\)</span>   |
+|   4⃝ look at <span class="math notranslate nohighlight">\(\times\)</span> table [i.e.]{.underline} 2nd 1st                         |     <span class="math notranslate nohighlight">\(\hat{\sigma}_v\)</span>      <span class="math notranslate nohighlight">\(\hat{\sigma}_v\)</span>     <span class="math notranslate nohighlight">\(\hat{\sigma}_{v'}\)</span>        <span class="math notranslate nohighlight">\(\hat{E}\)</span>            <span class="math notranslate nohighlight">\(\hat{C}_2\)</span>      |
+|   <span class="math notranslate nohighlight">\(\left(\hat{\sigma}_v\hat{\sigma}_{v'}\right)\hat{C}_2 = \hat{E}\)</span> 2nd 1st   |    <span class="math notranslate nohighlight">\(\hat{\sigma}_{v'}\)</span>   <span class="math notranslate nohighlight">\(\hat{\sigma}_{v'}\)</span>    <span class="math notranslate nohighlight">\(\hat{\sigma}_v\)</span>         <span class="math notranslate nohighlight">\(\hat{C}_2\)</span>            <span class="math notranslate nohighlight">\(\hat{E}\)</span>       |
+|   <span class="math notranslate nohighlight">\(\hat{C}_2\)</span> <span class="math notranslate nohighlight">\(\hat{\sigma}_v\left(\hat{\sigma}_{v'}\hat{C}_2\right)\)</span>         |                                                                                                                 |
+|   <span class="math notranslate nohighlight">\(\hat{\sigma}_v\)</span>                                                            |                                                                                                                 |
+|   ————————————————————————— |                                                                                                                 |
++——————————————————————————-+—————————————————————————————————————–+</p>
+<p>Yes. They form group.</p>
+</section>
+<section id="representaion-theory">
+<h2>Representaion Theory<a class="headerlink" href="#representaion-theory" title="Link to this heading">#</a></h2>
+<p>It is a branch of mathematics. A representation makes and abstract
+algebraic object more concrete by describing its element by matrices.<br />
+[i.e.]{.underline}<br />
+We have seen all
+<span class="math notranslate nohighlight">\(\underbrace{\text{group elements}}_{\text{sym operation}}\)</span> can be
+replaced by matrices.<br />
+[Note]{.underline}<br />
+<span class="math notranslate nohighlight">\(3 \times 3\)</span> matrix is not the only representation of the <span class="math notranslate nohighlight">\(C_{2v}\)</span> point
+group. There are many reps. We shall look for the .</p>
+<p><span class="math notranslate nohighlight">\(\downarrow\)</span></p>
+<p>They are called irreducible representation.</p>
+<p><span class="math notranslate nohighlight">\(\star\)</span> Can we use matrix to represent sym. operation?<br />
+Consider some vector <span class="math notranslate nohighlight">\(v = \begin{bmatrix} u_x\\u_y\\u_z\end{bmatrix}\)</span></p>
+<p>Do nothing<br />
+$<span class="math notranslate nohighlight">\(\begin{equation*}
+\hat{E}v = \begin{bmatrix} 1&amp; 0 &amp; 0\\ 0 &amp; 1 &amp; 0\\ 0 &amp; 0 &amp; 1 \end{bmatrix}
+\begin{bmatrix} u_x\\u_y\\u_z\end{bmatrix} =
+\begin{bmatrix} u_x\\u_y\\u_z\end{bmatrix}
+\checkmark
+\end{equation*}\)</span>$</p>
+<p>around <span class="math notranslate nohighlight">\(z\)</span> axis</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{equation*}
+\hat{C}_2v =  \begin{bmatrix} -1&amp; 0 &amp; 0\\ 0 &amp; -1 &amp; 0\\ 0 &amp; 0 &amp; 1 \end{bmatrix}
+\begin{bmatrix} u_x\\u_y\\u_z\end{bmatrix} =
+\begin{bmatrix} -u_x\\-u_y\\u_z\end{bmatrix}
+\end{equation*}\end{split}\]</div>
+<p>reflect on <span class="math notranslate nohighlight">\(xz\)</span> plane</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{equation*}
+\hat{\sigma}_vv =  \begin{bmatrix} 1&amp; 0 &amp; 0\\ 0 &amp; -1 &amp; 0\\ 0 &amp; 0 &amp; 1 \end{bmatrix}
+\begin{bmatrix} u_x\\u_y\\u_z\end{bmatrix} =
+\begin{bmatrix} u_x\\-u_y\\u_z\end{bmatrix}
+\end{equation*}\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(yz\)</span> plane<br />
+$<span class="math notranslate nohighlight">\(\begin{equation*}
+\hat{\sigma}_vv =  \begin{bmatrix} -1&amp; 0 &amp; 0\\ 0 &amp; 1 &amp; 0\\ 0 &amp; 0 &amp; 1 \end{bmatrix}
+\begin{bmatrix} u_x\\u_y\\u_z\end{bmatrix} =
+\begin{bmatrix} -u_x\\u_y\\u_z\end{bmatrix}
+\end{equation*}\)</span>$</p>
+<p>[HW]{.underline} Check if these matrix form group.</p>
+<p>For totally symmetric object type like <span class="math notranslate nohighlight">\(z\)</span> vector.<br />
+I can represent all symmetry operation by 1.\</p>
+<div class="center docutils">
+<p><span class="math notranslate nohighlight">\(\hat{E} = 1 \hspace{5pt} \hat{C}_2 = 1 \hspace{5pt} \hat{\sigma}_v = 1 \hspace{5pt}\hat{\sigma}_{v'} = 1\)</span></p>
+</div>
+<p>[check]{.underline}<br />
+Multiplication
+<span class="math notranslate nohighlight">\(\hat{C}_2\hat{\sigma}_v = 1\cdot1 = 1 = \hat{\sigma}_{v'}\)</span> Consistant.<br />
+It turns out that there are only 4 types of objects belong to <span class="math notranslate nohighlight">\(C_{2v}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\uparrow\)</span></p>
+<p>This # always equal to # of sym operation.<br />
+Irrep of these 4 obj type</p>
+<p><span class="math notranslate nohighlight">\(\downarrow\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{cc|c|c|c|c|l}
+&amp;  &amp; \hat{E} &amp; \hat{C}_2 &amp; \hat{\sigma}_v &amp; \hat{\sigma}_{v'} &amp; \text{Example}\\
+\hline
+\text{1st type} &amp; A_1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; z\\
+\hline
+\text{2nd type} &amp; A_2 &amp; 1 &amp; 1 &amp; -1 &amp; -1 &amp; R_z\\
+\hline
+\text{3rd} &amp; B_1 &amp; 1 &amp; -1 &amp; 1 &amp; -1 &amp; x, R_y\\
+\hline
+\text{4th} &amp; B_2 &amp; 1 &amp; -1 &amp; -1 &amp; 1 &amp; y, R_x
+\end{array}\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(\uparrow\)</span></p>
+<p>rotation around <span class="math notranslate nohighlight">\(x-\)</span>axis<br />
+By checking regular mult of [<span class="math notranslate nohighlight">\(|x|\)</span> matrix]{.underline}.</p>
+<p>Just a #. 1 or -1<br />
+All multiplication in the table are consistent.\</p>
+<p>+:——————————————+:————————-+
+| Use of 1 &amp; <span class="math notranslate nohighlight">\(-1\)</span> are the simplest          |   ———————- |
+| <span class="math notranslate nohighlight">\(\Rightarrow\)</span>                             |   We found               |
+|                                           |   irreducible            |
+|                                           |   rep of <span class="math notranslate nohighlight">\(C_{2v}\)</span>        |
+|                                           |   <span class="math notranslate nohighlight">\(A_1, A_2, B_1, B_2\)</span>   |
+|                                           |   ———————- |
++——————————————-+————————–+</p>
+<p><span class="math notranslate nohighlight">\(\star\)</span> We do not follow this steps usually.<br />
+We directly go to [charactor table]{.underline} (in the book) as soon as
+we identify the point group.</p>
+<p>Side note</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{l|rrrrr}
+Td &amp; \hat{E} &amp; 8\hat{C}_3 &amp; 3\hat{C}_2 &amp; 6\hat{S}_4 &amp; 6\hat{\sigma}_d\\
+\hline
+A_1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1\\
+A_2 &amp; 1 &amp; 1 &amp; 1 &amp; -1 &amp; -1\\
+E &amp; 2 &amp; -1 &amp; 2 &amp; 0 &amp; 0\\
+T_1 &amp; 3 &amp; 0 &amp; -1 &amp; 1 &amp; -1\\
+R_2 &amp; 3 &amp; 0 &amp; -1 &amp; -1 &amp; 1
+\end{array}\end{split}\]</div>
+<p>order = # of sym op of the point group<br />
+order<span class="math notranslate nohighlight">\((Td)\)</span> = 24 = 1 + 8 + 3 + 6 + 6<br />
+Also eq to sum of square of dimension(dim of each irrep = entry of char
+table under identity operator)<br />
+<span class="math notranslate nohighlight">\(= 1^2 + 1^2 + 2^2 + 3^2 + 3^2 = 24\)</span></p>
+</section>
+<section id="application-determining-irreducible-representation-of-molecular-orbitals-generated-by-atomic-orbitals-reducible-rep-gamma">
+<h2>Application: Determining Irreducible Representation of molecular orbitals Generated by atomic orbitals ( reducible rep <span class="math notranslate nohighlight">\(\Gamma\)</span>)<a class="headerlink" href="#application-determining-irreducible-representation-of-molecular-orbitals-generated-by-atomic-orbitals-reducible-rep-gamma" title="Link to this heading">#</a></h2>
+<section id="how-many-objects-can-you-make-for-each-type">
+<h3>how many objects can you make for each type??<a class="headerlink" href="#how-many-objects-can-you-make-for-each-type" title="Link to this heading">#</a></h3>
+<p>[i.e.]{.underline} H<span class="math notranslate nohighlight">\(_2\)</span>O <span class="math notranslate nohighlight">\(C_{2v}\)</span><br />
+[atomic orbitals]{.underline} used to form MO</p>
+<p><span class="math notranslate nohighlight">\(\downarrow\)</span></p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="valence-only-hat-e-begin-bmatrix-1s-1-1s-1-2s-2p-x-2p-y-2p-z-end-bmatrix">
+<h1>valence only<br />
+$\hat{E}
+\begin{bmatrix} 1s_1\1s_1\2s\2p_x\2p_y\2p_z\end{bmatrix}<a class="headerlink" href="#valence-only-hat-e-begin-bmatrix-1s-1-1s-1-2s-2p-x-2p-y-2p-z-end-bmatrix" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="begin-bmatrix-1-0-0-0-0-0-0-1-0-0-0-0-0-0-1-0-0-0-0-0-0-1-0-0-0-0-0-0-1-0-0-0-0-0-0-1-end-bmatrix-begin-bmatrix-hspace-10pt-vspace-15pt-end-bmatrix">
+<h1>\begin{bmatrix} 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0\
+0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0\
+0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+\begin{bmatrix} \hspace{10pt}\ \vspace{15pt} \ \ \ \ \end{bmatrix}<a class="headerlink" href="#begin-bmatrix-1-0-0-0-0-0-0-1-0-0-0-0-0-0-1-0-0-0-0-0-0-1-0-0-0-0-0-0-1-0-0-0-0-0-0-1-end-bmatrix-begin-bmatrix-hspace-10pt-vspace-15pt-end-bmatrix" title="Link to this heading">#</a></h1>
+<p>\begin{bmatrix} 1s_1\1s_1\2s\2p_x\2p_y\2p_z\end{bmatrix}$</p>
+<p><span class="math notranslate nohighlight">\(tr (\hat{E}) = \sum_{i = 1} ^n\left(\hat{E}_{ii}\right) = 6\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{ll}
+\hat{C}_2 = \begin{bmatrix} 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\ 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0\\ 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0\\ 0 &amp; 0 &amp; 0 &amp; -1 &amp; 0 &amp; 0\\ 0 &amp; 0 &amp; 0 &amp; 0 &amp; -1 &amp; 0\\ 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 \end{bmatrix} &amp; \\
+&amp; tr(\hat{C}_2) = \O\\
+\hat{\sigma}_v = \begin{bmatrix} 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\ 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0\\ 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0\\ 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0\\ 0 &amp; 0 &amp; 0 &amp; 0 &amp; -1 &amp; 0\\ 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 \end{bmatrix} &amp; \\
+&amp; tr(\hat{\sigma}_v) = 2\\
+\hat{\sigma}_{v'} = \begin{bmatrix} 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0\\ 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0\\ 0 &amp; 0 &amp; 0 &amp; -1 &amp; 0 &amp; 0\\ 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0\\ 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 \end{bmatrix} &amp; \\
+&amp; tr(\hat{\sigma}_{v'}) = 4
+\end{array}\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(\Gamma = a_1A_1 + a_2A_2 + a_3B_1 + a_4B_2 (\leftarrow\)</span> LC of irrep)<br />
+<span class="math notranslate nohighlight">\(a_1: A_1\)</span> row in char table<br />
+<span class="math notranslate nohighlight">\(\begin{array}{cccccccccc}
+\frac{1}{4}( &amp; 6\cdot 1 &amp; + &amp;  0\cdot1 &amp; + &amp; 2\cdot 1 &amp; + &amp; 4\cdot 1 &amp; ) = 3\\
+\begin{array}{c}\uparrow\\ order \end{array} &amp; E &amp;&amp; C_2 &amp;&amp;\sigma_v &amp;&amp; \sigma_{v'}&amp; \end{array}\)</span><br />
+<span class="math notranslate nohighlight">\(a_2: A_2\)</span> row<br />
+<span class="math notranslate nohighlight">\(\begin{array}{cccccccccc}
+\frac{1}{4}( &amp; 6\cdot 1 &amp; + &amp;  0\cdot1 &amp; + &amp; 2\cdot (-1) &amp; + &amp; 4\cdot (-1) &amp; ) = \cancel{0}\\
+ &amp; E &amp;&amp; C_2 &amp;&amp;\sigma_v &amp;&amp; \sigma_{v'}&amp; \end{array}\)</span><br />
+You get <span class="math notranslate nohighlight">\(\Gamma = 3A_1 + B_1 + 2B_2\)</span>.</p>
+<p>+:——————-+:——————————————+
+| You start out with |   ————– — ——————– |
+|                    |     6 orbitals    &amp;       6 orbitals      |
+|                    |    <span class="math notranslate nohighlight">\(\downarrow\)</span>          <span class="math notranslate nohighlight">\(\downarrow\)</span>     |
+|                    |     reducible         molecular orbitals  |
+|                    |                         characterized     |
+|                    |                               by          |
+|                    |                             irrep         |
+|                    |   ————– — ——————– |
++——————–+——————————————-+</p>
+<p><br />
+It should be noted here that dimension of each symmetry type matters.
+For example, if one of the symmetry type has table value of 2 in
+identity operator, it’s dimension is 2 and will have twice the number of
+functions for that type. Classifying sym type of molecular orbital
+greatly reduce computational time.<br />
+$<span class="math notranslate nohighlight">\(\begin{equation*}
+\int A_1 A_2 dr = 0
+\end{equation*}\)</span>$</p>
+<p>You start out with 6 orbitals &amp; end up with 6 orbitals<br />
+This is good enough to start the general procedure for creating
+molecular orbitals from valance atomic orbitals.<br />
+1st, Identify the symmetry group<br />
+2nd Create the vector of valance atomic orbitals<br />
+3rd Identify the MO symmetry you expect<br />
+4th Generate the MO using generating operator.\</p>
+<section id="method-of-generating-symmetry-adopted-orbital">
+<h2>Method of Generating Symmetry Adopted Orbital<a class="headerlink" href="#method-of-generating-symmetry-adopted-orbital" title="Link to this heading">#</a></h2>
+<p>Generating Operator dim of <span class="math notranslate nohighlight">\(j\)</span>th irrep</p>
+<p><span class="math notranslate nohighlight">\(\swarrow\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{ccccc}
+\hat{P}_j &amp; = &amp; \frac{d_j}{h} &amp; \sum_{\hat{R}} \underbrace{\chi_j\big(\hat{R}\big)}&amp;\hat{R}\\
+&amp; &amp; \uparrow &amp; \hspace{5pt} \uparrow &amp; \uparrow \\
+&amp; &amp; \text{order} &amp; \begin{array}[t]{l}\text{values in}\\\text{char table}\\ \text{for the}\\ \text{sym ope} \end{array} &amp; \text{sym operation} \end{array}\end{split}\]</div>
+<p>Note <span class="math notranslate nohighlight">\(\frac{d_j}{h}\)</span> can be ignored if you choose to normalize BYS.
+Also, if the operator has more than one operator in one column of the
+char table, do this operation for each of those operation.<br />
+[i.e.]{.underline}</p>
+<hr/>
+             Just as in Huckel, we use $p_z$
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$C_{2h}$ point group
+</pre></div>
+</div>
+<hr/>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}[t]{ll}
+\begin{array}[t]{ll}
+\hat{P}_{Ag}\psi_1 &amp; = \frac{1}{4}\left(1\cdot \hat{E}\psi_1 + 1\cdot\hat{C}_2\psi_1 + 1\cdot\hat{i}\psi_1 + 1\cdot\hat{\sigma}_h\psi_1\right)\\
+&amp; = \frac{1}{4}\left(\psi_1 + \psi_4 - \psi_4 - \psi_1\right)\\
+&amp; = 0\\
+\hat{P}_{Ag}\psi_2 &amp; = \frac{1}{4}\left(\psi_2 + \psi_3 - \psi_3 - \psi_2\right) = 0\\
+\hat{P}_{Bg}\psi_1 &amp; = etc. \cdots
+\end{array}
+&amp;
+\begin{array}[t]{c|rrrr}
+C_{2h} &amp; \hat{E} &amp; \hat{C}_2 &amp; \hat{i} &amp; \hat{\sigma}_h\\
+\hline
+\text{$A_g$} &amp; 1 &amp; 1 &amp; 1 &amp; 1\\
+\text{$B_g$} &amp; 1 &amp; -1 &amp; 1 &amp; -1\\
+\text{$A_u$} &amp; 1 &amp; 1 &amp; -1 &amp; -1\\
+\text{$B_u$} &amp; 1 &amp; -1 &amp; -1 &amp; 1
+\end{array}
+\end{array}\end{split}\]</div>
+<p>[HW]{.underline} Complete these &amp; check sym. You get
+[expected]{.underline} # of orb.</p>
+<p>[Laboratory 8: Term Project]{.underline} see appendix</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Symmetry, Group Theory, Representation Theory and Thier Application to Chemistry</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symmetry-operation">Symmetry operation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symmetry-identifying-point-group">Symmetry: Identifying Point Group</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representaion-theory">Representaion Theory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-determining-irreducible-representation-of-molecular-orbitals-generated-by-atomic-orbitals-reducible-rep-gamma">Application: Determining Irreducible Representation of molecular orbitals Generated by atomic orbitals ( reducible rep <span class="math notranslate nohighlight">\(\Gamma\)</span>)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-many-objects-can-you-make-for-each-type">how many objects can you make for each type??</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#valence-only-hat-e-begin-bmatrix-1s-1-1s-1-2s-2p-x-2p-y-2p-z-end-bmatrix">valence only<br/>
+$\hat{E}
+\begin{bmatrix} 1s_1\1s_1\2s\2p_x\2p_y\2p_z\end{bmatrix}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#begin-bmatrix-1-0-0-0-0-0-0-1-0-0-0-0-0-0-1-0-0-0-0-0-0-1-0-0-0-0-0-0-1-0-0-0-0-0-0-1-end-bmatrix-begin-bmatrix-hspace-10pt-vspace-15pt-end-bmatrix">\begin{bmatrix} 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0\
+0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0\
+0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+\begin{bmatrix} \hspace{10pt}\ \vspace{15pt} \ \ \ \ \end{bmatrix}</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-of-generating-symmetry-adopted-orbital">Method of Generating Symmetry Adopted Orbital</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hideya Koizumi & Eiko Koizumi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

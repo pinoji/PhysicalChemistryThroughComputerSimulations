@@ -1,0 +1,35 @@
+format: jb-book
+root: intro
+
+parts:
+  - caption: Quantum Mechanics
+    chapters:
+      - file: qm01
+      - file: qm02
+      - file: qm03
+      - file: qm04
+      - file: qm05
+      - file: qm06
+      - file: qm07
+      - file: qm08
+      - file: qm09
+      - file: qm10
+      - file: qm11
+      - file: qm12
+      - file: qm13
+
+  - caption: Thermodynamics
+    chapters:
+      - file: td01
+      - file: td02
+      - file: td03
+      - file: td04
+      - file: td05
+      - file: td06
+      - file: td07
+      - file: td08
+      - file: td09
+      - file: td10
+      - file: td11
+      - file: td12
+      - file: td13
