@@ -31,12 +31,12 @@ jobs:
 
       - name: Build Jupyter Book
         run: |
-          jupyter-book build docs
+          jupyter-book build docs/book
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: docs/_build/html
+          path: docs/book/_build/html
 
   deploy:
     runs-on: ubuntu-latest
